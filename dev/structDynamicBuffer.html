@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Neovim: block_hdr Struct Reference</title>
+<title>Neovim: DynamicBuffer Struct Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -86,94 +86,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">block_hdr Struct Reference</div>  </div>
+<div class="title">DynamicBuffer Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="memfile__defs_8h_source.html">memfile_defs.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a00372015fbd41f0ef4064f7763496e2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memfile__defs_8h.html#a57fcfd72d801f7601b59ffbdc39dc546">mf_hashitem_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structblock__hdr.html#a00372015fbd41f0ef4064f7763496e2b">bh_hashitem</a></td></tr>
-<tr class="separator:a00372015fbd41f0ef4064f7763496e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad16fd8489957646dce3e0a1df3216f69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memfile__defs_8h.html#ae2221945ba9ec766bc458dad6ba4a63e">bhdr_T</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structblock__hdr.html#ad16fd8489957646dce3e0a1df3216f69">bh_next</a></td></tr>
-<tr class="separator:ad16fd8489957646dce3e0a1df3216f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43dfab09857d99015a29c95afa5097c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memfile__defs_8h.html#ae2221945ba9ec766bc458dad6ba4a63e">bhdr_T</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structblock__hdr.html#a43dfab09857d99015a29c95afa5097c8">bh_prev</a></td></tr>
-<tr class="separator:a43dfab09857d99015a29c95afa5097c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7247cdc0977ab6fdc9cb6238cda67587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structblock__hdr.html#a7247cdc0977ab6fdc9cb6238cda67587">bh_data</a></td></tr>
-<tr class="separator:a7247cdc0977ab6fdc9cb6238cda67587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3f0f7b98a68382a3ec20db1e9e65d8b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structblock__hdr.html#aa3f0f7b98a68382a3ec20db1e9e65d8b">bh_page_count</a></td></tr>
-<tr class="separator:aa3f0f7b98a68382a3ec20db1e9e65d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b3dc819ce42874b30868feb20432954"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structblock__hdr.html#a6b3dc819ce42874b30868feb20432954">bh_flags</a></td></tr>
-<tr class="separator:a6b3dc819ce42874b30868feb20432954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e262ff6e2a3dfc18bed8054fc0df093"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDynamicBuffer.html#a5e262ff6e2a3dfc18bed8054fc0df093">data</a></td></tr>
+<tr class="separator:a5e262ff6e2a3dfc18bed8054fc0df093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7373c0cd18dfe0345c4c2bf808e67a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDynamicBuffer.html#abe7373c0cd18dfe0345c4c2bf808e67a">cap</a></td></tr>
+<tr class="separator:abe7373c0cd18dfe0345c4c2bf808e67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88880817507d11405f85d3e1eec2f5e8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDynamicBuffer.html#a88880817507d11405f85d3e1eec2f5e8">len</a></td></tr>
+<tr class="separator:a88880817507d11405f85d3e1eec2f5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="a7247cdc0977ab6fdc9cb6238cda67587"></a>
+<a class="anchor" id="abe7373c0cd18dfe0345c4c2bf808e67a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a>* block_hdr::bh_data</td>
+          <td class="memname">size_t DynamicBuffer::cap</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a6b3dc819ce42874b30868feb20432954"></a>
+<a class="anchor" id="a5e262ff6e2a3dfc18bed8054fc0df093"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char block_hdr::bh_flags</td>
+          <td class="memname">char* DynamicBuffer::data</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a00372015fbd41f0ef4064f7763496e2b"></a>
+<a class="anchor" id="a88880817507d11405f85d3e1eec2f5e8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="memfile__defs_8h.html#a57fcfd72d801f7601b59ffbdc39dc546">mf_hashitem_T</a> block_hdr::bh_hashitem</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad16fd8489957646dce3e0a1df3216f69"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="memfile__defs_8h.html#ae2221945ba9ec766bc458dad6ba4a63e">bhdr_T</a>* block_hdr::bh_next</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa3f0f7b98a68382a3ec20db1e9e65d8b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int block_hdr::bh_page_count</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a43dfab09857d99015a29c95afa5097c8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="memfile__defs_8h.html#ae2221945ba9ec766bc458dad6ba4a63e">bhdr_T</a>* block_hdr::bh_prev</td>
+          <td class="memname">size_t DynamicBuffer::len</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -181,14 +137,14 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/nvim/<a class="el" href="memfile__defs_8h_source.html">memfile_defs.h</a></li>
+<li>src/nvim/os/<a class="el" href="shell_8c.html">shell.c</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Oct 25 2014 19:04:30 for Neovim by
+    Generated on Sun Nov 9 2014 20:55:47 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

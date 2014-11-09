@@ -98,6 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="ex__eval_8h_source.html">nvim/ex_eval.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="iconv_8h_source.html">nvim/iconv.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mbyte_8h_source.html">nvim/mbyte.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="menu_8h_source.html">nvim/menu.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="syntax__defs_8h_source.html">nvim/syntax_defs.h</a>&quot;</code><br />
@@ -165,7 +166,7 @@ Macros</h2></td></tr>
 <tr class="separator:a6a25cb8adde99ce4585242491447c404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87576879e89a11905d64d1a9c687ab0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#a87576879e89a11905d64d1a9c687ab0f">FOR_ALL_TABS</a>(tp)&#160;&#160;&#160;for (<a class="el" href="buffer__defs_8h.html#aa8c4359eded6e61fd9ad363e3ea686bb">tabpage_T</a> *tp = <a class="el" href="globals_8h.html#aa16be2e54094211980ee0f23059065a0">first_tabpage</a>; tp != NULL; tp = tp-&gt;tp_next)</td></tr>
 <tr class="separator:a87576879e89a11905d64d1a9c687ab0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2dfc04411a40f8bcaf0f45b0d16f482"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#ab2dfc04411a40f8bcaf0f45b0d16f482">FOR_ALL_BUFFERS</a>(<a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a>)&#160;&#160;&#160;for (<a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a> *<a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a> = firstbuf; <a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a> != NULL; <a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a> = <a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a>-&gt;b_next)</td></tr>
+<tr class="memitem:ab2dfc04411a40f8bcaf0f45b0d16f482"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#ab2dfc04411a40f8bcaf0f45b0d16f482">FOR_ALL_BUFFERS</a>(buf)&#160;&#160;&#160;for (<a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a> *buf = firstbuf; buf != NULL; buf = buf-&gt;b_next)</td></tr>
 <tr class="separator:ab2dfc04411a40f8bcaf0f45b0d16f482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eb4ad50b4f6f3786841977feb01ada1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#a5eb4ad50b4f6f3786841977feb01ada1">HAVE_SANDBOX</a></td></tr>
 <tr class="separator:a5eb4ad50b4f6f3786841977feb01ada1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -377,7 +378,7 @@ Variables</h2></td></tr>
 <tr class="separator:a66ff31ffc5db3c9785f572b3574f1a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f897fbd3a625747af1125f610e0c31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8c.html#a77366c1bd428629dc898e188bfd182a3">EXTERN</a> int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#a30f897fbd3a625747af1125f610e0c31">mb_char2len</a> )(int c) <a class="el" href="globals_8h.html#a4f24892868138693b08decfb15ba32f7">INIT</a>( = <a class="el" href="mbyte_8c.html#afadd7c4902285020ce38d667b98c8734">latin_char2len</a>)</td></tr>
 <tr class="separator:a30f897fbd3a625747af1125f610e0c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e4fa6df1ff3b41dcd91f7adc8322fa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8c.html#a77366c1bd428629dc898e188bfd182a3">EXTERN</a> int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#a0e4fa6df1ff3b41dcd91f7adc8322fa3">mb_char2bytes</a> )(int c, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a>) <a class="el" href="globals_8h.html#a4f24892868138693b08decfb15ba32f7">INIT</a>( = <a class="el" href="mbyte_8c.html#aca60f40f425117cce43fd492d8c9129f">latin_char2bytes</a>)</td></tr>
+<tr class="memitem:a0e4fa6df1ff3b41dcd91f7adc8322fa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8c.html#a77366c1bd428629dc898e188bfd182a3">EXTERN</a> int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#a0e4fa6df1ff3b41dcd91f7adc8322fa3">mb_char2bytes</a> )(int c, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *buf) <a class="el" href="globals_8h.html#a4f24892868138693b08decfb15ba32f7">INIT</a>( = <a class="el" href="mbyte_8c.html#aca60f40f425117cce43fd492d8c9129f">latin_char2bytes</a>)</td></tr>
 <tr class="separator:a0e4fa6df1ff3b41dcd91f7adc8322fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefc238dcd374472ed878c1c0204ba078"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8c.html#a77366c1bd428629dc898e188bfd182a3">EXTERN</a> int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="globals_8h.html#aefc238dcd374472ed878c1c0204ba078">mb_ptr2cells</a> )(const <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *p) <a class="el" href="globals_8h.html#a4f24892868138693b08decfb15ba32f7">INIT</a>( = <a class="el" href="mbyte_8c.html#a8e3dd571ed1a6fca677b9a6c0cab4167">latin_ptr2cells</a>)</td></tr>
 <tr class="separator:aefc238dcd374472ed878c1c0204ba078"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -663,8 +664,8 @@ Variables</h2></td></tr>
           <td class="memname">#define FOR_ALL_BUFFERS</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a></td><td>)</td>
-          <td>&#160;&#160;&#160;for (<a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a> *<a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a> = firstbuf; <a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a> != NULL; <a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a> = <a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a>-&gt;b_next)</td>
+          <td class="paramname">buf</td><td>)</td>
+          <td>&#160;&#160;&#160;for (<a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a> *buf = firstbuf; buf != NULL; buf = buf-&gt;b_next)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -696,8 +697,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code" href="globals_8h.html#a87576879e89a11905d64d1a9c687ab0f">FOR_ALL_TABS</a>(tp) <a class="code" href="globals_8h.html#a6a25cb8adde99ce4585242491447c404">\</a></div>
 <div class="line"><a class="code" href="globals_8h.html#a6a25cb8adde99ce4585242491447c404">    FOR_ALL_WINDOWS_IN_TAB</a>(wp, tp)</div>
-<div class="ttc" id="globals_8h_html_a87576879e89a11905d64d1a9c687ab0f"><div class="ttname"><a href="globals_8h.html#a87576879e89a11905d64d1a9c687ab0f">FOR_ALL_TABS</a></div><div class="ttdeci">#define FOR_ALL_TABS(tp)</div><div class="ttdef"><b>Definition:</b> globals.h:555</div></div>
-<div class="ttc" id="globals_8h_html_a6a25cb8adde99ce4585242491447c404"><div class="ttname"><a href="globals_8h.html#a6a25cb8adde99ce4585242491447c404">FOR_ALL_WINDOWS_IN_TAB</a></div><div class="ttdeci">#define FOR_ALL_WINDOWS_IN_TAB(wp, tp)</div><div class="ttdef"><b>Definition:</b> globals.h:531</div></div>
+<div class="ttc" id="globals_8h_html_a87576879e89a11905d64d1a9c687ab0f"><div class="ttname"><a href="globals_8h.html#a87576879e89a11905d64d1a9c687ab0f">FOR_ALL_TABS</a></div><div class="ttdeci">#define FOR_ALL_TABS(tp)</div><div class="ttdef"><b>Definition:</b> globals.h:556</div></div>
+<div class="ttc" id="globals_8h_html_a6a25cb8adde99ce4585242491447c404"><div class="ttname"><a href="globals_8h.html#a6a25cb8adde99ce4585242491447c404">FOR_ALL_WINDOWS_IN_TAB</a></div><div class="ttdeci">#define FOR_ALL_WINDOWS_IN_TAB(wp, tp)</div><div class="ttdef"><b>Definition:</b> globals.h:532</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -742,10 +743,10 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">for</span> (<a class="code" href="structwindow__S.html">win_T</a> *wp = ((tp) == <a class="code" href="globals_8h.html#aec8a130381d8276a622222a7479a08fe">curtab</a>) \</div>
 <div class="line">              ? <a class="code" href="globals_8h.html#a9f906679f9a65d9fb5defe869512e36e">firstwin</a> : (tp)-&gt;tp_firstwin; wp != NULL; wp = wp-&gt;<a class="code" href="structwindow__S.html#a69671b677df274f46c5759d50e583043">w_next</a>)</div>
-<div class="ttc" id="globals_8h_html_a9f906679f9a65d9fb5defe869512e36e"><div class="ttname"><a href="globals_8h.html#a9f906679f9a65d9fb5defe869512e36e">firstwin</a></div><div class="ttdeci">EXTERN win_T * firstwin</div><div class="ttdef"><b>Definition:</b> globals.h:520</div></div>
-<div class="ttc" id="structwindow__S_html_a69671b677df274f46c5759d50e583043"><div class="ttname"><a href="structwindow__S.html#a69671b677df274f46c5759d50e583043">window_S::w_next</a></div><div class="ttdeci">win_T * w_next</div><div class="ttdef"><b>Definition:</b> buffer_defs.h:935</div></div>
-<div class="ttc" id="structwindow__S_html"><div class="ttname"><a href="structwindow__S.html">window_S</a></div><div class="ttdef"><b>Definition:</b> buffer_defs.h:927</div></div>
-<div class="ttc" id="globals_8h_html_aec8a130381d8276a622222a7479a08fe"><div class="ttname"><a href="globals_8h.html#aec8a130381d8276a622222a7479a08fe">curtab</a></div><div class="ttdeci">EXTERN tabpage_T * curtab</div><div class="ttdef"><b>Definition:</b> globals.h:551</div></div>
+<div class="ttc" id="globals_8h_html_a9f906679f9a65d9fb5defe869512e36e"><div class="ttname"><a href="globals_8h.html#a9f906679f9a65d9fb5defe869512e36e">firstwin</a></div><div class="ttdeci">EXTERN win_T * firstwin</div><div class="ttdef"><b>Definition:</b> globals.h:521</div></div>
+<div class="ttc" id="structwindow__S_html_a69671b677df274f46c5759d50e583043"><div class="ttname"><a href="structwindow__S.html#a69671b677df274f46c5759d50e583043">window_S::w_next</a></div><div class="ttdeci">win_T * w_next</div><div class="ttdef"><b>Definition:</b> buffer_defs.h:927</div></div>
+<div class="ttc" id="structwindow__S_html"><div class="ttname"><a href="structwindow__S.html">window_S</a></div><div class="ttdef"><b>Definition:</b> buffer_defs.h:919</div></div>
+<div class="ttc" id="globals_8h_html_aec8a130381d8276a622222a7479a08fe"><div class="ttname"><a href="globals_8h.html#aec8a130381d8276a622222a7479a08fe">curtab</a></div><div class="ttdeci">EXTERN tabpage_T * curtab</div><div class="ttdef"><b>Definition:</b> globals.h:552</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1706,7 +1707,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="main_8c.html#a77366c1bd428629dc898e188bfd182a3">EXTERN</a> int(* mb_char2bytes)(int c, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="shell_8c.html#a9a67ee408a72be73638afd6280b5b61d">buf</a>) <a class="el" href="globals_8h.html#a4f24892868138693b08decfb15ba32f7">INIT</a>( = <a class="el" href="mbyte_8c.html#aca60f40f425117cce43fd492d8c9129f">latin_char2bytes</a>)</td>
+          <td class="memname"><a class="el" href="main_8c.html#a77366c1bd428629dc898e188bfd182a3">EXTERN</a> int(* mb_char2bytes)(int c, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *buf) <a class="el" href="globals_8h.html#a4f24892868138693b08decfb15ba32f7">INIT</a>( = <a class="el" href="mbyte_8c.html#aca60f40f425117cce43fd492d8c9129f">latin_char2bytes</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2210,7 +2211,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Oct 25 2014 19:04:30 for Neovim by
+    Generated on Sun Nov 9 2014 20:55:47 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

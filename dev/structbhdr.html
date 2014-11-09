@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Neovim: ProcessData Struct Reference</title>
+<title>Neovim: bhdr Struct Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -86,163 +86,123 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">ProcessData Struct Reference</div>  </div>
+<div class="title">bhdr Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="memfile__defs_8h_source.html">memfile_defs.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:abbb1879d52fbec04d0a6702ae7ba445e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#abbb1879d52fbec04d0a6702ae7ba445e">reading</a></td></tr>
-<tr class="separator:abbb1879d52fbec04d0a6702ae7ba445e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0645ee844c803c9c39d54dd45f166ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#ad0645ee844c803c9c39d54dd45f166ed">old_state</a></td></tr>
-<tr class="separator:ad0645ee844c803c9c39d54dd45f166ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb27a8d978657554d6eff795b78a292f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#acb27a8d978657554d6eff795b78a292f">old_mode</a></td></tr>
-<tr class="separator:acb27a8d978657554d6eff795b78a292f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff91e17a1100199b856eac16a0969660"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#aff91e17a1100199b856eac16a0969660">exit_status</a></td></tr>
-<tr class="separator:aff91e17a1100199b856eac16a0969660"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63747a20d3ccf7e48acc16a0c0b32da4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#a63747a20d3ccf7e48acc16a0c0b32da4">exited</a></td></tr>
-<tr class="separator:a63747a20d3ccf7e48acc16a0c0b32da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdd18f7c6d6357a376351c0fa9f6c57e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#acdd18f7c6d6357a376351c0fa9f6c57e">wbuffer</a></td></tr>
-<tr class="separator:acdd18f7c6d6357a376351c0fa9f6c57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dc80922bfd704b93fdfc0003c4dfa15"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#a5dc80922bfd704b93fdfc0003c4dfa15">rbuffer</a> [<a class="el" href="shell_8c.html#af7b7dc9a200cb1404c280bd500fd1551">BUFFER_LENGTH</a>]</td></tr>
-<tr class="separator:a5dc80922bfd704b93fdfc0003c4dfa15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2b998e598635880a2dec1e9032d3857"><td class="memItemLeft" align="right" valign="top">uv_buf_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#ae2b998e598635880a2dec1e9032d3857">bufs</a> [2]</td></tr>
-<tr class="separator:ae2b998e598635880a2dec1e9032d3857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefb44a817d7e52721d9d6d5e8e3fe733"><td class="memItemLeft" align="right" valign="top">uv_stream_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#aefb44a817d7e52721d9d6d5e8e3fe733">shell_stdin</a></td></tr>
-<tr class="separator:aefb44a817d7e52721d9d6d5e8e3fe733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a202ce606c5b2a1f13991774d03217420"><td class="memItemLeft" align="right" valign="top"><a class="el" href="garray_8h.html#aee8439ec2ecb9dd0c69497220d1f2f57">garray_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProcessData.html#a202ce606c5b2a1f13991774d03217420">ga</a></td></tr>
-<tr class="separator:a202ce606c5b2a1f13991774d03217420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c9a1cd9515c25fdb37a67a4014f4b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memfile__defs_8h.html#ad6053292ae4cd215b5e49361548b6a8e">mf_hashitem_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbhdr.html#af2c9a1cd9515c25fdb37a67a4014f4b1">bh_hashitem</a></td></tr>
+<tr class="separator:af2c9a1cd9515c25fdb37a67a4014f4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19c42f961065e16a871c1c1bebb198fd"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structbhdr.html">bhdr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbhdr.html#a19c42f961065e16a871c1c1bebb198fd">bh_next</a></td></tr>
+<tr class="separator:a19c42f961065e16a871c1c1bebb198fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281bf094d23a3d4cbfe9e11f43ac6390"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structbhdr.html">bhdr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbhdr.html#a281bf094d23a3d4cbfe9e11f43ac6390">bh_prev</a></td></tr>
+<tr class="memdesc:a281bf094d23a3d4cbfe9e11f43ac6390"><td class="mdescLeft">&#160;</td><td class="mdescRight">next block header in free or used list  <a href="#a281bf094d23a3d4cbfe9e11f43ac6390">More...</a><br /></td></tr>
+<tr class="separator:a281bf094d23a3d4cbfe9e11f43ac6390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30607cce2a95020a5fc35ad0f02b42fa"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbhdr.html#a30607cce2a95020a5fc35ad0f02b42fa">bh_data</a></td></tr>
+<tr class="memdesc:a30607cce2a95020a5fc35ad0f02b42fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">previous block header in used list  <a href="#a30607cce2a95020a5fc35ad0f02b42fa">More...</a><br /></td></tr>
+<tr class="separator:a30607cce2a95020a5fc35ad0f02b42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae96a431d17ab76667cb35e34460d0f1e"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbhdr.html#ae96a431d17ab76667cb35e34460d0f1e">bh_page_count</a></td></tr>
+<tr class="memdesc:ae96a431d17ab76667cb35e34460d0f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to memory (for used block)  <a href="#ae96a431d17ab76667cb35e34460d0f1e">More...</a><br /></td></tr>
+<tr class="separator:ae96a431d17ab76667cb35e34460d0f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72008566279f68ee10dc9358550c5562"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbhdr.html#a72008566279f68ee10dc9358550c5562">bh_flags</a></td></tr>
+<tr class="separator:a72008566279f68ee10dc9358550c5562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="ae2b998e598635880a2dec1e9032d3857"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A block header.</p>
+<p>There is a block header for each previously used block in the memfile.</p>
+<p>The block may be linked in the used list OR in the free list. The used blocks are also kept in hash lists.</p>
+<p>The used list is a doubly linked list, most recently used block first. The blocks in the used list have a block of memory allocated. mf_used_count is the number of pages in the used list. The hash lists are used to quickly find a block in the used list. The free list is a single linked list, not sorted. The blocks in the free list have no block of memory allocated and the contents of the block in the file (if any) is irrelevant. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="a30607cce2a95020a5fc35ad0f02b42fa"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uv_buf_t ProcessData::bufs[2]</td>
+          <td class="memname">void* bhdr::bh_data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>previous block header in used list </p>
+
+</div>
+</div>
+<a class="anchor" id="a72008566279f68ee10dc9358550c5562"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned bhdr::bh_flags</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="aff91e17a1100199b856eac16a0969660"></a>
+<a class="anchor" id="af2c9a1cd9515c25fdb37a67a4014f4b1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ProcessData::exit_status</td>
+          <td class="memname"><a class="el" href="memfile__defs_8h.html#ad6053292ae4cd215b5e49361548b6a8e">mf_hashitem_T</a> bhdr::bh_hashitem</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a63747a20d3ccf7e48acc16a0c0b32da4"></a>
+<a class="anchor" id="a19c42f961065e16a871c1c1bebb198fd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ProcessData::exited</td>
+          <td class="memname">struct <a class="el" href="structbhdr.html">bhdr</a>* bhdr::bh_next</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a202ce606c5b2a1f13991774d03217420"></a>
+<a class="anchor" id="ae96a431d17ab76667cb35e34460d0f1e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="garray_8h.html#aee8439ec2ecb9dd0c69497220d1f2f57">garray_T</a> ProcessData::ga</td>
+          <td class="memname">unsigned bhdr::bh_page_count</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>pointer to memory (for used block) </p>
+
 </div>
 </div>
-<a class="anchor" id="acb27a8d978657554d6eff795b78a292f"></a>
+<a class="anchor" id="a281bf094d23a3d4cbfe9e11f43ac6390"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ProcessData::old_mode</td>
+          <td class="memname">struct <a class="el" href="structbhdr.html">bhdr</a>* bhdr::bh_prev</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ad0645ee844c803c9c39d54dd45f166ed"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ProcessData::old_state</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5dc80922bfd704b93fdfc0003c4dfa15"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char ProcessData::rbuffer[<a class="el" href="shell_8c.html#af7b7dc9a200cb1404c280bd500fd1551">BUFFER_LENGTH</a>]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abbb1879d52fbec04d0a6702ae7ba445e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool ProcessData::reading</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aefb44a817d7e52721d9d6d5e8e3fe733"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uv_stream_t* ProcessData::shell_stdin</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acdd18f7c6d6357a376351c0fa9f6c57e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* ProcessData::wbuffer</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>next block header in free or used list </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/nvim/os/<a class="el" href="shell_8c.html">shell.c</a></li>
+<li>src/nvim/<a class="el" href="memfile__defs_8h_source.html">memfile_defs.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Oct 25 2014 19:04:30 for Neovim by
+    Generated on Sun Nov 9 2014 20:55:47 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

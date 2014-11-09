@@ -143,7 +143,7 @@ Macros</h2></td></tr>
 <tr class="separator:ae8f0a606e2a75c496b47cd0dd05a4c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39270c09da591696b813487160e6450f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a39270c09da591696b813487160e6450f">mch_fopen</a>(n, p)&#160;&#160;&#160;fopen((n), (p))</td></tr>
 <tr class="separator:a39270c09da591696b813487160e6450f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06cefeb085cb44bd960567445ae3766a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a06cefeb085cb44bd960567445ae3766a">mch_open_rw</a>(n, f)&#160;&#160;&#160;<a class="el" href="fs_8c.html#a40ce8a6cf8a9f98fcd99ac40cad2e3cf">os_open</a>((n), (f), 0)</td></tr>
+<tr class="memitem:a06cefeb085cb44bd960567445ae3766a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a06cefeb085cb44bd960567445ae3766a">mch_open_rw</a>(n, f)&#160;&#160;&#160;<a class="el" href="fs_8c.html#a7e97601d22c41d71e231e5a7cb7f9b6e">os_open</a>((n), (f), 0)</td></tr>
 <tr class="separator:a06cefeb085cb44bd960567445ae3766a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf16916271d9e8f551864fcd84c90d76"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#acf16916271d9e8f551864fcd84c90d76">REPLACE_NORMAL</a>(s)&#160;&#160;&#160;(((s) &amp; <a class="el" href="vim_8h.html#a75fe78e8f15eaf5cde6e079f7d3b2eb3">REPLACE_FLAG</a>) &amp;&amp; !((s) &amp; <a class="el" href="vim_8h.html#a359e6b03376abfe70a58439ed2421d96">VREPLACE_FLAG</a>))</td></tr>
 <tr class="separator:acf16916271d9e8f551864fcd84c90d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,7 +161,7 @@ Macros</h2></td></tr>
 <tr class="separator:a9e5622693135715222dcd5c1f694fd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad43ebbd06292081bafff713af33dc2c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#ad43ebbd06292081bafff713af33dc2c4">mb_cptr2len</a>(p)&#160;&#160;&#160;(enc_utf8 ? <a class="el" href="mbyte_8c.html#a09be4759e834a6653708a64da792b4e6">utf_ptr2len</a>(p) : (*<a class="el" href="globals_8h.html#a64ba919d712e1b47360e1d30144829a2">mb_ptr2len</a>)(p))</td></tr>
 <tr class="separator:ad43ebbd06292081bafff713af33dc2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa21fbc34cfa4ee06435a80d315bf8719"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aa21fbc34cfa4ee06435a80d315bf8719">MB_COPY_CHAR</a>(f, t)&#160;&#160;&#160;<a class="el" href="shell_8c.html#a89ee1c7c9d970bb9227202ebbac7e755">if</a> (has_mbyte) <a class="el" href="mbyte_8c.html#aef853ac45973fd97ae530983d651ba82">mb_copy_char</a>(&amp;f, &amp;t); <a class="el" href="shell_8c.html#a0544c3fe466e421738dae463968b70ba">else</a> *t++ = *f++</td></tr>
+<tr class="memitem:aa21fbc34cfa4ee06435a80d315bf8719"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aa21fbc34cfa4ee06435a80d315bf8719">MB_COPY_CHAR</a>(f, t)&#160;&#160;&#160;<a class="el" href="msgpack__rpc_2helpers_8c.html#a2ed0e4c31f4ded58f96949cfa77b9387">if</a> (has_mbyte) <a class="el" href="mbyte_8c.html#aef853ac45973fd97ae530983d651ba82">mb_copy_char</a>(&amp;f, &amp;t); <a class="el" href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">else</a> *t++ = *f++</td></tr>
 <tr class="separator:aa21fbc34cfa4ee06435a80d315bf8719"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d93171a94215a283d472e35cf21f612"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a0d93171a94215a283d472e35cf21f612">MB_CHARLEN</a>(p)&#160;&#160;&#160;(has_mbyte ? <a class="el" href="mbyte_8c.html#ad3c8d651a4e07b99b8ba3b5dc2e142c3">mb_charlen</a>(p) : (int)<a class="el" href="vim_8h.html#a916ffefe1fc74532d08102cca55d8e34">STRLEN</a>(p))</td></tr>
 <tr class="separator:a0d93171a94215a283d472e35cf21f612"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,7 +263,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">(curbuf-&gt;b_ml.ml_line_count == 1 &amp;&amp; *<a class="code" href="memline_8c.html#a109387062ce17fc808cae3971ce703ba">ml_get</a>((<a class="code" href="pos_8h.html#a934ce754d29a8aee92b71e970b7e2ae4">linenr_T</a>)1) == <a class="code" href="ascii_8h.html#af19d48b9f61047a668649a2f9dc317ff">\</a></div>
 <div class="line"><a class="code" href="ascii_8h.html#af19d48b9f61047a668649a2f9dc317ff">                    NUL</a>)</div>
-<div class="ttc" id="memline_8c_html_a109387062ce17fc808cae3971ce703ba"><div class="ttname"><a href="memline_8c.html#a109387062ce17fc808cae3971ce703ba">ml_get</a></div><div class="ttdeci">char_u * ml_get(linenr_T lnum)</div><div class="ttdef"><b>Definition:</b> memline.c:1738</div></div>
+<div class="ttc" id="memline_8c_html_a109387062ce17fc808cae3971ce703ba"><div class="ttname"><a href="memline_8c.html#a109387062ce17fc808cae3971ce703ba">ml_get</a></div><div class="ttdeci">char_u * ml_get(linenr_T lnum)</div><div class="ttdef"><b>Definition:</b> memline.c:1739</div></div>
 <div class="ttc" id="ascii_8h_html_af19d48b9f61047a668649a2f9dc317ff"><div class="ttname"><a href="ascii_8h.html#af19d48b9f61047a668649a2f9dc317ff">NUL</a></div><div class="ttdeci">#define NUL</div><div class="ttdef"><b>Definition:</b> ascii.h:18</div></div>
 <div class="ttc" id="pos_8h_html_a934ce754d29a8aee92b71e970b7e2ae4"><div class="ttname"><a href="pos_8h.html#a934ce754d29a8aee92b71e970b7e2ae4">linenr_T</a></div><div class="ttdeci">long linenr_T</div><div class="ttdef"><b>Definition:</b> pos.h:4</div></div>
 </div><!-- fragment -->
@@ -373,9 +373,9 @@ Macros</h2></td></tr>
 <div class="line">        c = <a class="code" href="option_8c.html#aba8459be8bb7276adee89dbd2eb8a615">langmap_adjust_mb</a>(c); \</div>
 <div class="line">    } \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="globals_8h_html_a2196e3707ffe960808b0361e057f681f"><div class="ttname"><a href="globals_8h.html#a2196e3707ffe960808b0361e057f681f">KeyStuffed</a></div><div class="ttdeci">EXTERN int KeyStuffed</div><div class="ttdef"><b>Definition:</b> globals.h:889</div></div>
+<div class="ttc" id="globals_8h_html_a2196e3707ffe960808b0361e057f681f"><div class="ttname"><a href="globals_8h.html#a2196e3707ffe960808b0361e057f681f">KeyStuffed</a></div><div class="ttdeci">EXTERN int KeyStuffed</div><div class="ttdef"><b>Definition:</b> globals.h:890</div></div>
 <div class="ttc" id="option__defs_8h_html_acc5de256354819481db4dec89593e162"><div class="ttname"><a href="option__defs_8h.html#acc5de256354819481db4dec89593e162">p_langmap</a></div><div class="ttdeci">EXTERN char_u * p_langmap</div><div class="ttdef"><b>Definition:</b> option_defs.h:431</div></div>
-<div class="ttc" id="globals_8h_html_a06e0c0a1d802605e04e6df8755346e9f"><div class="ttname"><a href="globals_8h.html#a06e0c0a1d802605e04e6df8755346e9f">langmap_mapchar</a></div><div class="ttdeci">EXTERN char_u langmap_mapchar[256]</div><div class="ttdef"><b>Definition:</b> globals.h:977</div></div>
+<div class="ttc" id="globals_8h_html_a06e0c0a1d802605e04e6df8755346e9f"><div class="ttname"><a href="globals_8h.html#a06e0c0a1d802605e04e6df8755346e9f">langmap_mapchar</a></div><div class="ttdeci">EXTERN char_u langmap_mapchar[256]</div><div class="ttdef"><b>Definition:</b> globals.h:978</div></div>
 <div class="ttc" id="memory_8c_html_a966ffa31eafe026e5aa2abf4c33b1c05"><div class="ttname"><a href="memory_8c.html#a966ffa31eafe026e5aa2abf4c33b1c05">if</a></div><div class="ttdeci">if(!ret &amp;&amp;!count||!size)</div><div class="ttdef"><b>Definition:</b> memory.c:143</div></div>
 <div class="ttc" id="option_8c_html_aba8459be8bb7276adee89dbd2eb8a615"><div class="ttname"><a href="option_8c.html#aba8459be8bb7276adee89dbd2eb8a615">langmap_adjust_mb</a></div><div class="ttdeci">int langmap_adjust_mb(int c)</div><div class="ttdef"><b>Definition:</b> option.c:7547</div></div>
 </div><!-- fragment -->
@@ -536,7 +536,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="shell_8c.html#a89ee1c7c9d970bb9227202ebbac7e755">if</a> (has_mbyte) <a class="el" href="mbyte_8c.html#aef853ac45973fd97ae530983d651ba82">mb_copy_char</a>(&amp;f, &amp;t); <a class="el" href="shell_8c.html#a0544c3fe466e421738dae463968b70ba">else</a> *t++ = *f++</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="msgpack__rpc_2helpers_8c.html#a2ed0e4c31f4ded58f96949cfa77b9387">if</a> (has_mbyte) <a class="el" href="mbyte_8c.html#aef853ac45973fd97ae530983d651ba82">mb_copy_char</a>(&amp;f, &amp;t); <a class="el" href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">else</a> *t++ = *f++</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -574,8 +574,8 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">p += \</div>
 <div class="line">  enc_utf8 ? <a class="code" href="mbyte_8c.html#a09be4759e834a6653708a64da792b4e6">utf_ptr2len</a>(p) : has_mbyte ? (*<a class="code" href="globals_8h.html#a64ba919d712e1b47360e1d30144829a2">mb_ptr2len</a>)(p) : 1</div>
-<div class="ttc" id="globals_8h_html_a64ba919d712e1b47360e1d30144829a2"><div class="ttname"><a href="globals_8h.html#a64ba919d712e1b47360e1d30144829a2">mb_ptr2len</a></div><div class="ttdeci">EXTERN int(* mb_ptr2len)(const char_u *p) INIT(</div><div class="ttdef"><b>Definition:</b> globals.h:768</div></div>
-<div class="ttc" id="mbyte_8c_html_a09be4759e834a6653708a64da792b4e6"><div class="ttname"><a href="mbyte_8c.html#a09be4759e834a6653708a64da792b4e6">utf_ptr2len</a></div><div class="ttdeci">int utf_ptr2len(const char_u *p)</div><div class="ttdef"><b>Definition:</b> mbyte.c:1622</div></div>
+<div class="ttc" id="globals_8h_html_a64ba919d712e1b47360e1d30144829a2"><div class="ttname"><a href="globals_8h.html#a64ba919d712e1b47360e1d30144829a2">mb_ptr2len</a></div><div class="ttdeci">EXTERN int(* mb_ptr2len)(const char_u *p) INIT(</div><div class="ttdef"><b>Definition:</b> globals.h:769</div></div>
+<div class="ttc" id="mbyte_8c_html_a09be4759e834a6653708a64da792b4e6"><div class="ttname"><a href="mbyte_8c.html#a09be4759e834a6653708a64da792b4e6">utf_ptr2len</a></div><div class="ttdeci">int utf_ptr2len(const char_u *p)</div><div class="ttdef"><b>Definition:</b> mbyte.c:1623</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -682,7 +682,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="fs_8c.html#a40ce8a6cf8a9f98fcd99ac40cad2e3cf">os_open</a>((n), (f), 0)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="fs_8c.html#a7e97601d22c41d71e231e5a7cb7f9b6e">os_open</a>((n), (f), 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -880,7 +880,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Oct 25 2014 19:04:30 for Neovim by
+    Generated on Sun Nov 9 2014 20:55:47 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

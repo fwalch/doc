@@ -20,6 +20,7 @@ var searchData=
   ['tb_5fsilent',['tb_silent',['../structtypebuf__T.html#a840a56b81309bbb4eca3ae28fb2a3221',1,'typebuf_T']]],
   ['tcp',['tcp',['../structServer.html#abeb883de3650b836fe1b127f6803511c',1,'Server']]],
   ['term',['term',['../structmparm__T.html#a597ce2f7b3376b944d01b181b8111103',1,'mparm_T::term()'],['../structattr__entry.html#a1f07bac6db09530c0ff5a598907b4c76',1,'attr_entry::term()']]],
+  ['term_5fsent',['term_sent',['../structjob.html#a9afacb35a5b47a85bcf222e72f77c857',1,'job']]],
   ['term_5fstrings',['term_strings',['../term_8c.html#ad4755acac6a5a183ac996f1389832094',1,'term_strings():&#160;term.c'],['../term__defs_8h.html#abb17c8229480af73bbf2f93c36007d0b',1,'term_strings():&#160;term.c']]],
   ['textcol',['textcol',['../structblock__def.html#acdd5806baff7ac8397b43fc103fd9c85',1,'block_def']]],
   ['textlen',['textlen',['../structblock__def.html#a5f46d128a1f723c8f83b798dca0df51f',1,'block_def']]],
@@ -78,7 +79,7 @@ var searchData=
   ['ts_5ftcharidx',['ts_tcharidx',['../structtrystate__S.html#a33bb24e23a182cf1df4a73cbdfa00b99',1,'trystate_S']]],
   ['ts_5ftcharlen',['ts_tcharlen',['../structtrystate__S.html#a88e48bf556f7f8571a1cac2159ce8575',1,'trystate_S']]],
   ['ts_5ftwordlen',['ts_twordlen',['../structtrystate__S.html#a045cf70d68612e2f8d3b61947ba832d6',1,'trystate_S']]],
-  ['type',['type',['../structError.html#a4d9ef9fdc894088985e42ccda181ece7',1,'Error::type()'],['../structobject.html#a604599eed152e854882bc42dd2d2e1c8',1,'object::type()'],['../structJobEvent.html#a7eeea620f94cdd22b7310bfe1c8d890b',1,'JobEvent::type()'],['../structvim__exception.html#adaecf14218ac2f99cd1605ba53de270a',1,'vim_exception::type()'],['../structprt__ps__resource__S.html#a126067dae10ce91db799cbb1cb612788',1,'prt_ps_resource_S::type()'],['../structprt__dsc__comment__S.html#a79b9d6809e65705201ed47e5ef606474',1,'prt_dsc_comment_S::type()'],['../structprt__dsc__line__S.html#a2735854c832ab5fb4ab083752c4e2b8d',1,'prt_dsc_line_S::type()'],['../structServer.html#aa1327f3a0e74023ab4e1e2c6957b3eb8',1,'Server::type()']]],
+  ['type',['type',['../structError.html#a4d9ef9fdc894088985e42ccda181ece7',1,'Error::type()'],['../structobject.html#a604599eed152e854882bc42dd2d2e1c8',1,'object::type()'],['../structJobEvent.html#a4b0211b373a97a2fd59c849699f68fc6',1,'JobEvent::type()'],['../structvim__exception.html#adaecf14218ac2f99cd1605ba53de270a',1,'vim_exception::type()'],['../structprt__ps__resource__S.html#a126067dae10ce91db799cbb1cb612788',1,'prt_ps_resource_S::type()'],['../structprt__dsc__comment__S.html#a79b9d6809e65705201ed47e5ef606474',1,'prt_dsc_comment_S::type()'],['../structprt__dsc__line__S.html#a2735854c832ab5fb4ab083752c4e2b8d',1,'prt_dsc_line_S::type()'],['../structServer.html#aa1327f3a0e74023ab4e1e2c6957b3eb8',1,'Server::type()']]],
   ['typebuf',['typebuf',['../globals_8h.html#a4e9012cf977e9e267c5abc7d35ad8c2b',1,'globals.h']]],
   ['typebuf_5fvalid',['typebuf_valid',['../structtasave__T.html#a2cdb997dd06793e153cdf8c8b1ce938a',1,'tasave_T']]],
   ['typenr',['typenr',['../structsignlist.html#aabc72a70d2cc4ab53c8d801be741a427',1,'signlist']]]
