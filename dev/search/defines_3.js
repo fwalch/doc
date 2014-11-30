@@ -22,6 +22,7 @@ var searchData=
   ['check',['CHECK',['../memline_8c.html#a4c3f0432d972be512c1ff55974987c8c',1,'memline.c']]],
   ['check_5fcmdwin',['CHECK_CMDWIN',['../window_8c.html#a7da853fbab745da0e7d986ac2c2b4122',1,'window.c']]],
   ['check_5fpath',['CHECK_PATH',['../search_8h.html#adb6f101173bcdff98b8a834cdd97fe65',1,'search.h']]],
+  ['check_5fprovider',['check_provider',['../eval_8c.html#ae2085afd2a1586556a3fe9f6fdd4867b',1,'eval.c']]],
   ['class_5faf',['CLASS_af',['../regexp__nfa_8c.html#a5c793cdfe74fd6bd1380beee6cb7d8e5',1,'CLASS_af():&#160;regexp_nfa.c'],['../regexp__nfa_8c.html#a93b7555c21697736d6a66ed632185fed',1,'CLASS_AF():&#160;regexp_nfa.c']]],
   ['class_5falnum',['CLASS_ALNUM',['../regexp_8c.html#ac36a2a434a059004e19f7a94f18e9a7f',1,'regexp.c']]],
   ['class_5falpha',['CLASS_ALPHA',['../regexp_8c.html#ab557ed08a4c70a972afdeefc5031e092',1,'regexp.c']]],
@@ -303,5 +304,5 @@ var searchData=
   ['cur_5fstate',['CUR_STATE',['../syntax_8c.html#a670baa85116a684a429ec90d45bb97e6',1,'syntax.c']]],
   ['cursor',['CURSOR',['../regexp_8c.html#ae67dffdc8e496c16aff7e8903a3f2117',1,'regexp.c']]],
   ['cursor_5fbar_5fright',['CURSOR_BAR_RIGHT',['../macros_8h.html#a2d7b717cc8f01428e26b6e8850664d7e',1,'macros.h']]],
-  ['cursor_5fmoved',['CURSOR_MOVED',['../ui_8h.html#abeb07d4ceb42c3fe036f1033e05fcf6f',1,'ui.h']]]
+  ['cursor_5fmoved',['CURSOR_MOVED',['../mouse_8h.html#abeb07d4ceb42c3fe036f1033e05fcf6f',1,'mouse.h']]]
 ];
