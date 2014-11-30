@@ -89,7 +89,7 @@ metadata from a compiled <A HREF="nvim_intro.html#nvim">nvim</A> instance.
 
 There are two ways to obtain API metadata:
 
-1. By connecting to a running <A HREF="nvim_intro.html#nvim">nvim</A> instance and calling `vim_get_api_metadata`
+1. By connecting to a running <A HREF="nvim_intro.html#nvim">nvim</A> instance and calling `vim_get_api_info`
    via <A HREF="#msgpack-rpc">msgpack-rpc</A>. This is the preferred way for clients written in
    dynamically-typed languages, which can define <A HREF="eval.html#functions">functions</A> at runtime.
 
@@ -148,14 +148,15 @@ Nvim client (which we'll see below). Here's a <A HREF="if_ruby.html#ruby">ruby</
 <B>    require 'msgpack/rpc'</B>
 <B>    require 'msgpack/rpc/transport/unix'</B>
 
-<B>    vim = MessagePack::RPC::Client.new(MessagePack::RPC::UNIXTransport.new, ENV['NVIM_LISTEN_ADDRESS'])</B>
-<B>    result = vim.call(:vim_command, 'echo "hello world!"')</B>
+<B>    nvim = MessagePack::RPC::Client.new(MessagePack::RPC::UNIXTransport.new, ENV['NVIM_LISTEN_ADDRESS'])</B>
+<B>    result = nvim.call(:vim_command, 'echo "hello world!"')</B>
  
 A better way is to use the <A HREF="if_pyth.html#python">python</A> REPL with the `neovim` package, where API
 <A HREF="eval.html#functions">functions</A> can be called interactively:
 
-<B>    &gt;&gt;&gt; import neovim; vim = neovim.connect('[address]')</B>
-<B>    &gt;&gt;&gt; vim.command('echo "hello world!"')</B>
+<B>    &gt;&gt;&gt; from neovim import attach</B>
+<B>    &gt;&gt;&gt; nvim = attach('socket', path='[address]')</B>
+<B>    &gt;&gt;&gt; nvim.command('echo "hello world!"')</B>
  
 ==============================================================================
 
@@ -222,7 +223,7 @@ Tabpage				  -&gt; enum value kObjectTypeTabpage
 
 The most reliable way of determining the type codes for the special <A HREF="nvim_intro.html#nvim">nvim</A> types
 is at runtime by inspecting the `types` key of metadata dictionary returned by
-`vim_get_api_metadata` method. Here's an example json representation of the
+`vim_get_api_info` method. Here's an example json representation of the
 `types` object:
 
 <B>  "types": {</B>
@@ -296,7 +297,7 @@ connections to |<A HREF="#$NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</A>|.
 
     <footer>
       <div class="container">
-        Generated Sun Nov  9 21:35:42 UTC 2014 from <a href="https://github.com/fwalch/neovim/commit/57140446174a1e547b4799d75d6182a24ad78b44"><code>5714044</code></a>.
+        Generated Sun Nov 30 12:56:25 UTC 2014 from <a href="https://github.com/fwalch/neovim/commit/414199c54b92a60c3c97ccb5043668c69eedd173"><code>414199c</code></a>.
       </div>
     </footer>
   </body>
