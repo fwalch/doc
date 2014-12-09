@@ -3033,7 +3033,7 @@ exists({expr})	The result is a <A HREF="#Number">Number</A>, which is non-zero i
 		For checking for a supported feature use |<A HREF="#has()">has()</A>|.
 
 		Examples:
-<B>			exists("&amp;shortname")</B>
+<B>			exists("&amp;mouse")</B>
 <B>			exists("$HOSTNAME")</B>
 <B>			exists("*strftime")</B>
 <B>			exists("*s:MyFunc")</B>
@@ -6007,7 +6007,6 @@ setwinvar({nr}, {varname}, {val})			*<A NAME="setwinvar()"></A><B>setwinvar()</B
 sha256({string})						*<A NAME="sha256()"></A><B>sha256()</B>*
 		Returns a String with 64 hex charactes, which is the SHA256
 		checksum of {string}.
-		{only available when compiled with the |<A HREF="various.html#+cryptv">+cryptv</A>| feature}
 
 
 shellescape({string} [, {special}])			*<A NAME="shellescape()"></A><B>shellescape()</B>*
@@ -6625,11 +6624,12 @@ system({expr} [, {input}])				*<A NAME="system()"></A><B>system()</B>* *<A NAME=
 
 
 
-systemlist({expr} [, {input}])				*<A NAME="systemlist()"></A><B>systemlist()</B>*
+systemlist({expr} [, {input} [, {keepempty}]])		*<A NAME="systemlist()"></A><B>systemlist()</B>*
 		Same <A HREF="motion.html#as">as</A> |<A HREF="#system()">system()</A>|, but returns a |<A HREF="#List">List</A>| with lines (parts of 
 		output separated by NL) with NULs transformed into NLs. Output 
 		is the same <A HREF="motion.html#as">as</A> |<A HREF="#readfile()">readfile()</A>| will output with {binary} argument 
-		set to &quot;<A HREF="motion.html#b">b</A>&quot;.
+		set to &quot;<A HREF="motion.html#b">b</A>&quot;, except that a final newline is not preserved,
+		unless {keepempty} is present and it's non-zero.
 
 		Returns an empty <A HREF="#string">string</A> on error, so be careful not to run 
 		into |<A HREF="#E706">E706</A>|.
@@ -7151,7 +7151,6 @@ cmdline_hist		Compiled with |<A HREF="cmdline.html#cmdline-history">cmdline-hist
 cmdline_info		Compiled with <A HREF="options.html#'showcmd'">'showcmd'</A> and <A HREF="options.html#'ruler'">'ruler'</A> support.
 comments		Compiled with |<A HREF="options.html#'comments'">'comments'</A>| support.
 compatible		Compiled to be very <A HREF="intro.html#Vi">Vi</A> compatible.
-cryptv			Compiled with encryption support |<A HREF="editing.html#encryption">encryption</A>|.
 cscope			Compiled with |<A HREF="if_cscop.html#cscope">cscope</A>| support.
 debug			Compiled with &quot;DEBUG&quot; defined.
 dialog_con		Compiled with console <A HREF="gui_w32.html#dialog">dialog</A> support.
@@ -9515,7 +9514,7 @@ This is not allowed when the <A HREF="#textlock">textlock</A> is active:
 
     <footer>
       <div class="container">
-        Generated Sun Nov 30 12:56:24 UTC 2014 from <a href="https://github.com/fwalch/neovim/commit/414199c54b92a60c3c97ccb5043668c69eedd173"><code>414199c</code></a>.
+        Generated Tue Dec  9 15:16:42 UTC 2014 from <a href="https://github.com/fwalch/neovim/commit/c5b9e5d1d317b74d4adf7637cd9081be4ee52722"><code>c5b9e5d</code></a>.
       </div>
     </footer>
   </body>

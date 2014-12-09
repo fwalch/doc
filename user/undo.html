@@ -310,9 +310,6 @@ message about that when opening a file.
 Undo files are normally saved in the same directory <A HREF="motion.html#as">as</A> the file.  This can be
 changed with the <A HREF="options.html#'undodir'">'undodir'</A> option.
 
-When the file is encrypted, the text in the <A HREF="#undo">undo</A> file is also crypted.  The
-same key and method is used. |<A HREF="editing.html#encryption">encryption</A>|
-
 You can also save and restore <A HREF="#undo">undo</A> histories by using &quot;<A HREF="#:wundo">:wundo</A>&quot; and &quot;<A HREF="#:rundo">:rundo</A>&quot;
 respectively:
 
@@ -380,16 +377,6 @@ Reading an existing <A HREF="#undo">undo</A> file may fail for several reasons:
 	happens when <A HREF="options.html#'encoding'">'encoding'</A> differs from when the <A HREF="#undo">undo</A> file was written.
 
 *<A NAME="E825"></A><B>E825</B>*  The <A HREF="#undo">undo</A> file does not contain valid contents and cannot be used.
-
-*<A NAME="E826"></A><B>E826</B>*  The <A HREF="#undo">undo</A> file is encrypted but decryption failed.
-
-*<A NAME="E827"></A><B>E827</B>*  The <A HREF="#undo">undo</A> file is encrypted but this version of Vim does not support
-	<A HREF="editing.html#encryption">encryption</A>.  Open the file with another Vim.
-
-*<A NAME="E832"></A><B>E832</B>*  The <A HREF="#undo">undo</A> file is encrypted but <A HREF="options.html#'key'">'key'</A> is not set, the text file is not
-	encrypted.  This would happen if the text file was written by Vim
-	encrypted at first, and later overwritten by not encrypted text.
-	You probably want to delete this <A HREF="#undo">undo</A> file.
 &quot;Not reading <A HREF="#undo">undo</A> file, owner differs&quot;
 	The <A HREF="#undo">undo</A> file is owned by someone else than the owner of the text
 	file.  For safety the <A HREF="#undo">undo</A> file is not used.
@@ -476,7 +463,7 @@ first put, and repeat the put command for the second <A HREF="sponsor.html#regis
 
     <footer>
       <div class="container">
-        Generated Sun Nov 30 12:56:27 UTC 2014 from <a href="https://github.com/fwalch/neovim/commit/414199c54b92a60c3c97ccb5043668c69eedd173"><code>414199c</code></a>.
+        Generated Tue Dec  9 15:16:46 UTC 2014 from <a href="https://github.com/fwalch/neovim/commit/c5b9e5d1d317b74d4adf7637cd9081be4ee52722"><code>c5b9e5d</code></a>.
       </div>
     </footer>
   </body>
