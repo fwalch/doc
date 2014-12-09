@@ -193,6 +193,7 @@ var searchData=
   ['tofree',['tofree',['../structjoin__S.html#adfea5d39138deae82ad392acae63f9ff',1,'join_S']]],
   ['tolower_5fasc',['TOLOWER_ASC',['../macros_8h.html#abedb28fafef6553a68ede9057216bfaa',1,'macros.h']]],
   ['tolower_5floc',['TOLOWER_LOC',['../macros_8h.html#a1464644dc2154dbe6df4bf20d3085301',1,'macros.h']]],
+  ['top',['top',['../ui_8c.html#af93f4f37fc2ad9c37af4a715423b110c',1,'ui.c']]],
   ['topframe',['topframe',['../globals_8h.html#adaf59fa84694432e41fb0767b0916046',1,'globals.h']]],
   ['toplnum',['toplnum',['../structposmatch.html#a453d43c63d060b522aa7eae83b467330',1,'posmatch']]],
   ['total',['total',['../structsyn__time__T.html#ac95e52b5a4b64bb37fcdf8aa74c4c27e',1,'syn_time_T::total()'],['../structcontext__sha256__T.html#ab85065efdb6be825be1b5a278535433a',1,'context_sha256_T::total()'],['../structtime__entry__T.html#aaeb506ddad17e62020f153c90647da7c',1,'time_entry_T::total()']]],

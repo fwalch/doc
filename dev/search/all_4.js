@@ -1,7 +1,7 @@
 var searchData=
 [
   ['dal',['DAL',['../farsi_8h.html#a444dc22bc3041dfa0a4cbb5c4f22d8b6',1,'farsi.h']]],
-  ['data',['data',['../structString.html#aac3cd44be218d486e9fe9ecb08662752',1,'String::data()'],['../structobject.html#a4f7540178c8343c0c89a1fcf399b5292',1,'object::data()'],['../structChannel.html#a111fee74ec428fb52eb580d7d722848d',1,'Channel::data()'],['../structevent.html#a675355462c32d49a652673799ca24209',1,'event::data()'],['../structjob.html#a23916c5141ae6ff4d34281f3d0d334bf',1,'job::data()'],['../structrbuffer.html#a10341d501eedbece575464827104e519',1,'rbuffer::data()'],['../structrstream.html#a812c0b0f25665a469257fada652897fb',1,'rstream::data()'],['../structDynamicBuffer.html#a5e262ff6e2a3dfc18bed8054fc0df093',1,'DynamicBuffer::data()'],['../structwstream.html#a8368548ec85277ca76a628f6ffcfe9cd',1,'wstream::data()'],['../structwbuffer.html#a38d305068d35e90c926112dde6f4d86a',1,'wbuffer::data()']]],
+  ['data',['data',['../structString.html#aac3cd44be218d486e9fe9ecb08662752',1,'String::data()'],['../structobject.html#a4f7540178c8343c0c89a1fcf399b5292',1,'object::data()'],['../structChannel.html#a111fee74ec428fb52eb580d7d722848d',1,'Channel::data()'],['../structevent.html#a675355462c32d49a652673799ca24209',1,'event::data()'],['../structjob.html#a23916c5141ae6ff4d34281f3d0d334bf',1,'job::data()'],['../structrbuffer.html#a10341d501eedbece575464827104e519',1,'rbuffer::data()'],['../structrstream.html#a812c0b0f25665a469257fada652897fb',1,'rstream::data()'],['../structDynamicBuffer.html#a5e262ff6e2a3dfc18bed8054fc0df093',1,'DynamicBuffer::data()'],['../structwstream.html#a8368548ec85277ca76a628f6ffcfe9cd',1,'wstream::data()'],['../structwbuffer.html#a38d305068d35e90c926112dde6f4d86a',1,'wbuffer::data()'],['../structui__t.html#a444280f726ee8ab278ceef25a1bda05c',1,'ui_t::data()']]],
   ['data_5fbl',['DATA_BL',['../memline_8c.html#aa644b4da792aa82847aa9bfab40cafab',1,'memline.c']]],
   ['data_5fblock',['data_block',['../structdata__block.html',1,'']]],
   ['data_5fid',['DATA_ID',['../memline_8c.html#a55aa586df150c1192826a1c57dd87401',1,'memline.c']]],
@@ -69,7 +69,7 @@ var searchData=
   ['del_5fmenutrans_5fvars',['del_menutrans_vars',['../eval_8c.html#a5960a0e56b8c555ec534393b6d6896cf',1,'eval.c']]],
   ['del_5fstr',['DEL_STR',['../ascii_8h.html#ace7a3df2689fdc10f9e697c8552cd3c9',1,'ascii.h']]],
   ['del_5ftermcode',['del_termcode',['../term_8c.html#a23beab6adcd942369662088265792361',1,'term.c']]],
-  ['del_5ftrailing_5fspaces',['del_trailing_spaces',['../strings_8c.html#a8b571a17f90598378a04a593323b28d9',1,'strings.c']]],
+  ['del_5ftrailing_5fspaces',['del_trailing_spaces',['../strings_8c.html#a5eeed1cf0f172d76f720b329e6d09989',1,'strings.c']]],
   ['del_5ftypebuf',['del_typebuf',['../getchar_8c.html#a3fd3b11860db7a0a9d863585465c25da',1,'getchar.c']]],
   ['delayednotification',['DelayedNotification',['../structDelayedNotification.html',1,'']]],
   ['delete_5ffirst_5fmsg',['delete_first_msg',['../message_8c.html#aa4126a2c3996cddd65da5621ebd3df4c',1,'message.c']]],

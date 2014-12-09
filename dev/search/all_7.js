@@ -192,7 +192,7 @@ var searchData=
   ['ghaf',['GHAF',['../farsi_8h.html#a4e8fbe14e2cd0c6302f7af9206c814e0',1,'farsi.h']]],
   ['ghayn',['GHAYN',['../farsi_8h.html#aaac774c94f9ba7f13cb3d1f3b6404805',1,'farsi.h']]],
   ['ghayn_5f',['GHAYN_',['../farsi_8h.html#a8b41b0d604f3e06d2e8c6200bc86740f',1,'farsi.h']]],
-  ['give_5fwarning',['give_warning',['../message_8c.html#a69455efcd82056490bd08ae8bceceaa0',1,'message.c']]],
+  ['give_5fwarning',['give_warning',['../message_8c.html#a04c5de4137b524d2195c8ae5a8582fc1',1,'message.c']]],
   ['global_5falist',['global_alist',['../globals_8h.html#a5ad902bd6d0455a0473c1d8490369979',1,'globals.h']]],
   ['global_5fexe',['global_exe',['../ex__cmds_8c.html#af5c1bd486735bb3a20cd9b04acbdc15c',1,'ex_cmds.c']]],
   ['global_5fwo',['GLOBAL_WO',['../buffer__defs_8h.html#a3a494d9abbb64e276b40da3a0e9f22bf',1,'buffer_defs.h']]],
@@ -240,6 +240,5 @@ var searchData=
   ['group',['group',['../structAutoPat.html#a4b89d6bc14de915e0c086588173051d3',1,'AutoPat::group()'],['../structAutoPatCmd.html#a81c67de2173f15310a11f199f523ab8c',1,'AutoPatCmd::group()']]],
   ['growarray',['growarray',['../structgrowarray.html',1,'']]],
   ['gui_5fmch_5ffind_5fdialog',['gui_mch_find_dialog',['../ex__docmd_8c.html#a6acc443ef144f9d8e908f04e0cffd500',1,'ex_docmd.c']]],
-  ['gui_5fmch_5freplace_5fdialog',['gui_mch_replace_dialog',['../ex__docmd_8c.html#a28239f5e92ea9d7569b84052d40e2a5c',1,'ex_docmd.c']]],
-  ['guicolor_5ft',['guicolor_T',['../syntax_8h.html#abe322bdd6731c73fc0895a291752471b',1,'syntax.h']]]
+  ['gui_5fmch_5freplace_5fdialog',['gui_mch_replace_dialog',['../ex__docmd_8c.html#a28239f5e92ea9d7569b84052d40e2a5c',1,'ex_docmd.c']]]
 ];
