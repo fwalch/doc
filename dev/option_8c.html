@@ -173,6 +173,8 @@ Macros</h2></td></tr>
 <tr class="separator:a5fa173302dd41828cf2479487f6cdcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee49b38aa082a74602d95ffe179d4b29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#aee49b38aa082a74602d95ffe179d4b29">PV_AR</a>&#160;&#160;&#160;<a class="el" href="option_8c.html#a85395f6fdf5d1ef701dd04db14164935">OPT_BOTH</a>(<a class="el" href="option_8c.html#a7878974b2238d4fa1cbd2d803c18c53f">OPT_BUF</a>(<a class="el" href="option__defs_8h.html#a16af7b253440dadd46a80a4b9fddba4da1f46916d85178cd28d938a47c41afec1">BV_AR</a>))</td></tr>
 <tr class="separator:aee49b38aa082a74602d95ffe179d4b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a722ab4dca437c9b2da853f51a7b91ab1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a722ab4dca437c9b2da853f51a7b91ab1">PV_BKC</a>&#160;&#160;&#160;<a class="el" href="option_8c.html#a85395f6fdf5d1ef701dd04db14164935">OPT_BOTH</a>(<a class="el" href="option_8c.html#a7878974b2238d4fa1cbd2d803c18c53f">OPT_BUF</a>(<a class="el" href="option__defs_8h.html#a16af7b253440dadd46a80a4b9fddba4dadaa80a85b5ed1c53ba010f19a7b8ba92">BV_BKC</a>))</td></tr>
+<tr class="separator:a722ab4dca437c9b2da853f51a7b91ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4688b7b88e89edebcab7d999a964022"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ad4688b7b88e89edebcab7d999a964022">PV_BH</a>&#160;&#160;&#160;<a class="el" href="option_8c.html#a7878974b2238d4fa1cbd2d803c18c53f">OPT_BUF</a>(<a class="el" href="option__defs_8h.html#a16af7b253440dadd46a80a4b9fddba4da3f2d9faf8fdd1104b14d2d7bf7a75c58">BV_BH</a>)</td></tr>
 <tr class="separator:ad4688b7b88e89edebcab7d999a964022"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b49275c98a75ff6b9813742e211527c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a2b49275c98a75ff6b9813742e211527c">PV_BT</a>&#160;&#160;&#160;<a class="el" href="option_8c.html#a7878974b2238d4fa1cbd2d803c18c53f">OPT_BUF</a>(<a class="el" href="option__defs_8h.html#a16af7b253440dadd46a80a4b9fddba4dad8c7b9c340173c0660215b243d89d85b">BV_BT</a>)</td></tr>
@@ -449,7 +451,7 @@ Macros</h2></td></tr>
 <tr class="separator:a27f20d127a97b280a6eac25e1f6055ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0f2df6c0f44729b844b978071307cb0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#aa0f2df6c0f44729b844b978071307cb0">p_term</a>(sss, vvv)</td></tr>
 <tr class="separator:aa0f2df6c0f44729b844b978071307cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fc2c43446ec463cb87f528005dc312a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a3fc2c43446ec463cb87f528005dc312a">PARAM_COUNT</a>&#160;&#160;&#160;(sizeof(options) / sizeof(struct <a class="el" href="structvimoption.html">vimoption</a>))</td></tr>
+<tr class="memitem:a3fc2c43446ec463cb87f528005dc312a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a3fc2c43446ec463cb87f528005dc312a">PARAM_COUNT</a>&#160;&#160;&#160;<a class="el" href="macros_8h.html#a3c7c6a69f690fc8d2abf0e385280a532">ARRAY_SIZE</a>(options)</td></tr>
 <tr class="separator:a3fc2c43446ec463cb87f528005dc312a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af735670d9b1cd3dfa2d927db387f7123"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#af735670d9b1cd3dfa2d927db387f7123">INC</a>&#160;&#160;&#160;20</td></tr>
 <tr class="separator:af735670d9b1cd3dfa2d927db387f7123"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -469,9 +471,9 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:abc4a9e754816ec6f8634a37eca58d829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#abc4a9e754816ec6f8634a37eca58d829">set_init_1</a> (void)</td></tr>
 <tr class="separator:abc4a9e754816ec6f8634a37eca58d829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a005e6b159cf753f51beb092dd0e1cb8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a005e6b159cf753f51beb092dd0e1cb8f">set_string_default</a> (const char *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>, const <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *val)</td></tr>
+<tr class="memitem:a005e6b159cf753f51beb092dd0e1cb8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a005e6b159cf753f51beb092dd0e1cb8f">set_string_default</a> (const char *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, const <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *val)</td></tr>
 <tr class="separator:a005e6b159cf753f51beb092dd0e1cb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ea2aa6dd98f6175f3a6d59f31627b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ac5ea2aa6dd98f6175f3a6d59f31627b1">set_number_default</a> (char *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>, long val)</td></tr>
+<tr class="memitem:ac5ea2aa6dd98f6175f3a6d59f31627b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ac5ea2aa6dd98f6175f3a6d59f31627b1">set_number_default</a> (char *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, long val)</td></tr>
 <tr class="separator:ac5ea2aa6dd98f6175f3a6d59f31627b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c2097c19f06ef02a6f0135b0b505e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a4c2097c19f06ef02a6f0135b0b505e2d">set_init_2</a> (void)</td></tr>
 <tr class="separator:a4c2097c19f06ef02a6f0135b0b505e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -501,17 +503,17 @@ Functions</h2></td></tr>
 <tr class="separator:a9323fcc6522ca0f6652cfd5f6cc4e019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28ac3153d8dfbd8e2ea9499cfe9c1784"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a28ac3153d8dfbd8e2ea9499cfe9c1784">was_set_insecurely</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *opt, int opt_flags)</td></tr>
 <tr class="separator:a28ac3153d8dfbd8e2ea9499cfe9c1784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a954ec9f7c0f4ea6dfabaeff511e9b85c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a954ec9f7c0f4ea6dfabaeff511e9b85c">set_string_option_direct</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>, int opt_idx, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *val, int opt_flags, int set_sid)</td></tr>
+<tr class="memitem:a954ec9f7c0f4ea6dfabaeff511e9b85c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a954ec9f7c0f4ea6dfabaeff511e9b85c">set_string_option_direct</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, int opt_idx, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *val, int opt_flags, int set_sid)</td></tr>
 <tr class="separator:a954ec9f7c0f4ea6dfabaeff511e9b85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad56804fd276856c60ed109071a1d315c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ad56804fd276856c60ed109071a1d315c">check_colorcolumn</a> (<a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *wp)</td></tr>
 <tr class="separator:ad56804fd276856c60ed109071a1d315c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a417d0e830aa8a82eaae8f3426d442282"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a417d0e830aa8a82eaae8f3426d442282">check_stl_option</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s)</td></tr>
 <tr class="separator:a417d0e830aa8a82eaae8f3426d442282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2d5c983e65f84faa64a27e09377f6cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ab2d5c983e65f84faa64a27e09377f6cc">get_option_value</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>, long *numval, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> **stringval, int opt_flags)</td></tr>
+<tr class="memitem:ab2d5c983e65f84faa64a27e09377f6cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ab2d5c983e65f84faa64a27e09377f6cc">get_option_value</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, long *numval, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> **stringval, int opt_flags)</td></tr>
 <tr class="separator:ab2d5c983e65f84faa64a27e09377f6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03f19d93786f76478cec3657390d0a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ac03f19d93786f76478cec3657390d0a6">get_option_value_strict</a> (char *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>, int64_t *numval, char **stringval, int opt_type, void *from)</td></tr>
+<tr class="memitem:ac03f19d93786f76478cec3657390d0a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ac03f19d93786f76478cec3657390d0a6">get_option_value_strict</a> (char *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, int64_t *numval, char **stringval, int opt_type, void *from)</td></tr>
 <tr class="separator:ac03f19d93786f76478cec3657390d0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a926f5a8d6d984bcc5e2e983853a40ba3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a926f5a8d6d984bcc5e2e983853a40ba3">set_option_value</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>, long number, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *string, int opt_flags)</td></tr>
+<tr class="memitem:a926f5a8d6d984bcc5e2e983853a40ba3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a926f5a8d6d984bcc5e2e983853a40ba3">set_option_value</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, long number, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *string, int opt_flags)</td></tr>
 <tr class="separator:a926f5a8d6d984bcc5e2e983853a40ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a262533b6d1cbaf61db6ec3cfa7e6244e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a262533b6d1cbaf61db6ec3cfa7e6244e">get_term_code</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *tname)</td></tr>
 <tr class="separator:a262533b6d1cbaf61db6ec3cfa7e6244e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -533,7 +535,7 @@ Functions</h2></td></tr>
 <tr class="separator:aa3cc8ecf0d498761ef2a1950a47314ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0505bd60bd0c3b3a69f8a736c01c4ede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a0505bd60bd0c3b3a69f8a736c01c4ede">comp_col</a> (void)</td></tr>
 <tr class="separator:a0505bd60bd0c3b3a69f8a736c01c4ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac921a764f41e47c8ab14996fb2e5996f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ac921a764f41e47c8ab14996fb2e5996f">unset_global_local_option</a> (char *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>, void *from)</td></tr>
+<tr class="memitem:ac921a764f41e47c8ab14996fb2e5996f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ac921a764f41e47c8ab14996fb2e5996f">unset_global_local_option</a> (char *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, void *from)</td></tr>
 <tr class="separator:ac921a764f41e47c8ab14996fb2e5996f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0fba63eb111fe57aaf861316f30fd76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ae0fba63eb111fe57aaf861316f30fd76">get_equalprg</a> (void)</td></tr>
 <tr class="separator:ae0fba63eb111fe57aaf861316f30fd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -567,11 +569,9 @@ Functions</h2></td></tr>
 <tr class="separator:af327ea763af32fab795ca7149d71b8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52e14916d0e3a8e08f7d48ccddc9b854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a52e14916d0e3a8e08f7d48ccddc9b854">vimrc_found</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *fname, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *envname)</td></tr>
 <tr class="separator:a52e14916d0e3a8e08f7d48ccddc9b854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa392ebc734dbe5be5f7e4d0a6d0f4034"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#aa392ebc734dbe5be5f7e4d0a6d0f4034">change_compatible</a> (int on)</td></tr>
-<tr class="separator:aa392ebc734dbe5be5f7e4d0a6d0f4034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c73fdd78d4c90be54269772604552ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a8c73fdd78d4c90be54269772604552ce">option_was_set</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>)</td></tr>
+<tr class="memitem:a8c73fdd78d4c90be54269772604552ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a8c73fdd78d4c90be54269772604552ce">option_was_set</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</td></tr>
 <tr class="separator:a8c73fdd78d4c90be54269772604552ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9149d6fa2a0e21a16a5e45fe2ab54e75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a9149d6fa2a0e21a16a5e45fe2ab54e75">reset_option_was_set</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a5ac083a645d964373f022d03df4849c8">name</a>)</td></tr>
+<tr class="memitem:a9149d6fa2a0e21a16a5e45fe2ab54e75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a9149d6fa2a0e21a16a5e45fe2ab54e75">reset_option_was_set</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</td></tr>
 <tr class="separator:a9149d6fa2a0e21a16a5e45fe2ab54e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac90b26e277c358cf3d5368f393846f58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ac90b26e277c358cf3d5368f393846f58">can_bs</a> (int what)</td></tr>
 <tr class="separator:ac90b26e277c358cf3d5368f393846f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -587,6 +587,8 @@ Functions</h2></td></tr>
 <tr class="separator:acc6390a57d8717b70cc63ded842dfd90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab91702a1590730a15f09458675722fda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#ab91702a1590730a15f09458675722fda">find_mps_values</a> (int *initc, int *findc, int *backwards, int switchit)</td></tr>
 <tr class="separator:ab91702a1590730a15f09458675722fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94dea4c02d334f78a27feedc06fb5bb4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="option_8c.html#a94dea4c02d334f78a27feedc06fb5bb4">get_bkc_value</a> (<a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a> *buf)</td></tr>
+<tr class="separator:a94dea4c02d334f78a27feedc06fb5bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a9dc32be63c89a7635c7046ef56f74251"></a>
@@ -1054,13 +1056,13 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">{sss, NULL, <a class="code" href="option_8c.html#aad997a10fe4897f058cdd4838d5c138a">P_STRING</a>|<a class="code" href="option_8c.html#a743498c3e9ec8fabac605047a84bc770">P_VI_DEF</a>|<a class="code" href="option_8c.html#a92a9d147ea55db6fd073663bb58e5a0f">P_RALL</a>|<a class="code" href="option_8c.html#ac892fc4fabcac0160e59c4f33e5b7c8a">P_SECURE</a>, \</div>
 <div class="line">                            (<a class="code" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *)&amp;vvv, <a class="code" href="option_8c.html#ad60af5f97038d9316b31a3c84c7eb144aeface023448b64c8d8aacde269b19a5b">PV_NONE</a>, \</div>
 <div class="line">                            {(<a class="code" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *)<span class="stringliteral">&quot;&quot;</span>, (<a class="code" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *)0L} <a class="code" href="option_8c.html#ad5a613cb4b60e171b08ada4049238e3a">SCRIPTID_INIT</a>},</div>
-<div class="ttc" id="option_8c_html_ad5a613cb4b60e171b08ada4049238e3a"><div class="ttname"><a href="option_8c.html#ad5a613cb4b60e171b08ada4049238e3a">SCRIPTID_INIT</a></div><div class="ttdeci">#define SCRIPTID_INIT</div><div class="ttdef"><b>Definition:</b> option.c:310</div></div>
-<div class="ttc" id="option_8c_html_a743498c3e9ec8fabac605047a84bc770"><div class="ttname"><a href="option_8c.html#a743498c3e9ec8fabac605047a84bc770">P_VI_DEF</a></div><div class="ttdeci">#define P_VI_DEF</div><div class="ttdef"><b>Definition:</b> option.c:333</div></div>
-<div class="ttc" id="option_8c_html_ac892fc4fabcac0160e59c4f33e5b7c8a"><div class="ttname"><a href="option_8c.html#ac892fc4fabcac0160e59c4f33e5b7c8a">P_SECURE</a></div><div class="ttdeci">#define P_SECURE</div><div class="ttdef"><b>Definition:</b> option.c:347</div></div>
-<div class="ttc" id="option_8c_html_ad60af5f97038d9316b31a3c84c7eb144aeface023448b64c8d8aacde269b19a5b"><div class="ttname"><a href="option_8c.html#ad60af5f97038d9316b31a3c84c7eb144aeface023448b64c8d8aacde269b19a5b">PV_NONE</a></div><div class="ttdef"><b>Definition:</b> option.c:217</div></div>
+<div class="ttc" id="option_8c_html_ad5a613cb4b60e171b08ada4049238e3a"><div class="ttname"><a href="option_8c.html#ad5a613cb4b60e171b08ada4049238e3a">SCRIPTID_INIT</a></div><div class="ttdeci">#define SCRIPTID_INIT</div><div class="ttdef"><b>Definition:</b> option.c:311</div></div>
+<div class="ttc" id="option_8c_html_a743498c3e9ec8fabac605047a84bc770"><div class="ttname"><a href="option_8c.html#a743498c3e9ec8fabac605047a84bc770">P_VI_DEF</a></div><div class="ttdeci">#define P_VI_DEF</div><div class="ttdef"><b>Definition:</b> option.c:334</div></div>
+<div class="ttc" id="option_8c_html_ac892fc4fabcac0160e59c4f33e5b7c8a"><div class="ttname"><a href="option_8c.html#ac892fc4fabcac0160e59c4f33e5b7c8a">P_SECURE</a></div><div class="ttdeci">#define P_SECURE</div><div class="ttdef"><b>Definition:</b> option.c:348</div></div>
+<div class="ttc" id="option_8c_html_ad60af5f97038d9316b31a3c84c7eb144aeface023448b64c8d8aacde269b19a5b"><div class="ttname"><a href="option_8c.html#ad60af5f97038d9316b31a3c84c7eb144aeface023448b64c8d8aacde269b19a5b">PV_NONE</a></div><div class="ttdef"><b>Definition:</b> option.c:218</div></div>
 <div class="ttc" id="types_8h_html_abdb7824437f4665a51798757139f570b"><div class="ttname"><a href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a></div><div class="ttdeci">unsigned char char_u</div><div class="ttdef"><b>Definition:</b> types.h:25</div></div>
-<div class="ttc" id="option_8c_html_a92a9d147ea55db6fd073663bb58e5a0f"><div class="ttname"><a href="option_8c.html#a92a9d147ea55db6fd073663bb58e5a0f">P_RALL</a></div><div class="ttdeci">#define P_RALL</div><div class="ttdef"><b>Definition:</b> option.c:340</div></div>
-<div class="ttc" id="option_8c_html_aad997a10fe4897f058cdd4838d5c138a"><div class="ttname"><a href="option_8c.html#aad997a10fe4897f058cdd4838d5c138a">P_STRING</a></div><div class="ttdeci">#define P_STRING</div><div class="ttdef"><b>Definition:</b> option.c:321</div></div>
+<div class="ttc" id="option_8c_html_a92a9d147ea55db6fd073663bb58e5a0f"><div class="ttname"><a href="option_8c.html#a92a9d147ea55db6fd073663bb58e5a0f">P_RALL</a></div><div class="ttdeci">#define P_RALL</div><div class="ttdef"><b>Definition:</b> option.c:341</div></div>
+<div class="ttc" id="option_8c_html_aad997a10fe4897f058cdd4838d5c138a"><div class="ttname"><a href="option_8c.html#aad997a10fe4897f058cdd4838d5c138a">P_STRING</a></div><div class="ttdeci">#define P_STRING</div><div class="ttdef"><b>Definition:</b> option.c:322</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1105,7 +1107,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PARAM_COUNT&#160;&#160;&#160;(sizeof(options) / sizeof(struct <a class="el" href="structvimoption.html">vimoption</a>))</td>
+          <td class="memname">#define PARAM_COUNT&#160;&#160;&#160;<a class="el" href="macros_8h.html#a3c7c6a69f690fc8d2abf0e385280a532">ARRAY_SIZE</a>(options)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1166,6 +1168,18 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define PV_BIN&#160;&#160;&#160;<a class="el" href="option_8c.html#a7878974b2238d4fa1cbd2d803c18c53f">OPT_BUF</a>(<a class="el" href="option__defs_8h.html#a16af7b253440dadd46a80a4b9fddba4daff2f7887c77f232725230a009f846291">BV_BIN</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a722ab4dca437c9b2da853f51a7b91ab1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PV_BKC&#160;&#160;&#160;<a class="el" href="option_8c.html#a85395f6fdf5d1ef701dd04db14164935">OPT_BOTH</a>(<a class="el" href="option_8c.html#a7878974b2238d4fa1cbd2d803c18c53f">OPT_BUF</a>(<a class="el" href="option__defs_8h.html#a16af7b253440dadd46a80a4b9fddba4dadaa80a85b5ed1c53ba010f19a7b8ba92">BV_BKC</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2530,22 +2544,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa392ebc734dbe5be5f7e4d0a6d0f4034"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void change_compatible </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>on</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="aa16ea80b5eedf0db0eaf2d46d507ff6f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2947,6 +2945,29 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a94dea4c02d334f78a27feedc06fb5bb4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int get_bkc_value </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a> *&#160;</td>
+          <td class="paramname"><em>buf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the local or global value of 'backupcopy'.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>The buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -3763,7 +3784,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Tue Dec 9 2014 15:39:23 for Neovim by
+    Generated on Sat Jan 10 2015 18:50:33 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>
