@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>tags</HEAD></title>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
-    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -718,7 +718,6 @@
 |<A HREF="options.html#'numberwidth'">'numberwidth'</A>|	options.txt
 |<A HREF="options.html#'nuw'">'nuw'</A>|	options.txt
 |<A HREF="options.html#'odev'">'odev'</A>|	options.txt
-|<A HREF="options.html#'oft'">'oft'</A>|	options.txt
 |<A HREF="options.html#'ofu'">'ofu'</A>|	options.txt
 |<A HREF="options.html#'omnifunc'">'omnifunc'</A>|	options.txt
 |<A HREF="vi_diff.html#'op'">'op'</A>|	vi_diff.txt
@@ -728,7 +727,6 @@
 |<A HREF="options.html#'opfunc'">'opfunc'</A>|	options.txt
 |<A HREF="vi_diff.html#'optimize'">'optimize'</A>|	vi_diff.txt
 |<A HREF="intro.html#'option'">'option'</A>|	intro.txt
-|<A HREF="options.html#'osfiletype'">'osfiletype'</A>|	options.txt
 |<A HREF="options.html#'pa'">'pa'</A>|	options.txt
 |<A HREF="options.html#'para'">'para'</A>|	options.txt
 |<A HREF="options.html#'paragraphs'">'paragraphs'</A>|	options.txt
@@ -776,6 +774,7 @@
 |<A HREF="options.html#'regexpengine'">'regexpengine'</A>|	options.txt
 |<A HREF="options.html#'relativenumber'">'relativenumber'</A>|	options.txt
 |<A HREF="options.html#'remap'">'remap'</A>|	options.txt
+|<A HREF="options.html#'renderoptions'">'renderoptions'</A>|	options.txt
 |<A HREF="options.html#'report'">'report'</A>|	options.txt
 |<A HREF="options.html#'restorescreen'">'restorescreen'</A>|	options.txt
 |<A HREF="options.html#'revins'">'revins'</A>|	options.txt
@@ -786,6 +785,7 @@
 |<A HREF="options.html#'rlc'">'rlc'</A>|	options.txt
 |<A HREF="options.html#'rnu'">'rnu'</A>|	options.txt
 |<A HREF="options.html#'ro'">'ro'</A>|	options.txt
+|<A HREF="options.html#'rop'">'rop'</A>|	options.txt
 |<A HREF="options.html#'rs'">'rs'</A>|	options.txt
 |<A HREF="options.html#'rtp'">'rtp'</A>|	options.txt
 |<A HREF="options.html#'ru'">'ru'</A>|	options.txt
@@ -1152,7 +1152,6 @@
 |<A HREF="editing.html#++ff">++ff</A>|	editing.txt
 |<A HREF="editing.html#++nobin">++nobin</A>|	editing.txt
 |<A HREF="editing.html#++opt">++opt</A>|	editing.txt
-|<A HREF="various.html#+ARP">+ARP</A>|	various.txt
 |<A HREF="various.html#+GUI_Athena">+GUI_Athena</A>|	various.txt
 |<A HREF="various.html#+GUI_GTK">+GUI_GTK</A>|	various.txt
 |<A HREF="various.html#+GUI_Motif">+GUI_Motif</A>|	various.txt
@@ -1339,7 +1338,6 @@
 |<A HREF="gui_x11.html#-bw">-bw</A>|	gui_x11.txt
 |<A HREF="starting.html#-c">-c</A>|	starting.txt
 |<A HREF="starting.html#-d">-d</A>|	starting.txt
-|<A HREF="starting.html#-dev">-dev</A>|	starting.txt
 |<A HREF="gui_x11.html#-display">-display</A>|	gui_x11.txt
 |<A HREF="starting.html#-e">-e</A>|	starting.txt
 |<A HREF="starting.html#-f">-f</A>|	starting.txt
@@ -2243,6 +2241,8 @@
 |<A HREF="print.html#:ha">:ha</A>|	print.txt
 |<A HREF="print.html#:hardcopy">:hardcopy</A>|	print.txt
 |<A HREF="helphelp.html#:help">:help</A>|	helphelp.txt
+|<A HREF="helphelp.html#:helpc">:helpc</A>|	helphelp.txt
+|<A HREF="helphelp.html#:helpclose">:helpclose</A>|	helphelp.txt
 |<A HREF="helphelp.html#:helpf">:helpf</A>|	helphelp.txt
 |<A HREF="helphelp.html#:helpfind">:helpfind</A>|	helphelp.txt
 |<A HREF="helphelp.html#:helpg">:helpg</A>|	helphelp.txt
@@ -4254,6 +4254,7 @@
 |<A HREF="sign.html#E885">E885</A>|	sign.txt
 |<A HREF="starting.html#E886">E886</A>|	starting.txt
 |<A HREF="if_pyth.html#E887">E887</A>|	if_pyth.txt
+|<A HREF="pattern.html#E888">E888</A>|	pattern.txt
 |<A HREF="message.html#E89">E89</A>|	message.txt
 |<A HREF="message.html#E90">E90</A>|	message.txt
 |<A HREF="options.html#E91">E91</A>|	options.txt
@@ -4672,7 +4673,6 @@
 |<A HREF="intro.html#alt">alt</A>|	intro.txt
 |<A HREF="debugger.html#alt-input">alt-input</A>|	debugger.txt
 |<A HREF="editing.html#alternate-file">alternate-file</A>|	editing.txt
-|<A HREF="starting.html#amiga-window">amiga-window</A>|	starting.txt
 |<A HREF="eval.html#and()">and()</A>|	eval.txt
 |<A HREF="eval.html#anonymous-function">anonymous-function</A>|	eval.txt
 |<A HREF="syntax.html#ant.vim">ant.vim</A>|	syntax.txt
@@ -4718,7 +4718,6 @@
 |<A HREF="autocmd.html#autocmd-intro">autocmd-intro</A>|	autocmd.txt
 |<A HREF="autocmd.html#autocmd-list">autocmd-list</A>|	autocmd.txt
 |<A HREF="autocmd.html#autocmd-nested">autocmd-nested</A>|	autocmd.txt
-|<A HREF="filetype.html#autocmd-osfiletypes">autocmd-osfiletypes</A>|	filetype.txt
 |<A HREF="autocmd.html#autocmd-patterns">autocmd-patterns</A>|	autocmd.txt
 |<A HREF="autocmd.html#autocmd-remove">autocmd-remove</A>|	autocmd.txt
 |<A HREF="autocmd.html#autocmd-searchpat">autocmd-searchpat</A>|	autocmd.txt
@@ -4998,7 +4997,6 @@
 |<A HREF="quickfix.html#compiler-gcc">compiler-gcc</A>|	quickfix.txt
 |<A HREF="ft_ada.html#compiler-gnat">compiler-gnat</A>|	ft_ada.txt
 |<A HREF="ft_ada.html#compiler-hpada">compiler-hpada</A>|	ft_ada.txt
-|<A HREF="quickfix.html#compiler-manx">compiler-manx</A>|	quickfix.txt
 |<A HREF="quickfix.html#compiler-perl">compiler-perl</A>|	quickfix.txt
 |<A HREF="quickfix.html#compiler-pyunit">compiler-pyunit</A>|	quickfix.txt
 |<A HREF="quickfix.html#compiler-select">compiler-select</A>|	quickfix.txt
@@ -5886,6 +5884,8 @@
 |<A HREF="syntax.html#g:tex_no_error">g:tex_no_error</A>|	syntax.txt
 |<A HREF="syntax.html#g:tex_nospell">g:tex_nospell</A>|	syntax.txt
 |<A HREF="syntax.html#g:tex_stylish">g:tex_stylish</A>|	syntax.txt
+|<A HREF="syntax.html#g:tex_subscripts">g:tex_subscripts</A>|	syntax.txt
+|<A HREF="syntax.html#g:tex_superscripts">g:tex_superscripts</A>|	syntax.txt
 |<A HREF="syntax.html#g:tex_verbspell">g:tex_verbspell</A>|	syntax.txt
 |<A HREF="eval.html#g:var">g:var</A>|	eval.txt
 |<A HREF="pi_vimball.html#g:vimball_home">g:vimball_home</A>|	pi_vimball.txt
@@ -5949,6 +5949,7 @@
 |<A HREF="eval.html#getcmdline()">getcmdline()</A>|	eval.txt
 |<A HREF="eval.html#getcmdpos()">getcmdpos()</A>|	eval.txt
 |<A HREF="eval.html#getcmdtype()">getcmdtype()</A>|	eval.txt
+|<A HREF="eval.html#getcmdwintype()">getcmdwintype()</A>|	eval.txt
 |<A HREF="eval.html#getcurpos()">getcurpos()</A>|	eval.txt
 |<A HREF="eval.html#getcwd()">getcwd()</A>|	eval.txt
 |<A HREF="eval.html#getfontname()">getfontname()</A>|	eval.txt
@@ -7170,7 +7171,6 @@
 |<A HREF="quickfix.html#quickfix-error-lists">quickfix-error-lists</A>|	quickfix.txt
 |<A HREF="usr_41.html#quickfix-functions">quickfix-functions</A>|	usr_41.txt
 |<A HREF="quickfix.html#quickfix-gcc">quickfix-gcc</A>|	quickfix.txt
-|<A HREF="quickfix.html#quickfix-manx">quickfix-manx</A>|	quickfix.txt
 |<A HREF="quickfix.html#quickfix-perl">quickfix-perl</A>|	quickfix.txt
 |<A HREF="quickfix.html#quickfix-valid">quickfix-valid</A>|	quickfix.txt
 |<A HREF="quickfix.html#quickfix-window">quickfix-window</A>|	quickfix.txt
@@ -7475,6 +7475,7 @@
 |<A HREF="spell.html#spell-FOL">spell-FOL</A>|	spell.txt
 |<A HREF="spell.html#spell-FORBIDDENWORD">spell-FORBIDDENWORD</A>|	spell.txt
 |<A HREF="spell.html#spell-HOME">spell-HOME</A>|	spell.txt
+|<A HREF="spell.html#spell-IGNOREEXTRA">spell-IGNOREEXTRA</A>|	spell.txt
 |<A HREF="spell.html#spell-KEEPCASE">spell-KEEPCASE</A>|	spell.txt
 |<A HREF="spell.html#spell-KEY">spell-KEY</A>|	spell.txt
 |<A HREF="spell.html#spell-LANG">spell-LANG</A>|	spell.txt
@@ -7584,7 +7585,6 @@
 |<A HREF="editing.html#starstar-wildcard">starstar-wildcard</A>|	editing.txt
 |<A HREF="pattern.html#start-of-file">start-of-file</A>|	pattern.txt
 |<A HREF="starting.html#starting">starting</A>|	starting.txt
-|<A HREF="starting.html#starting-amiga">starting-amiga</A>|	starting.txt
 |<A HREF="starting.html#starting.txt">starting.txt</A>|	starting.txt
 |<A HREF="starting.html#startup">startup</A>|	starting.txt
 |<A HREF="starting.html#startup-options">startup-options</A>|	starting.txt
@@ -7908,6 +7908,7 @@
 |<A HREF="syntax.html#tex-slow">tex-slow</A>|	syntax.txt
 |<A HREF="syntax.html#tex-stopzone">tex-stopzone</A>|	syntax.txt
 |<A HREF="syntax.html#tex-style">tex-style</A>|	syntax.txt
+|<A HREF="syntax.html#tex-supersub">tex-supersub</A>|	syntax.txt
 |<A HREF="syntax.html#tex-sync">tex-sync</A>|	syntax.txt
 |<A HREF="syntax.html#tex-verb">tex-verb</A>|	syntax.txt
 |<A HREF="syntax.html#tex.vim">tex.vim</A>|	syntax.txt
@@ -8343,7 +8344,6 @@
 |<A HREF="motion.html#word">word</A>|	motion.txt
 |<A HREF="editing.html#word-count">word-count</A>|	editing.txt
 |<A HREF="motion.html#word-motions">word-motions</A>|	motion.txt
-|<A HREF="starting.html#workbench">workbench</A>|	starting.txt
 |<A HREF="intro.html#wrap-off">wrap-off</A>|	intro.txt
 |<A HREF="usr_41.html#write-compiler-plugin">write-compiler-plugin</A>|	usr_41.txt
 |<A HREF="editing.html#write-device">write-device</A>|	editing.txt
@@ -8481,7 +8481,7 @@
 
     <footer>
       <div class="container">
-        Generated Tue Dec  9 15:59:40 UTC 2014 from <a href="https://github.com/fwalch/neovim/commit/c5b9e5d1d317b74d4adf7637cd9081be4ee52722"><code>c5b9e5d</code></a>.
+        Generated Sat Jan 10 18:50:31 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
       </div>
     </footer>
   </body>
