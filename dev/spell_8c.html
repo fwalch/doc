@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -101,6 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &lt;limits.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;wctype.h&gt;</code><br />
@@ -135,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="search_8h_source.html">nvim/search.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="strings_8h_source.html">nvim/strings.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="syntax_8h_source.html">nvim/syntax.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term_8h_source.html">nvim/term.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ui_8h_source.html">nvim/ui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tempfile_8h_source.html">nvim/tempfile.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="undo_8h_source.html">nvim/undo.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="os_8h_source.html">nvim/os/os.h</a>&quot;</code><br />
@@ -194,7 +195,7 @@ Macros</h2></td></tr>
 <tr class="separator:ab70c40eefd996fe477e5b2f1dc8bf83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b484b7f3d5b7b969db2722fc9ae5e77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a3b484b7f3d5b7b969db2722fc9ae5e77">MAXSCORE</a>(word_score, sound_score)&#160;&#160;&#160;((4 * word_score - sound_score) / 3)</td></tr>
 <tr class="separator:a3b484b7f3d5b7b969db2722fc9ae5e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7f0f08f527eec9e62a36d29d99c2c2c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#ac7f0f08f527eec9e62a36d29d99c2c2c">MAXWLEN</a>&#160;&#160;&#160;250</td></tr>
+<tr class="memitem:ac7f0f08f527eec9e62a36d29d99c2c2c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#ac7f0f08f527eec9e62a36d29d99c2c2c">MAXWLEN</a>&#160;&#160;&#160;254</td></tr>
 <tr class="separator:ac7f0f08f527eec9e62a36d29d99c2c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc7779606a4ba79f32c84a2bc27e5678"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#acc7779606a4ba79f32c84a2bc27e5678">SPL_FNAME_TMPL</a>&#160;&#160;&#160;&quot;%s.%s.spl&quot;</td></tr>
 <tr class="separator:acc7779606a4ba79f32c84a2bc27e5678"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -338,10 +339,10 @@ Macros</h2></td></tr>
 <tr class="separator:a83330560ea9defbd0cdd822f7a9092da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cf98794ed374d6fbf31899340a71bff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a7cf98794ed374d6fbf31899340a71bff">SP_BANNED</a>&#160;&#160;&#160;-1</td></tr>
 <tr class="separator:a7cf98794ed374d6fbf31899340a71bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4780b011f21b7c846f9bc175d16362a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a4780b011f21b7c846f9bc175d16362a1">SP_OK</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a4780b011f21b7c846f9bc175d16362a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45ac55bfe27e528bd097e5334b5cf6d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a45ac55bfe27e528bd097e5334b5cf6d4">SP_RARE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a45ac55bfe27e528bd097e5334b5cf6d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a45ac55bfe27e528bd097e5334b5cf6d4">SP_RARE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a45ac55bfe27e528bd097e5334b5cf6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4780b011f21b7c846f9bc175d16362a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a4780b011f21b7c846f9bc175d16362a1">SP_OK</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a4780b011f21b7c846f9bc175d16362a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a642ff4927d0b9eac4d24431441041a86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a642ff4927d0b9eac4d24431441041a86">SP_LOCAL</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a642ff4927d0b9eac4d24431441041a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15e8219070c53d2bafba4e0b992aa19d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a15e8219070c53d2bafba4e0b992aa19d">SP_BAD</a>&#160;&#160;&#160;3</td></tr>
@@ -506,7 +507,7 @@ Macros</h2></td></tr>
 <tr class="separator:a6c20541f27ce661131468d94620eea43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55b8802e8fd9e2cfc8603f5e9ff395a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a55b8802e8fd9e2cfc8603f5e9ff395a5">SPS_DOUBLE</a>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:a55b8802e8fd9e2cfc8603f5e9ff395a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae12d9b3c599bab97a762e46d6628330b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#ae12d9b3c599bab97a762e46d6628330b">FREE_SUG_WORD</a>(sug)&#160;&#160;&#160;free(sug-&gt;st_word)</td></tr>
+<tr class="memitem:ae12d9b3c599bab97a762e46d6628330b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#ae12d9b3c599bab97a762e46d6628330b">FREE_SUG_WORD</a>(sug)&#160;&#160;&#160;<a class="el" href="memory_8c.html#a976e14808b9247ec952c262553f09f8f">xfree</a>(sug-&gt;st_word)</td></tr>
 <tr class="separator:ae12d9b3c599bab97a762e46d6628330b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afab9c9dbe7ecf86448a7994b8e1d79ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#afab9c9dbe7ecf86448a7994b8e1d79ba">TRY_DEEPER</a>(su, stack, depth, add)&#160;&#160;&#160;(stack[depth].ts_score + (add) &lt; su-&gt;su_maxscore)</td></tr>
 <tr class="separator:afab9c9dbe7ecf86448a7994b8e1d79ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -599,10 +600,10 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a484bb3a7f9e7205684311867142ca56b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a484bb3a7f9e7205684311867142ca56b">spell_check</a> (<a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *wp, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *ptr, <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60">hlf_T</a> *attrp, int *capcol, bool docount)</td></tr>
-<tr class="separator:a484bb3a7f9e7205684311867142ca56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a408de6530aebccd80f07d086a57ea6f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a408de6530aebccd80f07d086a57ea6f1">spell_move_to</a> (<a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *wp, int dir, bool allwords, bool curline, <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60">hlf_T</a> *attrp)</td></tr>
-<tr class="separator:a408de6530aebccd80f07d086a57ea6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef473696432d30c7ada873bc895d3183"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#aef473696432d30c7ada873bc895d3183">spell_check</a> (<a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *wp, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *ptr, <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60">hlf_T</a> *attrp, int *capcol, bool docount)</td></tr>
+<tr class="separator:aef473696432d30c7ada873bc895d3183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8285be6c168f0976a8ec9d42c78af34"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#aa8285be6c168f0976a8ec9d42c78af34">spell_move_to</a> (<a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *wp, int dir, bool allwords, bool curline, <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60">hlf_T</a> *attrp)</td></tr>
+<tr class="separator:aa8285be6c168f0976a8ec9d42c78af34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a257bd2162bb9a58970de976e3d58b818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a257bd2162bb9a58970de976e3d58b818">spell_cat_line</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *buf, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *line, int maxlen)</td></tr>
 <tr class="separator:a257bd2162bb9a58970de976e3d58b818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35dae3e0cdabfac7a8db4aa803007a67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spell_8c.html#a35dae3e0cdabfac7a8db4aa803007a67">did_set_spelllang</a> (<a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *wp)</td></tr>
@@ -1080,7 +1081,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">sug</td><td>)</td>
-          <td>&#160;&#160;&#160;free(sug-&gt;st_word)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="memory_8c.html#a976e14808b9247ec952c262553f09f8f">xfree</a>(sug-&gt;st_word)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1264,7 +1265,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAXWLEN&#160;&#160;&#160;250</td>
+          <td class="memname">#define MAXWLEN&#160;&#160;&#160;254</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2082,7 +2083,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SP_OK&#160;&#160;&#160;0</td>
+          <td class="memname">#define SP_OK&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2106,7 +2107,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SP_RARE&#160;&#160;&#160;1</td>
+          <td class="memname">#define SP_RARE&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2140,8 +2141,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">(enc_utf8 &amp;&amp; (c) &gt;= 128 ? <a class="code" href="mbyte_8c.html#a1594dcb377a17eb8e95ecd9f9870b48c">utf_isupper</a>(c) \</div>
 <div class="line">                          : (c) &lt; 256 ? spelltab.<a class="code" href="structspelltab__T.html#a03de5a98f96b4f68b7d80c423f434835">st_isu</a>[c] : iswupper(c))</div>
-<div class="ttc" id="structspelltab__T_html_a03de5a98f96b4f68b7d80c423f434835"><div class="ttname"><a href="structspelltab__T.html#a03de5a98f96b4f68b7d80c423f434835">spelltab_T::st_isu</a></div><div class="ttdeci">bool st_isu[256]</div><div class="ttdef"><b>Definition:</b> spell.c:724</div></div>
-<div class="ttc" id="mbyte_8c_html_a1594dcb377a17eb8e95ecd9f9870b48c"><div class="ttname"><a href="mbyte_8c.html#a1594dcb377a17eb8e95ecd9f9870b48c">utf_isupper</a></div><div class="ttdeci">bool utf_isupper(int a)</div><div class="ttdef"><b>Definition:</b> mbyte.c:2736</div></div>
+<div class="ttc" id="structspelltab__T_html_a03de5a98f96b4f68b7d80c423f434835"><div class="ttname"><a href="structspelltab__T.html#a03de5a98f96b4f68b7d80c423f434835">spelltab_T::st_isu</a></div><div class="ttdeci">bool st_isu[256]</div><div class="ttdef"><b>Definition:</b> spell.c:725</div></div>
+<div class="ttc" id="mbyte_8c_html_a1594dcb377a17eb8e95ecd9f9870b48c"><div class="ttname"><a href="mbyte_8c.html#a1594dcb377a17eb8e95ecd9f9870b48c">utf_isupper</a></div><div class="ttdeci">bool utf_isupper(int a)</div><div class="ttdef"><b>Definition:</b> mbyte.c:2722</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2161,8 +2162,8 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">(enc_utf8 &amp;&amp; (c) &gt;= 128 ? <a class="code" href="mbyte_8c.html#ae1a4569df11b81f0d22bec5d04822e46">utf_fold</a>(c) \</div>
 <div class="line">                         : (c) &lt; \</div>
 <div class="line">                         256 ? (<span class="keywordtype">int</span>)spelltab.<a class="code" href="structspelltab__T.html#a4e43e1389c60ec34ebe179a5af312325">st_fold</a>[c] : (int)towlower(c))</div>
-<div class="ttc" id="structspelltab__T_html_a4e43e1389c60ec34ebe179a5af312325"><div class="ttname"><a href="structspelltab__T.html#a4e43e1389c60ec34ebe179a5af312325">spelltab_T::st_fold</a></div><div class="ttdeci">char_u st_fold[256]</div><div class="ttdef"><b>Definition:</b> spell.c:725</div></div>
-<div class="ttc" id="mbyte_8c_html_ae1a4569df11b81f0d22bec5d04822e46"><div class="ttname"><a href="mbyte_8c.html#ae1a4569df11b81f0d22bec5d04822e46">utf_fold</a></div><div class="ttdeci">int utf_fold(int a)</div><div class="ttdef"><b>Definition:</b> mbyte.c:2375</div></div>
+<div class="ttc" id="structspelltab__T_html_a4e43e1389c60ec34ebe179a5af312325"><div class="ttname"><a href="structspelltab__T.html#a4e43e1389c60ec34ebe179a5af312325">spelltab_T::st_fold</a></div><div class="ttdeci">char_u st_fold[256]</div><div class="ttdef"><b>Definition:</b> spell.c:726</div></div>
+<div class="ttc" id="mbyte_8c_html_ae1a4569df11b81f0d22bec5d04822e46"><div class="ttname"><a href="mbyte_8c.html#ae1a4569df11b81f0d22bec5d04822e46">utf_fold</a></div><div class="ttdeci">int utf_fold(int a)</div><div class="ttdef"><b>Definition:</b> mbyte.c:2361</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2182,8 +2183,8 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">(enc_utf8 &amp;&amp; (c) &gt;= 128 ? <a class="code" href="mbyte_8c.html#aa5bfc0abd02ab8160789a8e923ff159f">utf_toupper</a>(c) \</div>
 <div class="line">                          : (c) &lt; \</div>
 <div class="line">                          256 ? (<span class="keywordtype">int</span>)spelltab.<a class="code" href="structspelltab__T.html#a8f03acfb46cc759054a890304d397ce1">st_upper</a>[c] : (int)towupper(c))</div>
-<div class="ttc" id="structspelltab__T_html_a8f03acfb46cc759054a890304d397ce1"><div class="ttname"><a href="structspelltab__T.html#a8f03acfb46cc759054a890304d397ce1">spelltab_T::st_upper</a></div><div class="ttdeci">char_u st_upper[256]</div><div class="ttdef"><b>Definition:</b> spell.c:726</div></div>
-<div class="ttc" id="mbyte_8c_html_aa5bfc0abd02ab8160789a8e923ff159f"><div class="ttname"><a href="mbyte_8c.html#aa5bfc0abd02ab8160789a8e923ff159f">utf_toupper</a></div><div class="ttdeci">int utf_toupper(int a)</div><div class="ttdef"><b>Definition:</b> mbyte.c:2686</div></div>
+<div class="ttc" id="structspelltab__T_html_a8f03acfb46cc759054a890304d397ce1"><div class="ttname"><a href="structspelltab__T.html#a8f03acfb46cc759054a890304d397ce1">spelltab_T::st_upper</a></div><div class="ttdeci">char_u st_upper[256]</div><div class="ttdef"><b>Definition:</b> spell.c:727</div></div>
+<div class="ttc" id="mbyte_8c_html_aa5bfc0abd02ab8160789a8e923ff159f"><div class="ttname"><a href="mbyte_8c.html#aa5bfc0abd02ab8160789a8e923ff159f">utf_toupper</a></div><div class="ttdeci">int utf_toupper(int a)</div><div class="ttdef"><b>Definition:</b> mbyte.c:2672</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3356,12 +3357,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a484bb3a7f9e7205684311867142ca56b"></a>
+<a class="anchor" id="aef473696432d30c7ada873bc895d3183"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int spell_check </td>
+          <td class="memname">size_t spell_check </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *&#160;</td>
           <td class="paramname"><em>wp</em>, </td>
@@ -3518,12 +3519,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a408de6530aebccd80f07d086a57ea6f1"></a>
+<a class="anchor" id="aa8285be6c168f0976a8ec9d42c78af34"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int spell_move_to </td>
+          <td class="memname">size_t spell_move_to </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *&#160;</td>
           <td class="paramname"><em>wp</em>, </td>
@@ -3685,7 +3686,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

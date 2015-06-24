@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -95,6 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="garray_8h_source.html">nvim/garray.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pos_8h_source.html">nvim/pos.h</a>&quot;</code><br />
@@ -112,6 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="syntax__defs_8h_source.html">nvim/syntax_defs.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="sign__defs_8h_source.html">nvim/sign_defs.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="fs__defs_8h_source.html">nvim/os/fs_defs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="terminal_8h_source.html">nvim/terminal.h</a>&quot;</code><br />
 </div>
 <p><a href="buffer__defs_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -171,6 +173,8 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a243b3a8911cf5d795b3dca3553d84a36"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#a243b3a8911cf5d795b3dca3553d84a36">MODIFIABLE</a>(buf)&#160;&#160;&#160;(!buf-&gt;<a class="el" href="structterminal.html">terminal</a> &amp;&amp; buf-&gt;b_p_ma)</td></tr>
+<tr class="separator:a243b3a8911cf5d795b3dca3553d84a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb75a27472dea31e4fdd7c94b342cbcc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#abb75a27472dea31e4fdd7c94b342cbcc">VALID_WROW</a>&#160;&#160;&#160;0x01    /* w_wrow (window row) is valid */</td></tr>
 <tr class="separator:abb75a27472dea31e4fdd7c94b342cbcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0230f9e62e6ae070276bce97f73aca6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#a0230f9e62e6ae070276bce97f73aca6b">VALID_WCOL</a>&#160;&#160;&#160;0x02    /* w_wcol (window col) is valid */</td></tr>
@@ -323,7 +327,7 @@ Macros</h2></td></tr>
 <tr class="separator:a98c2d4ed09fc4ea7bb144a47ba81eb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd6edb0c63ccf8a76d0befef77193e99"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#afd6edb0c63ccf8a76d0befef77193e99">CONV_ICONV</a>&#160;&#160;&#160;5</td></tr>
 <tr class="separator:afd6edb0c63ccf8a76d0befef77193e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8ca6b51b150fd5b5c40b592ec413d68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#ae8ca6b51b150fd5b5c40b592ec413d68">SYNSPL_DEFAULT</a>&#160;&#160;&#160;0       /* spell check <a class="el" href="msgpack__rpc_2helpers_8c.html#a2ed0e4c31f4ded58f96949cfa77b9387">if</a> @Spell not defined */</td></tr>
+<tr class="memitem:ae8ca6b51b150fd5b5c40b592ec413d68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#ae8ca6b51b150fd5b5c40b592ec413d68">SYNSPL_DEFAULT</a>&#160;&#160;&#160;0       /* spell check <a class="el" href="path_8c.html#a64abe55b69a54d152223ce3aa24206a1">if</a> @Spell not defined */</td></tr>
 <tr class="separator:ae8ca6b51b150fd5b5c40b592ec413d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48d61d4bc8d229a18a9debbe3f91d32b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#a48d61d4bc8d229a18a9debbe3f91d32b">SYNSPL_TOP</a>&#160;&#160;&#160;1       /* spell check toplevel text */</td></tr>
 <tr class="separator:a48d61d4bc8d229a18a9debbe3f91d32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -365,6 +369,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:aa01338a8366285f2e0afc18a70f7614f"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structfile__buffer.html">file_buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a></td></tr>
+<tr class="separator:aa01338a8366285f2e0afc18a70f7614f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d63c71f6ff363aaf63acb8c01f18066"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structwindow__S.html">window_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a></td></tr>
 <tr class="separator:a2d63c71f6ff363aaf63acb8c01f18066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670466c75f35028623a877512309ecc9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structwininfo__S.html">wininfo_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#a670466c75f35028623a877512309ecc9">wininfo_T</a></td></tr>
@@ -373,8 +379,6 @@ Typedefs</h2></td></tr>
 <tr class="separator:a0af2abac0014aec3e863b9a60a9b946c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02a5ed8479635618fa379378a5f8d6d5"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#a02a5ed8479635618fa379378a5f8d6d5">scid_T</a></td></tr>
 <tr class="separator:a02a5ed8479635618fa379378a5f8d6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa01338a8366285f2e0afc18a70f7614f"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structfile__buffer.html">file_buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#aa01338a8366285f2e0afc18a70f7614f">buf_T</a></td></tr>
-<tr class="separator:aa01338a8366285f2e0afc18a70f7614f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6ee4a8712febc5ee82e116cf03d505d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structtaggy.html">taggy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#ab6ee4a8712febc5ee82e116cf03d505d">taggy_T</a></td></tr>
 <tr class="separator:ab6ee4a8712febc5ee82e116cf03d505d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a759db03893c912b54eabe18dcb0cfdfb"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structbuffblock.html">buffblock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="buffer__defs_8h.html#a759db03893c912b54eabe18dcb0cfdfb">buffblock_T</a></td></tr>
@@ -847,6 +851,22 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a243b3a8911cf5d795b3dca3553d84a36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MODIFIABLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">buf</td><td>)</td>
+          <td>&#160;&#160;&#160;(!buf-&gt;<a class="el" href="structterminal.html">terminal</a> &amp;&amp; buf-&gt;b_p_ma)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aecd16070b82174cdeb212f286f3ef02d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -888,7 +908,7 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SYNSPL_DEFAULT&#160;&#160;&#160;0       /* spell check <a class="el" href="msgpack__rpc_2helpers_8c.html#a2ed0e4c31f4ded58f96949cfa77b9387">if</a> @Spell not defined */</td>
+          <td class="memname">#define SYNSPL_DEFAULT&#160;&#160;&#160;0       /* spell check <a class="el" href="path_8c.html#a64abe55b69a54d152223ce3aa24206a1">if</a> @Spell not defined */</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1786,7 +1806,7 @@ Typedefs</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:03 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:42 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

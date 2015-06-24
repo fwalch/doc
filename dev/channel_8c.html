@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -99,7 +99,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &lt;uv.h&gt;</code><br />
 <code>#include &lt;msgpack.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="klist_8h_source.html">nvim/lib/klist.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="api_2private_2helpers_8h_source.html">nvim/api/private/helpers.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="api_2vim_8h_source.html">nvim/api/vim.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="channel_8h_source.html">nvim/msgpack_rpc/channel.h</a>&quot;</code><br />
@@ -117,7 +116,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="memory_8h_source.html">nvim/memory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="os__unix_8h_source.html">nvim/os_unix.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="message_8h_source.html">nvim/message.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term_8h_source.html">nvim/term.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="map_8h_source.html">nvim/map.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="log_8h_source.html">nvim/log.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="misc1_8h_source.html">nvim/misc1.h</a>&quot;</code><br />
@@ -131,15 +129,11 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRequestEvent.html">RequestEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDelayedNotification.html">DelayedNotification</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af29b65459670533eee2cfe975af7e114"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#af29b65459670533eee2cfe975af7e114">CHANNEL_BUFFER_SIZE</a>&#160;&#160;&#160;0xffff</td></tr>
 <tr class="separator:af29b65459670533eee2cfe975af7e114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c4d1b67a82e90a542f977f38eb3b77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#a42c4d1b67a82e90a542f977f38eb3b77">_noop</a>(x)</td></tr>
-<tr class="separator:a42c4d1b67a82e90a542f977f38eb3b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae24ba935f9a0dfd36edd0603b66feed2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#ae24ba935f9a0dfd36edd0603b66feed2">REQ</a>&#160;&#160;&#160;&quot;[request]      &quot;</td></tr>
 <tr class="separator:ae24ba935f9a0dfd36edd0603b66feed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65b26605d90a0bcd0e13e05db54f551f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#a65b26605d90a0bcd0e13e05db54f551f">RES</a>&#160;&#160;&#160;&quot;[response]     &quot;</td></tr>
@@ -156,8 +150,6 @@ Functions</h2></td></tr>
 <tr class="separator:ac7a37bb8167e08516ccbc4d6eb6f74af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00dd5b0e6861104502d841a702e67a07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#a00dd5b0e6861104502d841a702e67a07">channel_from_stream</a> (uv_stream_t *stream)</td></tr>
 <tr class="separator:a00dd5b0e6861104502d841a702e67a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75704490a1fdab46744415f59d12cebd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#a75704490a1fdab46744415f59d12cebd">channel_exists</a> (uint64_t id)</td></tr>
-<tr class="separator:a75704490a1fdab46744415f59d12cebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8029885e6949c6b3994f1f0a536ff5f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#ad8029885e6949c6b3994f1f0a536ff5f">channel_send_event</a> (uint64_t id, char *<a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <a class="el" href="structArray.html">Array</a> args)</td></tr>
 <tr class="separator:ad8029885e6949c6b3994f1f0a536ff5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5d758ca9c0b90dab1104434afc716c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_2private_2defs_8h.html#ac1d573b78381906e7299e87cab9152bc">Object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="channel_8c.html#ad5d758ca9c0b90dab1104434afc716c5">channel_send_call</a> (uint64_t id, char *method_name, <a class="el" href="structArray.html">Array</a> args, <a class="el" href="structError.html">Error</a> *err)</td></tr>
@@ -170,22 +162,6 @@ Functions</h2></td></tr>
 <tr class="separator:ab3cb01b6837b0013820053e2ae45c0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a42c4d1b67a82e90a542f977f38eb3b77"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _noop</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="af29b65459670533eee2cfe975af7e114"></a>
 <div class="memitem">
 <div class="memproto">
@@ -259,22 +235,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a75704490a1fdab46744415f59d12cebd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool channel_exists </td>
-          <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ac7a37bb8167e08516ccbc4d6eb6f74af"></a>
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +255,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The channel id </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The channel id (&gt; 0), on success. 0, on error. </dd></dl>
 
 </div>
 </div>
@@ -504,7 +464,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

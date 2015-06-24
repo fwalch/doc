@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -95,7 +95,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">fileio.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;errno.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="assert_8h_source.html">assert.h</a>&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;inttypes.h&gt;</code><br />
@@ -112,6 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="ex__docmd_8h_source.html">nvim/ex_docmd.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ex__eval_8h_source.html">nvim/ex_eval.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="fold_8h_source.html">nvim/fold.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="func__attr_8h_source.html">nvim/func_attr.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="getchar_8h_source.html">nvim/getchar.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hashtab_8h_source.html">nvim/hashtab.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="iconv_8h_source.html">nvim/iconv.h</a>&quot;</code><br />
@@ -135,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="sha256_8h_source.html">nvim/sha256.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="strings_8h_source.html">nvim/strings.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tempfile_8h_source.html">nvim/tempfile.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term_8h_source.html">nvim/term.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ui_8h_source.html">nvim/ui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="types_8h_source.html">nvim/types.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="undo_8h_source.html">nvim/undo.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="window_8h_source.html">nvim/window.h</a>&quot;</code><br />
@@ -226,8 +228,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae5d954144e0ed7fd8e7c0b43e0b68513"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50aa66a2d73710f4913f311a7add64d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a50aa66a2d73710f4913f311a7add64d7">shorten_fnames</a> (int force)</td></tr>
 <tr class="separator:a50aa66a2d73710f4913f311a7add64d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac79f705198b1f5212fd7f7bba16b852"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#aac79f705198b1f5212fd7f7bba16b852">modname</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *fname, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *ext, int prepend_dot)</td></tr>
-<tr class="separator:aac79f705198b1f5212fd7f7bba16b852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae853c2a054f16795681351d03db63774"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#ae853c2a054f16795681351d03db63774">modname</a> (const char *fname, const char *ext, bool prepend_dot) <a class="el" href="func__attr_8h.html#a7659a7cb26eea6eba1665046d4ae17fe">FUNC_ATTR_NONNULL_ARG</a>(2)</td></tr>
+<tr class="separator:ae853c2a054f16795681351d03db63774"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5db19ca608e2af8356b6808c8e355bbb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a5db19ca608e2af8356b6808c8e355bbb">vim_fgets</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *buf, int size, FILE *fp)</td></tr>
 <tr class="separator:a5db19ca608e2af8356b6808c8e355bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bc0ace50d9cb272c0ed6810a74b2d0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a0bc0ace50d9cb272c0ed6810a74b2d0d">vim_rename</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *from, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *to)</td></tr>
@@ -286,8 +288,6 @@ Functions</h2></td></tr>
 <tr class="separator:a30540f10c02cbde7ccb16628093dd632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7255028a68482ab93f9f3fd049f129e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#aa7255028a68482ab93f9f3fd049f129e">has_cmdundefined</a> (void)</td></tr>
 <tr class="separator:aa7255028a68482ab93f9f3fd049f129e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a153652c795f503093c40bba4bf400eb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a153652c795f503093c40bba4bf400eb4">has_funcundefined</a> (void)</td></tr>
-<tr class="separator:a153652c795f503093c40bba4bf400eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72d96ea10a9b77765cf2f19cdc82a12a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a72d96ea10a9b77765cf2f19cdc82a12a">block_autocmds</a> (void)</td></tr>
 <tr class="separator:a72d96ea10a9b77765cf2f19cdc82a12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e2dd688ce595d92b43473059d292768"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a2e2dd688ce595d92b43473059d292768">unblock_autocmds</a> (void)</td></tr>
@@ -306,8 +306,6 @@ Functions</h2></td></tr>
 <tr class="separator:a6448e38b95d6b59616461b8174aab200"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65a95d4a783cdf2b22622ea6b3b1f6f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a65a95d4a783cdf2b22622ea6b3b1f6f5">au_exists</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *arg)</td></tr>
 <tr class="separator:a65a95d4a783cdf2b22622ea6b3b1f6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4586ebb572db8057d6948a79a2e516b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a4586ebb572db8057d6948a79a2e516b1">match_file_pat</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *pattern, <a class="el" href="regexp__defs_8h.html#ad2004f5a765a7430c085bb8807790ee2">regprog_T</a> *prog, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *fname, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *sfname, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *tail, int allow_dirs)</td></tr>
-<tr class="separator:a4586ebb572db8057d6948a79a2e516b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3602af7edabfec4256655718ba789d1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a3602af7edabfec4256655718ba789d1e">match_file_list</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *list, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *sfname, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *ffname)</td></tr>
 <tr class="separator:a3602af7edabfec4256655718ba789d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fe9fe3d5e1b2dc3f9bda333c340e4a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileio_8c.html#a7fe9fe3d5e1b2dc3f9bda333c340e4a7">file_pat_to_reg_pat</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *pat, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *pat_end, char *allow_dirs, int no_bslash)</td></tr>
@@ -1383,23 +1381,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a153652c795f503093c40bba4bf400eb4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int has_funcundefined </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true when there is an FuncUndefined autocommand defined. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a30540f10c02cbde7ccb16628093dd632"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1480,76 +1461,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4586ebb572db8057d6948a79a2e516b1"></a>
+<a class="anchor" id="ae853c2a054f16795681351d03db63774"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int match_file_pat </td>
+          <td class="memname">char* modname </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
-          <td class="paramname"><em>pattern</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="regexp__defs_8h.html#ad2004f5a765a7430c085bb8807790ee2">regprog_T</a> *&#160;</td>
-          <td class="paramname"><em>prog</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>fname</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
-          <td class="paramname"><em>sfname</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
-          <td class="paramname"><em>tail</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>allow_dirs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aac79f705198b1f5212fd7f7bba16b852"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a>* modname </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
-          <td class="paramname"><em>fname</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>ext</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>prepend_dot</em>&#160;</td>
         </tr>
         <tr>
@@ -1559,6 +1490,26 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get new filename ended by given extension.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>The original filename. If NULL, use current directory name and ext to compute new filename. </td></tr>
+    <tr><td class="paramname">ext</td><td>The extension to add to the filename. 4 chars max if prefixed with a dot, 3 otherwise. </td></tr>
+    <tr><td class="paramname">prepend_dot</td><td>If true, prefix ext with a dot. Does nothing if ext already starts with a dot, or if fname is NULL.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>[allocated] - A new filename, made up from:<ul>
+<li>fname + ext, if fname not NULL.</li>
+<li>current dir + ext, if fname is NULL. On Windows, and if ext starts with ".", a "_" is preprended to ext (for filename to be valid). Result is guaranteed to:</li>
+<li>be ended by &lt;ext&gt;.</li>
+<li>have a basename with at most BASENAMELEN chars: original basename is truncated if necessary.</li>
+<li>be different than original: basename chars are replaced by "_" if necessary. If that can't be done because truncated value of original filename was made of all underscores, replace first "_" by "v".</li>
+</ul>
+</dd></dl>
+<ul>
+<li>NULL, if fname is NULL and there was a problem trying to get current directory. </li>
+</ul>
 
 </div>
 </div>
@@ -1903,7 +1854,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:42 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

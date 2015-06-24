@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -164,6 +164,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>handle_set_wstream()
 : <a class="el" href="uv__helpers_8c.html#a9afe44aaecb74f283003f665911c660a">uv_helpers.c</a>
 </li>
+<li>handle_swap_exists()
+: <a class="el" href="buffer_8c.html#acfcc98ff362688515e452810ddf0144d">buffer.c</a>
+</li>
 <li>HANDLE_TYPE_CONVERSION_IMPL
 : <a class="el" href="msgpack__rpc_2helpers_8c.html#ad8516afee6157432db7953b392b715aa">helpers.c</a>
 </li>
@@ -191,9 +194,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>has_format_option()
 : <a class="el" href="option_8c.html#a4fa9a34b7d06031a231e9e7f73ff0ad3">option.c</a>
 </li>
-<li>has_funcundefined()
-: <a class="el" href="fileio_8c.html#a153652c795f503093c40bba4bf400eb4">fileio.c</a>
-</li>
 <li>HAS_HOTKEY_LEN
 : <a class="el" href="message_8c.html#a0ad819454387af187e41ca6545e05946">message.c</a>
 </li>
@@ -211,9 +211,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>has_profiling()
 : <a class="el" href="ex__cmds2_8c.html#ac8bc71017a79c3c00f9631a63f251555">ex_cmds2.c</a>
-</li>
-<li>HAS_SWAP_EXISTS_ACTION
-: <a class="el" href="globals_8h.html#a434b3b75d105c3608083f5c25335001d">globals.h</a>
 </li>
 <li>has_textchanged()
 : <a class="el" href="fileio_8c.html#a50213829a48311931176ced04abe0f6a">fileio.c</a>
@@ -293,14 +290,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>HAVE_ACL
 : <a class="el" href="os__unix__defs_8h.html#a6e99bbc6eb8f6c240cee333475ff1075">os_unix_defs.h</a>
 </li>
-<li>HAVE_BUFLIST_MATCH
-: <a class="el" href="buffer_8c.html#a36638dc0918f744bf2aa73ebad7a5308">buffer.c</a>
-</li>
 <li>HAVE_DUP
 : <a class="el" href="os__unix__defs_8h.html#a1b56a762290412383bb3793de48da434">os_unix_defs.h</a>
-</li>
-<li>HAVE_SANDBOX
-: <a class="el" href="globals_8h.html#a5eb4ad50b4f6f3786841977feb01ada1">globals.h</a>
 </li>
 <li>HE_J
 : <a class="el" href="farsi_8h.html#a52ef3f5cbb930aaf1ec448a8003efe75">farsi.h</a>
@@ -349,12 +340,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>HI_KEY_REMOVED
 : <a class="el" href="hashtab_8h.html#aa7b771a5887a558072e5fe1e9a73baba">hashtab.h</a>
-</li>
-<li>highest_patch()
-: <a class="el" href="version_8c.html#a744d1f9c524ff7ac54d80cf450f0bb52">version.c</a>
-</li>
-<li>HIGHL_COST
-: <a class="el" href="screen_8c.html#ae3aee8722006b26ea0180262418e5757">screen.c</a>
 </li>
 <li>highlight_attr
 : <a class="el" href="globals_8h.html#ac7732bec98810c862faa164caa080a8b">globals.h</a>
@@ -418,9 +403,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>hkmap()
 : <a class="el" href="edit_8c.html#a2ea90495e960df70fe752c8a613dd9d0">edit.c</a>
-</li>
-<li>HL_ALL
-: <a class="el" href="syntax_8h.html#a0603ab942dcc34970008ca52fd3c767d">syntax.h</a>
 </li>
 <li>hl_attr
 : <a class="el" href="vim_8h.html#a6acdd6f258567b79da889e4c6ab0e067">vim.h</a>
@@ -554,6 +536,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>HLF_E
 : <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60af020795535ec4b31fb1605eb8f457bbd">globals.h</a>
 </li>
+<li>HLF_EOB
+: <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60a1a4a1564a0e360c781c6e062731a13cb">globals.h</a>
+</li>
 <li>HLF_FC
 : <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60a2e17b7b736bb0c6d6f5711f6e22797ee">globals.h</a>
 </li>
@@ -611,11 +596,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>HLF_SPR
 : <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60abf2668117e7a02dbe56105916781c765">globals.h</a>
 </li>
+<li>HLF_T
+: <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60a4fb58f8b9953765c810c24f81eff37f0">globals.h</a>
+</li>
 <li>hlf_T
 : <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60">globals.h</a>
 </li>
-<li>HLF_T
-: <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60a4fb58f8b9953765c810c24f81eff37f0">globals.h</a>
+<li>HLF_TERM
+: <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60ab2f3c63e5a55dd1bfedf594de12f9520">globals.h</a>
+</li>
+<li>HLF_TERMNC
+: <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60a554142cb3d5488d68a4a3349f28c3891">globals.h</a>
 </li>
 <li>HLF_TP
 : <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60a4281c8f4ab225b333b1908954088cb73">globals.h</a>
@@ -641,29 +632,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>HLF_WM
 : <a class="el" href="globals_8h.html#af67ce53b835b6cd1005e9a7a0ffcfc60ab1029e84742e175c9710ce85562fc5a6">globals.h</a>
 </li>
-<li>HMT_DEC
-: <a class="el" href="term_8c.html#afaebaa47fac9e316a7a3c1921ec3353d">term.c</a>
-</li>
-<li>HMT_NETTERM
-: <a class="el" href="term_8c.html#a88bcc99d8f0583650c7008ab6d019238">term.c</a>
-</li>
-<li>HMT_NORMAL
-: <a class="el" href="term_8c.html#abe9e44fa446dc1a343489e78723d7b35">term.c</a>
-</li>
-<li>HMT_PTERM
-: <a class="el" href="term_8c.html#a46d34c2fbaddb191c3e94e037850e3be">term.c</a>
-</li>
-<li>HMT_SGR
-: <a class="el" href="term_8c.html#aeda20a77ff58817da977938a4387ddf3">term.c</a>
-</li>
-<li>HMT_URXVT
-: <a class="el" href="term_8c.html#adbf5f51a2d1dccd19b322d96b5721ad9">term.c</a>
-</li>
 <li>home_replace()
-: <a class="el" href="misc1_8c.html#ab7f12f206c15cee62718c8ca7fa40695">misc1.c</a>
+: <a class="el" href="env_8c.html#a7983ea1a4f661527f9a3149b33fa0bec">env.c</a>
 </li>
 <li>home_replace_save()
-: <a class="el" href="misc1_8c.html#a68f47832f215f5684376e9ec557c6778">misc1.c</a>
+: <a class="el" href="env_8c.html#a68f47832f215f5684376e9ec557c6778">env.c</a>
 </li>
 <li>HOTK_LEN
 : <a class="el" href="message_8c.html#a056803a14e4032e4f7031c2e0bda3417">message.c</a>
@@ -677,7 +650,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

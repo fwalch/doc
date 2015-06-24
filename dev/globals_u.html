@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -161,7 +161,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="undo_8c.html#a220c50aa35ab0d34139bcee216a294ed">undo.c</a>
 </li>
 <li>u_read_undo()
-: <a class="el" href="undo_8c.html#a54babaa7995628ce57db7b69cf094194">undo.c</a>
+: <a class="el" href="undo_8c.html#ae7015e98c80d147705e3d655963c8e25">undo.c</a>
 </li>
 <li>u_redo()
 : <a class="el" href="undo_8c.html#a42170edb91815bead0e4cc31363505f0">undo.c</a>
@@ -268,8 +268,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>UI
 : <a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">ui.h</a>
 </li>
+<li>ui_active()
+: <a class="el" href="ui_8c.html#a818616b62e1dccfa58e0df4b52135fbd">ui.c</a>
+</li>
+<li>ui_append_lines()
+: <a class="el" href="ui_8c.html#ac786ab5c84cc69e789f397953263ab92">ui.c</a>
+</li>
 <li>ui_attach()
 : <a class="el" href="ui_8c.html#ae3b3e05631fa92acfaa4acd8882b9b1c">ui.c</a>
+</li>
+<li>ui_builtin_start()
+: <a class="el" href="ui_8c.html#a9e78fcfd5a8d125efdb25abe1ba5dd0a">ui.c</a>
+</li>
+<li>ui_builtin_stop()
+: <a class="el" href="ui_8c.html#a5dc18a143efb0500b3cba94a03389a05">ui.c</a>
+</li>
+<li>ui_busy_start()
+: <a class="el" href="ui_8c.html#a25cfd68deb2dbfed27e946e560a92727">ui.c</a>
+</li>
+<li>ui_busy_stop()
+: <a class="el" href="ui_8c.html#a7697bd32546b9386a85cfc0315954936">ui.c</a>
 </li>
 <li>UI_CALL
 : <a class="el" href="ui_8c.html#ac08cc8816bc977390ba485f59861733e">ui.c</a>
@@ -286,23 +304,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>UI_CALL_ZERO
 : <a class="el" href="ui_8c.html#aa3e746f60a673a808bdf7f0e446e220b">ui.c</a>
 </li>
-<li>ui_change_mode()
-: <a class="el" href="ui_8c.html#a20d485202579a8c112acaa236c6ed646">ui.c</a>
+<li>ui_clear()
+: <a class="el" href="ui_8c.html#a1acba8dd875b196c56fd81343bd7268c">ui.c</a>
 </li>
-<li>ui_cursor_off()
-: <a class="el" href="ui_8c.html#a5ed154d5997f15063e3b95e04003f497">ui.c</a>
+<li>ui_current_col()
+: <a class="el" href="ui_8c.html#a0e6f1877d52da56da7707342f94036b3">ui.c</a>
 </li>
-<li>ui_cursor_on()
-: <a class="el" href="ui_8c.html#a8fc8b41e9997eb450fd5bf1899709c01">ui.c</a>
+<li>ui_current_row()
+: <a class="el" href="ui_8c.html#a9b3b190bc2d1ec976372de8b4487740d">ui.c</a>
+</li>
+<li>ui_cursor_goto()
+: <a class="el" href="ui_8c.html#aee9672cdfdce7623ad5d5103e7a213f6">ui.c</a>
 </li>
 <li>ui_cursor_shape()
 : <a class="el" href="ui_8c.html#a41b873756600e1ece04e298bdd3f017d">ui.c</a>
 </li>
+<li>ui_delete_lines()
+: <a class="el" href="ui_8c.html#a5c163d006a3db6da7f047e22f6df5cb9">ui.c</a>
+</li>
 <li>ui_detach()
 : <a class="el" href="ui_8c.html#a92c569d2c95ed8c5370a00db3bcb8da0">ui.c</a>
 </li>
-<li>ui_get_shellsize()
-: <a class="el" href="ui_8c.html#a2d57b4de897ae973445496d8d3cc212d">ui.c</a>
+<li>ui_eol_clear()
+: <a class="el" href="ui_8c.html#a0751e4aa9faf69e830139d12ca5ba148">ui.c</a>
+</li>
+<li>ui_flush()
+: <a class="el" href="ui_8c.html#affbc2d225788d4e370c9f95b891ccdcc">ui.c</a>
 </li>
 <li>ui_mouse_off()
 : <a class="el" href="ui_8c.html#a4763d0ae7bab59380b8c72a0fbe45def">ui.c</a>
@@ -310,14 +337,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>ui_mouse_on()
 : <a class="el" href="ui_8c.html#a67ac7e4ccd5e98385e6ca2921ad58130">ui.c</a>
 </li>
+<li>ui_putc()
+: <a class="el" href="ui_8c.html#ac51e6c6210b6c99e937be3b64be0e3e4">ui.c</a>
+</li>
+<li>ui_puts()
+: <a class="el" href="ui_8c.html#aa942b6abc0c611fe979db36763a8de03">ui.c</a>
+</li>
+<li>ui_refresh()
+: <a class="el" href="ui_8c.html#a490ef24341463347d93ff0da36b17180">ui.c</a>
+</li>
+<li>ui_reset_scroll_region()
+: <a class="el" href="ui_8c.html#a3fde88db0ffaada46f21b20b5caeeb5a">ui.c</a>
+</li>
 <li>ui_resize()
-: <a class="el" href="ui_8c.html#ae56bbbdbe1eb52e121b68db01d93b7a1">ui.c</a>
+: <a class="el" href="ui_8c.html#a057f0957ee6a7fd5c6fabf166211c711">ui.c</a>
+</li>
+<li>ui_rgb_attached()
+: <a class="el" href="ui_8c.html#a3a4ae804b25fcb49b68590bf1a1138e4">ui.c</a>
+</li>
+<li>ui_set_icon()
+: <a class="el" href="ui_8c.html#a058f2bc9bf66235d3b7d715cdaaaab48">ui.c</a>
+</li>
+<li>ui_set_scroll_region()
+: <a class="el" href="ui_8c.html#a525dc9f8a5a09b1fd488b46b26329261">ui.c</a>
+</li>
+<li>ui_set_title()
+: <a class="el" href="ui_8c.html#a82e13ae09f987e6958682f0a3ff51523">ui.c</a>
+</li>
+<li>ui_start_highlight()
+: <a class="el" href="ui_8c.html#a6372d288bd283c6ed9a2d908a21b7f55">ui.c</a>
+</li>
+<li>ui_stop_highlight()
+: <a class="el" href="ui_8c.html#abb7018339714d628f348aba7ecda5462">ui.c</a>
 </li>
 <li>ui_suspend()
 : <a class="el" href="ui_8c.html#a7294fbe8b093c6769ee1fa54cf814cf4">ui.c</a>
 </li>
-<li>ui_write()
-: <a class="el" href="ui_8c.html#a2251f60e6a6f802d02b22fd8c7837930">ui.c</a>
+<li>ui_visual_bell()
+: <a class="el" href="ui_8c.html#a771a58a8f911b94e38084c7233d34eec">ui.c</a>
 </li>
 <li>uint32_t_eq
 : <a class="el" href="map_8c.html#a68518d3a76fafb4452e24a0408fdc676">map.c</a>
@@ -415,39 +472,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>URL_SLASH
 : <a class="el" href="path_8c.html#aa8157b6eae49b3baa2fee4a65289ffff">path.c</a>
 </li>
-<li>USE_NL
-: <a class="el" href="screen_8c.html#a4d08020c9cec787618f07432925cc21c">screen.c</a>
-</li>
-<li>USE_REDRAW
-: <a class="el" href="screen_8c.html#a8240184fbd74b9b3b253f1afad98a4aa">screen.c</a>
-</li>
-<li>USE_T_AL
-: <a class="el" href="screen_8c.html#a9d7fa83b274cfb8ae84d6966b16b2985">screen.c</a>
-</li>
-<li>USE_T_CAL
-: <a class="el" href="screen_8c.html#a16fe560a3972257944ffe3d5d363f302">screen.c</a>
-</li>
-<li>USE_T_CD
-: <a class="el" href="screen_8c.html#ab489ef4f3b5818c2957f0738a0dc3201">screen.c</a>
-</li>
-<li>USE_T_CDL
-: <a class="el" href="screen_8c.html#a95b3af3ea3f9c1b169273c11df5ac784">screen.c</a>
-</li>
-<li>USE_T_CE
-: <a class="el" href="screen_8c.html#a3622fd6943badee97f4c67291e95cb73">screen.c</a>
-</li>
-<li>USE_T_DL
-: <a class="el" href="screen_8c.html#a4be85bd732f7689779063cc25f23bfc9">screen.c</a>
-</li>
-<li>USE_T_SR
-: <a class="el" href="screen_8c.html#acdf96bafa909801db4f22413d94e401e">screen.c</a>
-</li>
-<li>use_xterm_like_mouse()
-: <a class="el" href="os__unix_8c.html#a759cf7f71e886c052815514a8b8629f1">os_unix.c</a>
-</li>
-<li>use_xterm_mouse()
-: <a class="el" href="os__unix_8c.html#a201515cfaf386c64b7634e5d7e6f596b">os_unix.c</a>
-</li>
 <li>USECTRLV
 : <a class="el" href="ex__cmds__defs_8h.html#a96c125873bb54cba54a97e45225f2c33">ex_cmds_defs.h</a>
 </li>
@@ -460,20 +484,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>user_expand_func_T
 : <a class="el" href="ex__getln_8c.html#af9a9d0eab68c196c343574948d16294f">ex_getln.c</a>
 </li>
-<li>USER_HIGHLIGHT
-: <a class="el" href="globals_8h.html#ac5981f5603950c3594f59391d695e18d">globals.h</a>
-</li>
 <li>using_script()
 : <a class="el" href="getchar_8c.html#ab29ff5db05498fa455d5b86e5688fd33">getchar.c</a>
 </li>
 <li>USR_EXRC_FILE
 : <a class="el" href="os__unix__defs_8h.html#a64e667bc5e5a33c1a86279e728a36ad0">os_unix_defs.h</a>
-</li>
-<li>USR_GVIMRC_FILE
-: <a class="el" href="os__unix__defs_8h.html#afc386dc386fbd5759fa845e5778c69c4">os_unix_defs.h</a>
-</li>
-<li>USR_GVIMRC_FILE2
-: <a class="el" href="os__unix__defs_8h.html#a9a6295ae80c10d15bf147bda113a95ee">os_unix_defs.h</a>
 </li>
 <li>USR_LOG_FILE
 : <a class="el" href="log_8c.html#a90af61c26b8d36298079ffac691d1c27">log.c</a>
@@ -568,7 +583,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

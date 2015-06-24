@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -97,6 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="vim_8h_source.html">nvim/vim.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ui_8h_source.html">nvim/ui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="charset_8h_source.html">nvim/charset.h</a>&quot;</code><br />
@@ -115,13 +116,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="normal_8h_source.html">nvim/normal.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="option_8h_source.html">nvim/option.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="os__unix_8h_source.html">nvim/os_unix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="event_8h_source.html">nvim/os/event.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="time_8h_source.html">nvim/os/time.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="input_8h_source.html">nvim/os/input.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="signal_8h_source.html">nvim/os/signal.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="screen_8h_source.html">nvim/screen.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="syntax_8h_source.html">nvim/syntax.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term_8h_source.html">nvim/term.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="window_8h_source.html">nvim/window.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tui_8h_source.html">nvim/tui/tui.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -137,37 +139,75 @@ Macros</h2></td></tr>
 <tr class="separator:a71a64ffa8412d76fc5bebc726b289b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b9c1fb338518ef4ca57e2d87f1d1b9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a9b9c1fb338518ef4ca57e2d87f1d1b9f">UI_CALL_HELPER2</a>(c,...)&#160;&#160;&#160;UI_CALL_##c(__VA_ARGS__)</td></tr>
 <tr class="separator:a9b9c1fb338518ef4ca57e2d87f1d1b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad593e7cd1d05732c5346e4ece485fca1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#ad593e7cd1d05732c5346e4ece485fca1">UI_CALL_MORE</a>(method,...)&#160;&#160;&#160;ui-&gt;method(ui, __VA_ARGS__)</td></tr>
+<tr class="memitem:ad593e7cd1d05732c5346e4ece485fca1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#ad593e7cd1d05732c5346e4ece485fca1">UI_CALL_MORE</a>(method,...)&#160;&#160;&#160;<a class="el" href="path_8c.html#a64abe55b69a54d152223ce3aa24206a1">if</a> (ui-&gt;method) ui-&gt;method(ui, __VA_ARGS__)</td></tr>
 <tr class="separator:ad593e7cd1d05732c5346e4ece485fca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3e746f60a673a808bdf7f0e446e220b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#aa3e746f60a673a808bdf7f0e446e220b">UI_CALL_ZERO</a>(method)&#160;&#160;&#160;ui-&gt;method(ui)</td></tr>
+<tr class="memitem:aa3e746f60a673a808bdf7f0e446e220b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#aa3e746f60a673a808bdf7f0e446e220b">UI_CALL_ZERO</a>(method)&#160;&#160;&#160;<a class="el" href="path_8c.html#a64abe55b69a54d152223ce3aa24206a1">if</a> (ui-&gt;method) ui-&gt;method(ui)</td></tr>
 <tr class="separator:aa3e746f60a673a808bdf7f0e446e220b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2251f60e6a6f802d02b22fd8c7837930"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a2251f60e6a6f802d02b22fd8c7837930">ui_write</a> (uint8_t *s, int len)</td></tr>
-<tr class="separator:a2251f60e6a6f802d02b22fd8c7837930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e78fcfd5a8d125efdb25abe1ba5dd0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a9e78fcfd5a8d125efdb25abe1ba5dd0a">ui_builtin_start</a> (void)</td></tr>
+<tr class="separator:a9e78fcfd5a8d125efdb25abe1ba5dd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc18a143efb0500b3cba94a03389a05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a5dc18a143efb0500b3cba94a03389a05">ui_builtin_stop</a> (void)</td></tr>
+<tr class="separator:a5dc18a143efb0500b3cba94a03389a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a4ae804b25fcb49b68590bf1a1138e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a3a4ae804b25fcb49b68590bf1a1138e4">ui_rgb_attached</a> (void)</td></tr>
+<tr class="separator:a3a4ae804b25fcb49b68590bf1a1138e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818616b62e1dccfa58e0df4b52135fbd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a818616b62e1dccfa58e0df4b52135fbd">ui_active</a> (void)</td></tr>
+<tr class="separator:a818616b62e1dccfa58e0df4b52135fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7294fbe8b093c6769ee1fa54cf814cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a7294fbe8b093c6769ee1fa54cf814cf4">ui_suspend</a> (void)</td></tr>
 <tr class="separator:a7294fbe8b093c6769ee1fa54cf814cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d57b4de897ae973445496d8d3cc212d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a2d57b4de897ae973445496d8d3cc212d">ui_get_shellsize</a> (void)</td></tr>
-<tr class="separator:a2d57b4de897ae973445496d8d3cc212d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82e13ae09f987e6958682f0a3ff51523"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a82e13ae09f987e6958682f0a3ff51523">ui_set_title</a> (char *title)</td></tr>
+<tr class="separator:a82e13ae09f987e6958682f0a3ff51523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058f2bc9bf66235d3b7d715cdaaaab48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a058f2bc9bf66235d3b7d715cdaaaab48">ui_set_icon</a> (char *icon)</td></tr>
+<tr class="separator:a058f2bc9bf66235d3b7d715cdaaaab48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41b873756600e1ece04e298bdd3f017d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a41b873756600e1ece04e298bdd3f017d">ui_cursor_shape</a> (void)</td></tr>
 <tr class="separator:a41b873756600e1ece04e298bdd3f017d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae56bbbdbe1eb52e121b68db01d93b7a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#ae56bbbdbe1eb52e121b68db01d93b7a1">ui_resize</a> (int width, int height)</td></tr>
-<tr class="separator:ae56bbbdbe1eb52e121b68db01d93b7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fc8b41e9997eb450fd5bf1899709c01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a8fc8b41e9997eb450fd5bf1899709c01">ui_cursor_on</a> (void)</td></tr>
-<tr class="separator:a8fc8b41e9997eb450fd5bf1899709c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ed154d5997f15063e3b95e04003f497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a5ed154d5997f15063e3b95e04003f497">ui_cursor_off</a> (void)</td></tr>
-<tr class="separator:a5ed154d5997f15063e3b95e04003f497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a490ef24341463347d93ff0da36b17180"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a490ef24341463347d93ff0da36b17180">ui_refresh</a> (void)</td></tr>
+<tr class="separator:a490ef24341463347d93ff0da36b17180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a057f0957ee6a7fd5c6fabf166211c711"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a057f0957ee6a7fd5c6fabf166211c711">ui_resize</a> (int new_width, int new_height)</td></tr>
+<tr class="separator:a057f0957ee6a7fd5c6fabf166211c711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25cfd68deb2dbfed27e946e560a92727"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a25cfd68deb2dbfed27e946e560a92727">ui_busy_start</a> (void)</td></tr>
+<tr class="separator:a25cfd68deb2dbfed27e946e560a92727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7697bd32546b9386a85cfc0315954936"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a7697bd32546b9386a85cfc0315954936">ui_busy_stop</a> (void)</td></tr>
+<tr class="separator:a7697bd32546b9386a85cfc0315954936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67ac7e4ccd5e98385e6ca2921ad58130"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a67ac7e4ccd5e98385e6ca2921ad58130">ui_mouse_on</a> (void)</td></tr>
 <tr class="separator:a67ac7e4ccd5e98385e6ca2921ad58130"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4763d0ae7bab59380b8c72a0fbe45def"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a4763d0ae7bab59380b8c72a0fbe45def">ui_mouse_off</a> (void)</td></tr>
 <tr class="separator:a4763d0ae7bab59380b8c72a0fbe45def"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20d485202579a8c112acaa236c6ed646"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a20d485202579a8c112acaa236c6ed646">ui_change_mode</a> (void)</td></tr>
-<tr class="separator:a20d485202579a8c112acaa236c6ed646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3b3e05631fa92acfaa4acd8882b9b1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#ae3b3e05631fa92acfaa4acd8882b9b1c">ui_attach</a> (<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
 <tr class="separator:ae3b3e05631fa92acfaa4acd8882b9b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92c569d2c95ed8c5370a00db3bcb8da0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a92c569d2c95ed8c5370a00db3bcb8da0">ui_detach</a> (<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
 <tr class="separator:a92c569d2c95ed8c5370a00db3bcb8da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1acba8dd875b196c56fd81343bd7268c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a1acba8dd875b196c56fd81343bd7268c">ui_clear</a> (void)</td></tr>
+<tr class="separator:a1acba8dd875b196c56fd81343bd7268c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525dc9f8a5a09b1fd488b46b26329261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a525dc9f8a5a09b1fd488b46b26329261">ui_set_scroll_region</a> (<a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *wp, int off)</td></tr>
+<tr class="separator:a525dc9f8a5a09b1fd488b46b26329261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fde88db0ffaada46f21b20b5caeeb5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a3fde88db0ffaada46f21b20b5caeeb5a">ui_reset_scroll_region</a> (void)</td></tr>
+<tr class="separator:a3fde88db0ffaada46f21b20b5caeeb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac786ab5c84cc69e789f397953263ab92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#ac786ab5c84cc69e789f397953263ab92">ui_append_lines</a> (int count)</td></tr>
+<tr class="separator:ac786ab5c84cc69e789f397953263ab92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c163d006a3db6da7f047e22f6df5cb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a5c163d006a3db6da7f047e22f6df5cb9">ui_delete_lines</a> (int count)</td></tr>
+<tr class="separator:a5c163d006a3db6da7f047e22f6df5cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0751e4aa9faf69e830139d12ca5ba148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a0751e4aa9faf69e830139d12ca5ba148">ui_eol_clear</a> (void)</td></tr>
+<tr class="separator:a0751e4aa9faf69e830139d12ca5ba148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6372d288bd283c6ed9a2d908a21b7f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a6372d288bd283c6ed9a2d908a21b7f55">ui_start_highlight</a> (int attr_code)</td></tr>
+<tr class="separator:a6372d288bd283c6ed9a2d908a21b7f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7018339714d628f348aba7ecda5462"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#abb7018339714d628f348aba7ecda5462">ui_stop_highlight</a> (void)</td></tr>
+<tr class="separator:abb7018339714d628f348aba7ecda5462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771a58a8f911b94e38084c7233d34eec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a771a58a8f911b94e38084c7233d34eec">ui_visual_bell</a> (void)</td></tr>
+<tr class="separator:a771a58a8f911b94e38084c7233d34eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa942b6abc0c611fe979db36763a8de03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#aa942b6abc0c611fe979db36763a8de03">ui_puts</a> (uint8_t *str)</td></tr>
+<tr class="separator:aa942b6abc0c611fe979db36763a8de03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac51e6c6210b6c99e937be3b64be0e3e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#ac51e6c6210b6c99e937be3b64be0e3e4">ui_putc</a> (uint8_t c)</td></tr>
+<tr class="separator:ac51e6c6210b6c99e937be3b64be0e3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee9672cdfdce7623ad5d5103e7a213f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#aee9672cdfdce7623ad5d5103e7a213f6">ui_cursor_goto</a> (int new_row, int new_col)</td></tr>
+<tr class="separator:aee9672cdfdce7623ad5d5103e7a213f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b3b190bc2d1ec976372de8b4487740d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a9b3b190bc2d1ec976372de8b4487740d">ui_current_row</a> (void)</td></tr>
+<tr class="separator:a9b3b190bc2d1ec976372de8b4487740d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e6f1877d52da56da7707342f94036b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#a0e6f1877d52da56da7707342f94036b3">ui_current_col</a> (void)</td></tr>
+<tr class="separator:a0e6f1877d52da56da7707342f94036b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affbc2d225788d4e370c9f95b891ccdcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ui_8c.html#affbc2d225788d4e370c9f95b891ccdcc">ui_flush</a> (void)</td></tr>
+<tr class="separator:affbc2d225788d4e370c9f95b891ccdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a5a6464eba9442bcfb4b8c77f7d7bd00b"></a>
@@ -268,14 +308,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> {                                                            \</div>
+<div class="line">    flush_cursor_update();                                        \</div>
 <div class="line">    for (<span class="keywordtype">size_t</span> i = 0; i &lt; ui_count; i++) {                       <a class="code" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">\</a></div>
 <div class="line"><a class="code" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">      UI</a> *ui = uis[i];                                            <a class="code" href="ui_8c.html#a71a64ffa8412d76fc5bebc726b289b24">\</a></div>
 <div class="line"><a class="code" href="ui_8c.html#a71a64ffa8412d76fc5bebc726b289b24">      UI_CALL_HELPER</a>(<a class="code" href="ui_8c.html#a5a6464eba9442bcfb4b8c77f7d7bd00b">CNT</a>(__VA_ARGS__), __VA_ARGS__);              \</div>
 <div class="line">    }                                                             \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="ui_8c_html_a71a64ffa8412d76fc5bebc726b289b24"><div class="ttname"><a href="ui_8c.html#a71a64ffa8412d76fc5bebc726b289b24">UI_CALL_HELPER</a></div><div class="ttdeci">#define UI_CALL_HELPER(c,...)</div><div class="ttdef"><b>Definition:</b> ui.c:84</div></div>
+<div class="ttc" id="ui_8c_html_a71a64ffa8412d76fc5bebc726b289b24"><div class="ttname"><a href="ui_8c.html#a71a64ffa8412d76fc5bebc726b289b24">UI_CALL_HELPER</a></div><div class="ttdeci">#define UI_CALL_HELPER(c,...)</div><div class="ttdef"><b>Definition:</b> ui.c:68</div></div>
 <div class="ttc" id="ui_8h_html_acf90a8f36514b378ce6f4cdeecfd372a"><div class="ttname"><a href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a></div><div class="ttdeci">struct ui_t UI</div><div class="ttdef"><b>Definition:</b> ui.h:13</div></div>
-<div class="ttc" id="ui_8c_html_a5a6464eba9442bcfb4b8c77f7d7bd00b"><div class="ttname"><a href="ui_8c.html#a5a6464eba9442bcfb4b8c77f7d7bd00b">CNT</a></div><div class="ttdeci">#define CNT(...)</div><div class="ttdef"><b>Definition:</b> ui.c:82</div></div>
+<div class="ttc" id="ui_8c_html_a5a6464eba9442bcfb4b8c77f7d7bd00b"><div class="ttname"><a href="ui_8c.html#a5a6464eba9442bcfb4b8c77f7d7bd00b">CNT</a></div><div class="ttdeci">#define CNT(...)</div><div class="ttdef"><b>Definition:</b> ui.c:66</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -350,7 +391,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;ui-&gt;method(ui, __VA_ARGS__)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="path_8c.html#a64abe55b69a54d152223ce3aa24206a1">if</a> (ui-&gt;method) ui-&gt;method(ui, __VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -366,7 +407,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">method</td><td>)</td>
-          <td>&#160;&#160;&#160;ui-&gt;method(ui)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="path_8c.html#a64abe55b69a54d152223ce3aa24206a1">if</a> (ui-&gt;method) ui-&gt;method(ui)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -374,6 +415,38 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a818616b62e1dccfa58e0df4b52135fbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ui_active </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac786ab5c84cc69e789f397953263ab92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_append_lines </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ae3b3e05631fa92acfaa4acd8882b9b1c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -390,12 +463,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a20d485202579a8c112acaa236c6ed646"></a>
+<a class="anchor" id="a9e78fcfd5a8d125efdb25abe1ba5dd0a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ui_change_mode </td>
+          <td class="memname">void ui_builtin_start </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -406,12 +479,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5ed154d5997f15063e3b95e04003f497"></a>
+<a class="anchor" id="a5dc18a143efb0500b3cba94a03389a05"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ui_cursor_off </td>
+          <td class="memname">void ui_builtin_stop </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -422,16 +495,106 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8fc8b41e9997eb450fd5bf1899709c01"></a>
+<a class="anchor" id="a25cfd68deb2dbfed27e946e560a92727"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ui_cursor_on </td>
+          <td class="memname">void ui_busy_start </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7697bd32546b9386a85cfc0315954936"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_busy_stop </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1acba8dd875b196c56fd81343bd7268c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_clear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0e6f1877d52da56da7707342f94036b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ui_current_col </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9b3b190bc2d1ec976372de8b4487740d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ui_current_row </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aee9672cdfdce7623ad5d5103e7a213f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_cursor_goto </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>new_row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>new_col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -447,6 +610,22 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5c163d006a3db6da7f047e22f6df5cb9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_delete_lines </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -470,12 +649,28 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2d57b4de897ae973445496d8d3cc212d"></a>
+<a class="anchor" id="a0751e4aa9faf69e830139d12ca5ba148"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ui_get_shellsize </td>
+          <td class="memname">void ui_eol_clear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="affbc2d225788d4e370c9f95b891ccdcc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_flush </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -518,7 +713,71 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae56bbbdbe1eb52e121b68db01d93b7a1"></a>
+<a class="anchor" id="ac51e6c6210b6c99e937be3b64be0e3e4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_putc </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa942b6abc0c611fe979db36763a8de03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_puts </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a490ef24341463347d93ff0da36b17180"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_refresh </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3fde88db0ffaada46f21b20b5caeeb5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_reset_scroll_region </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a057f0957ee6a7fd5c6fabf166211c711"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -526,18 +785,124 @@ Functions</h2></td></tr>
           <td class="memname">void ui_resize </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
+          <td class="paramname"><em>new_width</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramname"><em>new_height</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3a4ae804b25fcb49b68590bf1a1138e4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ui_rgb_attached </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a058f2bc9bf66235d3b7d715cdaaaab48"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_set_icon </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>icon</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a525dc9f8a5a09b1fd488b46b26329261"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_set_scroll_region </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="buffer__defs_8h.html#a2d63c71f6ff363aaf63acb8c01f18066">win_T</a> *&#160;</td>
+          <td class="paramname"><em>wp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>off</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a82e13ae09f987e6958682f0a3ff51523"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_set_title </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>title</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6372d288bd283c6ed9a2d908a21b7f55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_start_highlight </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>attr_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abb7018339714d628f348aba7ecda5462"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui_stop_highlight </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -560,26 +925,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2251f60e6a6f802d02b22fd8c7837930"></a>
+<a class="anchor" id="a771a58a8f911b94e38084c7233d34eec"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ui_write </td>
+          <td class="memname">void ui_visual_bell </td>
           <td>(</td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -640,7 +995,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

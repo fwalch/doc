@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -94,6 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
+<tr class="memitem:ae85bf36bc854eec59d27f56f4eb0c8ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#ae85bf36bc854eec59d27f56f4eb0c8ab">rgb</a></td></tr>
+<tr class="separator:ae85bf36bc854eec59d27f56f4eb0c8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f33fdfd1262721bf757842411a89298"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a8f33fdfd1262721bf757842411a89298">width</a></td></tr>
 <tr class="separator:a8f33fdfd1262721bf757842411a89298"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03e872c6d07107893409447d88dd13de"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a03e872c6d07107893409447d88dd13de">height</a></td></tr>
@@ -108,10 +110,10 @@ Data Fields</h2></td></tr>
 <tr class="separator:a448c71609ee85ab9bb642f9aec3ec70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39a6953a06b354b831b8a784c153f00a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a39a6953a06b354b831b8a784c153f00a">cursor_goto</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, int row, int col)</td></tr>
 <tr class="separator:a39a6953a06b354b831b8a784c153f00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7970ff65507df405d322273b29d951"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a0f7970ff65507df405d322273b29d951">cursor_on</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
-<tr class="separator:a0f7970ff65507df405d322273b29d951"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95807d2006c04724e5766cbbad28311e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a95807d2006c04724e5766cbbad28311e">cursor_off</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
-<tr class="separator:a95807d2006c04724e5766cbbad28311e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf18abc5f40167c0522d4a21c470bec6"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#adf18abc5f40167c0522d4a21c470bec6">busy_start</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
+<tr class="separator:adf18abc5f40167c0522d4a21c470bec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad393f2f3a1eb3abaee200e2ad502191b"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#ad393f2f3a1eb3abaee200e2ad502191b">busy_stop</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
+<tr class="separator:ad393f2f3a1eb3abaee200e2ad502191b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1288e030f409c0be80850df5e3d40df"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#ae1288e030f409c0be80850df5e3d40df">mouse_on</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
 <tr class="separator:ae1288e030f409c0be80850df5e3d40df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a015adfb225cd3572859c44bc4a2ee48a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a015adfb225cd3572859c44bc4a2ee48a">mouse_off</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
@@ -134,8 +136,18 @@ Data Fields</h2></td></tr>
 <tr class="separator:a154aa74b68bb3a9049838771f270f4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabba6da1d837b1047e6ce8a9e2446783"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#aabba6da1d837b1047e6ce8a9e2446783">flush</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
 <tr class="separator:aabba6da1d837b1047e6ce8a9e2446783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc47dbc2cb4923e7223d0808e768a51d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#afc47dbc2cb4923e7223d0808e768a51d">update_fg</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, int fg)</td></tr>
+<tr class="separator:afc47dbc2cb4923e7223d0808e768a51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13da8a533920abc0e4ddaf168f94db0c"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a13da8a533920abc0e4ddaf168f94db0c">update_bg</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, int bg)</td></tr>
+<tr class="separator:a13da8a533920abc0e4ddaf168f94db0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33857cfa857e1af222c361adff0bc4f7"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a33857cfa857e1af222c361adff0bc4f7">suspend</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
 <tr class="separator:a33857cfa857e1af222c361adff0bc4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c3db928b4d9af611bb9fb5f56c8044"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#a31c3db928b4d9af611bb9fb5f56c8044">set_title</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, char *title)</td></tr>
+<tr class="separator:a31c3db928b4d9af611bb9fb5f56c8044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae94f5a8497511335af6298a04ff10850"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#ae94f5a8497511335af6298a04ff10850">set_icon</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, char *icon)</td></tr>
+<tr class="separator:ae94f5a8497511335af6298a04ff10850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14b1d6a22763c94715ef38ee25e3187"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structui__t.html#ae14b1d6a22763c94715ef38ee25e3187">stop</a> )(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td></tr>
+<tr class="separator:ae14b1d6a22763c94715ef38ee25e3187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Field Documentation</h2>
 <a class="anchor" id="a2f26006b82ca8596d584df3298d8b954"></a>
@@ -144,6 +156,30 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">void(* ui_t::bell)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adf18abc5f40167c0522d4a21c470bec6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ui_t::busy_start)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad393f2f3a1eb3abaee200e2ad502191b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ui_t::busy_stop)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -168,30 +204,6 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">void(* ui_t::cursor_goto)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, int row, int col)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a95807d2006c04724e5766cbbad28311e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* ui_t::cursor_off)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0f7970ff65507df405d322273b29d951"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* ui_t::cursor_on)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -330,12 +342,36 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae85bf36bc854eec59d27f56f4eb0c8ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ui_t::rgb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a8384e18a9d3c2ed826e5941f8278e42a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void(* ui_t::scroll)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, int count)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae94f5a8497511335af6298a04ff10850"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ui_t::set_icon)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, char *icon)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -354,12 +390,60 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a31c3db928b4d9af611bb9fb5f56c8044"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ui_t::set_title)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, char *title)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae14b1d6a22763c94715ef38ee25e3187"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ui_t::stop)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a33857cfa857e1af222c361adff0bc4f7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void(* ui_t::suspend)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a13da8a533920abc0e4ddaf168f94db0c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ui_t::update_bg)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, int bg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afc47dbc2cb4923e7223d0808e768a51d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ui_t::update_fg)(<a class="el" href="ui_8h.html#acf90a8f36514b378ce6f4cdeecfd372a">UI</a> *ui, int fg)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -398,7 +482,7 @@ Data Fields</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -96,6 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="api_2buffer_8h_source.html">nvim/api/buffer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="api_2private_2helpers_8h_source.html">nvim/api/private/helpers.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="api_2private_2defs_8h_source.html">nvim/api/private/defs.h</a>&quot;</code><br />
@@ -447,7 +448,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets a buffer variable</p>
+<p>Gets a buffer-scoped (b:) variable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>The buffer handle </td></tr>
@@ -808,7 +809,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets a buffer variable. Passing 'nil' as value deletes the variable.</p>
+<p>Sets a buffer-scoped (b:) variable. 'nil' value deletes the variable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>The buffer handle </td></tr>
@@ -827,7 +828,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:03 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:42 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

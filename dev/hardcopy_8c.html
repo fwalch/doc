@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -98,9 +98,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;errno.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;inttypes.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="vim_8h_source.html">nvim/vim.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ascii_8h_source.html">nvim/ascii.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="version__defs_8h_source.html">nvim/version_defs.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hardcopy_8h_source.html">nvim/hardcopy.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="buffer_8h_source.html">nvim/buffer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="charset_8h_source.html">nvim/charset.h</a>&quot;</code><br />
@@ -112,7 +112,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="memline_8h_source.html">nvim/memline.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="memory_8h_source.html">nvim/memory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="message_8h_source.html">nvim/message.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="misc1_8h_source.html">nvim/misc1.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="misc2_8h_source.html">nvim/misc2.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="garray_8h_source.html">nvim/garray.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="option_8h_source.html">nvim/option.h</a>&quot;</code><br />
@@ -120,7 +119,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="screen_8h_source.html">nvim/screen.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="strings_8h_source.html">nvim/strings.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="syntax_8h_source.html">nvim/syntax.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term_8h_source.html">nvim/term.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ui_8h_source.html">nvim/ui.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="version_8h_source.html">nvim/version.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tempfile_8h_source.html">nvim/tempfile.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="os_8h_source.html">nvim/os/os.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="input_8h_source.html">nvim/os/input.h</a>&quot;</code><br />
@@ -325,8 +325,8 @@ Functions</h2></td></tr>
 <tr class="separator:adebb035468b425ae5cbc0bc263c73a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7a3899834f995aceb5a892c4c9c4933"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardcopy_8c.html#af7a3899834f995aceb5a892c4c9c4933">mch_print_start_line</a> (int margin, int page_line)</td></tr>
 <tr class="separator:af7a3899834f995aceb5a892c4c9c4933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ae442648ef88715e27bfddd91b3eb78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardcopy_8c.html#a3ae442648ef88715e27bfddd91b3eb78">mch_print_text_out</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *p, int len)</td></tr>
-<tr class="separator:a3ae442648ef88715e27bfddd91b3eb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c03c75458004ba4389d88211125a03"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardcopy_8c.html#a91c03c75458004ba4389d88211125a03">mch_print_text_out</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *p, size_t len)</td></tr>
+<tr class="separator:a91c03c75458004ba4389d88211125a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d6ede63ae9a7973ba329cf8ccee9d76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardcopy_8c.html#a7d6ede63ae9a7973ba329cf8ccee9d76">mch_print_set_font</a> (int iBold, int iItalic, int iUnderline)</td></tr>
 <tr class="separator:a7d6ede63ae9a7973ba329cf8ccee9d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d2a039e3b7f3ad9423cac605b8020ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardcopy_8c.html#a5d2a039e3b7f3ad9423cac605b8020ce">mch_print_set_bg</a> (uint32_t bgcol)</td></tr>
@@ -1459,7 +1459,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3ae442648ef88715e27bfddd91b3eb78"></a>
+<a class="anchor" id="a91c03c75458004ba4389d88211125a03"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1472,7 +1472,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -1570,7 +1570,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:42 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

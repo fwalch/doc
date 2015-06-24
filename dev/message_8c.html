@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -123,7 +123,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="normal_8h_source.html">nvim/normal.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="screen_8h_source.html">nvim/screen.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="strings_8h_source.html">nvim/strings.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term_8h_source.html">nvim/term.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ui_8h_source.html">nvim/ui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mouse_8h_source.html">nvim/mouse.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="os_8h_source.html">nvim/os/os.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="input_8h_source.html">nvim/os/input.h</a>&quot;</code><br />
@@ -138,8 +138,6 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a69c0d452eb8cec0700a1345581d5b59b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a69c0d452eb8cec0700a1345581d5b59b">MESSAGE_FILE</a>&#160;&#160;&#160;/* don't include prototype for <a class="el" href="message_8c.html#a741046b7b941fbf8545babbedc5ce611">smsg</a>() */</td></tr>
-<tr class="separator:a69c0d452eb8cec0700a1345581d5b59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bc11dc0c0f87725aca8124169d055b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a1bc11dc0c0f87725aca8124169d055b7">DLG_BUTTON_SEP</a>&#160;&#160;&#160;'\n'</td></tr>
 <tr class="separator:a1bc11dc0c0f87725aca8124169d055b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67c03f89a81ebc93ee889736ca2f7c57"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a67c03f89a81ebc93ee889736ca2f7c57">DLG_HOTKEY_CHAR</a>&#160;&#160;&#160;'&amp;'</td></tr>
@@ -148,7 +146,7 @@ Macros</h2></td></tr>
 <tr class="separator:a0ad819454387af187e41ca6545e05946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a056803a14e4032e4f7031c2e0bda3417"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a056803a14e4032e4f7031c2e0bda3417">HOTK_LEN</a>&#160;&#160;&#160;(has_mbyte ? <a class="el" href="vim_8h.html#abbec2969b70153231345dde65a96a7fb">MB_MAXBYTES</a> : 1)</td></tr>
 <tr class="separator:a056803a14e4032e4f7031c2e0bda3417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeffa67aeedd0b4eb1d9539ded7a0fd31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#aeffa67aeedd0b4eb1d9539ded7a0fd31">TMP_LEN</a></td></tr>
+<tr class="memitem:aeffa67aeedd0b4eb1d9539ded7a0fd31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#aeffa67aeedd0b4eb1d9539ded7a0fd31">TMP_LEN</a>&#160;&#160;&#160;350</td></tr>
 <tr class="separator:aeffa67aeedd0b4eb1d9539ded7a0fd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -170,10 +168,10 @@ Functions</h2></td></tr>
 <tr class="separator:a36b6e93c6b87ae3c5eaefb09d5b0f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada41b9374b5cf03bf7e8d164025b15ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#ada41b9374b5cf03bf7e8d164025b15ba">trunc_string</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *buf, int room, int buflen)</td></tr>
 <tr class="separator:ada41b9374b5cf03bf7e8d164025b15ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a741046b7b941fbf8545babbedc5ce611"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a741046b7b941fbf8545babbedc5ce611">smsg</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s,...)</td></tr>
-<tr class="separator:a741046b7b941fbf8545babbedc5ce611"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b857d581e0c5de2f2720c748335f5c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a2b857d581e0c5de2f2720c748335f5c4">smsg_attr</a> (int attr, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s,...)</td></tr>
-<tr class="separator:a2b857d581e0c5de2f2720c748335f5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa5a912e1ca4b4521476678bf18c440"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a4fa5a912e1ca4b4521476678bf18c440">smsg</a> (char *s,...)</td></tr>
+<tr class="separator:a4fa5a912e1ca4b4521476678bf18c440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fcbca77eaab0472b3503ee60c8c8d9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a0fcbca77eaab0472b3503ee60c8c8d9d">smsg_attr</a> (int attr, char *s,...)</td></tr>
+<tr class="separator:a0fcbca77eaab0472b3503ee60c8c8d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a066010c6cfd986483f58e6d97ae11672"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a066010c6cfd986483f58e6d97ae11672">reset_last_sourcing</a> (void)</td></tr>
 <tr class="separator:a066010c6cfd986483f58e6d97ae11672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fba68755b6f0632589492cc06daa673"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a8fba68755b6f0632589492cc06daa673">msg_source</a> (int attr)</td></tr>
@@ -186,6 +184,15 @@ Functions</h2></td></tr>
 <tr class="separator:a926f3d21cf926fc73c1e6281276b3201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac21f31466f98da27b1ac0625e8d4255"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#aac21f31466f98da27b1ac0625e8d4255">emsg_invreg</a> (int <a class="el" href="mbyte_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</td></tr>
 <tr class="separator:aac21f31466f98da27b1ac0625e8d4255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca334494bae21008cdc415efb390f6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#aeca334494bae21008cdc415efb390f6d">emsg3</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *a1, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *a2)</td></tr>
+<tr class="memdesc:aeca334494bae21008cdc415efb390f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print an error message with one or two "%s" and one or two string arguments.  <a href="#aeca334494bae21008cdc415efb390f6d">More...</a><br /></td></tr>
+<tr class="separator:aeca334494bae21008cdc415efb390f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ac3c0b452164adc0ea3ccf1f2c6340a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a3ac3c0b452164adc0ea3ccf1f2c6340a">emsgn</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s, int64_t n)</td></tr>
+<tr class="memdesc:a3ac3c0b452164adc0ea3ccf1f2c6340a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print an error message with one "%" PRId64 and one (int64_t) argument.  <a href="#a3ac3c0b452164adc0ea3ccf1f2c6340a">More...</a><br /></td></tr>
+<tr class="separator:a3ac3c0b452164adc0ea3ccf1f2c6340a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a254c9dbfa55c05936bd55d589bdc1ad8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a254c9dbfa55c05936bd55d589bdc1ad8">emsgu</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s, uint64_t n)</td></tr>
+<tr class="memdesc:a254c9dbfa55c05936bd55d589bdc1ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print an error message with one "%" PRIu64 and one (uint64_t) argument.  <a href="#a254c9dbfa55c05936bd55d589bdc1ad8">More...</a><br /></td></tr>
+<tr class="separator:a254c9dbfa55c05936bd55d589bdc1ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfcdea74368910cec417261cae49a3b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#adfcdea74368910cec417261cae49a3b8">msg_trunc_attr</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s, int force, int attr)</td></tr>
 <tr class="separator:adfcdea74368910cec417261cae49a3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba10a3a68d9de01a4cf48817030011f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#aba10a3a68d9de01a4cf48817030011f2">msg_may_trunc</a> (int force, <a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s)</td></tr>
@@ -200,8 +207,6 @@ Functions</h2></td></tr>
 <tr class="separator:a141e5e06eb4a1899da7258b664db5da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1adc86bbd012d6e33d3fddf074a31491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a1adc86bbd012d6e33d3fddf074a31491">set_keep_msg</a> (<a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *s, int attr)</td></tr>
 <tr class="separator:a1adc86bbd012d6e33d3fddf074a31491"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a039023094ed452a0c0a13191ee8e9aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a039023094ed452a0c0a13191ee8e9aeb">set_keep_msg_from_hist</a> (void)</td></tr>
-<tr class="separator:a039023094ed452a0c0a13191ee8e9aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a701ffeff793261a605a4090e7c085a2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a701ffeff793261a605a4090e7c085a2d">msg_start</a> (void)</td></tr>
 <tr class="separator:a701ffeff793261a605a4090e7c085a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3678494bd375014616f246b167b0ceaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="message_8c.html#a3678494bd375014616f246b167b0ceaf">msg_starthere</a> (void)</td></tr>
@@ -356,31 +361,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a69c0d452eb8cec0700a1345581d5b59b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MESSAGE_FILE&#160;&#160;&#160;/* don't include prototype for <a class="el" href="message_8c.html#a741046b7b941fbf8545babbedc5ce611">smsg</a>() */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="aeffa67aeedd0b4eb1d9539ded7a0fd31"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TMP_LEN</td>
+          <td class="memname">#define TMP_LEN&#160;&#160;&#160;350</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">350    <span class="comment">/* On my system 1e308 is the biggest number possible.</span></div>
-<div class="line"><span class="comment">                         * That sounds reasonable to use as the maximum</span></div>
-<div class="line"><span class="comment">                         * printable. */</span></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -543,6 +533,40 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aeca334494bae21008cdc415efb390f6d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int emsg3 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramname"><em>a1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramname"><em>a2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print an error message with one or two "%s" and one or two string arguments. </p>
+
+</div>
+</div>
 <a class="anchor" id="aac21f31466f98da27b1ac0625e8d4255"></a>
 <div class="memitem">
 <div class="memproto">
@@ -572,6 +596,62 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3ac3c0b452164adc0ea3ccf1f2c6340a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int emsgn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print an error message with one "%" PRId64 and one (int64_t) argument. </p>
+
+</div>
+</div>
+<a class="anchor" id="a254c9dbfa55c05936bd55d589bdc1ad8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int emsgu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print an error message with one "%" PRIu64 and one (uint64_t) argument. </p>
 
 </div>
 </div>
@@ -1473,22 +1553,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a039023094ed452a0c0a13191ee8e9aeb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void set_keep_msg_from_hist </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a06f57467a755a9926b8568b35cfbda38"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1505,14 +1569,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a741046b7b941fbf8545babbedc5ce611"></a>
+<a class="anchor" id="a4fa5a912e1ca4b4521476678bf18c440"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int smsg </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
@@ -1531,7 +1595,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2b857d581e0c5de2f2720c748335f5c4"></a>
+<a class="anchor" id="a0fcbca77eaab0472b3503ee60c8c8d9d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1544,7 +1608,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="types_8h.html#abdb7824437f4665a51798757139f570b">char_u</a> *&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
@@ -2052,7 +2116,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

@@ -5,6 +5,7 @@ var searchData=
   ['xfile',['XFILE',['../ex__cmds__defs_8h.html#ac24922843682a0947847063be3180b12',1,'ex_cmds_defs.h']]],
   ['xfilemark',['xfilemark',['../structxfilemark.html',1,'']]],
   ['xfmark_5ft',['xfmark_T',['../mark__defs_8h.html#a9be7fc3eb3c4e7926c9cb1a4c7f8b3eb',1,'mark_defs.h']]],
+  ['xfree',['xfree',['../memory_8c.html#a976e14808b9247ec952c262553f09f8f',1,'memory.c']]],
   ['xmalloc',['xmalloc',['../memory_8c.html#aa946fb0a1f9e3d380d37d3fc77b085e4',1,'memory.c']]],
   ['xmallocz',['xmallocz',['../memory_8c.html#a219302c1a427e6037a2c88fb06536470',1,'memory.c']]],
   ['xmemdup',['xmemdup',['../memory_8c.html#a40f83fec2046a44aa9c75ddb259a551d',1,'memory.c']]],
@@ -33,5 +34,6 @@ var searchData=
   ['xstrdup',['xstrdup',['../memory_8c.html#af948034a6fa9841282c17be0fdbce605',1,'memory.c']]],
   ['xstrlcpy',['xstrlcpy',['../memory_8c.html#aae10fc1bb9aac1f327f95a605c7e7c08',1,'memory.c']]],
   ['xstrndup',['xstrndup',['../memory_8c.html#a6a2f013f490b1da3661b74c77eba5f9a',1,'memory.c']]],
-  ['xt_5flen',['XT_LEN',['../term_8c.html#aa7b9e807ca6c3a91bf5bddc4b8f9e872',1,'term.c']]]
+  ['xterm_5fsetab',['XTERM_SETAB',['../tui_8c.html#a02d3b1b37d395971912f1190d67cbafb',1,'tui.c']]],
+  ['xterm_5fsetaf',['XTERM_SETAF',['../tui_8c.html#a5f70baff2d42d0c7f1a5443c8a95e88b',1,'tui.c']]]
 ];

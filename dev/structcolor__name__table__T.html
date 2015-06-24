@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Neovim: TimerData Struct Reference</title>
+<title>Neovim: color_name_table_T Struct Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -86,50 +86,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">TimerData Struct Reference</div>  </div>
+<div class="title">color_name_table_T Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="syntax_8h_source.html">syntax.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a6bbbfd3679bda2434ee8fadabcc1ccfd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerData.html#a6bbbfd3679bda2434ee8fadabcc1ccfd">timed_out</a></td></tr>
-<tr class="separator:a6bbbfd3679bda2434ee8fadabcc1ccfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8761efeeb4f565abd3a637bb1f8f0dbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerData.html#a8761efeeb4f565abd3a637bb1f8f0dbf">ms</a></td></tr>
-<tr class="separator:a8761efeeb4f565abd3a637bb1f8f0dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adba645514dc6e704f2f9150574734c71"><td class="memItemLeft" align="right" valign="top">uv_timer_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerData.html#adba645514dc6e704f2f9150574734c71">timer</a></td></tr>
-<tr class="separator:adba645514dc6e704f2f9150574734c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a188df659ea9a9c4809d8afba1ae783c8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcolor__name__table__T.html#a188df659ea9a9c4809d8afba1ae783c8">name</a></td></tr>
+<tr class="separator:a188df659ea9a9c4809d8afba1ae783c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419f32c6016940a6846829d5b97ce81c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="syntax__defs_8h.html#a54f8a29e3b8d0f09fbda28b8bbe44a4f">RgbValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcolor__name__table__T.html#a419f32c6016940a6846829d5b97ce81c">color</a></td></tr>
+<tr class="separator:a419f32c6016940a6846829d5b97ce81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="a8761efeeb4f565abd3a637bb1f8f0dbf"></a>
+<a class="anchor" id="a419f32c6016940a6846829d5b97ce81c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int TimerData::ms</td>
+          <td class="memname"><a class="el" href="syntax__defs_8h.html#a54f8a29e3b8d0f09fbda28b8bbe44a4f">RgbValue</a> color_name_table_T::color</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a6bbbfd3679bda2434ee8fadabcc1ccfd"></a>
+<a class="anchor" id="a188df659ea9a9c4809d8afba1ae783c8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool TimerData::timed_out</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="adba645514dc6e704f2f9150574734c71"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uv_timer_t* TimerData::timer</td>
+          <td class="memname">char* color_name_table_T::name</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -137,14 +125,14 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/nvim/os/<a class="el" href="event_8c.html">event.c</a></li>
+<li>src/nvim/<a class="el" href="syntax_8h_source.html">syntax.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

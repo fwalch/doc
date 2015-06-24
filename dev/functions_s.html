@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -100,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_v.html#index_v"><span>v</span></a></li>
       <li><a href="functions_w.html#index_w"><span>w</span></a></li>
       <li><a href="functions_x.html#index_x"><span>x</span></a></li>
+      <li><a href="functions_y.html#index_y"><span>y</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -167,6 +168,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>sb_attr
 : <a class="el" href="structmsgchunk__S.html#aa99bcf6a0b1ca4f7e30bec34b7fafdba">msgchunk_S</a>
 </li>
+<li>sb_buffer
+: <a class="el" href="structterminal.html#ae96fa705b84c7a882b1420c920c7ef53">terminal</a>
+</li>
+<li>sb_current
+: <a class="el" href="structterminal.html#a186a458bced12244abafabbff5fa6449">terminal</a>
+</li>
 <li>sb_data
 : <a class="el" href="structsblock__S.html#ace027737783fdb2c65305310e1d75341">sblock_S</a>
 </li>
@@ -180,8 +187,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="structmsgchunk__S.html#a083f2aee671684b1b4c453dfed6a3562">msgchunk_S</a>
 , <a class="el" href="structsblock__S.html#aadccf4df8bbf310a5f9074f5bc3e78a7">sblock_S</a>
 </li>
+<li>sb_pending
+: <a class="el" href="structterminal.html#a90f581865631eb13188d377c6a43ab75">terminal</a>
+</li>
 <li>sb_prev
 : <a class="el" href="structmsgchunk__S.html#afef75e79aae1f886dd3760884dd35211">msgchunk_S</a>
+</li>
+<li>sb_size
+: <a class="el" href="structterminal.html#a36e7dad10358882db1bd94732cd073f3">terminal</a>
 </li>
 <li>sb_text
 : <a class="el" href="structmsgchunk__S.html#a64bcc67df52d7ab1fb44ae5c34f46ac5">msgchunk_S</a>
@@ -208,11 +221,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>scroll
 : <a class="el" href="structui__t.html#a8384e18a9d3c2ed826e5941f8278e42a">ui_t</a>
 </li>
+<li>scroll_region
+: <a class="el" href="structTUIData.html#af9b7e033a7af3e3c364d0d476074d040">TUIData</a>
+</li>
 <li>se_u
-: <a class="el" href="structsave__se__T.html#a629d679b52b99705b15a7bbdba5bd07b">save_se_T</a>
+: <a class="el" href="structsave__se__T.html#a6861759b87ee89bc34ac74094e6e436b">save_se_T</a>
 </li>
 <li>searchbuf
 : <a class="el" href="structcmdarg__S.html#ad392d108407bc035b1aa9b60b704f134">cmdarg_S</a>
+</li>
+<li>self
+: <a class="el" href="structTerminalJobData.html#a953e9f882fb2e50a55ddbf2f0d12e0c4">TerminalJobData</a>
 </li>
 <li>seq
 : <a class="el" href="structu__header.html#a33b9eceb67411f9c3b31025e6f59d224">u_header</a>
@@ -223,8 +242,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>set
 : <a class="el" href="structError.html#ac2e5ca47de9f5d24115f2a0ec622e407">Error</a>
 </li>
+<li>set_icon
+: <a class="el" href="structui__t.html#ae94f5a8497511335af6298a04ff10850">ui_t</a>
+</li>
 <li>set_scroll_region
 : <a class="el" href="structui__t.html#abfd2ccec9e86979011cc07ad37a55e54">ui_t</a>
+</li>
+<li>set_title
+: <a class="el" href="structui__t.html#a31c3db928b4d9af611bb9fb5f56c8044">ui_t</a>
 </li>
 <li>sfname
 : <a class="el" href="structAutoPatCmd.html#a1061d9d005b2eef3665ad510135d210b">AutoPatCmd</a>
@@ -235,11 +260,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>sft_word
 : <a class="el" href="structsftword__T.html#a4af6b086cbb08a39fe8d9be64d17c420">sftword_T</a>
 </li>
+<li>sg_attr
+: <a class="el" href="structhl__group.html#a6c7e9362d49d780194ec1ba78286b9c0">hl_group</a>
+</li>
 <li>sg_cterm
 : <a class="el" href="structhl__group.html#ae84a2de9564b9859018880008219238f">hl_group</a>
-</li>
-<li>sg_cterm_attr
-: <a class="el" href="structhl__group.html#afb7e1149cd32cd5f6ae73be055344455">hl_group</a>
 </li>
 <li>sg_cterm_bg
 : <a class="el" href="structhl__group.html#a06a411824154e467ce76e52a277be69c">hl_group</a>
@@ -279,18 +304,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>sg_set
 : <a class="el" href="structhl__group.html#a2583cb177bb1b9b62dcab3a456cacb8c">hl_group</a>
-</li>
-<li>sg_start
-: <a class="el" href="structhl__group.html#acf8fc7d8fc216cdb7e7ca3a502830046">hl_group</a>
-</li>
-<li>sg_stop
-: <a class="el" href="structhl__group.html#a5efd31d5d1c410c00a8ed1ea9151e92f">hl_group</a>
-</li>
-<li>sg_term
-: <a class="el" href="structhl__group.html#af20399892da7099f9b14a3391a27d89c">hl_group</a>
-</li>
-<li>sg_term_attr
-: <a class="el" href="structhl__group.html#aacc0d1275b4247406dcbd96e5d373056">hl_group</a>
 </li>
 <li>shape
 : <a class="el" href="structcursor__entry.html#a38c7fec62d576cd23a65a88ac4c8302a">cursor_entry</a>
@@ -770,7 +783,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="structsn__prl__S.html#a6b61e5380eee83a0bbe5bd45bc843a2b">sn_prl_S</a>
 </li>
 <li>socket
-: <a class="el" href="structServer.html#ac18868f252f3c438d80c894632f7506d">Server</a>
+: <a class="el" href="structServer.html#a4e87c5a19bc8ae390fda3816470b7c05">Server</a>
 </li>
 <li>sourcing_lnum
 : <a class="el" href="structcaller__scope.html#aa5d327c52f8347819fad0f020a650ea8">caller_scope</a>
@@ -860,7 +873,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="structsyn__state.html#a251d727b10fb77ee7d31c44bfc7ae04a">syn_state</a>
 </li>
 <li>sst_union
-: <a class="el" href="structsyn__state.html#af070facbd30ecbc7e82b23a82840215c">syn_state</a>
+: <a class="el" href="structsyn__state.html#a1540ae0ad3910fd13046e552b743a063">syn_state</a>
 </li>
 <li>st_altscore
 : <a class="el" href="structsuggest__T.html#a0f2e05724fdea791204fa74fb4843685">suggest_T</a>
@@ -898,12 +911,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>st_wordlen
 : <a class="el" href="structsuggest__T.html#a2b2567f2d2b6b7b4524bf168e578709b">suggest_T</a>
 </li>
-<li>standout
-: <a class="el" href="structHlAttrs.html#aa563ec06c57514390b0182c221d7ff33">HlAttrs</a>
-</li>
 <li>start
-: <a class="el" href="structattr__entry.html#a09dc089f36f5f3f5a99d701e999a7ab3">attr_entry</a>
-, <a class="el" href="structfline__T.html#aa063d862f854f3f701d2ffffbff80db1">fline_T</a>
+: <a class="el" href="structfline__T.html#aa063d862f854f3f701d2ffffbff80db1">fline_T</a>
 , <a class="el" href="structFrag.html#aac6ff10fdf0f9b6c00aead95ce34a726">Frag</a>
 , <a class="el" href="structnfa__regprog__T.html#acd9957fd0ff3bd179c58209b3e24cfbb">nfa_regprog_T</a>
 , <a class="el" href="structoparg__S.html#ac0493d7fce1ef43093baddd494d875e2">oparg_S</a>
@@ -940,24 +949,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>status
 : <a class="el" href="structjob.html#a610b66cc483fbb6c2ba016d1dc62c9a0">job</a>
+, <a class="el" href="structJobEvent.html#aeb67d4532a5979e1609a3f53dec21e17">JobEvent</a>
+</li>
+<li>status_ptr
+: <a class="el" href="structTerminalJobData.html#abba4c61a886156c39c9b3af70766fc0f">TerminalJobData</a>
 </li>
 <li>stderr_cb
-: <a class="el" href="structjob.html#a31bf38c9fa20cad2a6b1f0112faef1c9">job</a>
+: <a class="el" href="structJobOptions.html#a12ebe224e08919ca4814a75f3ee335b5">JobOptions</a>
+</li>
+<li>stdin_closed
+: <a class="el" href="structTerminalJobData.html#adfebada9db9c9f3103ea7e69a306f061">TerminalJobData</a>
 </li>
 <li>stdio
-: <a class="el" href="structjob.html#af53c19b4c64190cc6150f56254e84b42">job</a>
+: <a class="el" href="structUvProcess.html#a5e513d1aa16369cee429b44798deb76f">UvProcess</a>
 </li>
 <li>stdout_cb
-: <a class="el" href="structjob.html#af92830943827accd490437cba616f2e8">job</a>
-</li>
-<li>stdout_isatty
-: <a class="el" href="structmparm__T.html#a6e7acf93d966c2d45ec0b78acf98aa80">mparm_T</a>
+: <a class="el" href="structJobOptions.html#a74ac1e4667b00b539199c79bf6bde08e">JobOptions</a>
 </li>
 <li>step
 : <a class="el" href="structconvertStruct.html#a3cda14469d2322f40d222e97fba48f1d">convertStruct</a>
 </li>
 <li>stop
-: <a class="el" href="structattr__entry.html#a688fdc3b694432c85b328e118a2577e5">attr_entry</a>
+: <a class="el" href="structui__t.html#ae14b1d6a22763c94715ef38ee25e3187">ui_t</a>
 </li>
 <li>stopped_time
 : <a class="el" href="structjob.html#a4f6cc97781f717e6a113d7bd9e3bd077">job</a>
@@ -1048,7 +1061,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

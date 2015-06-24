@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -97,6 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;errno.h&gt;</code><br />
 <code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="vim_8h_source.html">nvim/vim.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ascii_8h_source.html">nvim/ascii.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mark_8h_source.html">nvim/mark.h</a>&quot;</code><br />
@@ -111,7 +112,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="memline_8h_source.html">nvim/memline.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="memory_8h_source.html">nvim/memory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="message_8h_source.html">nvim/message.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="misc1_8h_source.html">nvim/misc1.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="misc2_8h_source.html">nvim/misc2.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="normal_8h_source.html">nvim/normal.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="option_8h_source.html">nvim/option.h</a>&quot;</code><br />
@@ -119,7 +119,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="quickfix_8h_source.html">nvim/quickfix.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="search_8h_source.html">nvim/search.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="strings_8h_source.html">nvim/strings.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term_8h_source.html">nvim/term.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ui_8h_source.html">nvim/ui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="os_8h_source.html">nvim/os/os.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="input_8h_source.html">nvim/os/input.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -211,14 +211,15 @@ Functions</h2></td></tr>
 <div class="line">    posp = pp; <a class="code" href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">\</a></div>
 <div class="line"><a class="code" href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">    if</a> (posp-&gt;lnum == lnum &amp;&amp; posp-&gt;col &gt;= mincol) \</div>
 <div class="line">    { \</div>
-<div class="line">      posp-&gt;lnum += lnum_amount; <a class="code" href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">\</a></div>
+<div class="line">      posp-&gt;lnum += lnum_amount; \</div>
+<div class="line">      assert(col_amount &gt; INT_MIN &amp;&amp; col_amount &lt;= INT_MAX); <a class="code" href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">\</a></div>
 <div class="line"><a class="code" href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">      if</a> (col_amount &lt; 0 &amp;&amp; posp-&gt;col &lt;= (<a class="code" href="pos_8h.html#ae79e04a416bd6ce8ffe80e241850c0d2">colnr_T</a>)-col_amount) \</div>
 <div class="line">        posp-&gt;col = 0; \</div>
 <div class="line">      else \</div>
-<div class="line">        posp-&gt;col += col_amount; \</div>
+<div class="line">        posp-&gt;col += (<a class="code" href="pos_8h.html#ae79e04a416bd6ce8ffe80e241850c0d2">colnr_T</a>)col_amount; \</div>
 <div class="line">    } \</div>
 <div class="line">  }</div>
-<div class="ttc" id="memory_8c_html_a9b7341a14434c03823fd805713b568cf"><div class="ttname"><a href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">if</a></div><div class="ttdeci">if(!ret)</div><div class="ttdef"><b>Definition:</b> memory.c:108</div></div>
+<div class="ttc" id="memory_8c_html_a9b7341a14434c03823fd805713b568cf"><div class="ttname"><a href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">if</a></div><div class="ttdeci">if(!ret)</div><div class="ttdef"><b>Definition:</b> memory.c:123</div></div>
 <div class="ttc" id="pos_8h_html_ae79e04a416bd6ce8ffe80e241850c0d2"><div class="ttname"><a href="pos_8h.html#ae79e04a416bd6ce8ffe80e241850c0d2">colnr_T</a></div><div class="ttdeci">int colnr_T</div><div class="ttdef"><b>Definition:</b> pos.h:5</div></div>
 </div><!-- fragment -->
 </div>
@@ -260,9 +261,9 @@ Functions</h2></td></tr>
 <div class="line"><a class="code" href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">    else</a> <span class="keywordflow">if</span> (amount_after &amp;&amp; *lp &gt; line2) \</div>
 <div class="line">      *lp += amount_after; \</div>
 <div class="line">  }</div>
-<div class="ttc" id="memory_8c_html_a9b7341a14434c03823fd805713b568cf"><div class="ttname"><a href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">if</a></div><div class="ttdeci">if(!ret)</div><div class="ttdef"><b>Definition:</b> memory.c:108</div></div>
+<div class="ttc" id="memory_8c_html_a9b7341a14434c03823fd805713b568cf"><div class="ttname"><a href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">if</a></div><div class="ttdeci">if(!ret)</div><div class="ttdef"><b>Definition:</b> memory.c:123</div></div>
 <div class="ttc" id="pos_8h_html_ad31a3a5ea9363a1d0fd66864cfed4f8e"><div class="ttname"><a href="pos_8h.html#ad31a3a5ea9363a1d0fd66864cfed4f8e">MAXLNUM</a></div><div class="ttdeci">#define MAXLNUM</div><div class="ttdef"><b>Definition:</b> pos.h:7</div></div>
-<div class="ttc" id="msgpack__rpc_2helpers_8c_html_a0544c3fe466e421738dae463968b70ba"><div class="ttname"><a href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">else</a></div><div class="ttdeci">else</div><div class="ttdef"><b>Definition:</b> helpers.c:362</div></div>
+<div class="ttc" id="msgpack__rpc_2helpers_8c_html_a0544c3fe466e421738dae463968b70ba"><div class="ttname"><a href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">else</a></div><div class="ttdeci">else</div><div class="ttdef"><b>Definition:</b> helpers.c:357</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,9 +292,9 @@ Functions</h2></td></tr>
 <div class="line"><a class="code" href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">    else</a> <span class="keywordflow">if</span> (amount_after &amp;&amp; *lp &gt; line2) \</div>
 <div class="line">      *lp += amount_after; \</div>
 <div class="line">  }</div>
-<div class="ttc" id="memory_8c_html_a9b7341a14434c03823fd805713b568cf"><div class="ttname"><a href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">if</a></div><div class="ttdeci">if(!ret)</div><div class="ttdef"><b>Definition:</b> memory.c:108</div></div>
+<div class="ttc" id="memory_8c_html_a9b7341a14434c03823fd805713b568cf"><div class="ttname"><a href="memory_8c.html#a9b7341a14434c03823fd805713b568cf">if</a></div><div class="ttdeci">if(!ret)</div><div class="ttdef"><b>Definition:</b> memory.c:123</div></div>
 <div class="ttc" id="pos_8h_html_ad31a3a5ea9363a1d0fd66864cfed4f8e"><div class="ttname"><a href="pos_8h.html#ad31a3a5ea9363a1d0fd66864cfed4f8e">MAXLNUM</a></div><div class="ttdeci">#define MAXLNUM</div><div class="ttdef"><b>Definition:</b> pos.h:7</div></div>
-<div class="ttc" id="msgpack__rpc_2helpers_8c_html_a0544c3fe466e421738dae463968b70ba"><div class="ttname"><a href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">else</a></div><div class="ttdeci">else</div><div class="ttdef"><b>Definition:</b> helpers.c:362</div></div>
+<div class="ttc" id="msgpack__rpc_2helpers_8c_html_a0544c3fe466e421738dae463968b70ba"><div class="ttname"><a href="msgpack__rpc_2helpers_8c.html#a0544c3fe466e421738dae463968b70ba">else</a></div><div class="ttdeci">else</div><div class="ttdef"><b>Definition:</b> helpers.c:357</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -933,7 +934,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:42 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

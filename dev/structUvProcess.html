@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Neovim: DelayedNotification Struct Reference</title>
+<title>Neovim: UvProcess Struct Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -86,50 +86,92 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">DelayedNotification Struct Reference</div>  </div>
+<div class="title">UvProcess Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ac20045d2f8fc125d8c78d2ae047dcfc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structChannel.html">Channel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDelayedNotification.html#ac20045d2f8fc125d8c78d2ae047dcfc1">channel</a></td></tr>
-<tr class="separator:ac20045d2f8fc125d8c78d2ae047dcfc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a127c1755bdff2bc3c75da9b809ad247c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structString.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDelayedNotification.html#a127c1755bdff2bc3c75da9b809ad247c">method</a></td></tr>
-<tr class="separator:a127c1755bdff2bc3c75da9b809ad247c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24b6a36ca00223acff6870b89f4ffc81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structArray.html">Array</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDelayedNotification.html#a24b6a36ca00223acff6870b89f4ffc81">args</a></td></tr>
-<tr class="separator:a24b6a36ca00223acff6870b89f4ffc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a642b502790b2b15f8d919c0539fe263e"><td class="memItemLeft" align="right" valign="top">uv_process_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUvProcess.html#a642b502790b2b15f8d919c0539fe263e">proc</a></td></tr>
+<tr class="separator:a642b502790b2b15f8d919c0539fe263e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ef30fbf26d9b4a60d7b804a1808ea1b"><td class="memItemLeft" align="right" valign="top">uv_process_options_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUvProcess.html#a2ef30fbf26d9b4a60d7b804a1808ea1b">proc_opts</a></td></tr>
+<tr class="separator:a2ef30fbf26d9b4a60d7b804a1808ea1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e513d1aa16369cee429b44798deb76f"><td class="memItemLeft" align="right" valign="top">uv_stdio_container_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUvProcess.html#a5e513d1aa16369cee429b44798deb76f">stdio</a> [3]</td></tr>
+<tr class="separator:a5e513d1aa16369cee429b44798deb76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a918ffe27f23b3a8541c87fa90d9faed9"><td class="memItemLeft" align="right" valign="top">uv_pipe_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUvProcess.html#a918ffe27f23b3a8541c87fa90d9faed9">proc_stdin</a></td></tr>
+<tr class="separator:a918ffe27f23b3a8541c87fa90d9faed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8a533754ddfd5f514738e55900ed291"><td class="memItemLeft" align="right" valign="top">uv_pipe_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUvProcess.html#aa8a533754ddfd5f514738e55900ed291">proc_stdout</a></td></tr>
+<tr class="separator:aa8a533754ddfd5f514738e55900ed291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f2983560bab6bdc72392fc4367076ec"><td class="memItemLeft" align="right" valign="top">uv_pipe_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUvProcess.html#a8f2983560bab6bdc72392fc4367076ec">proc_stderr</a></td></tr>
+<tr class="separator:a8f2983560bab6bdc72392fc4367076ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="a24b6a36ca00223acff6870b89f4ffc81"></a>
+<a class="anchor" id="a642b502790b2b15f8d919c0539fe263e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structArray.html">Array</a> DelayedNotification::args</td>
+          <td class="memname">uv_process_t UvProcess::proc</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="ac20045d2f8fc125d8c78d2ae047dcfc1"></a>
+<a class="anchor" id="a2ef30fbf26d9b4a60d7b804a1808ea1b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structChannel.html">Channel</a>* DelayedNotification::channel</td>
+          <td class="memname">uv_process_options_t UvProcess::proc_opts</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a127c1755bdff2bc3c75da9b809ad247c"></a>
+<a class="anchor" id="a8f2983560bab6bdc72392fc4367076ec"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structString.html">String</a> DelayedNotification::method</td>
+          <td class="memname">uv_pipe_t UvProcess::proc_stderr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a918ffe27f23b3a8541c87fa90d9faed9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uv_pipe_t UvProcess::proc_stdin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa8a533754ddfd5f514738e55900ed291"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uv_pipe_t UvProcess::proc_stdout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5e513d1aa16369cee429b44798deb76f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uv_stdio_container_t UvProcess::stdio[3]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -137,14 +179,14 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/nvim/msgpack_rpc/<a class="el" href="channel_8c.html">channel.c</a></li>
+<li>src/nvim/os/<a class="el" href="pipe__process_8c.html">pipe_process.c</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

@@ -23,7 +23,7 @@
   <div class="container">
     <nav class="site-nav">
       <ul>
-        <li><a href="http://neovim.org/">Neovim Home</a></li>
+        <li><a href="http://neovim.io/">Neovim Home</a></li>
       </ul>
     </nav>
     <a href="index.html">
@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="buffer__defs_8h.html#abb75a27472dea31e4fdd7c94b342cbcc">buffer_defs.h</a>
 </li>
 <li>valid_yank_reg()
-: <a class="el" href="ops_8c.html#af73679bf07f697c770be32ea2f4b9d56">ops.c</a>
+: <a class="el" href="ops_8c.html#a89b41fccf45703ebcb3f3a8a26db61db">ops.c</a>
 </li>
 <li>validate_botline()
 : <a class="el" href="move_8c.html#a819f3c9ad1be31c96957b197adbdbf13">move.c</a>
@@ -299,8 +299,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="memory_8c.html#a8af346742b0ef5494ac3cd7dc5e40668">memory.c</a>
 </li>
 <li>Version
-: <a class="el" href="globals_8h.html#abc057f42fdaf5e63835a8272aefe278e">globals.h</a>
-, <a class="el" href="version_8c.html#abc057f42fdaf5e63835a8272aefe278e">version.c</a>
+: <a class="el" href="version_8c.html#abc057f42fdaf5e63835a8272aefe278e">version.c</a>
+, <a class="el" href="version_8h.html#abc057f42fdaf5e63835a8272aefe278e">version.h</a>
 </li>
 <li>version_buildtype
 : <a class="el" href="version_8c.html#a8ea1ed12e6c8d4c054866d3a1067925f">version.c</a>
@@ -420,13 +420,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="path_8c.html#a4d1e35a7b2354a14f8a368244c26cb55">path.c</a>
 </li>
 <li>vim_FullName()
-: <a class="el" href="path_8c.html#a52fbff29815a2232d884304f4dce5fef">path.c</a>
+: <a class="el" href="path_8c.html#a50f685fcaca0a14ca00ab5109d17b2be">path.c</a>
 </li>
 <li>VIM_GENERIC
 : <a class="el" href="message_8h.html#a3067757bb8749adde24f89624c66e1b9">message.h</a>
 </li>
 <li>vim_get_api_info()
 : <a class="el" href="vim_8c.html#a211c43b8ff7c5e263cf4ee62074b09eb">vim.c</a>
+</li>
+<li>vim_get_color_map()
+: <a class="el" href="vim_8c.html#a5f801fcfc14145cb8e8adb5ad330ae31">vim.c</a>
 </li>
 <li>vim_get_current_buffer()
 : <a class="el" href="vim_8c.html#a87ffb09cb1843df8b3adbd11912a3ceb">vim.c</a>
@@ -450,7 +453,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="vim_8c.html#ae0d22a94acc60f43e8c57da70995671b">vim.c</a>
 </li>
 <li>vim_getenv()
-: <a class="el" href="misc1_8c.html#a279518116c8b120e2dc277d7af50a9bf">misc1.c</a>
+: <a class="el" href="env_8c.html#adb11eb56837ed66f27d95cb1486632ba">env.c</a>
 </li>
 <li>vim_gettempdir()
 : <a class="el" href="tempfile_8c.html#ac1bd273a39cd42e96408b3ed87ab44fe">tempfile.c</a>
@@ -464,23 +467,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>vim_is_ctrl_x_key()
 : <a class="el" href="edit_8c.html#a98750b14f1d452561a33afe1d1cf2a3d">edit.c</a>
 </li>
-<li>vim_is_xterm()
-: <a class="el" href="os__unix_8c.html#a202b393af4b1f192b537c0230983b33c">os_unix.c</a>
-</li>
 <li>vim_isAbsName()
-: <a class="el" href="path_8c.html#a5ef1498896ca3e8d9fab89a91bf1df25">path.c</a>
+: <a class="el" href="path_8c.html#a4eb32201f33fcfb7c589b9cb5b2a8b9c">path.c</a>
 </li>
 <li>vim_isblankline()
 : <a class="el" href="charset_8c.html#a60b61e5a418215ab5f2d8b2228cd56cd">charset.c</a>
 </li>
 <li>vim_isbreak
 : <a class="el" href="macros_8h.html#ac6c11971465a1aa82123611a18a4c748">macros.h</a>
-</li>
-<li>vim_isdigit()
-: <a class="el" href="charset_8c.html#a35845ed87dc61ea86eb2e2f2f2f477f3">charset.c</a>
-</li>
-<li>VIM_ISDIGIT
-: <a class="el" href="macros_8h.html#a1c79e75cde848afa5b4c0be7c1c99ead">macros.h</a>
 </li>
 <li>vim_isfilec()
 : <a class="el" href="charset_8c.html#a91048c88b6fa8fce6d8e22d1c9794c9a">charset.c</a>
@@ -509,14 +503,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>vim_isprintc_strict()
 : <a class="el" href="charset_8c.html#a10773c4204db22b5934f25799fc0026b">charset.c</a>
 </li>
-<li>vim_isspace()
-: <a class="el" href="strings_8c.html#a0427a8240bc9c102afdca1db65f6c8e6">strings.c</a>
-</li>
 <li>vim_isupper()
 : <a class="el" href="charset_8c.html#acdfd4add8644ae59f32324947e0abca7">charset.c</a>
-</li>
-<li>vim_iswhite
-: <a class="el" href="vim_8h.html#a54a489f0b731d57e4abd75ad38f9f4ae">vim.h</a>
 </li>
 <li>vim_iswordc()
 : <a class="el" href="charset_8c.html#a3c2bbe62f11a23ddd38c98c42d1f5fbf">charset.c</a>
@@ -529,9 +517,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>vim_iswordp_buf()
 : <a class="el" href="charset_8c.html#a6d4a73cbd9e435f15f8872328f04971f">charset.c</a>
-</li>
-<li>vim_isxdigit()
-: <a class="el" href="charset_8c.html#a269e1797f0d8a95bd4cc2258588f8a63">charset.c</a>
 </li>
 <li>VIM_LAST_TYPE
 : <a class="el" href="message_8h.html#a8f92740eac1c89df17f64e236090047a">message.h</a>
@@ -554,9 +539,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>VIM_QUESTION
 : <a class="el" href="message_8h.html#ac3089c136f95c1bec34aea6e11b62ce2">message.h</a>
 </li>
-<li>vim_read
-: <a class="el" href="vim_8h.html#a501fd6f35829a162a5561f9906cf4ff6">vim.h</a>
-</li>
 <li>vim_regcomp()
 : <a class="el" href="regexp_8c.html#a47f217c8bc0fd2544f365dc9c38b6803">regexp.c</a>
 </li>
@@ -571,6 +553,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>vim_regexec_nl()
 : <a class="el" href="regexp_8c.html#a4b41bae50ff3129f9030c3371a785dce">regexp.c</a>
+</li>
+<li>vim_regexec_prog()
+: <a class="el" href="regexp_8c.html#ae126d3ee358e74b24d1278b845f22887">regexp.c</a>
 </li>
 <li>vim_regfree()
 : <a class="el" href="regexp_8c.html#ae85d66ec0c262d0e6c22766cd75e0287">regexp.c</a>
@@ -609,7 +594,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="vim_8c.html#a8e1434f0660ab5341dc9f7ffff4309a1">vim.c</a>
 </li>
 <li>vim_setenv()
-: <a class="el" href="misc1_8c.html#a67f3d285bed7092c3bd82f8a7a8cff6d">misc1.c</a>
+: <a class="el" href="env_8c.html#a7109897e408c4251a19e0f834f8c0a0b">env.c</a>
 </li>
 <li>vim_snprintf()
 : <a class="el" href="message_8c.html#a85cf102125139615bca9e9c5a9ec2fb0">message.c</a>
@@ -631,9 +616,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>vim_stricmp()
 : <a class="el" href="strings_8c.html#a61d999a2eb8b489b24f986da938076f9">strings.c</a>
-</li>
-<li>vim_strncpy()
-: <a class="el" href="strings_8c.html#ae773c85188b967e2556fc6e8fc7cd5ed">strings.c</a>
 </li>
 <li>vim_strnicmp()
 : <a class="el" href="strings_8c.html#a0714af62b8bdf862219662cc5dff1724">strings.c</a>
@@ -705,28 +687,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="vim_8c.html#af818049f66ba9263300926ab58cb042d">vim.c</a>
 </li>
 <li>VIM_VERSION_100
-: <a class="el" href="version__defs_8h.html#ac801bfe624377c640fd666d5fc012ae5">version_defs.h</a>
+: <a class="el" href="version_8h.html#ac801bfe624377c640fd666d5fc012ae5">version.h</a>
 </li>
 <li>VIM_VERSION_MAJOR
-: <a class="el" href="version__defs_8h.html#a9f2d077f8fc57636da55e99b1a2cd426">version_defs.h</a>
+: <a class="el" href="version_8h.html#a9f2d077f8fc57636da55e99b1a2cd426">version.h</a>
 </li>
 <li>VIM_VERSION_MINOR
-: <a class="el" href="version__defs_8h.html#a58a3afe9492a7d2e3a5bf15aa26488ef">version_defs.h</a>
+: <a class="el" href="version_8h.html#a58a3afe9492a7d2e3a5bf15aa26488ef">version.h</a>
 </li>
 <li>VIM_VERSION_NODOT
-: <a class="el" href="version__defs_8h.html#a80c71bceed4386dbba96ea921b756322">version_defs.h</a>
+: <a class="el" href="version_8h.html#a80c71bceed4386dbba96ea921b756322">version.h</a>
 </li>
 <li>VIM_VERSION_SHORT
-: <a class="el" href="version__defs_8h.html#a984f94fdbb6c51e3f0e98497edfd68b3">version_defs.h</a>
+: <a class="el" href="version_8h.html#a984f94fdbb6c51e3f0e98497edfd68b3">version.h</a>
 </li>
 <li>vim_vsnprintf()
 : <a class="el" href="message_8c.html#a8850f9c6c6a575dfdbc073ba5c2dd362">message.c</a>
 </li>
 <li>VIM_WARNING
 : <a class="el" href="message_8h.html#a816f77cc520622266f75542017a6f828">message.h</a>
-</li>
-<li>vim_write
-: <a class="el" href="vim_8h.html#ae388d9749d6eefca3a2792fcefae8c56">vim.h</a>
 </li>
 <li>VIM_YES
 : <a class="el" href="message_8h.html#af1863c45793e854c30c2bbee1ed256e0">message.h</a>
@@ -748,6 +727,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>vimmenu_T
 : <a class="el" href="menu_8h.html#af2db550fad6f1957463ce6686abdaf1b">menu.h</a>
+</li>
+<li>vimoption_T
+: <a class="el" href="option_8c.html#a759eab6e300ba5c90ff2c256fe3aaa6e">option.c</a>
 </li>
 <li>VIMPACKAGE
 : <a class="el" href="vim_8h.html#acf9ae7c8ef93a3f73d53585e1ecd84b3">vim.h</a>
@@ -785,11 +767,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>virtual_active()
 : <a class="el" href="misc2_8c.html#ad53fe5f53eda7f02128d6cd0b10a3b10">misc2.c</a>
 </li>
-<li>VISUAL
-: <a class="el" href="vim_8h.html#a5719963d148e344fe549ddff3b70f9b2">vim.h</a>
-</li>
 <li>VIsual
 : <a class="el" href="globals_8h.html#acf84ebbba1c7b96312e1e8af22a3bf9a">globals.h</a>
+</li>
+<li>VISUAL
+: <a class="el" href="vim_8h.html#a5719963d148e344fe549ddff3b70f9b2">vim.h</a>
 </li>
 <li>VIsual_reselect
 : <a class="el" href="globals_8h.html#a94f6632f8b7b88cf8fe53e560eeaf6d8">globals.h</a>
@@ -802,9 +784,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>vpeekc_any()
 : <a class="el" href="getchar_8c.html#a2e3ce174131f64d619f9cd25e73fe8c6">getchar.c</a>
-</li>
-<li>vpeekc_nomap()
-: <a class="el" href="getchar_8c.html#a36d34397c57b5771122fdc2ac6e3c4fa">getchar.c</a>
 </li>
 <li>VREPLACE
 : <a class="el" href="vim_8h.html#a1414c4bf4fb24ccbddaee33a01e10c3a">vim.h</a>
@@ -851,6 +830,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>VV_COMPAT
 : <a class="el" href="eval_8c.html#a3f0fbb5571da1bfc76172315020050c3">eval.c</a>
 </li>
+<li>VV_COMPLETED_ITEM
+: <a class="el" href="eval_8h.html#a99fb83031ce9923c84392b4e92f956b5a51e2d7440ba174ec63aab80eb9f94a52">eval.h</a>
+</li>
 <li>VV_COUNT
 : <a class="el" href="eval_8h.html#a99fb83031ce9923c84392b4e92f956b5af1703088113a11d9bdb05cf7d469af21">eval.h</a>
 </li>
@@ -859,6 +841,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>VV_CTYPE
 : <a class="el" href="eval_8h.html#a99fb83031ce9923c84392b4e92f956b5aa22ece21897a263685ce736fe0d7a481">eval.h</a>
+</li>
+<li>vv_dict
+: <a class="el" href="eval_8c.html#a54c481215115a02082d1b4b2ae2e2ec1">eval.c</a>
 </li>
 <li>VV_DYING
 : <a class="el" href="eval_8h.html#a99fb83031ce9923c84392b4e92f956b5aead086faec2f5753ac348423761d3313">eval.h</a>
@@ -910,9 +895,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>VV_INSERTMODE
 : <a class="el" href="eval_8h.html#a99fb83031ce9923c84392b4e92f956b5a903ff8c2ec5fc61d1880014be938369c">eval.h</a>
-</li>
-<li>VV_JOB_DATA
-: <a class="el" href="eval_8h.html#a99fb83031ce9923c84392b4e92f956b5a84f44216585ec39df8fab6233dc59a7c">eval.h</a>
 </li>
 <li>VV_KEY
 : <a class="el" href="eval_8h.html#a99fb83031ce9923c84392b4e92f956b5a9192ad50b8377f63cf133191fd2f2def">eval.h</a>
@@ -1034,7 +1016,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- start footer part -->
 <footer>
   <div class="container">
-    Generated on Sat Jan 10 2015 19:08:04 for Neovim by
+    Generated on Wed Jun 24 2015 20:32:43 for Neovim by
     <a href="http://www.doxygen.org/index.html">Doxygen</a>
     1.8.7
   </div>

@@ -8,6 +8,7 @@ var searchData=
   ['handle_5fset_5fjob',['handle_set_job',['../uv__helpers_8c.html#ac3050fa99a04c13bdf012ee4a18f4ed8',1,'uv_helpers.c']]],
   ['handle_5fset_5frstream',['handle_set_rstream',['../uv__helpers_8c.html#a8eff7dd64c7f2886b7907473e54ddfb6',1,'uv_helpers.c']]],
   ['handle_5fset_5fwstream',['handle_set_wstream',['../uv__helpers_8c.html#a9afe44aaecb74f283003f665911c660a',1,'uv_helpers.c']]],
+  ['handle_5fswap_5fexists',['handle_swap_exists',['../buffer_8c.html#acfcc98ff362688515e452810ddf0144d',1,'buffer.c']]],
   ['handle_5fx_5fkeys',['handle_x_keys',['../keymap_8c.html#aed5088c50e2b25750dad15230e90a008',1,'keymap.c']]],
   ['has_5fautocmd',['has_autocmd',['../fileio_8c.html#a5e63d49ba2cbcbf49dd45ec521733ad7',1,'fileio.c']]],
   ['has_5fcmdundefined',['has_cmdundefined',['../fileio_8c.html#aa7255028a68482ab93f9f3fd049f129e',1,'fileio.c']]],
@@ -15,7 +16,6 @@ var searchData=
   ['has_5fcursormoved',['has_cursormoved',['../fileio_8c.html#a82db067d71e3953e5f44a0455129cacf',1,'fileio.c']]],
   ['has_5fcursormovedi',['has_cursormovedI',['../fileio_8c.html#aee0ce3f73c7570c6e2f8cc830c0d4d10',1,'fileio.c']]],
   ['has_5fformat_5foption',['has_format_option',['../option_8c.html#a4fa9a34b7d06031a231e9e7f73ff0ad3',1,'option.c']]],
-  ['has_5ffuncundefined',['has_funcundefined',['../fileio_8c.html#a153652c795f503093c40bba4bf400eb4',1,'fileio.c']]],
   ['has_5finsertcharpre',['has_insertcharpre',['../fileio_8c.html#a30540f10c02cbde7ccb16628093dd632',1,'fileio.c']]],
   ['has_5floop_5fcmd',['has_loop_cmd',['../ex__eval_8c.html#a62db8d272386297c0ec64a7613fd9d1d',1,'ex_eval.c']]],
   ['has_5fnon_5fascii',['has_non_ascii',['../strings_8c.html#a494b6bd6ac8b293b6ab9969feee99979',1,'strings.c']]],
@@ -40,13 +40,12 @@ var searchData=
   ['hash_5funlock',['hash_unlock',['../hashtab_8c.html#adb2779e2b1f3393ac14de128717fb3d4',1,'hashtab.c']]],
   ['help_5fheuristic',['help_heuristic',['../ex__cmds_8c.html#a05619efdbca56cab68f34c446c046312',1,'ex_cmds.c']]],
   ['hex2nr',['hex2nr',['../charset_8c.html#a58ed0722af2b6452235a9c269767aa0c',1,'charset.c']]],
-  ['highest_5fpatch',['highest_patch',['../version_8c.html#a744d1f9c524ff7ac54d80cf450f0bb52',1,'version.c']]],
   ['highlight_5fchanged',['highlight_changed',['../syntax_8c.html#ac380bbba026d274d3417d414c3683757',1,'syntax.c']]],
   ['highlight_5fcolor',['highlight_color',['../syntax_8c.html#a6a6f31a23826874db510faf9932a0aa8',1,'syntax.c']]],
   ['highlight_5fexists',['highlight_exists',['../syntax_8c.html#af69ca539c11eb60f385c1dcd84b19867',1,'syntax.c']]],
   ['highlight_5fhas_5fattr',['highlight_has_attr',['../syntax_8c.html#ac67e015a17944f5c849a46a879740147',1,'syntax.c']]],
   ['hkmap',['hkmap',['../edit_8c.html#a2ea90495e960df70fe752c8a613dd9d0',1,'edit.c']]],
   ['hl_5fcombine_5fattr',['hl_combine_attr',['../syntax_8c.html#a383004bf8a9f89e674ff2384e8f84c28',1,'syntax.c']]],
-  ['home_5freplace',['home_replace',['../misc1_8c.html#ab7f12f206c15cee62718c8ca7fa40695',1,'misc1.c']]],
-  ['home_5freplace_5fsave',['home_replace_save',['../misc1_8c.html#a68f47832f215f5684376e9ec557c6778',1,'misc1.c']]]
+  ['home_5freplace',['home_replace',['../env_8c.html#a7983ea1a4f661527f9a3149b33fa0bec',1,'env.c']]],
+  ['home_5freplace_5fsave',['home_replace_save',['../env_8c.html#a68f47832f215f5684376e9ec557c6778',1,'env.c']]]
 ];

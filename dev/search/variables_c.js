@@ -17,7 +17,7 @@ var searchData=
   ['match_5ftext',['match_text',['../structnfa__regprog__T.html#a533b14763f3ebfa4c7fbb59fdd11a8a2',1,'nfa_regprog_T']]],
   ['matched',['matched',['../structSearchedFile.html#a7d67d11c8b49f7493e1f48f5cc3ff5b1',1,'SearchedFile']]],
   ['matches',['matches',['../structreg__extmatch__T.html#a37bc6d5e3d3cbf48d30d178d54afb5f7',1,'reg_extmatch_T']]],
-  ['maxmem',['maxmem',['../structwstream.html#aeb1daca31aec5cf09f7a7e7c975e08c0',1,'wstream']]],
+  ['maxmem',['maxmem',['../structJobOptions.html#a1fc0cac7dfa11fd41599c93b20bacf86',1,'JobOptions::maxmem()'],['../structwstream.html#aeb1daca31aec5cf09f7a7e7c975e08c0',1,'wstream::maxmem()']]],
   ['maxval',['maxval',['../structregstar__S.html#a6a30c9b642082d1488b0ac0d741f9096',1,'regstar_S']]],
   ['mb_5fbytelen_5ftab',['mb_bytelen_tab',['../globals_8h.html#ad99377081eacc51d42985b962d65e3c1',1,'globals.h']]],
   ['mb_5fchar2bytes',['mb_char2bytes',['../globals_8h.html#a0e4fa6df1ff3b41dcd91f7adc8322fa3',1,'globals.h']]],
@@ -30,8 +30,8 @@ var searchData=
   ['mb_5fptr2char',['mb_ptr2char',['../globals_8h.html#ae3e9a5abbb9035d367e064ec5222828d',1,'globals.h']]],
   ['mb_5fptr2len',['mb_ptr2len',['../globals_8h.html#a64ba919d712e1b47360e1d30144829a2',1,'globals.h']]],
   ['mb_5fptr2len_5flen',['mb_ptr2len_len',['../globals_8h.html#a66ff31ffc5db3c9785f572b3574f1a47',1,'globals.h']]],
+  ['mediumversion',['mediumVersion',['../version_8c.html#ae4a2fdfa6c1433647714457e51a7339b',1,'mediumVersion():&#160;version.c'],['../version_8h.html#ae4a2fdfa6c1433647714457e51a7339b',1,'mediumVersion():&#160;version.c']]],
   ['messages',['messages',['../structvim__exception.html#a54ffd15f77b98518266bdf6cab6c8ecb',1,'vim_exception']]],
-  ['method',['method',['../structDelayedNotification.html#a127c1755bdff2bc3c75da9b809ad247c',1,'DelayedNotification']]],
   ['mf_5fblocknr_5fmax',['mf_blocknr_max',['../structmemfile.html#aa0bbdc78a43847cb756129e7fa4d2abc',1,'memfile']]],
   ['mf_5fblocknr_5fmin',['mf_blocknr_min',['../structmemfile.html#a43ea07fa5fb0656c8e493a91407a695f',1,'memfile']]],
   ['mf_5fdirty',['mf_dirty',['../structmemfile.html#a3e114cffe90d3e1d82c53d0787494774',1,'memfile']]],
@@ -103,12 +103,11 @@ var searchData=
   ['mouse_5foff',['mouse_off',['../structui__t.html#a015adfb225cd3572859c44bc4a2ee48a',1,'ui_t']]],
   ['mouse_5fon',['mouse_on',['../structui__t.html#ae1288e030f409c0be80850df5e3d40df',1,'ui_t']]],
   ['mouse_5frow',['mouse_row',['../globals_8h.html#ac2e09843f59a705f5e1b2a83080fbf45',1,'globals.h']]],
-  ['ms',['ms',['../structTimerData.html#a8761efeeb4f565abd3a637bb1f8f0dbf',1,'TimerData']]],
   ['msg',['msg',['../structError.html#a012d5a13fc047cfb6da9616bbdf463f1',1,'Error::msg()'],['../structmsglist.html#ac8341db39c8dc65be756be2c67b2b9fc',1,'msglist::msg()'],['../structmsg__hist.html#a22426b9b62f3448b50af0fda1ef41774',1,'msg_hist::msg()']]],
   ['msg_5fbuf',['msg_buf',['../globals_8h.html#abf237fcb55f45d33b653f64b15f97dd1',1,'globals.h']]],
   ['msg_5fcol',['msg_col',['../globals_8h.html#aeca5747830fc5511b00793cde06f61f5',1,'globals.h']]],
   ['msg_5frow',['msg_row',['../globals_8h.html#a376f82c59d5c5bf72c5bc753f7554128',1,'globals.h']]],
   ['msg_5fscrolled',['msg_scrolled',['../globals_8h.html#a0b03bc5fdd1ab38b00bf9264b8c7275b',1,'globals.h']]],
   ['mshape',['mshape',['../structcursor__entry.html#af618354b5410e23249775766ce5f94d3',1,'cursor_entry']]],
-  ['multi',['multi',['../structregsub__T.html#a97fff15a7acefaf5b93f46681f547b42',1,'regsub_T']]]
+  ['multi',['multi',['../structregsub__T.html#a5eb602c7855c24e2afa36eb0c502c2aa',1,'regsub_T']]]
 ];
