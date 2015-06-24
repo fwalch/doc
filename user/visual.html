@@ -43,7 +43,7 @@
 
 <A HREF="#Visual">Visual</A> mode				*<A NAME="Visual"></A><B>Visual</B>* *<A NAME="Visual-mode"></A><B>Visual-mode</B>* *<A NAME="visual-mode"></A><B>visual-mode</B>*
 
-<A HREF="#Visual">Visual</A> mode is a flexible and <A HREF="starting.html#easy">easy</A> way to select a piece of text for an
+<A HREF="#Visual">Visual</A> mode is a flexible and easy way to select a piece of text for an
 <A HREF="motion.html#operator">operator</A>.  It is the only way to select a block of text.
 
 This is introduced in section |<A HREF="usr_04.html#04.4">04.4</A>| of the user manual.
@@ -56,10 +56,6 @@ This is introduced in section |<A HREF="usr_04.html#04.4">04.4</A>| of the user 
 6. Repeating				|<A HREF="#visual-repeat">visual-repeat</A>|
 7. Examples				|<A HREF="#visual-examples">visual-examples</A>|
 8. Select mode				|<A HREF="#Select-mode">Select-mode</A>|
-
-{Vi has no <A HREF="#Visual">Visual</A> mode, the name &quot;visual&quot; is used for <A HREF="intro.html#Normal">Normal</A> mode, to
-distinguish <A HREF="motion.html#it">it</A> from <A HREF="intro.html#Ex">Ex</A> mode}
-{Since Vim 7.4.200 the |<A HREF="various.html#+visual">+visual</A>| feature is always included}
 
 ==============================================================================
 
@@ -264,7 +260,7 @@ and <A HREF="motion.html#CTRL-O">CTRL-O</A> cause a beep and <A HREF="#Visual">V
 
 When switching to another <A HREF="windows.html#window">window</A> on the same buffer, the cursor position in
 that <A HREF="windows.html#window">window</A> is adjusted, so that the same <A HREF="#Visual">Visual</A> area is still selected.  This
-is especially useful to <A HREF="starting.html#view">view</A> the start of the <A HREF="#Visual">Visual</A> area in one <A HREF="windows.html#window">window</A>, and
+is especially useful to view the start of the <A HREF="#Visual">Visual</A> area in one <A HREF="windows.html#window">window</A>, and
 the end in another.  You can then use <A HREF="#&lt;RightMouse&gt;">&lt;RightMouse&gt;</A> (or <A HREF="term.html#&lt;S-LeftMouse&gt;">&lt;S-LeftMouse&gt;</A> when
 <A HREF="options.html#'mousemodel'">'mousemodel'</A> is &quot;popup&quot;) to drag either end of the <A HREF="#Visual">Visual</A> area.
 
@@ -367,7 +363,7 @@ mode.
 {not available when compiled without the |<A HREF="various.html#+visualextra">+visualextra</A>| feature}
 
 Reminder: Use <A HREF="options.html#'virtualedit'">'virtualedit'</A> to be able to select blocks that start or end
-after the end of a line or halfway a <A HREF="intro.html#tab">tab</A>.
+after the end of a line or halfway through a <A HREF="intro.html#tab">tab</A>.
 
 
 Visual-block <A HREF="insert.html#Insert">Insert</A>						*<A NAME="v_b_I"></A><B>v_b_I</B>*
@@ -571,7 +567,8 @@ Otherwise, typed characters are handled <A HREF="motion.html#as">as</A> in <A HR
 
 When using an <A HREF="motion.html#operator">operator</A> in <A HREF="#Select">Select</A> mode, and the selection is <A HREF="motion.html#linewise">linewise</A>, the
 selected lines are operated upon, but like in <A HREF="motion.html#characterwise">characterwise</A> selection.  For
-example, when a whole line is deleted, <A HREF="motion.html#it">it</A> can later be pasted halfway a line.
+example, when a whole line is deleted, <A HREF="motion.html#it">it</A> can later be pasted in the middle of
+a line.
 
 
 
@@ -627,7 +624,7 @@ character typed in <A HREF="#Select">Select</A> mode.  Language mappings apply <
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:02 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

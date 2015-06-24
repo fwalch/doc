@@ -100,22 +100,14 @@ to write a Vim <A HREF="usr_41.html#script">script</A> file: |<A HREF="usr_41.ht
 
 *<A NAME="05.2"></A><B>05.2</B>*	The example <A HREF="starting.html#vimrc">vimrc</A> file explained		*<A NAME="vimrc_example.vim"></A><B>vimrc_example.vim</B>*
 
-In the first chapter was explained how the example <A HREF="starting.html#vimrc">vimrc</A> (included in the
-Vim <A HREF="intro.html#distribution">distribution</A>) file can be used to make Vim <A HREF="starting.html#startup">startup</A> in <A HREF="usr_01.html#not-compatible">not-compatible</A> mode
-(see |<A HREF="usr_01.html#not-compatible">not-compatible</A>|).  The file can be found here:
+In the first chapter was explained how the example <A HREF="starting.html#vimrc">vimrc</A> file can be used.
+The file can be found here:
 
 <B><FONT color="#54A23D">	$VIMRUNTIME/vimrc_example.vim </FONT></B>
 
 In this section we will explain the various commands used in this file.  This
 will give you hints about how to set up your own preferences.  Not everything
 will be explained though.  Use the &quot;<A HREF="helphelp.html#:help">:help</A>&quot; command to find out more.
-
-
-<B>	set nocompatible</B>
-
-As mentioned in the first chapter, these manuals explain Vim working in an
-improved way, thus not completely <A HREF="intro.html#Vi">Vi</A> compatible.  Setting the <A HREF="options.html#'compatible'">'compatible'</A>
-option off, thus <A HREF="options.html#'nocompatible'">'nocompatible'</A> takes care of this.
 
 
 <B>	set backspace=indent,eol,start</B>
@@ -171,7 +163,7 @@ the &quot;2fw&quot; command is executed and the displayed &quot;2f&quot; is remo
 
 <B>	set incsearch</B>
 
-Display the match for a search <A HREF="pattern.html#pattern">pattern</A> when halfway typing <A HREF="motion.html#it">it</A>.
+Display matches for a search <A HREF="pattern.html#pattern">pattern</A> while you type.
 
 
 <B>	map Q gq</B>
@@ -367,7 +359,7 @@ text.
 
 Instead of putting plugins directly into the plugin/ directory, you may
 better organize them by putting them into subdirectories under plugin/.
-As an example, consider using &quot;~/.vim/plugin/perl/*.vim&quot; for all your <A HREF="if_perl.html#Perl">Perl</A>
+As an example, consider using &quot;~/.vim/plugin/perl/*.vim&quot; for all your Perl
 plugins.
 
 
@@ -454,45 +446,29 @@ Further reading:
 
 ==============================================================================
 
-*<A NAME="05.5"></A><B>05.5</B>*	Adding a help file		*<A NAME="add-local-help"></A><B>add-local-help</B>* *<A NAME="matchit-install"></A><B>matchit-install</B>*
+*<A NAME="05.5"></A><B>05.5</B>*	Adding a help file		                   *<A NAME="add-local-help"></A><B>add-local-help</B>*
 
 If you are lucky, the <A HREF="#plugin">plugin</A> you installed also comes with a help file.  We
 will explain how to <A HREF="usr_90.html#install">install</A> the help file, so that you can easily find help
 for your new <A HREF="#plugin">plugin</A>.
-   Let us use the &quot;matchit.vim&quot; <A HREF="#plugin">plugin</A> <A HREF="motion.html#as">as</A> an example (it is included with
-Vim).  This <A HREF="#plugin">plugin</A> makes the &quot;<A HREF="motion.html#&#37;">&#37;</A>&quot; command jump to matching HTML <A HREF="tagsrch.html#tags">tags</A>,
-if/else/endif in Vim scripts, etc.  Very useful, although it's not backwards
-compatible (that's why <A HREF="motion.html#it">it</A> is not enabled by default).
-   This <A HREF="#plugin">plugin</A> comes with documentation: &quot;matchit.txt&quot;.  Let's first copy the
-<A HREF="#plugin">plugin</A> to the right directory.  This time we will <A HREF="diff.html#do">do</A> <A HREF="motion.html#it">it</A> from inside Vim, so
-that we can use <A HREF="starting.html#$VIMRUNTIME">$VIMRUNTIME</A>.  (You may skip some of the &quot;mkdir&quot; commands if
-you already have the directory.)
 
-<B>	:!mkdir ~/.vim</B>
-<B>	:!mkdir ~/.vim/plugin</B>
-<B>	:!cp $VIMRUNTIME/macros/matchit.vim ~/.vim/plugin</B>
+Let us suppose a <A HREF="#plugin">plugin</A> (&quot;my-plugin&quot;), which comes with a help file in a
+non-standard place (it usually resides in a sub-folder called `doc/`).
 
-The &quot;cp&quot; command is for <A HREF="os_unix.html#Unix">Unix</A>, on MS-DOS you can use &quot;copy&quot;.
-
-Now create a &quot;doc&quot; directory in one of the directories in <A HREF="options.html#'runtimepath'">'runtimepath'</A>.
+First, create a &quot;doc&quot; directory in one of the directories in <A HREF="options.html#'runtimepath'">'runtimepath'</A>:
 
 <B>	:!mkdir ~/.vim/doc</B>
 
-Copy the help file to the &quot;doc&quot; directory.
+Now, copy the help file to the &quot;doc&quot; directory:
 
-<B>	:!cp $VIMRUNTIME/macros/matchit.txt ~/.vim/doc</B>
+<B>	:!cp my-plugin/my-plugin-doc.txt ~/.vim/doc</B>
 
-Now comes the trick, which allows you to jump to the subjects in the new help
-file: Generate the local tags file with the |<A HREF="helphelp.html#:helptags">:helptags</A>| command.
+Here comes the trick, which allows you to jump to the subjects in the new help
+file. Generate the local tags file with the |<A HREF="helphelp.html#:helptags">:helptags</A>| command:
 
 <B>	:helptags ~/.vim/doc</B>
 
-Now you can use the
-
-<B>	:help g%</B>
-
-command to find help for &quot;g&#37;&quot; in the help file you just added.  You can see an
-entry for the local help file when you <A HREF="diff.html#do">do</A>:
+You can see an entry for the local help file when you <A HREF="diff.html#do">do</A>:
 
 <B>	:help local-additions</B>
 
@@ -669,7 +645,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

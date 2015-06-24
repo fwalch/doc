@@ -34,43 +34,35 @@
 <HR>
 <PRE>
 
-*<A NAME="diff.txt"></A><B>diff.txt</B>*      For Vim version 7.4.  Last change: 2014 May 20
+*<A NAME="diff.txt"></A><B>diff.txt</B>*      For Vim version 7.4.  Last change: 2015 Jan 19
 
 
 		  VIM REFERENCE MANUAL    by <A HREF="intro.html#Bram">Bram</A> <A HREF="intro.html#Moolenaar">Moolenaar</A>
 
 
 
-				*<A NAME="diff"></A><B>diff</B>* *<A NAME="vimdiff"></A><B>vimdiff</B>* *<A NAME="gvimdiff"></A><B>gvimdiff</B>* *<A NAME="diff-mode"></A><B>diff-mode</B>*
-This file describes the |<A HREF="various.html#+diff">+diff</A>| feature: Showing differences between two,
-three or four versions of the same file.
+							*<A NAME="diff"></A><B>diff</B>* *<A NAME="diff-mode"></A><B>diff-mode</B>*
+This file describes |<A HREF="#diff-mode">diff-mode</A>|, which shows the differences between two,
+three, or four versions of the same file.
 
 The basics are explained in section |<A HREF="usr_08.html#08.7">08.7</A>| of the user manual.
 
-1. Starting diff mode		|<A HREF="#vimdiff">vimdiff</A>|
+1. Starting diff mode		|<A HREF="#diff-mode">diff-mode</A>|
 2. Viewing diffs		|<A HREF="#view-diffs">view-diffs</A>|
 3. Jumping to diffs		|<A HREF="#jumpto-diffs">jumpto-diffs</A>|
 4. Copying diffs		|<A HREF="#copy-diffs">copy-diffs</A>|
 5. Diff options			|<A HREF="#diff-options">diff-options</A>|
 
-{not in Vi}
-
 ==============================================================================
 1. Starting <A HREF="#diff">diff</A> mode
 
-The easiest way to start editing in <A HREF="#diff">diff</A> mode is with the &quot;<A HREF="#vimdiff">vimdiff</A>&quot; command.
-This starts Vim <A HREF="motion.html#as">as</A> usual, and additionally sets up for viewing the differences
-between the arguments.
+To start editing in <A HREF="#diff">diff</A> mode, run &quot;<A HREF="nvim_intro.html#nvim">nvim</A> -d&quot;.  This starts Nvim <A HREF="motion.html#as">as</A> usual, and
+additionally sets up for viewing the differences between the arguments.
 
-<B>	vimdiff file1 file2 [file3 [file4]]</B>
+<B>	nvim -d file1 file2 [file3 [file4]]</B>
 
-This is equivalent to:
-
-<B>	vim -d file1 file2 [file3 [file4]]</B>
-
-You may also use &quot;<A HREF="#gvimdiff">gvimdiff</A>&quot; or &quot;vim <A HREF="starting.html#-d">-d</A> -g&quot;.  The <A HREF="gui.html#GUI">GUI</A> is started then.
-You may also use &quot;viewdiff&quot; or &quot;gviewdiff&quot;.  Vim starts in readonly mode then.
-&quot;<A HREF="change.html#r">r</A>&quot; may be prepended for restricted mode (see |<A HREF="starting.html#-Z">-Z</A>|).
+In addition to the |<A HREF="starting.html#-d">-d</A>| argument, |<A HREF="starting.html#-Z">-Z</A>| and |<A HREF="starting.html#-R">-R</A>| may be used for restricted
+mode and readonly mode respectively.
 
 The second and following arguments may also be a directory name.  Vim will
 then append the file name of the first argument to the directory name to find
@@ -82,11 +74,11 @@ Diffs are local to the current tab page |<A HREF="tabpage.html#tab-page">tab-pag
 a <A HREF="windows.html#window">window</A> in another <A HREF="intro.html#tab">tab</A> page.  This does make <A HREF="motion.html#it">it</A> possible to have several
 diffs at the same time, each in their own <A HREF="intro.html#tab">tab</A> page.
 
-What happens is that Vim opens a <A HREF="windows.html#window">window</A> for each of the files.  This is like
-using the |<A HREF="starting.html#-O">-O</A>| argument.  This uses vertical splits.  If you prefer horizontal
-splits add the |<A HREF="starting.html#-o">-o</A>| argument:
+What happens is that Nvim opens a <A HREF="windows.html#window">window</A> for each of the files.  This is like
+using the |<A HREF="starting.html#-O">-O</A>| argument.  This uses vertical splits, but if you prefer
+horizontal splits use the |<A HREF="starting.html#-o">-o</A>| argument instead:
 
-<B>	vimdiff -o file1 file2 [file3 [file4]]</B>
+<B>	nvim -d -o file1 file2 [file3 [file4]]</B>
 
 If you always prefer horizontal splits include &quot;horizontal&quot; in <A HREF="options.html#'diffopt'">'diffopt'</A>.
 
@@ -127,19 +119,19 @@ While already in Vim you can start <A HREF="#diff">diff</A> mode in three ways.
 
 :diffs[plit] {filename}					*<A NAME=":diffs"></A><B>:diffs</B>* *<A NAME=":diffsplit"></A><B>:diffsplit</B>*
 		Open a new <A HREF="windows.html#window">window</A> on the file {filename}.  The <A HREF="options.html#options">options</A> are set
-		<A HREF="motion.html#as">as</A> for &quot;<A HREF="#vimdiff">vimdiff</A>&quot; for the current and the newly opened <A HREF="windows.html#window">window</A>.
+		<A HREF="motion.html#as">as</A> for &quot;<A HREF="nvim_intro.html#nvim">nvim</A> -d&quot; for the current and the newly opened <A HREF="windows.html#window">window</A>.
 		Also see <A HREF="options.html#'diffexpr'">'diffexpr'</A>.
 
 
 							*<A NAME=":difft"></A><B>:difft</B>* *<A NAME=":diffthis"></A><B>:diffthis</B>*
 :difft[his]	Make the current <A HREF="windows.html#window">window</A> part of the <A HREF="#diff">diff</A> <A HREF="windows.html#windows">windows</A>.  This sets
-		the <A HREF="options.html#options">options</A> like for &quot;<A HREF="#vimdiff">vimdiff</A>&quot;.
+		the <A HREF="options.html#options">options</A> <A HREF="motion.html#as">as</A> for &quot;<A HREF="nvim_intro.html#nvim">nvim</A> -d&quot;.
 
 
 :diffp[atch] {patchfile}			 *<A NAME="E816"></A><B>E816</B>* *<A NAME=":diffp"></A><B>:diffp</B>* *<A NAME=":diffpatch"></A><B>:diffpatch</B>*
 		Use the current buffer, patch <A HREF="motion.html#it">it</A> with the <A HREF="#diff">diff</A> found in
-		{patchfile} and open a buffer on the result.  The <A HREF="options.html#options">options</A> are
-		set <A HREF="motion.html#as">as</A> for &quot;<A HREF="#vimdiff">vimdiff</A>&quot;.
+		{patchfile} and open a buffer on the result.  This sets the
+		<A HREF="options.html#options">options</A> <A HREF="motion.html#as">as</A> for &quot;<A HREF="nvim_intro.html#nvim">nvim</A> -d&quot;.
 		{patchfile} can be in any format that the &quot;patch&quot; program
 		understands or <A HREF="options.html#'patchexpr'">'patchexpr'</A> can handle.
 		Note that {patchfile} should only contain a <A HREF="#diff">diff</A> for one file,
@@ -211,13 +203,13 @@ edited in a <A HREF="windows.html#window">window</A> first for this to be possib
 
 
 					*<A NAME=":DiffOrig"></A><B>:DiffOrig</B>* *<A NAME="diff-original-file"></A><B>diff-original-file</B>*
-Since <A HREF="options.html#'diff'">'diff'</A> is a window-local option, it's possible to <A HREF="starting.html#view">view</A> the same buffer
+Since <A HREF="options.html#'diff'">'diff'</A> is a window-local option, it's possible to view the same buffer
 in <A HREF="#diff">diff</A> mode in one <A HREF="windows.html#window">window</A> and &quot;normal&quot; in another <A HREF="windows.html#window">window</A>.  It is also
-possible to <A HREF="starting.html#view">view</A> the changes you have made to a buffer since the file was
+possible to view the changes you have made to a buffer since the file was
 loaded.  Since Vim doesn't allow having two <A HREF="windows.html#buffers">buffers</A> for the same file, you
 need another buffer.  This command is useful:
 <B>	 command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_</B>
-<B>	 	\ | diffthis | wincmd p | diffthis</B>
+<B>		\ | diffthis | wincmd p | diffthis</B>
 (this is in |<A HREF="vimrc_example.html">vimrc_example.vim</A>|).  Use &quot;<A HREF="#:DiffOrig">:DiffOrig</A>&quot; to see the differences
 between the current buffer and the file <A HREF="motion.html#it">it</A> was loaded from.
 
@@ -320,14 +312,18 @@ that the <A HREF="windows.html#buffers">buffers</A> will be equal within the spe
 
 
 							*<A NAME="do"></A><B>do</B>*
-<A HREF="#do">do</A>		Same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:diffget">:diffget</A>&quot; without argument or range.  The &quot;<A HREF="insert.html#o">o</A>&quot; stands
-		for &quot;obtain&quot; (&quot;dg&quot; can't be used, <A HREF="motion.html#it">it</A> could be the start of
-		&quot;dgg&quot;!). Note: this doesn't work in <A HREF="visual.html#Visual">Visual</A> mode.
+[count]do	Same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:diffget">:diffget</A>&quot; without range.  The &quot;<A HREF="insert.html#o">o</A>&quot; stands for &quot;obtain&quot;
+		(&quot;dg&quot; can't be used, <A HREF="motion.html#it">it</A> could be the start of &quot;dgg&quot;!). Note:
+		this doesn't work in <A HREF="visual.html#Visual">Visual</A> mode.
+		If you give a <A HREF="intro.html#[count]">[count]</A>, <A HREF="motion.html#it">it</A> is used <A HREF="motion.html#as">as</A> the [bufspec] argument
+		for &quot;<A HREF="#:diffget">:diffget</A>&quot;.
 
 
 							*<A NAME="dp"></A><B>dp</B>*
-<A HREF="#dp">dp</A>		Same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:diffput">:diffput</A>&quot; without argument or range.
-		Note: this doesn't work in <A HREF="visual.html#Visual">Visual</A> mode.
+[count]dp	Same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:diffput">:diffput</A>&quot; without range.  Note: this doesn't work in
+		<A HREF="visual.html#Visual">Visual</A> mode.
+		If you give a <A HREF="intro.html#[count]">[count]</A>, <A HREF="motion.html#it">it</A> is used <A HREF="motion.html#as">as</A> the [bufspec] argument
+		for &quot;<A HREF="#:diffput">:diffput</A>&quot;.
 
 
 When no <A HREF="cmdline.html#[range]">[range]</A> is given, the <A HREF="#diff">diff</A> at the cursor position or just above <A HREF="motion.html#it">it</A> is
@@ -486,7 +482,7 @@ directory are accidentally patched.  Vim will also delete files starting with
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:07:59 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:32 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

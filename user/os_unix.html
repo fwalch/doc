@@ -64,19 +64,16 @@ For executing external commands fork()/exec() is used when possible, otherwise
 <A HREF="eval.html#system()">system()</A> is used, which is a bit slower.  The output of &quot;<A HREF="various.html#:version">:version</A>&quot; includes
 |<A HREF="various.html#+fork">+fork</A>| when fork()/exec() is used, |<A HREF="various.html#+system()">+system()</A>| when system() is used.  This
 can be changed at compile time.
-(For forking of the <A HREF="gui.html#GUI">GUI</A> version see |<A HREF="gui_x11.html#gui-fork">gui-fork</A>|.)
 
 Because terminal updating under <A HREF="#Unix">Unix</A> is often slow (e.g. serial line
 terminal, shell <A HREF="windows.html#window">window</A> in suntools), the <A HREF="options.html#'showcmd'">'showcmd'</A> and <A HREF="options.html#'ruler'">'ruler'</A> <A HREF="options.html#options">options</A>
-are default off.  If you have a fast terminal, try setting them on.  You might
-also want to set <A HREF="options.html#'ttyfast'">'ttyfast'</A>.
+are off by default.
 
 When using Vim in an xterm the mouse clicks can be used by Vim by setting
 <A HREF="options.html#'mouse'">'mouse'</A> to &quot;<A HREF="insert.html#a">a</A>&quot;.  If there is access to an X-server <A HREF="gui.html#gui">gui</A> style copy/paste will
 be used and visual feedback will be provided while dragging with the mouse.
 If you then still want the xterm copy/paste with the mouse, press the <A HREF="intro.html#shift">shift</A>
-key when using the mouse.  See |<A HREF="term.html#mouse-using">mouse-using</A>|.  <A HREF="visual.html#Visual">Visual</A> feedback while dragging
-can also be achieved via the <A HREF="options.html#'ttymouse'">'ttymouse'</A> option if your xterm is new enough.
+key when using the mouse.  See |<A HREF="term.html#mouse-using">mouse-using</A>|.
 
 
 							*<A NAME="terminal-colors"></A><B>terminal-colors</B>*
@@ -102,7 +99,7 @@ column mode on a vt100 and lookalikes.
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:35 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

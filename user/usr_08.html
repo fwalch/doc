@@ -41,7 +41,7 @@
 			      Splitting <A HREF="windows.html#windows">windows</A>
 
 
-Display two different files above each other.  Or <A HREF="starting.html#view">view</A> two locations in the
+Display two different files above each other.  Or view two locations in the
 file at the same time.  See the difference between two files by putting them
 side by side.  All this is possible with split <A HREF="windows.html#windows">windows</A>.
 
@@ -51,7 +51,7 @@ side by side.  All this is possible with split <A HREF="windows.html#windows">wi
 |<A HREF="#08.4">08.4</A>|	Vertical splits
 |<A HREF="#08.5">08.5</A>|	Moving <A HREF="windows.html#windows">windows</A>
 |<A HREF="#08.6">08.6</A>|	Commands for all <A HREF="windows.html#windows">windows</A>
-|<A HREF="#08.7">08.7</A>|	Viewing differences with <A HREF="diff.html#vimdiff">vimdiff</A>
+|<A HREF="#08.7">08.7</A>|	Viewing differences with <A HREF="diff.html#diff">diff</A> mode
 |<A HREF="#08.8">08.8</A>|	Various
 |<A HREF="#08.9">08.9</A>|	<A HREF="intro.html#Tab">Tab</A> pages
 
@@ -84,7 +84,7 @@ top one:
 What you see here is two <A HREF="windows.html#windows">windows</A> on the same file.  The line with &quot;====&quot; is
 that status line.  It displays information about the <A HREF="windows.html#window">window</A> above <A HREF="motion.html#it">it</A>.  (In
 practice the status line will be in reverse video.)
-   The two <A HREF="windows.html#windows">windows</A> allow you to <A HREF="starting.html#view">view</A> two parts of the same file.  For example,
+   The two <A HREF="windows.html#windows">windows</A> allow you to view two parts of the same file.  For example,
 you could make the top <A HREF="windows.html#window">window</A> show the variable declarations of a program, and
 the bottom one the code that uses these <A HREF="eval.html#variables">variables</A>.
 
@@ -155,7 +155,7 @@ three lines high and starts editing the file alpha.c:
 <B>	:3split alpha.c</B>
 
 For existing <A HREF="windows.html#windows">windows</A> you can change the size in several ways.  When you have a
-working mouse, <A HREF="motion.html#it">it</A> is <A HREF="starting.html#easy">easy</A>: Move the mouse pointer to the status line that
+working mouse, <A HREF="motion.html#it">it</A> is easy: Move the mouse pointer to the status line that
 separates two <A HREF="windows.html#windows">windows</A>, and drag <A HREF="motion.html#it">it</A> up or down.
 
 To increase the size of a <A HREF="windows.html#window">window</A>:
@@ -378,15 +378,15 @@ file in the argument <A HREF="eval.html#list">list</A>.  &quot;<A HREF="windows.
 
 ==============================================================================
 
-*<A NAME="08.7"></A><B>08.7</B>*	Viewing differences with <A HREF="diff.html#vimdiff">vimdiff</A>
+*<A NAME="08.7"></A><B>08.7</B>*	Viewing differences with <A HREF="diff.html#diff">diff</A> mode
 
-There is a special way to start Vim, which shows the differences between two
+There is a special way to start Nvim, which shows the differences between two
 files.  Let's take a file &quot;main.c&quot; and insert a few characters in one line.
 Write this file with the <A HREF="options.html#'backup'">'backup'</A> option set, so that the <A HREF="editing.html#backup">backup</A> file
 &quot;main.c~&quot; will contain the previous version of the file.
-   Type this command in a shell (not in Vim):
+Type this command in a shell to start Nvim in <A HREF="diff.html#diff">diff</A> mode:
 
-<B>	vimdiff main.c~ main.c</B>
+<B>	nvim -d main.c~ main.c</B>
 
 Vim will start, with two <A HREF="windows.html#windows">windows</A> side by side.  You will only see the line
 in which you added characters, and a few lines above and below <A HREF="motion.html#it">it</A>.
@@ -410,8 +410,7 @@ in which you added characters, and a few lines above and below <A HREF="motion.h
 	&#124;					  |
 	+-----------------------------------------+
 
-(This picture doesn't show the highlighting, use the <A HREF="diff.html#vimdiff">vimdiff</A> command for a
-better look.)
+(This picture doesn't show the highlighting, use &quot;<A HREF="nvim_intro.html#nvim">nvim</A> -d&quot; for that.)
 
 The lines that were not modified have been collapsed into one line.  This is
 called a closed fold.  They are indicated in the picture with &quot;&lt;- fold&quot;.  Thus
@@ -515,7 +514,7 @@ Since there are no changes left now, Vim puts all text in a closed fold.
 &quot;<A HREF="diff.html#do">do</A>&quot; stands for &quot;<A HREF="diff.html#diff">diff</A> obtain&quot;.  &quot;dg&quot; would have been better, but that already
 has a different meaning (&quot;dgg&quot; deletes from the cursor until the first line).
 
-For details about diff mode, see |<A HREF="diff.html#vimdiff">vimdiff</A>|.
+For details about diff mode, see |<A HREF="diff.html#diff-mode">diff-mode</A>|.
 
 ==============================================================================
 
@@ -650,7 +649,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

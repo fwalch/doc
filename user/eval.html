@@ -34,7 +34,7 @@
 <HR>
 <PRE>
 
-*<A NAME="eval.txt"></A><B>eval.txt</B>*	For Vim version 7.4.  Last change: 2014 Sep 09
+*<A NAME="eval.txt"></A><B>eval.txt</B>*	For Vim version 7.4.  Last change: 2014 Nov 15
 
 
 		  VIM REFERENCE MANUAL	  by <A HREF="intro.html#Bram">Bram</A> <A HREF="intro.html#Moolenaar">Moolenaar</A>
@@ -67,8 +67,6 @@ done, the features in this document are not available.	See |<A HREF="various.htm
 11. The sandbox			|<A HREF="#eval-sandbox">eval-sandbox</A>|
 12. Textlock			|<A HREF="#textlock">textlock</A>|
 
-{Vi does not have any of these commands}
-
 ==============================================================================
 
 1. Variables						*<A NAME="variables"></A><B>variables</B>*
@@ -84,7 +82,6 @@ There are six types of <A HREF="#variables">variables</A>:
 
 
 <A HREF="#Float">Float</A>		A floating point number. |<A HREF="#floating-point-format">floating-point-format</A>| *<A NAME="Float"></A><B>Float</B>*
-		{only when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 		Examples: 123.456  1.15e-6  -1.1e3
 
 String		A NUL terminated <A HREF="#string">string</A> of 8-bit unsigned characters (bytes).
@@ -1056,7 +1053,6 @@ contain digits.
 {exp} is the exponent, power of 10.
 Only a decimal point is accepted, not a comma.	No matter what the current
 <A HREF="mbyte.html#locale">locale</A> is.
-{only when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 Examples:
 	123.456
@@ -1447,6 +1443,13 @@ Predefined Vim <A HREF="#variables">variables</A>:			*<A NAME="vim-variable"></A
 		can be used.
 
 
+				*<A NAME="v:completed_item"></A><B>v:completed_item</B>* *<A NAME="completed_item-variable"></A><B>completed_item-variable</B>*
+<A HREF="#v:completed_item">v:completed_item</A>
+		<A HREF="#Dictionary">Dictionary</A> containing the most recent |<A HREF="insert.html#complete-items">complete-items</A>| after
+		|<A HREF="autocmd.html#CompleteDone">CompleteDone</A>|.  Empty if the completion failed, or after
+		leaving and re-entering insert mode.
+
+
 					*<A NAME="v:count"></A><B>v:count</B>* *<A NAME="count-variable"></A><B>count-variable</B>*
 <A HREF="#v:count">v:count</A>		The <A HREF="intro.html#count">count</A> given for the last <A HREF="intro.html#Normal">Normal</A> mode command.  Can be used
 		to get the <A HREF="intro.html#count">count</A> before a <A HREF="map.html#mapping">mapping</A>.  Read-only.	Example:
@@ -1590,10 +1593,10 @@ Predefined Vim <A HREF="#variables">variables</A>:			*<A NAME="vim-variable"></A
 
 
 					*<A NAME="v:hlsearch"></A><B>v:hlsearch</B>* *<A NAME="hlsearch-variable"></A><B>hlsearch-variable</B>*
-<A HREF="#v:hlsearch">v:hlsearch</A>	Variable that determines whether search highlighting is on. 
-		Makes sense only if <A HREF="options.html#'hlsearch'">'hlsearch'</A> is enabled which requires 
-		|<A HREF="various.html#+extra_search">+extra_search</A>|. Setting this variable to zero acts the like 
-		|<A HREF="pattern.html#:nohlsearch">:nohlsearch</A>| command, setting <A HREF="motion.html#it">it</A> to one acts like
+<A HREF="#v:hlsearch">v:hlsearch</A>	Variable that indicates whether search highlighting is on.
+		Setting <A HREF="motion.html#it">it</A> makes sense only if <A HREF="options.html#'hlsearch'">'hlsearch'</A> is enabled. Setting
+		this variable to zero acts like the |<A HREF="pattern.html#:nohlsearch">:nohlsearch</A>| command,
+		setting <A HREF="motion.html#it">it</A> to one acts like
 <B>			let &amp;hlsearch = &amp;hlsearch</B>
  
 
@@ -1699,17 +1702,15 @@ Predefined Vim <A HREF="#variables">variables</A>:			*<A NAME="vim-variable"></A
 
 
 					*<A NAME="v:progname"></A><B>v:progname</B>* *<A NAME="progname-variable"></A><B>progname-variable</B>*
-<A HREF="#v:progname">v:progname</A>	Contains the name (with path removed) with which Vim was
-		invoked.  Allows you to <A HREF="diff.html#do">do</A> special initialisations for |<A HREF="starting.html#view">view</A>|,
-		|<A HREF="starting.html#evim">evim</A>| etc., or any other name you might symlink to Vim.
+<A HREF="#v:progname">v:progname</A>	Contains the name (with path removed) with which Nvim was
+		invoked.  Allows you to <A HREF="diff.html#do">do</A> special initialisations for any
+		other name you might symlink to Nvim.
 		Read-only.
 
 
 					*<A NAME="v:progpath"></A><B>v:progpath</B>* *<A NAME="progpath-variable"></A><B>progpath-variable</B>*
 <A HREF="#v:progpath">v:progpath</A>	Contains the command with which Vim was invoked, including the
-		path.  Useful if you want to message a Vim server using a
-		|<A HREF="remote.html#--remote-expr">--remote-expr</A>|.
-		To get the full path use:
+		path. To get the full path use:
 <B>			echo exepath(v:progpath)</B>
  		NOTE: This does not work when the command is a relative path
 		and the current directory has changed.
@@ -1737,7 +1738,9 @@ Predefined Vim <A HREF="#variables">variables</A>:			*<A NAME="vim-variable"></A
 
 
 					*<A NAME="v:servername"></A><B>v:servername</B>* *<A NAME="servername-variable"></A><B>servername-variable</B>*
-<A HREF="#v:servername">v:servername</A>	The resulting registered |<A HREF="remote.html#x11-clientserver">x11-clientserver</A>| name if any.
+<A HREF="#v:servername">v:servername</A>	Default {Nvim} server address. Equivalent to
+		|<A HREF="msgpack_rpc.html#$NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</A>| on <A HREF="starting.html#startup">startup</A>, but may differ if the
+		latter is modified or unset. |<A HREF="#serverstop()">serverstop()</A>|
 		Read-only.
 
 		
@@ -1853,13 +1856,8 @@ Predefined Vim <A HREF="#variables">variables</A>:			*<A NAME="vim-variable"></A
 <A HREF="#v:warningmsg">v:warningmsg</A>	Last given warning message.  It's allowed to set this variable.
 
 
-					*<A NAME="v:windowid"></A><B>v:windowid</B>* *<A NAME="windowid-variable"></A><B>windowid-variable</B>*
-<A HREF="#v:windowid">v:windowid</A>	When any <A HREF="options.html#X11">X11</A> based <A HREF="gui.html#GUI">GUI</A> is running or when running in a
-		terminal and Vim connects to the X server (|<A HREF="starting.html#-X">-X</A>|) this will be
-		set to the <A HREF="windows.html#window">window</A> ID.
-		When an <A HREF="os_win32.html#MS-Windows">MS-Windows</A> <A HREF="gui.html#GUI">GUI</A> is running this will be set to the
-		<A HREF="windows.html#window">window</A> handle.
-		Otherwise the value is zero.
+					*<A NAME="v:windowid"></A><B>v:windowid</B>* *<A NAME="windowid-variable"></A><B>windowid-variable</B>* {Nvim}
+<A HREF="#v:windowid">v:windowid</A>	Is a no-op at the moment; the value is always set to 0.
 		Note: for <A HREF="windows.html#windows">windows</A> inside Vim use |<A HREF="#winnr()">winnr()</A>|.
 
 ==============================================================================
@@ -1915,12 +1913,12 @@ confirm( {msg} [, {choices} [, {default} [, {type}]]])
 copy( {expr})			any	make a shallow copy of {expr}
 cos( {expr})			<A HREF="#Float">Float</A>	cosine of {expr}
 cosh( {expr})			<A HREF="#Float">Float</A>	hyperbolic cosine of {expr}
-count( {list}, {expr} [, {start} [, {ic}]])
+count( {list}, {expr} [, {ic} [, {start}]])
 				<A HREF="#Number">Number</A>	 <A HREF="intro.html#count">count</A> how many {expr} are in {list}
 cscope_connection( [{num} , {dbpath} [, {prepend}]])
 				<A HREF="#Number">Number</A>	checks existence of <A HREF="if_cscop.html#cscope">cscope</A> connection
-cursor( {lnum}, {col} [, {coladd}])
-				<A HREF="#Number">Number</A>	move cursor to {lnum}, {col}, {coladd}
+cursor( {lnum}, {col} [, {off}])
+				<A HREF="#Number">Number</A>	move cursor to {lnum}, {col}, {off}
 cursor( {list})			<A HREF="#Number">Number</A>	move cursor to position in {list}
 deepcopy( {expr} [, {noref}])	any	make a full copy of {expr}
 delete( {fname})		<A HREF="#Number">Number</A>	delete file {fname}
@@ -2045,7 +2043,6 @@ lispindent( {lnum})		<A HREF="#Number">Number</A>	Lisp indent for line {lnum}
 <A HREF="#localtime()">localtime()</A>			<A HREF="#Number">Number</A>	current time
 log( {expr})			<A HREF="#Float">Float</A>	natural logarithm (base <A HREF="motion.html#e">e</A>) of {expr}
 log10( {expr})			<A HREF="#Float">Float</A>	logarithm of <A HREF="#Float">Float</A> {expr} to base 10
-luaeval( {expr}[, {expr}])	any	evaluate |<A HREF="if_lua.html#Lua">Lua</A>| <A HREF="#expression">expression</A>
 map( {expr}, {string})		List/Dict  change each item in {expr} to {expr}
 maparg( {name}[, {mode} [, {abbr} [, {dict}]]])
 				String or Dict
@@ -2071,7 +2068,6 @@ min( {list})			<A HREF="#Number">Number</A>	minimum value of items in {list}
 mkdir( {name} [, {path} [, {prot}]])
 				<A HREF="#Number">Number</A>	create directory {name}
 mode( [expr])			String	current editing mode
-mzeval( {expr})			any	evaluate |<A HREF="if_mzsch.html#MzScheme">MzScheme</A>| <A HREF="#expression">expression</A>
 nextnonblank( {lnum})		<A HREF="#Number">Number</A>	line nr of non-blank line &gt;= {lnum}
 nr2char( {expr}[, {utf8}])	String	single char with ASCII/UTF8 value {expr}
 or( {expr}, {expr})		<A HREF="#Number">Number</A>  bitwise OR
@@ -2181,8 +2177,8 @@ synIDattr( {synID}, {what} [, {mode}])
 synIDtrans( {synID})		<A HREF="#Number">Number</A>	translated <A HREF="syntax.html#syntax">syntax</A> ID of {synID}
 synconcealed( {lnum}, {col})	<A HREF="#List">List</A>    info about concealing
 synstack( {lnum}, {col})	<A HREF="#List">List</A>	stack of <A HREF="syntax.html#syntax">syntax</A> IDs at {lnum} and {col}
-system( {expr} [, {input}])	String	output of shell command/filter {expr}
-systemlist( {expr} [, {input}])	<A HREF="#List">List</A>	output of shell command/filter {expr}
+system( {cmd} [, {input}])	String	output of shell command/filter {cmd}
+systemlist( {cmd} [, {input}])	<A HREF="#List">List</A>	output of shell command/filter {cmd}
 tabpagebuflist( [{arg}])	<A HREF="#List">List</A>	<A HREF="#list">list</A> of buffer numbers in <A HREF="intro.html#tab">tab</A> page
 tabpagenr( [{arg}])		<A HREF="#Number">Number</A>	number of current or last <A HREF="intro.html#tab">tab</A> page
 tabpagewinnr( {tabarg}[, {arg}])
@@ -2212,10 +2208,10 @@ winheight( {nr})		<A HREF="#Number">Number</A>	height of <A HREF="windows.html#w
 <A HREF="#winline()">winline()</A>			<A HREF="#Number">Number</A>	<A HREF="windows.html#window">window</A> line of the cursor
 winnr( [{expr}])		<A HREF="#Number">Number</A>	number of current <A HREF="windows.html#window">window</A>
 <A HREF="#winrestcmd()">winrestcmd()</A>			String	returns command to restore <A HREF="windows.html#window">window</A> sizes
-winrestview( {dict})		none	restore <A HREF="starting.html#view">view</A> of current <A HREF="windows.html#window">window</A>
-<A HREF="#winsaveview()">winsaveview()</A>			Dict	save <A HREF="starting.html#view">view</A> of current <A HREF="windows.html#window">window</A>
+winrestview( {dict})		none	restore view of current <A HREF="windows.html#window">window</A>
+<A HREF="#winsaveview()">winsaveview()</A>			Dict	save view of current <A HREF="windows.html#window">window</A>
 winwidth( {nr})			<A HREF="#Number">Number</A>	width of <A HREF="windows.html#window">window</A> {nr}
-writefile( {list}, {fname} [, {binary}])
+writefile( {list}, {fname} [, {flags}])
 				<A HREF="#Number">Number</A>	write <A HREF="#list">list</A> of lines to file {fname}
 xor( {expr}, {expr})		<A HREF="#Number">Number</A>  bitwise XOR
 
@@ -2232,7 +2228,6 @@ abs({expr})							*<A NAME="abs()"></A><B>abs()</B>*
  			5.456 
 <B>			echo abs(-4)</B>
  			4
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -2246,7 +2241,6 @@ acos({expr})							*<A NAME="acos()"></A><B>acos()</B>*
  			1.570796
 <B>			:echo acos(-0.5)</B>
  			2.094395
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -2328,7 +2322,6 @@ asin({expr})						*<A NAME="asin()"></A><B>asin()</B>*
  			0.927295
 <B>			:echo asin(-0.5)</B>
  			-0.523599
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -2341,7 +2334,6 @@ atan({expr})						*<A NAME="atan()"></A><B>atan()</B>*
  			1.560797
 <B>			:echo atan(-4.01)</B>
  			-1.326405
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -2354,7 +2346,6 @@ atan2({expr1}, {expr2})					*<A NAME="atan2()"></A><B>atan2()</B>*
  			-0.785398
 <B>			:echo atan2(1, -1)</B>
  			2.356194
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -2555,7 +2546,6 @@ ceil({expr})							*<A NAME="ceil()"></A><B>ceil()</B>*
  			-5.0 
 <B>			echo ceil(4.0)</B>
  			4.0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 <A HREF="#changenr()">changenr()</A>						*<A NAME="changenr()"></A><B>changenr()</B>*
@@ -2573,8 +2563,8 @@ char2nr({expr}[, {utf8}])					*<A NAME="char2nr()"></A><B>char2nr()</B>*
 <B>			char2nr("ABC")		returns 65</B>
  		When {utf8} is omitted or zero, the current <A HREF="options.html#'encoding'">'encoding'</A> is used.
 		Example for &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot;:
-<B>			char2nr("แ")		returns 225</B>
-<B>			char2nr("แ"[0])		returns 195</B>
+<B>			char2nr("รก")		returns 225</B>
+<B>			char2nr("รก"[0])		returns 195</B>
  		With {utf8} set to 1, always treat <A HREF="motion.html#as">as</A> <A HREF="mbyte.html#utf-8">utf-8</A> characters.
 		A combining character is a separate character.
 		|<A HREF="#nr2char()">nr2char()</A>| does the opposite.
@@ -2751,7 +2741,6 @@ cos({expr})						*<A NAME="cos()"></A><B>cos()</B>*
  			0.862319
 <B>			:echo cos(-4.01)</B>
  			-0.646043
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -2764,9 +2753,8 @@ cosh({expr})						*<A NAME="cosh()"></A><B>cosh()</B>*
  			1.127626
 <B>			:echo cosh(-0.5)</B>
  			-1.127626
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
-		
+
 
 count({comp}, {expr} [, {ic} [, {start}]])			*<A NAME="count()"></A><B>count()</B>*
 		Return the number of times an item with value {expr} appears
@@ -2841,6 +2829,7 @@ cursor({list})
 		If {col} is zero, the cursor will stay in the current column.
 		If {curswant} is given <A HREF="motion.html#it">it</A> is used to set the preferred column
 		for vertical <A HREF="intro.html#movement">movement</A>.  Otherwise {col} is used.
+
 		When <A HREF="options.html#'virtualedit'">'virtualedit'</A> is used {off} specifies the offset in
 		screen columns from the start of the character.  E.g., a
 		position within a <A HREF="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</A> or after the last character.
@@ -3072,7 +3061,6 @@ exp({expr})						*<A NAME="exp()"></A><B>exp()</B>*
  			7.389056
 <B>			:echo exp(-1)</B>
  			0.367879
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -3197,9 +3185,12 @@ extend({expr1}, {expr2} [, {expr3}])			*<A NAME="extend()"></A><B>extend()</B>*
 
 feedkeys({string} [, {mode}])				*<A NAME="feedkeys()"></A><B>feedkeys()</B>*
 		Characters in {string} are queued for processing <A HREF="motion.html#as">as</A> if they
-		come from a <A HREF="map.html#mapping">mapping</A> or were typed by the user.	They are added
-		to the end of the typeahead buffer, thus if a <A HREF="map.html#mapping">mapping</A> is still
-		being executed these characters come after them.
+		come from a <A HREF="map.html#mapping">mapping</A> or were typed by the user.
+		By default the <A HREF="#string">string</A> is added to the end of the typeahead
+		buffer, thus if a <A HREF="map.html#mapping">mapping</A> is still being executed the
+		characters come after them.  Use the '<A HREF="insert.html#i">i</A>' flag to insert before
+		other characters, they will be executed next, before any
+		characters from a <A HREF="map.html#mapping">mapping</A>.
 		The function does not wait for processing of keys contained in
 		{string}.
 		To include special keys into {string}, use double-quotes
@@ -3213,6 +3204,7 @@ feedkeys({string} [, {mode}])				*<A NAME="feedkeys()"></A><B>feedkeys()</B>*
 		'<A HREF="motion.html#t">t</A>'	Handle keys <A HREF="motion.html#as">as</A> if typed; otherwise they are handled <A HREF="motion.html#as">as</A>
 			if coming from a <A HREF="map.html#mapping">mapping</A>.  This matters for <A HREF="undo.html#undo">undo</A>,
 			opening <A HREF="fold.html#folds">folds</A>, etc.
+		'<A HREF="insert.html#i">i</A>'	<A HREF="insert.html#Insert">Insert</A> the <A HREF="#string">string</A> instead of appending (see above).
 		Return value is always 0.
 
 
@@ -3308,7 +3300,6 @@ float2nr({expr})					*<A NAME="float2nr()"></A><B>float2nr()</B>*
  			-2147483647 
 <B>			echo float2nr(1.0e-100)</B>
  			0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -3323,8 +3314,7 @@ floor({expr})							*<A NAME="floor()"></A><B>floor()</B>*
  			-6.0 
 <B>			echo floor(4.0)</B>
  			4.0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
-		
+
 
 
 fmod({expr1}, {expr2})					*<A NAME="fmod()"></A><B>fmod()</B>*
@@ -3340,7 +3330,6 @@ fmod({expr1}, {expr2})					*<A NAME="fmod()"></A><B>fmod()</B>*
  			0.13
 <B>			:echo fmod(-12.33, 1.22)</B>
  			-0.13
-		{only available when compiled with |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -3676,7 +3665,7 @@ getfperm({fname})					*<A NAME="getfperm()"></A><B>getfperm()</B>*
 		is replaced with the <A HREF="#string">string</A> &quot;<A HREF="motion.html#-">-</A>&quot;.  Examples:
 <B>			:echo getfperm("/etc/passwd")</B>
 <B>			:echo getfperm(expand("~/.vimrc"))</B>
- 		This will hopefully (from a security point of <A HREF="starting.html#view">view</A>) display
+ 		This will hopefully (from a security point of view) display
 		the <A HREF="#string">string</A> &quot;rw-r--r--&quot; or even &quot;rw-------&quot;.
 
 
@@ -4328,6 +4317,17 @@ items({dict})						*<A NAME="items()"></A><B>items()</B>*
 		order.
 
 
+jobclose({job}[, {stream}])				{Nvim} *<A NAME="jobclose()"></A><B>jobclose()</B>*
+		Close {job}'s {stream}, which can be one &quot;stdin&quot;, &quot;stdout&quot; or
+		&quot;stderr&quot;. If {stream} is omitted, all streams are closed.
+
+
+jobresize({job}, {width}, {height})			{Nvim} *<A NAME="jobresize()"></A><B>jobresize()</B>*
+		Resize {job}'s pseudo terminal <A HREF="windows.html#window">window</A> to {width} and {height}.
+		This function will fail if used on jobs started without the
+		&quot;pty&quot; option.
+
+
 jobsend({job}, {data})					{Nvim} *<A NAME="jobsend()"></A><B>jobsend()</B>*
 		Send data to {job} by <A HREF="editing.html#writing">writing</A> <A HREF="motion.html#it">it</A> to the stdin of the process.
 		Returns 1 if the write succeeded, 0 otherwise.
@@ -4335,19 +4335,38 @@ jobsend({job}, {data})					{Nvim} *<A NAME="jobsend()"></A><B>jobsend()</B>*
 
 		{data} may be a <A HREF="#string">string</A>, <A HREF="#string">string</A> convertible, or a <A HREF="#list">list</A>.  If
 		{data} is a <A HREF="#list">list</A>, the items will be separated by newlines and
-		any newlines in an item will be sent <A HREF="motion.html#as">as</A> a NUL.  For example:
-<B>			:call jobsend(j, ["abc", "123\n456"])</B>
+		any newlines in an item will be sent <A HREF="motion.html#as">as</A> a NUL. A final newline
+		can be sent by adding a final empty <A HREF="#string">string</A>. For example:
+<B>			:call jobsend(j, ["abc", "123\n456", ""])</B>
   		will send &quot;abc&lt;NL&gt;123&lt;NUL&gt;456&lt;NL&gt;&quot;.
 
 
-jobstart({name}, {prog}[, {argv}])			{Nvim} *<A NAME="jobstart()"></A><B>jobstart()</B>*
-		Spawns {prog} <A HREF="motion.html#as">as</A> a job and associate <A HREF="motion.html#it">it</A> with the {name} <A HREF="#string">string</A>,
-		which will be used to match the &quot;filename pattern&quot; in
-		|<A HREF="autocmd.html#JobActivity">JobActivity</A>| events. It returns:
-		  - The job id on success, which is used by |<A HREF="#jobsend()">jobsend()</A>| and
+jobstart({cmd}[, {opts}])				{Nvim} *<A NAME="jobstart()"></A><B>jobstart()</B>*
+		Spawns {cmd} <A HREF="motion.html#as">as</A> a job.  If {cmd} is a |<A HREF="#List">List</A>|, <A HREF="motion.html#it">it</A> will be run
+		directly.  If {cmd} is a |<A HREF="#string">string</A>|, <A HREF="motion.html#it">it</A> will be equivalent to
+<B>			:call jobstart([&amp;shell, &amp;shellcmdflag, '{cmd}'])</B>
+ 		If passed, {opts} must be a dictionary with any of the
+		following keys:
+		  - on_stdout: stdout event handler
+		  - on_stderr: stderr event handler
+		  - on_exit: exit event handler
+		  - pty: If set, the job will be connected to a new pseudo
+		    terminal, and the job streams are connected to the master
+		    file descriptor.
+		  - width: Width of the terminal screen(only if pty is set)
+		  - height: Height of the terminal screen(only if pty is set)
+		  - <A HREF="starting.html#TERM">TERM</A>: $TERM environment variable(only if pty is set)
+		Either funcrefs or function names can be passed <A HREF="motion.html#as">as</A> event
+		handlers. The {opts} object is also used <A HREF="motion.html#as">as</A> the &quot;<A HREF="#self">self</A>&quot;
+		argument for the callback, so the caller may pass arbitrary
+		data by setting other key.(see |<A HREF="#Dictionary-function">Dictionary-function</A>| for more
+		information).
+		Returns:
+		  - The job ID on success, which is used by |<A HREF="#jobsend()">jobsend()</A>| and
 		    |<A HREF="#jobstop()">jobstop()</A>|
 		  - 0 when the job table is full or on invalid arguments
-		  - -1 when {prog} is not executable
+		  - -1 when {cmd}[0] is not executable.  Will never fail if
+		    {cmd} is a <A HREF="#string">string</A> unless <A HREF="options.html#'shell'">'shell'</A> is not executable.
 		See |<A HREF="job_control.html#job-control">job-control</A>| for more information.
 
 
@@ -4355,9 +4374,28 @@ jobstop({job})						{Nvim} *<A NAME="jobstop()"></A><B>jobstop()</B>*
 		Stop a job created with |<A HREF="#jobstart()">jobstart()</A>| by sending a `SIGTERM`
 		to the corresponding process. If the process doesn't exit
 		cleanly soon, a `SIGKILL` will be sent. When the job is
-		finally closed, a |<A HREF="autocmd.html#JobActivity">JobActivity</A>| event will trigger with
-		`v:job_data[0]` set to `exited`.  See |<A HREF="job_control.html#job-control">job-control</A>| for more
-		information.
+		finally closed, the exit handler provided to |<A HREF="#jobstart()">jobstart()</A>| or
+		|<A HREF="#termopen()">termopen()</A>| will be run.
+		See |<A HREF="job_control.html#job-control">job-control</A>| for more information.
+
+
+jobwait({ids}[, {timeout}])				{Nvim} *<A NAME="jobwait()"></A><B>jobwait()</B>*
+		Wait for a set of jobs to finish. The {ids} argument is a <A HREF="#list">list</A>
+		of ids for jobs that will be waited for. If passed, {timeout}
+		is the maximum number of milliseconds to wait. While this
+		function is executing, callbacks for jobs not in the {ids}
+		<A HREF="#list">list</A> can be executed. Also, the screen wont be updated unless
+		|<A HREF="various.html#:redraw">:redraw</A>| is invoked by one of the callbacks.
+
+		Returns a <A HREF="#list">list</A> of integers with the same length <A HREF="motion.html#as">as</A> {ids}, with
+		each integer representing the wait result for the
+		corresponding job id. The possible values for the resulting
+		integers are:
+
+		&#42; the job return code if the job exited
+		&#42; -1 if the wait timed out for the job
+		&#42; -2 if the job was interrupted
+		&#42; -3 if the job id is invalid.
 
 
 join({list} [, {sep}])					*<A NAME="join()"></A><B>join()</B>*
@@ -4514,7 +4552,6 @@ log({expr})						*<A NAME="log()"></A><B>log()</B>*
  			2.302585
 <B>			:echo log(exp(5))</B>
  			5.0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -4526,22 +4563,7 @@ log10({expr})						*<A NAME="log10()"></A><B>log10()</B>*
  			3.0
 <B>			:echo log10(0.01)</B>
  			-2.0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
-		
 
-luaeval({expr}[, {expr}])					*<A NAME="luaeval()"></A><B>luaeval()</B>*
-		Evaluate <A HREF="if_lua.html#Lua">Lua</A> <A HREF="#expression">expression</A> {expr} and return its result converted 
-		to Vim data structures. Second {expr} may hold additional 
-		argument accessible <A HREF="motion.html#as">as</A> _A inside first {expr}.
-		Strings are returned <A HREF="motion.html#as">as</A> they are.
-		Boolean <A HREF="vimindex.html#objects">objects</A> are converted to numbers.
-		Numbers are converted to |<A HREF="#Float">Float</A>| values if vim was compiled 
-		with |<A HREF="various.html#+float">+float</A>| and to numbers otherwise.
-		<A HREF="#Dictionaries">Dictionaries</A> and lists obtained by vim.eval() are returned 
-		as-is.
-		Other <A HREF="vimindex.html#objects">objects</A> are returned <A HREF="motion.html#as">as</A> zero without any <A HREF="message.html#errors">errors</A>.
-		See |<A HREF="if_lua.html#lua-luaeval">lua-luaeval</A>| for more details.
-		{only available when compiled with the |<A HREF="various.html#+lua">+lua</A>| feature}
 
 
 map({expr}, {string})					*<A NAME="map()"></A><B>map()</B>*
@@ -4911,6 +4933,7 @@ mode([expr])	Return a <A HREF="#string">string</A> that indicates the current mo
 			<A HREF="insert.html#i">i</A>	<A HREF="insert.html#Insert">Insert</A>
 			R	<A HREF="insert.html#Replace">Replace</A> |<A HREF="change.html#R">R</A>|
 			Rv	Virtual <A HREF="insert.html#Replace">Replace</A> |<A HREF="change.html#gR">gR</A>|
+			t	Terminal {Nvim}
 			<A HREF="change.html#c">c</A>	<A HREF="cmdline.html#Command-line">Command-line</A>
 			cv	Vim <A HREF="intro.html#Ex">Ex</A> mode |<A HREF="intro.html#gQ">gQ</A>|
 			ce	<A HREF="intro.html#Normal">Normal</A> <A HREF="intro.html#Ex">Ex</A> mode |<A HREF="intro.html#Q">Q</A>|
@@ -4922,24 +4945,6 @@ mode([expr])	Return a <A HREF="#string">string</A> that indicates the current mo
 		with |<A HREF="#remote_expr()">remote_expr()</A>| In most other places <A HREF="motion.html#it">it</A> always returns
 		&quot;<A HREF="change.html#c">c</A>&quot; or &quot;<A HREF="pattern.html#n">n</A>&quot;.
 		Also see |<A HREF="#visualmode()">visualmode()</A>|.
-
-
-mzeval({expr})							*<A NAME="mzeval()"></A><B>mzeval()</B>*
-		Evaluate <A HREF="if_mzsch.html#MzScheme">MzScheme</A> <A HREF="#expression">expression</A> {expr} and return its result
-		converted to Vim data structures.
-		Numbers and strings are returned <A HREF="motion.html#as">as</A> they are.
-		Pairs (including lists and improper lists) and vectors are
-		returned <A HREF="motion.html#as">as</A> Vim |<A HREF="#Lists">Lists</A>|.
-		Hash tables are represented <A HREF="motion.html#as">as</A> Vim |<A HREF="#Dictionary">Dictionary</A>| type with keys
-		converted to strings.
-		All other types are converted to <A HREF="#string">string</A> with display function.
-		Examples:
-<B>		    :mz (define l (list 1 2 3))</B>
-<B>		    :mz (define h (make-hash)) (hash-set! h "list" l)</B>
-<B>		    :echo mzeval("l")</B>
-<B>		    :echo mzeval("h")</B>
- 
-		{only available when compiled with the |<A HREF="various.html#+mzscheme">+mzscheme</A>| feature}
 
 
 nextnonblank({lnum})					*<A NAME="nextnonblank()"></A><B>nextnonblank()</B>*
@@ -4994,8 +4999,7 @@ pow({x}, {y})						*<A NAME="pow()"></A><B>pow()</B>*
  			65536.0
 <B>			:echo pow(32, 0.20)</B>
  			2.0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
-		
+
 
 prevnonblank({lnum})					*<A NAME="prevnonblank()"></A><B>prevnonblank()</B>*
 		Return the line number of the first line at or above {lnum}
@@ -5252,7 +5256,7 @@ readfile({fname} [, {binary} [, {max}]])
 		separated with CR will result in a single long line (unless a
 		NL appears somewhere).
 		All NUL characters are replaced with a NL character.
-		When {binary} is equal to &quot;<A HREF="motion.html#b">b</A>&quot; binary mode is used:
+		When {binary/append} contains &quot;<A HREF="motion.html#b">b</A>&quot; binary mode is used:
 		- When the last line ends in a NL an extra empty <A HREF="#list">list</A> item is
 		  added.
 		- No CR characters are removed.
@@ -5465,7 +5469,6 @@ round({expr})							*<A NAME="round()"></A><B>round()</B>*
  			5.0
 <B>			echo round(-4.5)</B>
  			-5.0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 rpcnotify({channel}, {event}[, {args}...])		  {Nvim} *<A NAME="rpcnotify()"></A><B>rpcnotify()</B>*
@@ -5478,13 +5481,13 @@ rpcnotify({channel}, {event}[, {args}...])		  {Nvim} *<A NAME="rpcnotify()"></A>
 rpcrequest({channel}, {method}[, {args}...])		 {Nvim} *<A NAME="rpcrequest()"></A><B>rpcrequest()</B>*
 		Sends a request to {channel} to invoke {method} via
 		|<A HREF="msgpack_rpc.html#msgpack-rpc">msgpack-rpc</A>| and blocks until a response is received.
-		Example: 
+		Example:
 <B>			:let result = rpcrequest(rpc_chan, "func", 1, 2, 3)</B>
 
 
 rpcstart({prog}[, {argv}])				   {Nvim} *<A NAME="rpcstart()"></A><B>rpcstart()</B>*
-		Spawns {prog} <A HREF="motion.html#as">as</A> a job(optionally passing the {argv} list),
-		and opens a |<A HREF="msgpack_rpc.html#msgpack-rpc">msgpack-rpc</A>| channel with the spawned process
+		Spawns {prog} <A HREF="motion.html#as">as</A> a job (optionally passing the <A HREF="#list">list</A> {argv}),
+		and opens a |<A HREF="msgpack_rpc.html#msgpack-rpc">msgpack-rpc</A>| channel with the spawned process's
 		stdin/stdout. It returns:
 		  - The channel id on success, which is used by |<A HREF="#rpcrequest()">rpcrequest()</A>|,
 		    |<A HREF="#rpcnotify()">rpcnotify()</A>| and |<A HREF="#rpcstop()">rpcstop()</A>|
@@ -5494,10 +5497,9 @@ rpcstart({prog}[, {argv}])				   {Nvim} *<A NAME="rpcstart()"></A><B>rpcstart()<
 
 
 rpcstop({channel})					    {Nvim} *<A NAME="rpcstop()"></A><B>rpcstop()</B>*
-		Closes a |<A HREF="msgpack_rpc.html#msgpack-rpc">msgpack-rpc</A>| channel, possibly created via
-		|<A HREF="#rpcstart()">rpcstart()</A>| (Though <A HREF="motion.html#it">it</A> will also close channels created by
-		connections to |<A HREF="msgpack_rpc.html#$NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</A>|). It accepts the rpc
-		channel id <A HREF="motion.html#as">as</A> only argument.
+		Closes a |<A HREF="msgpack_rpc.html#msgpack-rpc">msgpack-rpc</A>| {channel}, possibly created via
+		|<A HREF="#rpcstart()">rpcstart()</A>|. Also closes channels created by connections to
+		|<A HREF="msgpack_rpc.html#$NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</A>|.
 
 
 screenattr(row, col)						*<A NAME="screenattr()"></A><B>screenattr()</B>*
@@ -5711,8 +5713,8 @@ searchpair({start}, {middle}, {end} [, {flags} [, {skip}
 		to be found.  Note that single-quote strings are used to avoid
 		having to double the backslashes.  The skip <A HREF="#expression">expression</A> only
 		catches comments at the start of a line, not after a command.
-		Also, a <A HREF="motion.html#word">word</A> &quot;en&quot; or &quot;if&quot; halfway a line is considered a
-		match.
+		Also, a <A HREF="motion.html#word">word</A> &quot;en&quot; or &quot;if&quot; halfway through a line is considered
+		a match.
 		Another example, to search for the matching &quot;<A HREF="motion.html#{">{</A>&quot; of a &quot;<A HREF="motion.html#}">}</A>&quot;:
 
 <B>	:echo searchpair('{', '', '}', 'bW')</B>
@@ -5768,14 +5770,37 @@ server2client( {clientid}, {string})			*<A NAME="server2client()"></A><B>server2
 <B>			:echo server2client(expand("&lt;client&gt;"), "HELLO")</B>
  
 
-<A HREF="#serverlist()">serverlist()</A>					*<A NAME="serverlist()"></A><B>serverlist()</B>*
-		Return a <A HREF="#list">list</A> of available server names, one per line.
-		When there are no servers or the information is not available
-		an empty <A HREF="#string">string</A> is returned.  See also |<A HREF="remote.html#clientserver">clientserver</A>|.
-		{only available when compiled with the |<A HREF="various.html#+clientserver">+clientserver</A>| feature}
+<A HREF="#serverlist()">serverlist()</A>						*<A NAME="serverlist()"></A><B>serverlist()</B>*
+		Returns a <A HREF="#list">list</A> of available server names in a <A HREF="#list">list</A>.
+		When there are no servers an empty <A HREF="#string">string</A> is returned.
 		Example:
 <B>			:echo serverlist()</B>
+
+ 						{Nvim} *<A NAME="--serverlist"></A><B>--serverlist</B>*
+		The Vim command-line option `--serverlist` was removed from
+		Nvim, but <A HREF="motion.html#it">it</A> can be imitated if needed:
+<B>			nvim --cmd "echo serverlist()" --cmd "q"</B>
  
+
+serverstart([{address}])				*<A NAME="serverstart()"></A><B>serverstart()</B>*
+		Opens a named pipe or TCP socket at <A HREF="cmdline.html#{address}">{address}</A> for clients to
+		connect to and returns <A HREF="cmdline.html#{address}">{address}</A>. If no address is given, <A HREF="motion.html#it">it</A>
+		is equivalent to:
+<B>			:call serverstart(tempname())</B>
+  		|<A HREF="msgpack_rpc.html#$NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</A>| is set to <A HREF="cmdline.html#{address}">{address}</A> if not already set.
+
+							*<A NAME="--servername"></A><B>--servername</B>*
+		The Vim command-line option `--servername` can be imitated:
+<B>			nvim --cmd "let g:server_addr = serverstart('foo')"</B>
+ 
+
+serverstop({address})					*<A NAME="serverstop()"></A><B>serverstop()</B>*
+		Closes the pipe or socket at <A HREF="cmdline.html#{address}">{address}</A>. Does nothing if
+		<A HREF="cmdline.html#{address}">{address}</A> is empty or invalid.
+		If |<A HREF="msgpack_rpc.html#$NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</A>| is stopped <A HREF="motion.html#it">it</A> is unset.
+		If |<A HREF="#v:servername">v:servername</A>| is stopped <A HREF="motion.html#it">it</A> is set to the next available
+		address returned by |<A HREF="#serverlist()">serverlist()</A>|.
+
 
 setbufvar({expr}, {varname}, {val})			*<A NAME="setbufvar()"></A><B>setbufvar()</B>*
 		Set option or local variable {varname} in buffer {expr} to
@@ -6092,8 +6117,7 @@ sin({expr})						*<A NAME="sin()"></A><B>sin()</B>*
  			-0.506366
 <B>			:echo sin(-4.01)</B>
  			0.763301
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
-		
+
 
 
 sinh({expr})						*<A NAME="sinh()"></A><B>sinh()</B>*
@@ -6105,7 +6129,6 @@ sinh({expr})						*<A NAME="sinh()"></A><B>sinh()</B>*
  			0.521095
 <B>			:echo sinh(-0.9)</B>
  			-1.026517
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -6253,8 +6276,7 @@ sqrt({expr})						*<A NAME="sqrt()"></A><B>sqrt()</B>*
 <B>			:echo sqrt(-4.01)</B>
  			nan
 		&quot;nan&quot; may be different, <A HREF="motion.html#it">it</A> depends on system libraries.
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
-		
+
 
 
 str2float( {expr})					*<A NAME="str2float()"></A><B>str2float()</B>*
@@ -6269,7 +6291,6 @@ str2float( {expr})					*<A NAME="str2float()"></A><B>str2float()</B>*
 		12.0.  You can strip out thousands separators with
 		YXXYsubstitute()|:
 <B>			let f = str2float(substitute(text, ',', '', 'g'))</B>
- 		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -6585,9 +6606,10 @@ synstack({lnum}, {col})					*<A NAME="synstack()"></A><B>synstack()</B>*
 		valid positions.
 
 
-system({expr} [, {input}])				*<A NAME="system()"></A><B>system()</B>* *<A NAME="E677"></A><B>E677</B>*
-		Get the output of the shell command {expr} <A HREF="motion.html#as">as</A> a <A HREF="#string">string</A>.  See
-		|<A HREF="#systemlist()">systemlist()</A>| to get the output <A HREF="motion.html#as">as</A> a <A HREF="#List">List</A>.
+system({cmd} [, {input}])				*<A NAME="system()"></A><B>system()</B>* *<A NAME="E677"></A><B>E677</B>*
+		Get the output of the shell command {cmd} <A HREF="motion.html#as">as</A> a |<A HREF="#string">string</A>|.  {cmd}
+		will be run the same <A HREF="motion.html#as">as</A> in |<A HREF="#jobstart()">jobstart()</A>|.  See |<A HREF="#systemlist()">systemlist()</A>|
+		to get the output <A HREF="motion.html#as">as</A> a |<A HREF="#List">List</A>|.
 
 		When {input} is given and is a <A HREF="#string">string</A> this <A HREF="#string">string</A> is written 
 		to a file and passed <A HREF="motion.html#as">as</A> stdin to the command.  The <A HREF="#string">string</A> is 
@@ -6601,7 +6623,7 @@ system({expr} [, {input}])				*<A NAME="system()"></A><B>system()</B>* *<A NAME=
 
 		Note: Use |<A HREF="#shellescape()">shellescape()</A>| or |<A HREF="cmdline.html#::S">::S</A>| with |<A HREF="#expand()">expand()</A>| or 
 		|<A HREF="#fnamemodify()">fnamemodify()</A>| to <A HREF="intro.html#escape">escape</A> special characters in a command 
-		argument.  Newlines in {expr} may cause the command to fail.  
+		argument.  Newlines in {cmd} may cause the command to fail.  
 		The characters in <A HREF="options.html#'shellquote'">'shellquote'</A> and <A HREF="options.html#'shellxquote'">'shellxquote'</A> may also 
 		cause trouble.
 		This is not to be used for interactive commands.
@@ -6616,11 +6638,8 @@ system({expr} [, {input}])				*<A NAME="system()"></A><B>system()</B>* *<A NAME=
 		To avoid the <A HREF="#string">string</A> being truncated at a NUL, all NUL
 		characters are replaced with SOH (0x01).
 
-		The command executed is constructed using several <A HREF="options.html#options">options</A>:
-	<A HREF="options.html#'shell'">'shell'</A> <A HREF="options.html#'shellcmdflag'">'shellcmdflag'</A> <A HREF="options.html#'shellxquote'">'shellxquote'</A> {expr} <A HREF="options.html#'shellredir'">'shellredir'</A> {tmp} <A HREF="options.html#'shellxquote'">'shellxquote'</A>
-		({tmp} is an automatically generated file name).
-		For <A HREF="os_unix.html#Unix">Unix</A> braces are put around {expr} to allow for
-		concatenated commands.
+		The command executed is constructed using several <A HREF="options.html#options">options</A> when
+		{cmd} is a <A HREF="#string">string</A>: <A HREF="options.html#'shell'">'shell'</A> <A HREF="options.html#'shellcmdflag'">'shellcmdflag'</A> {cmd}
 
 		The command will be executed in &quot;cooked&quot; mode, so that a
 		<A HREF="pattern.html#CTRL-C">CTRL-C</A> will interrupt the command (on <A HREF="os_unix.html#Unix">Unix</A> at least).
@@ -6636,7 +6655,7 @@ system({expr} [, {input}])				*<A NAME="system()"></A><B>system()</B>* *<A NAME=
 
 
 
-systemlist({expr} [, {input} [, {keepempty}]])		*<A NAME="systemlist()"></A><B>systemlist()</B>*
+systemlist({cmd} [, {input} [, {keepempty}]])		*<A NAME="systemlist()"></A><B>systemlist()</B>*
 		Same <A HREF="motion.html#as">as</A> |<A HREF="#system()">system()</A>|, but returns a |<A HREF="#List">List</A>| with lines (parts of 
 		output separated by NL) with NULs transformed into NLs. Output 
 		is the same <A HREF="motion.html#as">as</A> |<A HREF="#readfile()">readfile()</A>| will output with {binary} argument 
@@ -6716,7 +6735,7 @@ taglist({expr})							*<A NAME="taglist()"></A><B>taglist()</B>*
 		may appear, they give the name of the entity the <A HREF="tagsrch.html#tag">tag</A> is
 		contained in.
 
-		The ex-command 'cmd' can be either an <A HREF="starting.html#ex">ex</A> search <A HREF="pattern.html#pattern">pattern</A>, a
+		The ex-command 'cmd' can be either an ex search <A HREF="pattern.html#pattern">pattern</A>, a
 		line number or a line number followed by a byte number.
 
 		If there are no matching <A HREF="tagsrch.html#tags">tags</A>, then an empty <A HREF="#list">list</A> is returned.
@@ -6741,6 +6760,22 @@ taglist({expr})							*<A NAME="taglist()"></A><B>taglist()</B>*
 		option is set or when <A HREF="options.html#'shellcmdflag'">'shellcmdflag'</A> starts with '<A HREF="motion.html#-">-</A>'.
 
 
+termopen({cmd}[, {opts}])			{Nvim} *<A NAME="termopen()"></A><B>termopen()</B>*
+		Spawns {cmd} in a new pseudo-terminal session connected
+		to the current buffer.  {cmd} is the same <A HREF="motion.html#as">as</A> the one passed to
+		|<A HREF="#jobstart()">jobstart()</A>|.  This function fails if the current buffer is
+		modified (all buffer contents are destroyed).
+
+		The {opts} <A HREF="#dict">dict</A> is similar to the one passed to |<A HREF="#jobstart()">jobstart()</A>|,
+		but the `pty`, `width`, `height`, and `TERM` fields are
+		ignored: `height`/`width` are taken from the current <A HREF="windows.html#window">window</A>
+		and `$TERM` is set to &quot;xterm-256color&quot;, and <A HREF="motion.html#it">it</A> may have a
+		`name` field.  `name`, if present, sets the buffer's name to
+		&quot;term://{cwd}/{pid}:{name}&quot;.
+		Returns the same values <A HREF="motion.html#as">as</A> |<A HREF="#jobstart()">jobstart()</A>|.
+
+		See |<A HREF="nvim_terminal_emulator.html#nvim-terminal-emulator">nvim-terminal-emulator</A>| for more information.
+
 
 tan({expr})						*<A NAME="tan()"></A><B>tan()</B>*
 		Return the tangent of {expr}, measured in radians, <A HREF="motion.html#as">as</A> a |<A HREF="#Float">Float</A>|
@@ -6751,7 +6786,6 @@ tan({expr})						*<A NAME="tan()"></A><B>tan()</B>*
  			0.648361
 <B>			:echo tan(-4.01)</B>
  			-1.181502
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -6764,7 +6798,6 @@ tanh({expr})						*<A NAME="tanh()"></A><B>tanh()</B>*
  			0.462117
 <B>			:echo tanh(-1)</B>
  			-0.761594
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
 
 
 
@@ -6806,11 +6839,10 @@ trunc({expr})							*<A NAME="trunc()"></A><B>trunc()</B>*
  			-5.0 
 <B>			echo trunc(4.0)</B>
  			4.0
-		{only available when compiled with the |<A HREF="various.html#+float">+float</A>| feature}
-		
 
-							*<A NAME="type()"></A><B>type()</B>*
-type({expr})	The result is a <A HREF="#Number">Number</A>, depending on the type of {expr}:
+
+type({expr})							*<A NAME="type()"></A><B>type()</B>*
+		The result is a <A HREF="#Number">Number</A>, depending on the type of {expr}:
 			<A HREF="#Number">Number</A>:	    0
 			String:	    1
 			<A HREF="#Funcref">Funcref</A>:    2
@@ -6999,7 +7031,7 @@ winheight({nr})						*<A NAME="winheight()"></A><B>winheight()</B>*
 <A HREF="#winline()">winline()</A>	The result is a <A HREF="#Number">Number</A>, which is the screen line of the cursor
 		in the <A HREF="windows.html#window">window</A>.	This is counting screen lines from the top of
 		the <A HREF="windows.html#window">window</A>.  The first line is one.
-		If the cursor was moved the <A HREF="starting.html#view">view</A> on the file will be updated
+		If the cursor was moved the view on the file will be updated
 		first, this may cause a scroll.
 
 
@@ -7032,7 +7064,7 @@ winnr([{arg}])	The result is a <A HREF="#Number">Number</A>, which is the number
 							*<A NAME="winrestview()"></A><B>winrestview()</B>*
 winrestview({dict})
 		Uses the |<A HREF="#Dictionary">Dictionary</A>| returned by |<A HREF="#winsaveview()">winsaveview()</A>| to restore
-		the <A HREF="starting.html#view">view</A> of the current <A HREF="windows.html#window">window</A>.
+		the view of the current <A HREF="windows.html#window">window</A>.
 		Note: The {dict} does not have to contain all values, that are
 		returned by |<A HREF="#winsaveview()">winsaveview()</A>|. If values are missing, those
 		settings won't be restored. So you can use:
@@ -7050,9 +7082,9 @@ winrestview({dict})
 							*<A NAME="winsaveview()"></A><B>winsaveview()</B>*
 <A HREF="#winsaveview()">winsaveview()</A>	Returns a |<A HREF="#Dictionary">Dictionary</A>| that contains information to restore
 		the view of the current <A HREF="windows.html#window">window</A>.  Use |<A HREF="#winrestview()">winrestview()</A>| to
-		restore the <A HREF="starting.html#view">view</A>.
+		restore the view.
 		This is useful if you have a <A HREF="map.html#mapping">mapping</A> that jumps around in the
-		buffer and you want to go back to the original <A HREF="starting.html#view">view</A>.
+		buffer and you want to go back to the original view.
 		This does not save fold information.  Use the <A HREF="options.html#'foldenable'">'foldenable'</A>
 		option to temporarily switch off <A HREF="fold.html#folding">folding</A>, so that <A HREF="fold.html#folds">folds</A> are
 		not opened when moving around. This may have side effects.
@@ -7084,22 +7116,28 @@ winwidth({nr})						*<A NAME="winwidth()"></A><B>winwidth()</B>*
  
 
 							*<A NAME="writefile()"></A><B>writefile()</B>*
-writefile({list}, {fname} [, {binary}])
+writefile({list}, {fname} [, {flags}])
 		Write |<A HREF="#List">List</A>| {list} to file {fname}.  Each <A HREF="#list">list</A> item is
 		separated with a NL.  Each <A HREF="#list">list</A> item must be a String or
 		<A HREF="#Number">Number</A>.
-		When {binary} is equal to &quot;<A HREF="motion.html#b">b</A>&quot; binary mode is used: There will
+		When {flags} contains &quot;<A HREF="motion.html#b">b</A>&quot; then binary mode is used: There will
 		not be a NL after the last <A HREF="#list">list</A> item.  An empty item at the
 		end does cause the last line in the file to end in a NL.
-		All NL characters are replaced with a NUL character.
-		Inserting CR characters needs to be done before passing {list}
-		to <A HREF="#writefile()">writefile()</A>.
-		An existing file is overwritten, if possible.
-		When the write fails -1 is returned, otherwise 0.  There is an
-		error message if the file can't be created or when <A HREF="editing.html#writing">writing</A>
-		fails.
-		Also see |<A HREF="#readfile()">readfile()</A>|.
-		To copy a file byte for byte:
+
+		When {flags} contains &quot;<A HREF="insert.html#a">a</A>&quot; then append mode is used, lines are
+		appended to the file:
+<B>			:call writefile(["foo"], "event.log", "a")</B>
+<B>			:call writefile(["bar"], "event.log", "a")</B>
+
+<B>		All NL characters are replaced with a NUL character.</B>
+<B>		Inserting CR characters needs to be done before passing {list}</B>
+<B>		to writefile().</B>
+<B>		An existing file is overwritten, if possible.</B>
+<B>		When the write fails -1 is returned, otherwise 0.  There is an</B>
+<B>		error message if the file can't be created or when writing</B>
+<B>		fails.</B>
+<B>		Also see |readfile()|.</B>
+<B>		To copy a file byte for byte: &gt;</B>
 <B>			:let fl = readfile("foo", "b")</B>
 <B>			:call writefile(fl, "foocopy", "b")</B>
 
@@ -7142,7 +7180,6 @@ There are four types of features:
     included.
 
 acl			Compiled with |<A HREF="editing.html#ACL">ACL</A>| support.
-all_builtin_terms	Compiled with all builtin terminals enabled.
 arabic			Compiled with Arabic support |<A HREF="arabic.html#Arabic">Arabic</A>|.
 autocmd			Compiled with autocommand support. |<A HREF="autocmd.html#autocommand">autocommand</A>|
 balloon_eval		Compiled with |<A HREF="debugger.html#balloon-eval">balloon-eval</A>| support.
@@ -7150,7 +7187,6 @@ balloon_multiline	<A HREF="gui.html#GUI">GUI</A> supports multiline balloons.
 browse			Compiled with |<A HREF="editing.html#:browse">:browse</A>| support, and <A HREF="#browse()">browse()</A> will
 			work.
 browsefilter		Compiled with support for |<A HREF="editing.html#browsefilter">browsefilter</A>|.
-<A HREF="term.html#builtin_terms">builtin_terms</A>		Compiled with some builtin terminals.
 byte_offset		Compiled with support for '<A HREF="insert.html#o">o</A>' in <A HREF="options.html#'statusline'">'statusline'</A>
 cindent			Compiled with <A HREF="options.html#'cindent'">'cindent'</A> support.
 clientserver		Compiled with remote invocation support |<A HREF="remote.html#clientserver">clientserver</A>|.
@@ -7164,12 +7200,10 @@ cscope			Compiled with |<A HREF="if_cscop.html#cscope">cscope</A>| support.
 debug			Compiled with &quot;DEBUG&quot; defined.
 dialog_con		Compiled with console <A HREF="gui_w32.html#dialog">dialog</A> support.
 dialog_gui		Compiled with <A HREF="gui.html#GUI">GUI</A> <A HREF="gui_w32.html#dialog">dialog</A> support.
-diff			Compiled with |<A HREF="diff.html#vimdiff">vimdiff</A>| and <A HREF="options.html#'diff'">'diff'</A> support.
 <A HREF="digraph.html#digraphs">digraphs</A>		Compiled with support for <A HREF="digraph.html#digraphs">digraphs</A>.
 dnd			Compiled with support for the &quot;~ <A HREF="sponsor.html#register">register</A> |<A HREF="change.html#quote_~">quote_~</A>|.
 dos16			16 bits <A HREF="os_dos.html#DOS">DOS</A> version of Vim.
 dos32			32 bits <A HREF="os_dos.html#DOS">DOS</A> (DJGPP) version of Vim.
-<A HREF="tagsrch.html#emacs_tags">emacs_tags</A>		Compiled with support for Emacs <A HREF="tagsrch.html#tags">tags</A>.
 <A HREF="#eval">eval</A>			Compiled with <A HREF="#expression">expression</A> evaluation support.  Always
 			true, of course!
 ex_extra		Compiled with extra <A HREF="intro.html#Ex">Ex</A> commands |<A HREF="various.html#+ex_extra">+ex_extra</A>|.
@@ -7211,46 +7245,32 @@ lispindent		Compiled with support for lisp indenting.
 listcmds		Compiled with commands for the buffer <A HREF="#list">list</A> |<A HREF="windows.html#:files">:files</A>|
 			and the argument list |<A HREF="editing.html#arglist">arglist</A>|.
 localmap		Compiled with local mappings and abbr. |<A HREF="map.html#:map-local">:map-local</A>|
-<A HREF="if_lua.html#lua">lua</A>			Compiled with Lua interface |<A HREF="if_lua.html#Lua">Lua</A>|.
 <A HREF="os_mac.html#mac">mac</A>			<A HREF="os_mac.html#Macintosh">Macintosh</A> version of Vim.
 macunix			<A HREF="os_mac.html#Macintosh">Macintosh</A> version of Vim, using <A HREF="os_unix.html#Unix">Unix</A> files (OS-X).
 menu			Compiled with support for |<A HREF="gui.html#:menu">:menu</A>|.
 mksession		Compiled with support for |<A HREF="starting.html#:mksession">:mksession</A>|.
 modify_fname		Compiled with file name modifiers. |<A HREF="cmdline.html#filename-modifiers">filename-modifiers</A>|
 mouse			Compiled with support mouse.
-mouse_dec		Compiled with support for Dec terminal mouse.
-mouse_gpm		Compiled with support for gpm (Linux console mouse)
-mouse_netterm		Compiled with support for netterm mouse.
-mouse_pterm		Compiled with support for qnx pterm mouse.
-mouse_sysmouse		Compiled with support for <A HREF="term.html#sysmouse">sysmouse</A> (*BSD console mouse)
-mouse_sgr		Compiled with support for sgr mouse.
-mouse_urxvt		Compiled with support for urxvt mouse.
-mouse_xterm		Compiled with support for xterm mouse.
 mouseshape		Compiled with support for <A HREF="options.html#'mouseshape'">'mouseshape'</A>.
 multi_byte		Compiled with support for <A HREF="options.html#'encoding'">'encoding'</A>
 multi_byte_encoding	<A HREF="options.html#'encoding'">'encoding'</A> is set to a <A HREF="mbyte.html#multi-byte">multi-byte</A> encoding.
 multi_byte_ime		Compiled with support for <A HREF="mbyte.html#IME">IME</A> input method.
 multi_lang		Compiled with support for multiple languages.
-mzscheme		Compiled with <A HREF="if_mzsch.html#MzScheme">MzScheme</A> interface |<A HREF="if_mzsch.html#mzscheme">mzscheme</A>|.
 ole			Compiled with OLE automation support for <A HREF="os_win32.html#Win32">Win32</A>.
 path_extra		Compiled with up/downwards search in <A HREF="options.html#'path'">'path'</A> and <A HREF="options.html#'tags'">'tags'</A>
-<A HREF="if_perl.html#perl">perl</A>			Compiled with <A HREF="if_perl.html#Perl">Perl</A> interface.
 persistent_undo		Compiled with support for persistent <A HREF="undo.html#undo">undo</A> <A HREF="cmdline.html#history">history</A>.
 postscript		Compiled with PostScript file <A HREF="print.html#printing">printing</A>.
 printer			Compiled with |<A HREF="print.html#:hardcopy">:hardcopy</A>| support.
 profile			Compiled with |<A HREF="repeat.html#:profile">:profile</A>| support.
 python			Compiled with <A HREF="if_pyth.html#Python">Python</A> 2.x interface. |<A HREF="if_pyth.html#has-python">has-python</A>|
 <A HREF="if_pyth.html#python3">python3</A>			Compiled with <A HREF="if_pyth.html#Python">Python</A> 3.x interface. |<A HREF="if_pyth.html#has-python">has-python</A>|
-qnx			QNX version of Vim.
 quickfix		Compiled with |<A HREF="quickfix.html#quickfix">quickfix</A>| support.
 reltime			Compiled with |<A HREF="#reltime()">reltime()</A>| support.
 rightleft		Compiled with <A HREF="options.html#'rightleft'">'rightleft'</A> support.
-ruby			Compiled with <A HREF="if_ruby.html#Ruby">Ruby</A> interface |<A HREF="if_ruby.html#ruby">ruby</A>|.
 scrollbind		Compiled with <A HREF="options.html#'scrollbind'">'scrollbind'</A> support.
 showcmd			Compiled with <A HREF="options.html#'showcmd'">'showcmd'</A> support.
 <A HREF="sign.html#signs">signs</A>			Compiled with |<A HREF="sign.html#:sign">:sign</A>| support.
 smartindent		Compiled with <A HREF="options.html#'smartindent'">'smartindent'</A> support.
-sniff			Compiled with SNiFF interface support.
 spell			Compiled with spell checking support |<A HREF="spell.html#spell">spell</A>|.
 startuptime		Compiled with |<A HREF="starting.html#--startuptime">--startuptime</A>| support.
 statusline		Compiled with support for <A HREF="options.html#'statusline'">'statusline'</A>, <A HREF="options.html#'rulerformat'">'rulerformat'</A>
@@ -7265,7 +7285,6 @@ tag_old_static		Compiled with support for old static <A HREF="tagsrch.html#tags"
 			|<A HREF="tagsrch.html#tag-old-static">tag-old-static</A>|.
 tag_any_white		Compiled with support for any white characters in <A HREF="tagsrch.html#tags">tags</A>
 			files |<A HREF="tagsrch.html#tag-any-white">tag-any-white</A>|.
-<A HREF="if_tcl.html#tcl">tcl</A>			Compiled with <A HREF="if_tcl.html#Tcl">Tcl</A> interface.
 <A HREF="term.html#terminfo">terminfo</A>		Compiled with <A HREF="term.html#terminfo">terminfo</A> instead of <A HREF="term.html#termcap">termcap</A>.
 termresponse		Compiled with support for |<A HREF="term.html#t_RV">t_RV</A>| and |<A HREF="#v:termresponse">v:termresponse</A>|.
 textobjects		Compiled with support for |<A HREF="motion.html#text-objects">text-objects</A>|.
@@ -7304,7 +7323,7 @@ xsmp_interact		Compiled with interactive X session management support.
 xterm_clipboard		Compiled with support for xterm <A HREF="gui.html#clipboard">clipboard</A>.
 xterm_save		Compiled with support for saving and restoring the
 			xterm screen.
-x11			Compiled with <A HREF="options.html#X11">X11</A> support.
+x11			Compiled with X11 support.
 
 
 							*<A NAME="string-match"></A><B>string-match</B>*
@@ -9474,7 +9493,7 @@ These items are not allowed in the <A HREF="#sandbox">sandbox</A>:
 	- executing a shell command
 	- reading or <A HREF="editing.html#writing">writing</A> a file
 	- jumping to another buffer or editing a file
-	- executing <A HREF="if_pyth.html#Python">Python</A>, <A HREF="if_perl.html#Perl">Perl</A>, etc. commands
+	- executing <A HREF="if_pyth.html#Python">Python</A>, Perl, etc. commands
 This is not guaranteed 100&#37; secure, but <A HREF="motion.html#it">it</A> should block most attacks.
 
 
@@ -9520,7 +9539,7 @@ This is not allowed when the <A HREF="#textlock">textlock</A> is active:
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:07:59 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:33 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

@@ -34,7 +34,7 @@
 <HR>
 <PRE>
 
-*<A NAME="spell.txt"></A><B>spell.txt</B>*	For Vim version 7.4.  Last change: 2014 Jul 02
+*<A NAME="spell.txt"></A><B>spell.txt</B>*	For Vim version 7.4.  Last change: 2014 Sep 19
 
 
 		  VIM REFERENCE MANUAL	  by <A HREF="intro.html#Bram">Bram</A> <A HREF="intro.html#Moolenaar">Moolenaar</A>
@@ -47,11 +47,6 @@ Spell checking						*<A NAME="spell"></A><B>spell</B>*
 2. Remarks on spell checking	|<A HREF="#spell-remarks">spell-remarks</A>|
 3. Generating a spell file	|<A HREF="#spell-mkspell">spell-mkspell</A>|
 4. Spell file format		|<A HREF="#spell-file-format">spell-file-format</A>|
-
-{Vi does not have any of these commands}
-
-Spell checking is not available when the |<A HREF="various.html#+syntax">+syntax</A>| feature has been disabled
-at compile time.
 
 Note: There also is a vimspell <A HREF="usr_05.html#plugin">plugin</A>.  If you have <A HREF="motion.html#it">it</A> you can <A HREF="diff.html#do">do</A> &quot;<A HREF="helphelp.html#:help">:help</A>
 vimspell&quot; to find about <A HREF="motion.html#it">it</A>.  But you will probably want to get rid of the
@@ -640,8 +635,8 @@ following procedure is recommended:
 
 When the <A HREF="#Myspell">Myspell</A> files are updated you can <A HREF="diff.html#merge">merge</A> the differences:
 1. Obtain the new <A HREF="#Myspell">Myspell</A> files <A HREF="motion.html#as">as</A> xx_YY.new.aff and xx_UU.new.dic.
-2. Use Vimdiff to see what changed:
-<B>	vimdiff xx_YY.orig.dic xx_YY.new.dic</B>
+2. Use |<A HREF="diff.html#diff-mode">diff-mode</A>| to see what changed:
+<B>	nvim -d xx_YY.orig.dic xx_YY.new.dic</B>
 3. Take over the changes you like in xx_YY.dic.
    You may also need to change xx_YY.aff.
 4. Rename xx_YY.new.dic to xx_YY.orig.dic and xx_YY.new.aff to xx_YY.new.aff.
@@ -972,7 +967,7 @@ right encoding.
 	COPYRIGHT	LGPL
 
 These fields are put in the .spl file as-is.  The |<A HREF="#:spellinfo">:spellinfo</A>| command can be
-used to <A HREF="starting.html#view">view</A> the info.
+used to view the info.
 
 
 							*<A NAME=":spellinfo"></A><B>:spellinfo</B>* *<A NAME=":spelli"></A><B>:spelli</B>*
@@ -1283,8 +1278,7 @@ rare words.  Example:
 
 Rare words are highlighted differently from bad words.  This is to be used for
 words that are correct for the language, but are hardly ever used and could be
-a typing mistake anyway.  When the same <A HREF="motion.html#word">word</A> is found <A HREF="motion.html#as">as</A> good <A HREF="motion.html#it">it</A> won't be
-highlighted <A HREF="motion.html#as">as</A> rare.
+a typing mistake anyway.
 
 This flag can also be used on an affix, so that a basic <A HREF="motion.html#word">word</A> is not rare but
 the basic <A HREF="motion.html#word">word</A> plus affix is rare |<A HREF="#spell-affix-flags">spell-affix-flags</A>|.  However, if the <A HREF="motion.html#word">word</A>
@@ -1472,8 +1466,8 @@ Note: this doesn't work for postponed prefixes yet.
 						    *<A NAME="spell-COMPOUNDPERMITFLAG"></A><B>spell-COMPOUNDPERMITFLAG</B>*
 The COMPOUNDPERMITFLAG specifies a flag that can be used on an affix.  It
 means that the <A HREF="motion.html#word">word</A> plus affix can also be used in a compound <A HREF="motion.html#word">word</A> in a way
-where the affix ends up halfway the <A HREF="motion.html#word">word</A>.  Without this flag that is not
-allowed.
+where the affix ends up halfway through the <A HREF="motion.html#word">word</A>.  Without this flag that is
+not allowed.
 Note: this doesn't work for postponed prefixes yet.
 
 
@@ -1790,7 +1784,7 @@ WORDCHARS	(Hunspell)				*<A NAME="spell-WORDCHARS"></A><B>spell-WORDCHARS</B>*
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:36 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

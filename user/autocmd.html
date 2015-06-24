@@ -34,7 +34,7 @@
 <HR>
 <PRE>
 
-*<A NAME="autocmd.txt"></A><B>autocmd.txt</B>*   For Vim version 7.4.  Last change: 2014 Aug 22
+*<A NAME="autocmd.txt"></A><B>autocmd.txt</B>*   For Vim version 7.4.  Last change: 2014 Sep 23
 
 
 		  VIM REFERENCE MANUAL    by <A HREF="intro.html#Bram">Bram</A> <A HREF="intro.html#Moolenaar">Moolenaar</A>
@@ -56,9 +56,6 @@ For a basic explanation, see section |<A HREF="usr_40.html#40.3">40.3</A>| in th
 9.  Executing autocommands	|<A HREF="#autocmd-execute">autocmd-execute</A>|
 10. Using autocommands		|<A HREF="#autocmd-use">autocmd-use</A>|
 11. Disabling autocommands	|<A HREF="#autocmd-disable">autocmd-disable</A>|
-
-{Vi does not have any of these commands}
-{only when the |<A HREF="various.html#+autocmd">+autocmd</A>| feature has not been disabled at compile time}
 
 ==============================================================================
 
@@ -299,6 +296,7 @@ alphabetically with full explanations |<A HREF="#autocmd-events-abc">autocmd-eve
 |<A HREF="#BufNew">BufNew</A>|		just after creating a new buffer
 
 |<A HREF="#SwapExists">SwapExists</A>|		detected an existing swap file
+|<A HREF="#TermOpen">TermOpen</A>|		when a terminal buffer is starting
 
 	Options
 |<A HREF="#FileType">FileType</A>|		when the <A HREF="options.html#'filetype'">'filetype'</A> option has been set
@@ -342,6 +340,9 @@ alphabetically with full explanations |<A HREF="#autocmd-events-abc">autocmd-eve
 |<A HREF="#WinLeave">WinLeave</A>|		before leaving a <A HREF="windows.html#window">window</A>
 |<A HREF="#TabEnter">TabEnter</A>|		after entering another <A HREF="intro.html#tab">tab</A> page
 |<A HREF="#TabLeave">TabLeave</A>|		before leaving a <A HREF="intro.html#tab">tab</A> page
+|<A HREF="#TabNew">TabNew</A>|		when creating a new <A HREF="intro.html#tab">tab</A> page
+|<A HREF="#TabNewEntered">TabNewEntered</A>|		after entering a new <A HREF="intro.html#tab">tab</A> page
+|<A HREF="#TabClosed">TabClosed</A>|		after closing a <A HREF="intro.html#tab">tab</A> page
 |<A HREF="#CmdwinEnter">CmdwinEnter</A>|		after entering the command-line <A HREF="windows.html#window">window</A>
 |<A HREF="#CmdwinLeave">CmdwinLeave</A>|		before leaving the command-line <A HREF="windows.html#window">window</A>
 
@@ -350,7 +351,6 @@ alphabetically with full explanations |<A HREF="#autocmd-events-abc">autocmd-eve
 |<A HREF="#InsertLeave">InsertLeave</A>|		when leaving Insert mode
 |<A HREF="#InsertCharPre">InsertCharPre</A>|		when a character was typed in Insert mode, before
 			<A HREF="insert.html#inserting">inserting</A> <A HREF="motion.html#it">it</A>
-|<A HREF="#JobActivity">JobActivity</A>|		when something interesting happens with a job
 
 |<A HREF="#TextChanged">TextChanged</A>|		after a change was made to the text in <A HREF="intro.html#Normal">Normal</A> mode
 |<A HREF="#TextChangedI">TextChangedI</A>|		after a change was made to the text in <A HREF="insert.html#Insert">Insert</A> mode
@@ -577,6 +577,8 @@ The alphabetical <A HREF="eval.html#list">list</A> of <A HREF="#autocommand">aut
 <A HREF="#CompleteDone">CompleteDone</A>			After <A HREF="insert.html#Insert">Insert</A> mode completion is done.  Either
 				when something was completed or abandoning
 				completion. |<A HREF="insert.html#ins-completion">ins-completion</A>|
+				The |<A HREF="eval.html#v:completed_item">v:completed_item</A>| variable contains the
+				completed item.
 
 
 							*<A NAME="CursorHold"></A><B>CursorHold</B>*
@@ -592,6 +594,12 @@ The alphabetical <A HREF="eval.html#list">list</A> of <A HREF="#autocommand">aut
 				<A HREF="motion.html#operator">operator</A>.
 				While <A HREF="repeat.html#recording">recording</A> the <A HREF="#CursorHold">CursorHold</A> event is not
 				triggered. |<A HREF="repeat.html#q">q</A>|
+
+							*<A NAME="&lt;CursorHold&gt;"></A><B>&lt;CursorHold&gt;</B>*
+				Internally the <A HREF="#autocommand">autocommand</A> is triggered by the
+				<A HREF="#&lt;CursorHold&gt;">&lt;CursorHold&gt;</A> key. In an <A HREF="eval.html#expression">expression</A> <A HREF="map.html#mapping">mapping</A>
+				|<A HREF="eval.html#getchar()">getchar()</A>| may see this character.
+
 				Note: Interactive commands cannot be used for
 				this event.  There is no <A HREF="message.html#hit-enter">hit-enter</A> prompt,
 				the screen is updated directly (when needed).
@@ -787,7 +795,7 @@ The alphabetical <A HREF="eval.html#list">list</A> of <A HREF="#autocommand">aut
 							*<A NAME="GUIEnter"></A><B>GUIEnter</B>*
 <A HREF="#GUIEnter">GUIEnter</A>			After starting the <A HREF="gui.html#GUI">GUI</A> successfully, and after
 				opening the <A HREF="windows.html#window">window</A>.  It is triggered before
-				<A HREF="#VimEnter">VimEnter</A> when using <A HREF="starting.html#gvim">gvim</A>.  Can be used to
+				<A HREF="#VimEnter">VimEnter</A> when using gvim.  Can be used to
 				position the <A HREF="windows.html#window">window</A> from a <A HREF="gui.html#.gvimrc">.gvimrc</A> file:
 <B>	:autocmd GUIEnter * winpos 100 50</B>
 
@@ -830,11 +838,6 @@ The alphabetical <A HREF="eval.html#list">list</A> of <A HREF="#autocommand">aut
 							*<A NAME="InsertLeave"></A><B>InsertLeave</B>*
 <A HREF="#InsertLeave">InsertLeave</A>			When leaving <A HREF="insert.html#Insert">Insert</A> mode.  Also when using
 				CTRL-O |<A HREF="insert.html#i_CTRL-O">i_CTRL-O</A>|.  But not for |<A HREF="insert.html#i_CTRL-C">i_CTRL-C</A>|.
-
-						{Nvim}  *<A NAME="JobActivity"></A><B>JobActivity</B>*
-<A HREF="#JobActivity">JobActivity</A>			When something interesting happens with a job
-				spawned by |<A HREF="eval.html#jobstart()">jobstart()</A>|. See |<A HREF="job_control.html#job-control">job-control</A>| for
-				details. 
 
 							*<A NAME="MenuPopup"></A><B>MenuPopup</B>*
 <A HREF="#MenuPopup">MenuPopup</A>			Just before showing the popup menu (under the
@@ -900,7 +903,7 @@ The alphabetical <A HREF="eval.html#list">list</A> of <A HREF="#autocommand">aut
 				|<A HREF="quickfix.html#:make">:make</A>| and |<A HREF="quickfix.html#:grep">:grep</A>|.  Can be used to check for
 				any changed files.
 				For non-blocking shell commands, see
-				|<A HREF="#JobActivity">JobActivity</A>|.
+				|<A HREF="job_control.html#job-control">job-control</A>|.
 
 							*<A NAME="ShellFilterPost"></A><B>ShellFilterPost</B>*
 <A HREF="#ShellFilterPost">ShellFilterPost</A>			After executing a shell command with
@@ -979,20 +982,38 @@ The alphabetical <A HREF="eval.html#list">list</A> of <A HREF="#autocommand">aut
 				A <A HREF="#WinLeave">WinLeave</A> event will have been triggered
 				first.
 
+						 {Nvim} *<A NAME="TabNew"></A><B>TabNew</B>*
+<A HREF="#TabNew">TabNew</A>				When creating a new tab page. |<A HREF="tabpage.html#tab-page">tab-page</A>|
+				After <A HREF="#WinEnter">WinEnter</A> and before <A HREF="#TabEnter">TabEnter</A>.
+
+						 {Nvim} *<A NAME="TabNewEntered"></A><B>TabNewEntered</B>*
+<A HREF="#TabNewEntered">TabNewEntered</A>			After entering a new tab page. |<A HREF="tabpage.html#tab-page">tab-page</A>|
+				After <A HREF="#BufEnter">BufEnter</A>.
+
+						 {Nvim} *<A NAME="TabClosed"></A><B>TabClosed</B>*
+<A HREF="#TabClosed">TabClosed</A>			After closing a <A HREF="intro.html#tab">tab</A> page. <A HREF="cmdline.html#&lt;afile&gt;">&lt;afile&gt;</A> can be used
+				for the <A HREF="intro.html#tab">tab</A> page number.
+
 							*<A NAME="TermChanged"></A><B>TermChanged</B>*
 <A HREF="#TermChanged">TermChanged</A>			After the value of <A HREF="options.html#'term'">'term'</A> has changed.  Useful
 				for re-loading the <A HREF="syntax.html#syntax">syntax</A> file to update the
 				colors, fonts and other terminal-dependent
 				settings.  Executed for all loaded <A HREF="windows.html#buffers">buffers</A>.
 
+						 {Nvim} *<A NAME="TermOpen"></A><B>TermOpen</B>*
+<A HREF="#TermOpen">TermOpen</A>			When a terminal buffer is starting.  This can
+				be used to configure the terminal emulator by
+				setting buffer <A HREF="eval.html#variables">variables</A>.
+				See |<A HREF="nvim_terminal_emulator.html#nvim-terminal-emulator">nvim-terminal-emulator</A>| for details.
+
 							*<A NAME="TermResponse"></A><B>TermResponse</B>*
 <A HREF="#TermResponse">TermResponse</A>			After the response to |<A HREF="term.html#t_RV">t_RV</A>| is received from
 				the terminal.  The value of |<A HREF="eval.html#v:termresponse">v:termresponse</A>|
 				can be used to <A HREF="diff.html#do">do</A> things depending on the
 				terminal version.  Note that this event may be
-				triggered halfway executing another event,
-				especially if file I/O, a shell command or
-				anything else that takes time is involved.
+				triggered halfway through another event
+				(especially if file I/O, a shell command, or
+				anything else that takes time is involved).
 
 							*<A NAME="TextChanged"></A><B>TextChanged</B>*
 <A HREF="#TextChanged">TextChanged</A>			After a change was made to the text in the
@@ -1565,7 +1586,7 @@ This will write the file without triggering the autocommands defined by the
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:07:59 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:32 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

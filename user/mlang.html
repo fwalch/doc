@@ -54,9 +54,6 @@ The basics are explained in the user manual: |<A HREF="usr_45.html">usr_45.txt</
 
 Also see |<A HREF="helphelp.html#help-translated">help-translated</A>| for multi-language help.
 
-{Vi does not have any of these features}
-{not available when compiled without the |<A HREF="various.html#+multi_lang">+multi_lang</A>| feature}
-
 ==============================================================================
 
 1. Messages						*<A NAME="multilang-messages"></A><B>multilang-messages</B>*
@@ -114,12 +111,12 @@ use of &quot;<A HREF="motion.html#-">-</A>&quot; and &quot;<A HREF="motion.html#
 			This sets $LC_TIME.
 			Without an argument both are set, and additionally
 			$LANG is set.
-			When compiled with the |<A HREF="various.html#+float">+float</A>| feature the LC_NUMERIC
-			value will always be set to &quot;<A HREF="change.html#C">C</A>&quot;, so that floating
-			point numbers use '<A HREF="repeat.html#.">.</A>' <A HREF="motion.html#as">as</A> the decimal point.
-			This will make a difference for items that depend on
-			the language (some <A HREF="message.html#messages">messages</A>, time and date format).
-			Not fully supported on all systems
+			The LC_NUMERIC value will always be set to &quot;<A HREF="change.html#C">C</A>&quot; so
+			that floating point numbers use '<A HREF="repeat.html#.">.</A>' <A HREF="motion.html#as">as</A> the decimal
+			point.  This will make a difference for items that
+			depend on the language (some <A HREF="message.html#messages">messages</A>, time and date
+			format).
+			Not fully supported on all systems.
 			If this fails there will be an error message.  If <A HREF="motion.html#it">it</A>
 			succeeds there is no message.  Example:
 <B>				:language</B>
@@ -256,7 +253,7 @@ a message adapt to language preferences of the user,
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:34 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

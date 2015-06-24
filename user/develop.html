@@ -106,7 +106,7 @@ completely different editor.  Extensions are done with a &quot;<A HREF="intro.ht
 - A feature that people <A HREF="diff.html#do">do</A> not know about is a useless feature.  Don't add
   obscure features, or at least add hints in documentation that they exist.
 - Minimize using CTRL and other modifiers, they are more difficult to type.
-- There are many first-time and inexperienced Vim users.  Make <A HREF="motion.html#it">it</A> <A HREF="starting.html#easy">easy</A> for
+- There are many first-time and inexperienced Vim users.  Make <A HREF="motion.html#it">it</A> easy for
   them to start using Vim and learn more over time.
 - There is no limit to the features that can be added.  Selecting new features
   is one based on (1) what users ask for, (2) how much effort <A HREF="motion.html#it">it</A> takes to
@@ -166,10 +166,10 @@ fast.
 VIM IS... MAINTAINABLE					*<A NAME="design-maintain"></A><B>design-maintain</B>*
 
 - The source code should not become a mess.  It should be reliable code.
-- Use the same layout in all files to make <A HREF="motion.html#it">it</A> <A HREF="starting.html#easy">easy</A> to read |<A HREF="#coding-style">coding-style</A>|.
+- Use the same layout in all files to make <A HREF="motion.html#it">it</A> easy to read |<A HREF="#coding-style">coding-style</A>|.
 - Use comments in a useful way!  Quoting the function name and argument names
   is NOT useful.  Do explain what they are for.
-- Porting to another platform should be made <A HREF="starting.html#easy">easy</A>, without having to change
+- Porting to another platform should be made easy, without having to change
   too much platform-independent code.
 - Use the object-oriented spirit: Put data and code together.  Minimize the
   knowledge spread to other parts of the code.
@@ -178,12 +178,11 @@ VIM IS... MAINTAINABLE					*<A NAME="design-maintain"></A><B>design-maintain</B>
 
 VIM IS... FLEXIBLE					*<A NAME="design-flexible"></A><B>design-flexible</B>*
 
-Vim should make <A HREF="motion.html#it">it</A> <A HREF="starting.html#easy">easy</A> for users to work in their preferred styles rather
+Vim should make <A HREF="motion.html#it">it</A> easy for users to work in their preferred styles rather
 than coercing its users into particular patterns of work.  This can be for
-items with a large impact (e.g., the <A HREF="options.html#'compatible'">'compatible'</A> option) or for details.  The
-defaults are carefully chosen such that most users will enjoy using Vim <A HREF="motion.html#as">as</A> <A HREF="motion.html#it">it</A>
-is.  Commands and <A HREF="options.html#options">options</A> can be used to adjust Vim to the desire of the user
-and its environment.
+items with a large impact or for details.  The defaults are carefully chosen
+such that most users will enjoy using Vim <A HREF="motion.html#as">as</A> <A HREF="motion.html#it">it</A> is.  Commands and <A HREF="options.html#options">options</A> can
+be used to adjust Vim to the desire of the user and its environment.
 
 
 
@@ -235,8 +234,8 @@ malloc()	lalloc()	Like alloc(), but has long argument
 strcpy()	STRCPY()	Includes cast to (char *), for char_u &#42; args
 <A HREF="eval.html#strchr()">strchr()</A>	vim_strchr()	Accepts special characters
 <A HREF="eval.html#strrchr()">strrchr()</A>	vim_strrchr()	Accepts special characters
-isspace()	vim_isspace()	Can handle characters <A HREF="change.html#&gt;">&gt;</A> 128
-iswhite()	vim_iswhite()	Only TRUE for <A HREF="intro.html#tab">tab</A> and space
+isspace()	ascii_isspace()	Can handle characters <A HREF="change.html#&gt;">&gt;</A> 128
+iswhite()	ascii_iswhite()	Only true for <A HREF="intro.html#tab">tab</A> and space
 memcpy()	mch_memmove()	Handles overlapped copies
 bcopy()		mch_memmove()	Handles overlapped copies
 memset()	vim_memset()	Uniform for all systems
@@ -420,7 +419,7 @@ in a buffer (buffer lines) and the text displayed in a <A HREF="windows.html#win
 Naming the <A HREF="windows.html#window">window</A>
 
 The <A HREF="motion.html#word">word</A> &quot;<A HREF="windows.html#window">window</A>&quot; is commonly used for several things: A <A HREF="windows.html#window">window</A> on the screen,
-the xterm <A HREF="windows.html#window">window</A>, a <A HREF="windows.html#window">window</A> inside Vim to <A HREF="starting.html#view">view</A> a buffer.
+the xterm <A HREF="windows.html#window">window</A>, a <A HREF="windows.html#window">window</A> inside Vim to view a buffer.
 To avoid confusion, other items that are sometimes called <A HREF="windows.html#window">window</A> have been
 given another name.  Here is an overview of the related items:
 
@@ -561,7 +560,7 @@ standard specifies a limit of 509 characters.
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:07:59 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:32 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

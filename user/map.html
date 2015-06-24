@@ -34,7 +34,7 @@
 <HR>
 <PRE>
 
-*<A NAME="map.txt"></A><B>map.txt</B>*       For Vim version 7.4.  Last change: 2014 Jun 02
+*<A NAME="map.txt"></A><B>map.txt</B>*       For Vim version 7.4.  Last change: 2014 Oct 03
 
 
 		  VIM REFERENCE MANUAL    by <A HREF="intro.html#Bram">Bram</A> <A HREF="intro.html#Moolenaar">Moolenaar</A>
@@ -135,7 +135,7 @@ modes.
 			Map the key sequence <A HREF="#{lhs}">{lhs}</A> to <A HREF="#{rhs}">{rhs}</A> for the modes
 			where the map command applies.  Disallow <A HREF="#mapping">mapping</A> of
 			<A HREF="#{rhs}">{rhs}</A>, to avoid nested and recursive mappings.  Often
-			used to redefine a command.  {not in Vi}
+			used to redefine a command.
 
 
 
@@ -187,7 +187,7 @@ modes.
 
 :cmapc[lear]			|<A HREF="#mapmode-c">mapmode-c</A>|		*<A NAME=":cmapc"></A><B>:cmapc</B>*  *<A NAME=":cmapclear"></A><B>:cmapclear</B>*
 			Remove ALL mappings for the modes where the map
-			command applies.  {not in Vi}
+			command applies.
 			Use the &lt;buffer&gt; argument to remove buffer-local
 			mappings |<A HREF="#:map-&lt;buffer&gt;">:map-&lt;buffer&gt;</A>|
 			Warning: This also removes the default mappings.
@@ -228,7 +228,6 @@ modes.
 :cm[ap] <A HREF="#{lhs}">{lhs}</A>			|<A HREF="#mapmode-c">mapmode-c</A>|		*<A NAME=":cmap_l"></A><B>:cmap_l</B>*
 			<A HREF="eval.html#List">List</A> the key mappings for the key sequences starting
 			with <A HREF="#{lhs}">{lhs}</A> in the modes where the map command applies.
-			{not in Vi}
 
 These commands are used to map a key or key sequence to a <A HREF="eval.html#string">string</A> of
 characters.  You can use this to put command sequences under function keys,
@@ -246,7 +245,6 @@ decide if &quot;aa&quot; or &quot;aaa&quot; should be mapped.  This means that a
 that <A HREF="#mapping">mapping</A> won't get expanded yet, Vim is waiting for another character.
 If you type a space, then &quot;foo&quot; will get inserted, plus the space.  If you
 type &quot;<A HREF="insert.html#a">a</A>&quot;, then &quot;<A HREF="motion.html#bar">bar</A>&quot; will get inserted.
-{Vi does not allow ambiguous mappings}
 
 
 
@@ -1014,8 +1012,7 @@ end-id	  The &quot;end-id&quot; type ends in a keyword character, but all the ot
 	  Examples: &quot;#i&quot;, &quot;..f&quot;, &quot;$/7&quot;
 
 non-id	  The &quot;non-id&quot; type ends in a non-keyword character, the other
-	  characters may be of any type, excluding space and <A HREF="intro.html#tab">tab</A>.  {this type
-	  is not supported by Vi}
+	  characters may be of any type, excluding space and <A HREF="intro.html#tab">tab</A>.
 
 	  Examples: &quot;def#&quot;, &quot;4/7$&quot;
 
@@ -1061,9 +1058,11 @@ Examples: ({CURSOR} is where you type a non-keyword character)
  		&quot;test;;&quot;	  is not expanded
 		&quot;test ;;&quot;	  is expanded to &quot;test &lt;endofline&gt;&quot;
 
-To avoid the abbreviation in insert mode: Type part of the abbreviation, exit
-insert mode with <A HREF="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</A>, re-enter insert mode with &quot;<A HREF="insert.html#a">a</A>&quot; and type the rest.  Or
-type <A HREF="visual.html#CTRL-V">CTRL-V</A> before the character after the abbreviation.
+To avoid the abbreviation in <A HREF="insert.html#Insert">Insert</A> mode: Type <A HREF="visual.html#CTRL-V">CTRL-V</A> before the character
+that would trigger the abbreviation.  E.g. <A HREF="visual.html#CTRL-V">CTRL-V</A> <A HREF="motion.html#&lt;Space&gt;">&lt;Space&gt;</A>.  Or type part of
+the abbreviation, exit insert mode with <A HREF="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</A>, re-enter insert mode with &quot;<A HREF="insert.html#a">a</A>&quot;
+and type the rest.
+
 To avoid the abbreviation in <A HREF="cmdline.html#Command-line">Command-line</A> mode: Type <A HREF="visual.html#CTRL-V">CTRL-V</A> <A HREF="if_cscop.html#twice">twice</A> somewhere in
 the abbreviation to avoid <A HREF="motion.html#it">it</A> to be replaced.  A <A HREF="visual.html#CTRL-V">CTRL-V</A> in front of a normal
 character is mostly ignored otherwise.
@@ -1136,54 +1135,49 @@ See |<A HREF="various.html#:verbose-cmd">:verbose-cmd</A>| for more information.
 
 						*<A NAME=":norea"></A><B>:norea</B>* *<A NAME=":noreabbrev"></A><B>:noreabbrev</B>*
 :norea[bbrev] [&lt;expr&gt;] [&lt;buffer&gt;] [lhs] [rhs]
-			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but no remapping for this <A HREF="#{rhs}">{rhs}</A> {not
-			in Vi}
+			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but no remapping for this <A HREF="#{rhs}">{rhs}</A>
 
 
 						*<A NAME=":ca"></A><B>:ca</B>* *<A NAME=":cabbrev"></A><B>:cabbrev</B>*
 :ca[bbrev] [&lt;expr&gt;] [&lt;buffer&gt;] [lhs] [rhs]
-			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but for <A HREF="cmdline.html#Command-line">Command-line</A> mode only.  {not
-			in Vi}
+			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but for <A HREF="cmdline.html#Command-line">Command-line</A> mode only.
 
 
 						*<A NAME=":cuna"></A><B>:cuna</B>* *<A NAME=":cunabbrev"></A><B>:cunabbrev</B>*
-:cuna[bbrev] <A HREF="#{lhs}">{lhs}</A>	same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:una">:una</A>&quot;, but for <A HREF="cmdline.html#Command-line">Command-line</A> mode only.  {not
-			in Vi}
+:cuna[bbrev] <A HREF="#{lhs}">{lhs}</A>	same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:una">:una</A>&quot;, but for <A HREF="cmdline.html#Command-line">Command-line</A> mode only.
 
 
 						*<A NAME=":cnorea"></A><B>:cnorea</B>* *<A NAME=":cnoreabbrev"></A><B>:cnoreabbrev</B>*
 :cnorea[bbrev] [&lt;expr&gt;] [&lt;buffer&gt;] [lhs] [rhs]
 			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but for <A HREF="cmdline.html#Command-line">Command-line</A> mode only and no
-			remapping for this <A HREF="#{rhs}">{rhs}</A> {not in Vi}
+			remapping for this <A HREF="#{rhs}">{rhs}</A>
 
 
 						*<A NAME=":ia"></A><B>:ia</B>* *<A NAME=":iabbrev"></A><B>:iabbrev</B>*
 :ia[bbrev] [&lt;expr&gt;] [&lt;buffer&gt;] [lhs] [rhs]
-			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but for <A HREF="insert.html#Insert">Insert</A> mode only.  {not in Vi}
+			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but for <A HREF="insert.html#Insert">Insert</A> mode only.
 
 
 						*<A NAME=":iuna"></A><B>:iuna</B>* *<A NAME=":iunabbrev"></A><B>:iunabbrev</B>*
-:iuna[bbrev] <A HREF="#{lhs}">{lhs}</A>	same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:una">:una</A>&quot;, but for insert mode only.  {not in
-			Vi}
+:iuna[bbrev] <A HREF="#{lhs}">{lhs}</A>	same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:una">:una</A>&quot;, but for insert mode only.
 
 
 						*<A NAME=":inorea"></A><B>:inorea</B>* *<A NAME=":inoreabbrev"></A><B>:inoreabbrev</B>*
 :inorea[bbrev] [&lt;expr&gt;] [&lt;buffer&gt;] [lhs] [rhs]
 			same <A HREF="motion.html#as">as</A> &quot;<A HREF="#:ab">:ab</A>&quot;, but for <A HREF="insert.html#Insert">Insert</A> mode only and no
-			remapping for this <A HREF="#{rhs}">{rhs}</A> {not in Vi}
+			remapping for this <A HREF="#{rhs}">{rhs}</A>
 
 
 							*<A NAME=":abc"></A><B>:abc</B>* *<A NAME=":abclear"></A><B>:abclear</B>*
-:abc[lear] [&lt;buffer&gt;]	Remove all <A HREF="#abbreviations">abbreviations</A>.  {not in Vi}
+:abc[lear] [&lt;buffer&gt;]	Remove all <A HREF="#abbreviations">abbreviations</A>.
 
 
 							*<A NAME=":iabc"></A><B>:iabc</B>* *<A NAME=":iabclear"></A><B>:iabclear</B>*
-:iabc[lear] [&lt;buffer&gt;]	Remove all <A HREF="#abbreviations">abbreviations</A> for <A HREF="insert.html#Insert">Insert</A> mode.  {not in Vi}
+:iabc[lear] [&lt;buffer&gt;]	Remove all <A HREF="#abbreviations">abbreviations</A> for <A HREF="insert.html#Insert">Insert</A> mode.
 
 
 							*<A NAME=":cabc"></A><B>:cabc</B>* *<A NAME=":cabclear"></A><B>:cabclear</B>*
-:cabc[lear] [&lt;buffer&gt;]	Remove all <A HREF="#abbreviations">abbreviations</A> for <A HREF="cmdline.html#Command-line">Command-line</A> mode.  {not
-			in Vi}
+:cabc[lear] [&lt;buffer&gt;]	Remove all <A HREF="#abbreviations">abbreviations</A> for <A HREF="cmdline.html#Command-line">Command-line</A> mode.
 
 
 							*<A NAME="using_CTRL-V"></A><B>using_CTRL-V</B>*
@@ -1278,9 +1272,6 @@ to find out what they are defined to.
 
 The |<A HREF="repeat.html#:scriptnames">:scriptnames</A>| command can be used to see which scripts have been sourced
 and what their <A HREF="#&lt;SNR&gt;">&lt;SNR&gt;</A> number is.
-
-This is all {not in Vi} and {not available when compiled without the |<A HREF="various.html#+eval">+eval</A>|
-feature}.
 
 ==============================================================================
 
@@ -1448,6 +1439,8 @@ completion can be enabled:
 	-complete=custom,{func} custom completion, defined via {func}
 	-complete=customlist,{func} custom completion, defined via {func}
 
+Note: That some completion methods might expand environment <A HREF="eval.html#variables">variables</A>.
+
 
 
 Custom completion			*<A NAME=":command-completion-custom"></A><B>:command-completion-custom</B>*
@@ -1523,6 +1516,21 @@ Possible attributes are:
 
 Note that -range=N and -count=N are mutually <A HREF="motion.html#exclusive">exclusive</A> - only one should be
 specified.
+
+
+                                                  *<A NAME="E889"></A><B>E889</B>* *<A NAME=":command-addr"></A><B>:command-addr</B>*
+It is possible that the special characters in the range like `.`, `$` or `&#37;`
+which by default correspond to the current line, last line and the whole
+buffer, relate to arguments, (loaded) <A HREF="windows.html#buffers">buffers</A>, <A HREF="windows.html#windows">windows</A> or <A HREF="intro.html#tab">tab</A> pages.
+
+Possible values are:
+     -addr=lines            Range of lines (this is the default)
+     -addr=arguments        Range for arguments
+     -addr=buffers          Range for <A HREF="windows.html#buffers">buffers</A> (also not loaded <A HREF="windows.html#buffers">buffers</A>)
+     -addr=loaded_buffers   Range for loaded <A HREF="windows.html#buffers">buffers</A>
+     -addr=windows          Range for <A HREF="windows.html#windows">windows</A>
+     -addr=tabs             Range for <A HREF="intro.html#tab">tab</A> pages
+
 
 
 Special cases				*<A NAME=":command-bang"></A><B>:command-bang</B>* *<A NAME=":command-bar"></A><B>:command-bar</B>*
@@ -1670,7 +1678,7 @@ defined in.  This matters if |<A HREF="#&lt;SID&gt;">&lt;SID&gt;</A>| is used in
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:34 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

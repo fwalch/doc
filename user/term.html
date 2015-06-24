@@ -63,11 +63,7 @@ NOTE: Most of this is not used when running the |<A HREF="gui.html#GUI">GUI</A>|
 1. Startup						*<A NAME="startup-terminal"></A><B>startup-terminal</B>*
 
 When Vim is started a default terminal type is assumed.  for MS-DOS this is
-the pc terminal, for <A HREF="os_unix.html#Unix">Unix</A> an ansi terminal.  A few other terminal types are
-always available, see below |<A HREF="#builtin-terms">builtin-terms</A>|.
-
-You can give the terminal name with the '<A HREF="starting.html#-T">-T</A>' Vim argument.  If <A HREF="motion.html#it">it</A> is not given
-Vim will try to get the name from the <A HREF="starting.html#TERM">TERM</A> environment variable.
+the pc terminal, for <A HREF="os_unix.html#Unix">Unix</A> an ansi terminal.
 
 
 				*<A NAME="termcap"></A><B>termcap</B>* *<A NAME="terminfo"></A><B>terminfo</B>* *<A NAME="E557"></A><B>E557</B>* *<A NAME="E558"></A><B>E558</B>* *<A NAME="E559"></A><B>E559</B>*
@@ -76,36 +72,6 @@ On <A HREF="os_unix.html#Unix">Unix</A> the <A HREF="#terminfo">terminfo</A> dat
 the choice whether to use <A HREF="#terminfo">terminfo</A> or <A HREF="#termcap">termcap</A> is done automatically.  When
 running Vim the output of &quot;<A HREF="various.html#:version">:version</A>&quot; will show |<A HREF="various.html#+terminfo">+terminfo</A>| if terminfo is
 used.  Also see |<A HREF="tips.html#xterm-screens">xterm-screens</A>|.
-
-On non-Unix systems a <A HREF="#termcap">termcap</A> is only available if Vim was compiled with
-TERMCAP defined.
-
-
-					*<A NAME="builtin-terms"></A><B>builtin-terms</B>* *<A NAME="builtin_terms"></A><B>builtin_terms</B>*
-Which builtin terminals are available depends on a few defines in feature.h,
-which need to be set at compile time:
-<B><FONT color="#54A23D">    define		output of ":version"	terminals builtin	</FONT></B>
-NO_BUILTIN_TCAPS	-builtin_terms		none
-SOME_BUILTIN_TCAPS	<A HREF="various.html#+builtin_terms">+builtin_terms</A>		most common ones (default)
-ALL_BUILTIN_TCAPS	<A HREF="various.html#++builtin_terms">++builtin_terms</A>		all available
-
-You can see a <A HREF="eval.html#list">list</A> of available builtin terminals with &quot;<A HREF="options.html#:set">:set</A> <A HREF="options.html#'term'">term</A>=xxx&quot; (when
-not running the <A HREF="gui.html#GUI">GUI</A>).  Also see |<A HREF="various.html#+builtin_terms">+builtin_terms</A>|.
-
-If the <A HREF="#termcap">termcap</A> code is included Vim will try to get the strings for the
-terminal you are using from the <A HREF="#termcap">termcap</A> file and the builtin termcaps.  Both
-are always used, if an entry for the terminal you are using is present.  Which
-one is used first depends on the <A HREF="options.html#'ttybuiltin'">'ttybuiltin'</A> option:
-
-<A HREF="options.html#'ttybuiltin'">'ttybuiltin'</A> on		1: builtin <A HREF="#termcap">termcap</A>	2: external <A HREF="#termcap">termcap</A>
-<A HREF="options.html#'ttybuiltin'">'ttybuiltin'</A> off	1: external <A HREF="#termcap">termcap</A>	2: builtin <A HREF="#termcap">termcap</A>
-
-If an option is missing in one of them, <A HREF="motion.html#it">it</A> will be obtained from the other
-one.  If an option is present in both, the one first encountered is used.
-
-Which external <A HREF="#termcap">termcap</A> file is used varies from system to system and may
-depend on the environment <A HREF="eval.html#variables">variables</A> &quot;TERMCAP&quot; and &quot;TERMPATH&quot;.  See &quot;man
-tgetent&quot;.
 
 
 Settings depending on terminal			*<A NAME="term-dependent-settings"></A><B>term-dependent-settings</B>*
@@ -257,9 +223,6 @@ It is always possible to change individual strings by setting the
 appropriate option.  For example:
 <B>	:set t_ce=^V^[[K	(CTRL-V, &lt;Esc&gt;, [, K)</B>
 
-{Vi: no terminal <A HREF="options.html#options">options</A>.  You have to exit <A HREF="intro.html#Vi">Vi</A>, edit the <A HREF="#termcap">termcap</A> entry and
-try again}
-
 The <A HREF="options.html#options">options</A> are listed below.  The associated <A HREF="#termcap">termcap</A> code is always equal to
 the last two characters of the option name.  Only one <A HREF="#termcap">termcap</A> code is
 required: Cursor motion, <A HREF="#'t_cm'">'t_cm'</A>.
@@ -389,7 +352,7 @@ Added by Vim (there are no standard codes for these):
 		|<A HREF="#termcap-cursor-shape">termcap-cursor-shape</A>|
 
 	<A HREF="#t_RV">t_RV</A>	request terminal version <A HREF="eval.html#string">string</A> (for xterm)	*<A NAME="t_RV"></A><B>t_RV</B>* *<A NAME="'t_RV'"></A><B>'t_RV'</B>*
-		|<A HREF="#xterm-8bit">xterm-8bit</A>| |<A HREF="eval.html#v:termresponse">v:termresponse</A>| |<A HREF="options.html#'ttymouse'">'ttymouse'</A>| |<A HREF="#xterm-codes">xterm-codes</A>|
+		|<A HREF="#xterm-8bit">xterm-8bit</A>| |<A HREF="eval.html#v:termresponse">v:termresponse</A>| |<A HREF="#xterm-codes">xterm-codes</A>|
 
 	<A HREF="#t_u7">t_u7</A>	request cursor position (for xterm)		*<A NAME="t_u7"></A><B>t_u7</B>* *<A NAME="'t_u7'"></A><B>'t_u7'</B>*
 		see |<A HREF="options.html#'ambiwidth'">'ambiwidth'</A>|
@@ -745,15 +708,6 @@ If the characters from the terminal are arriving with more than 1 second
 between them you might want to set the <A HREF="options.html#'timeout'">'timeout'</A> and/or <A HREF="options.html#'ttimeout'">'ttimeout'</A> option.
 See the &quot;Options&quot; chapter |<A HREF="options.html#options">options</A>|.
 
-If your terminal does not support a <A HREF="scroll.html#scrolling">scrolling</A> region, but <A HREF="motion.html#it">it</A> does support
-insert/delete line commands, <A HREF="scroll.html#scrolling">scrolling</A> with multiple <A HREF="windows.html#windows">windows</A> may make the
-lines jump up and down.  If you don't want this set the <A HREF="options.html#'ttyfast'">'ttyfast'</A> option.
-This will redraw the <A HREF="windows.html#window">window</A> instead of scroll <A HREF="motion.html#it">it</A>.
-
-If your terminal scrolls very slowly, but redrawing is not slow, set the
-<A HREF="options.html#'ttyscroll'">'ttyscroll'</A> option to a small number, e.g., 3.  This will make Vim redraw the
-screen instead of <A HREF="scroll.html#scrolling">scrolling</A>, when there are more than 3 lines to be scrolled.
-
 If you are using a color terminal that is slow, use this command:
 <B>	hi NonText cterm=NONE ctermfg=NONE</B>
 This avoids that spaces are sent when they have different attributes.  On most
@@ -779,11 +733,6 @@ with a mouse wheel see |<A HREF="scroll.html#scroll-mouse-wheel">scroll-mouse-wh
 Don't forget to enable the mouse with this command:
 <B>	:set mouse=a</B>
 Otherwise Vim won't recognize the mouse in all modes (See <A HREF="options.html#'mouse'">'mouse'</A>).
-
-Currently the mouse is supported for <A HREF="os_unix.html#Unix">Unix</A> in an xterm <A HREF="windows.html#window">window</A>, in a *BSD
-console with |<A HREF="#sysmouse">sysmouse</A>|, in a Linux console (with GPM |<A HREF="#gpm-mouse">gpm-mouse</A>|), for
-MS-DOS and in a Windows console.
-Mouse clicks can be used to position the cursor, select an area and paste.
 
 These characters in the <A HREF="options.html#'mouse'">'mouse'</A> option tell in which situations the mouse will
 be used by Vim:
@@ -837,20 +786,16 @@ Shortcut: If the insert position is on the screen at the same time <A HREF="moti
 <A HREF="visual.html#Visual">Visual</A> text, you can <A HREF="diff.html#do">do</A> 2, 3 and 4 all in one: Click the middle mouse button
 at the insert position.
 
-Note: When the |<A HREF="starting.html#-X">-X</A>| command line argument is used, Vim will not connect to the
-X server and copy/paste to the X <A HREF="gui.html#clipboard">clipboard</A> (selection) will not work.  Use the
-<A HREF="intro.html#shift">shift</A> key with the mouse buttons to let the xterm <A HREF="diff.html#do">do</A> the selection.
-
 
 							*<A NAME="xterm-command-server"></A><B>xterm-command-server</B>*
 When the X-server <A HREF="gui.html#clipboard">clipboard</A> is available, the command server described in
-|<A HREF="remote.html#x11-clientserver">x11-clientserver</A>| can be enabled with the <A HREF="remote.html#--servername">--servername</A> command line argument.
+|<A HREF="remote.html#x11-clientserver">x11-clientserver</A>| can be enabled with the <A HREF="eval.html#--servername">--servername</A> command line argument.
 
 
 							*<A NAME="xterm-copy-paste"></A><B>xterm-copy-paste</B>*
 NOTE: In some (older) xterms, it's not possible to move the cursor past column
 95 or 223.  This is an xterm problem, not Vim's.  Get a newer xterm
-|<A HREF="syntax.html#color-xterm">color-xterm</A>|.  Also see |<A HREF="options.html#'ttymouse'">'ttymouse'</A>|.
+|<A HREF="syntax.html#color-xterm">color-xterm</A>|.
 
 Copy/paste in xterm with (current mode NOT included in 'mouse'):
 1. Press left mouse button on first <A HREF="print.html#letter">letter</A> of text, move mouse pointer to last
@@ -993,22 +938,10 @@ and then drag) will result in whole words to be selected.  This continues
 until the button is released, at which point the selection is per character
 again.
 
-
-							*<A NAME="gpm-mouse"></A><B>gpm-mouse</B>*
-The GPM mouse is only supported when the |<A HREF="various.html#+mouse_gpm">+mouse_gpm</A>| feature was enabled at
-compile time.  The GPM mouse driver (Linux console) does not support quadruple
-clicks.
-
 In <A HREF="insert.html#Insert">Insert</A> mode, when a selection is started, Vim goes into <A HREF="intro.html#Normal">Normal</A> mode
 temporarily.  When <A HREF="visual.html#Visual">Visual</A> or <A HREF="visual.html#Select">Select</A> mode ends, <A HREF="motion.html#it">it</A> returns to <A HREF="insert.html#Insert">Insert</A> mode.
 This is like using <A HREF="motion.html#CTRL-O">CTRL-O</A> in <A HREF="insert.html#Insert">Insert</A> mode.  <A HREF="visual.html#Select">Select</A> mode is used when the
 <A HREF="options.html#'selectmode'">'selectmode'</A> option contains &quot;mouse&quot;.
-
-							*<A NAME="sysmouse"></A><B>sysmouse</B>*
-The sysmouse is only supported when the |<A HREF="various.html#+mouse_sysmouse">+mouse_sysmouse</A>| feature was enabled
-at compile time.  The <A HREF="#sysmouse">sysmouse</A> driver (*BSD console) does not support keyboard
-modifiers.
-
 
 							*<A NAME="drag-status-line"></A><B>drag-status-line</B>*
 When working with several <A HREF="windows.html#windows">windows</A>, the size of the <A HREF="windows.html#windows">windows</A> can be changed by
@@ -1088,7 +1021,7 @@ To swap the meaning of the left and right mouse buttons:
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:36 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

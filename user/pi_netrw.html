@@ -149,14 +149,12 @@ Copyright: Copyright (C) 1999-2014 Charles <A HREF="motion.html#E">E</A> Campbel
 13. Todo..................................................|netrw-todoYXXY
 14. Credits...............................................|netrw-creditsYXXY
 
-{Vi does not have any of this}
-
 ==============================================================================
 
 2. Starting With Netrw					*<A NAME="netrw-start"></A><B>netrw-start</B>* {{{1
 
 Netrw makes reading files, <A HREF="editing.html#writing">writing</A> files, browsing over a <A HREF="#network">network</A>, and
-local browsing <A HREF="starting.html#easy">easy</A>!  First, make sure that you have plugins enabled, so
+local browsing easy!  First, make sure that you have plugins enabled, so
 you'll need to have at least the following in your &lt;.vimrc&gt;:
 (or see |<A HREF="#netrw-activate">netrw-activate</A>|)
 
@@ -173,7 +171,7 @@ account on some other machine; if you can use <A HREF="#scp">scp</A>, try:
  
 Want to make ssh/scp easier to use? Check out YXXYnetrw-ssh-hack|!
 
-So, what if you have ftp, not ssh/scp?  That's <A HREF="starting.html#easy">easy</A>, too; try
+So, what if you have ftp, not ssh/scp?  That's easy, too; try
 
 <B>	vim ftp://hostname/path/to/file</B>
  
@@ -484,7 +482,7 @@ YXXYnetrw-externapp|:
 			   in the same way.
 
 
- *<A NAME="g:netrw_scpport"></A><B>g:netrw_scpport</B>*	= &quot;<A HREF="starting.html#-P">-P</A>&quot; : option to use to set port for <A HREF="#scp">scp</A>
+ *<A NAME="g:netrw_scpport"></A><B>g:netrw_scpport</B>*	= &quot;-P&quot; : option to use to set port for <A HREF="#scp">scp</A>
 
  *<A NAME="g:netrw_sshport"></A><B>g:netrw_sshport</B>*	= &quot;<A HREF="starting.html#-p">-p</A>&quot; : option to use to set port for ssh
 
@@ -1085,7 +1083,7 @@ where [protocol] is typically <A HREF="#scp">scp</A> or ftp.  As an example, try
 <B>	vim ftp://ftp.home.vim.org/pub/vim/</B>
  
 For local directories, the trailing slash is not required.  Again, because it's
-<A HREF="starting.html#easy">easy</A> to miss: to browse remote directories, the url must terminate with a
+easy to miss: to browse remote directories, the url must terminate with a
 slash!
 
 If you'd like to avoid entering the password repeatedly for remote directory
@@ -1303,7 +1301,7 @@ always refresh directory listing <A HREF="windows.html#buffers">buffers</A> by p
 								*<A NAME=":netrw-s-cr"></A><B>:netrw-s-cr</B>*
 <B><FONT color="#54A23D">    Squeezing the Current Tree-Listing Directory</FONT></B>
     When the tree listing style is enabled (see |<A HREF="#netrw-i">netrw-i</A>|) and one is using
-    <A HREF="starting.html#gvim">gvim</A>, then the &lt;s-cr&gt; <A HREF="map.html#mapping">mapping</A> may be used to squeeze (close) the
+    gvim, then the &lt;s-cr&gt; <A HREF="map.html#mapping">mapping</A> may be used to squeeze (close) the
     directory currently containing the cursor.
 
 
@@ -1505,7 +1503,7 @@ Netrw allows one to invoke such special handlers by:
 Netrw determines which special handler by the following method:
 
   &#42; if |<A HREF="#g:netrw_browsex_viewer">g:netrw_browsex_viewer</A>| exists, then <A HREF="motion.html#it">it</A> will be used to attempt to
-    <A HREF="starting.html#view">view</A> files.  Examples of useful settings (place into your &lt;.vimrc&gt;):
+    view files.  Examples of useful settings (place into your &lt;.vimrc&gt;):
 
 <B>	:let g:netrw_browsex_viewer= "kfmclient exec"</B>
     or
@@ -1619,7 +1617,7 @@ Its default value is:
 If removing a directory fails with <A HREF="#g:netrw_rmdir_cmd">g:netrw_rmdir_cmd</A>, <A HREF="#netrw">netrw</A> then will attempt
 to remove <A HREF="motion.html#it">it</A> again using the <A HREF="#g:netrw_rmf_cmd">g:netrw_rmf_cmd</A> variable.  Its default value is:
 
-	|g:netrw_rmf_cmd|: ssh HOSTNAME rm <A HREF="starting.html#-f">-f</A>
+	|g:netrw_rmf_cmd|: ssh HOSTNAME rm -f
 
 Related topics: |<A HREF="#netrw-d">netrw-d</A>|
 Associated setting variable: |<A HREF="#g:netrw_localrmdir">g:netrw_localrmdir</A>| |<A HREF="#g:netrw_rm_cmd">g:netrw_rm_cmd</A>|
@@ -1717,7 +1715,7 @@ user, is used to <A HREF="intro.html#control">control</A> the quantity of rows a
 	   will return to editing the file that was last edited in that
 	   <A HREF="windows.html#window">window</A>.
 
-	   The &lt;2-leftmouse&gt; map (which is only available under <A HREF="starting.html#gvim">gvim</A> and
+	   The &lt;2-leftmouse&gt; map (which is only available under gvim and
 	   cooperative terms) does the same <A HREF="motion.html#as">as</A> <A HREF="#:Rexplore">:Rexplore</A>.
 
 Also see: |<A HREF="#g:netrw_alto">g:netrw_alto</A>| |<A HREF="#g:netrw_altv">g:netrw_altv</A>| |<A HREF="#g:netrw_winsize">g:netrw_winsize</A>|
@@ -2099,7 +2097,7 @@ Netrw has several ways of marking files:
 	&#42; One may <A HREF="motion.html#mark">mark</A> files with the cursor atop a filename and
 	  then pressing &quot;mf&quot;.
 
-	&#42; With <A HREF="starting.html#gvim">gvim</A>, in addition one may <A HREF="motion.html#mark">mark</A> files with
+	&#42; With gvim, in addition one may <A HREF="motion.html#mark">mark</A> files with
 	  &lt;s-leftmouse&gt;. (see |<A HREF="#netrw-mouse">netrw-mouse</A>|)
 
 	&#42; One may use the :MF command, which takes a <A HREF="eval.html#list">list</A> of
@@ -2118,7 +2116,7 @@ The following <A HREF="#netrw">netrw</A> maps make use of marked files:
     |<A HREF="#netrw-a">netrw-a</A>|	Hide marked files/directories
     |<A HREF="#netrw-D">netrw-D</A>|	Delete marked files/directories
     |<A HREF="#netrw-mc">netrw-mc</A>|	Copy marked files to target
-    |<A HREF="#netrw-md">netrw-md</A>|	Apply <A HREF="diff.html#vimdiff">vimdiff</A> to marked files
+    |<A HREF="#netrw-md">netrw-md</A>|	Apply vimdiff to marked files
     |<A HREF="#netrw-me">netrw-me</A>|	Edit marked files
     |<A HREF="#netrw-mF">netrw-mF</A>|	Unmark marked files
     |<A HREF="#netrw-mg">netrw-mg</A>|	Apply vimgrep to marked files
@@ -2133,7 +2131,7 @@ The following <A HREF="#netrw">netrw</A> maps make use of marked files:
 
 One may unmark files one at a time the same way one marks them; ie. place
 the cursor atop a marked file and press &quot;mf&quot;.  This process also works
-with &lt;s-leftmouse&gt; using <A HREF="starting.html#gvim">gvim</A>.  One may unmark all files by pressing
+with &lt;s-leftmouse&gt; using gvim.  One may unmark all files by pressing
 &quot;mu&quot; (see |<A HREF="#netrw-mu">netrw-mu</A>|).
 
 Marked files are highlighted using the &quot;netrwMarkFile&quot; highlighting group,
@@ -2238,7 +2236,7 @@ MARKED FILES: DIFF						*<A NAME="netrw-md"></A><B>netrw-md</B>* {{{2
 	    (See |<A HREF="#netrw-mf">netrw-mf</A>| and |<A HREF="#netrw-mr">netrw-mr</A>| for how to <A HREF="motion.html#mark">mark</A> files)
 		      (uses the global marked file <A HREF="eval.html#list">list</A>)
 
-Use |<A HREF="diff.html#vimdiff">vimdiff</A>| to visualize difference between selected files (two or
+Use |<A HREF="intro.html#vimdiff">vimdiff</A>| to visualize difference between selected files (two or
 three may be selected for this).  Uses the global marked file <A HREF="eval.html#list">list</A>.
 
 
@@ -2345,7 +2343,7 @@ There is only one copy/move-to target per vim session; ie. the target is a
 <A HREF="usr_41.html#script">script</A> variable (see |<A HREF="eval.html#s:var">s:var</A>|) and is shared between all <A HREF="#netrw">netrw</A> <A HREF="windows.html#windows">windows</A> (in an
 instance of vim).
 
-When using <A HREF="gui.html#menus">menus</A> and <A HREF="starting.html#gvim">gvim</A>, <A HREF="#netrw">netrw</A> provides a &quot;Targets&quot; entry which allows one
+When using <A HREF="gui.html#menus">menus</A> and gvim, <A HREF="#netrw">netrw</A> provides a &quot;Targets&quot; entry which allows one
 to pick a target from the <A HREF="eval.html#list">list</A> of bookmarks and <A HREF="cmdline.html#history">history</A>.
 
 Related topics:
@@ -2747,7 +2745,7 @@ your browsing preferences.  (see also: |<A HREF="#netrw-settings">netrw-settings
   *<A NAME="g:netrw_retmap"></A><B>g:netrw_retmap</B>*		if <A HREF="motion.html#it">it</A> exists and is set to one, then:
 				 &#42; if in a netrw-selected file, AND
 				 &#42; no normal-mode &lt;2-leftmouse&gt; <A HREF="map.html#mapping">mapping</A> exists,
-				then the &lt;2-leftmouse&gt; will be mapped for <A HREF="starting.html#easy">easy</A>
+				then the &lt;2-leftmouse&gt; will be mapped for easy
 				return to the <A HREF="#netrw">netrw</A> browser <A HREF="windows.html#window">window</A>.
 				 example: click once to select and open a file,
 				          <A HREF="term.html#double-click">double-click</A> to return.
@@ -3259,7 +3257,7 @@ Associated setting <A HREF="eval.html#variables">variables</A>:	|<A HREF="#g:net
 		cmd.exe &quot;Dos box&quot;.
 
 		(dave) Download WinSCP and use that to connect to the server.
-		In Preferences <A HREF="change.html#&gt;">&gt;</A> Editors, set <A HREF="starting.html#gvim">gvim</A> <A HREF="motion.html#as">as</A> your editor:
+		In Preferences <A HREF="change.html#&gt;">&gt;</A> Editors, set gvim <A HREF="motion.html#as">as</A> your editor:
 
 			- Click &quot;Add...&quot;
 			- Set External Editor (adjust path <A HREF="motion.html#as">as</A> needed, include
@@ -3273,7 +3271,7 @@ Associated setting <A HREF="eval.html#variables">variables</A>:	|<A HREF="#g:net
 			- Make sure it's at the top of the listbox (click <A HREF="motion.html#it">it</A>,
 			  then click &quot;Up&quot; if it's not)
 		If using the Norton Commander style, you just have to hit <A HREF="term.html#&lt;F4&gt;">&lt;F4&gt;</A>
-		to edit a file in a local copy of <A HREF="starting.html#gvim">gvim</A>.
+		to edit a file in a local copy of gvim.
 
 		(Vit Gottwald) How to generate public/private key and save
 		public key <A HREF="motion.html#it">it</A> on server:
@@ -3336,11 +3334,11 @@ Associated setting <A HREF="eval.html#variables">variables</A>:	|<A HREF="#g:net
 		&#42; Edit the current directory:  <A HREF="editing.html#:e">:e</A> .
 		&#42; <A HREF="visual.html#Select">Select</A> some file, press <A HREF="visual.html#v">v</A>
 		&#42; Resize the <A HREF="windows.html#windows">windows</A> <A HREF="motion.html#as">as</A> you wish (see |<A HREF="windows.html#CTRL-W_&lt;">CTRL-W_&lt;</A>| and
-		  |<A HREF="windows.html#CTRL-W_&gt;">CTRL-W_&gt;</A>|).  If you're using <A HREF="starting.html#gvim">gvim</A>, you can drag
+		  |<A HREF="windows.html#CTRL-W_&gt;">CTRL-W_&gt;</A>|).  If you're using gvim, you can drag
 		  the separating <A HREF="motion.html#bar">bar</A> with your mouse.
 		&#42; When you want a new file, use  ctrl-w <A HREF="motion.html#h">h</A>  to go back to the
 		  <A HREF="#netrw">netrw</A> browser, select a file, then press <A HREF="change.html#P">P</A>  (see |<A HREF="windows.html#CTRL-W_h">CTRL-W_h</A>|
-		  and |<A HREF="#netrw-P">netrw-P</A>|).  If you're using <A HREF="starting.html#gvim">gvim</A>, you can press
+		  and |<A HREF="#netrw-P">netrw-P</A>|).  If you're using gvim, you can press
 		  &lt;leftmouse&gt; in the browser <A HREF="windows.html#window">window</A> and then press the
 		  &lt;middlemouse&gt; to select the file.
 
@@ -3678,7 +3676,7 @@ which is loaded automatically at <A HREF="starting.html#startup">startup</A> (as
 				&#42; the menu now supports a &quot;Targets&quot; entry for
 				  easier target selection. (see |<A HREF="#netrw-mt">netrw-mt</A>|)
 				&#42; (Paul Domaskis) reported some problems with
-				  moving/copying files under Windows' <A HREF="starting.html#gvim">gvim</A>
+				  moving/copying files under Windows' gvim
 				  (ie. not cygwin).  Fixed.
 				&#42; (Paul Mueller) provided a patch to get
 				  start and rundll working via |<A HREF="#netrw-gx">netrw-gx</A>|
@@ -3803,7 +3801,7 @@ Modelines: {{{1
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:35 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

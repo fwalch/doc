@@ -34,7 +34,7 @@
 <HR>
 <PRE>
 
-*<A NAME="quickref.txt"></A><B>quickref.txt</B>*  For Vim version 7.4.  Last change: 2014 Aug 06
+*<A NAME="quickref.txt"></A><B>quickref.txt</B>*  For Vim version 7.4.  Last change: 2014 Nov 19
 
 
 		  VIM REFERENCE MANUAL    by <A HREF="intro.html#Bram">Bram</A> <A HREF="intro.html#Moolenaar">Moolenaar</A>
@@ -650,9 +650,7 @@ In <A HREF="insert.html#Insert">Insert</A> or <A HREF="cmdline.html#Command-line
 |<A HREF="options.html#:setglobal">:setglobal</A>|	:setg[lobal]		  like &quot;:set&quot; but set the global value
 					  of a local option
 
-|<A HREF="options.html#:fix">:fix</A>|		:fix[del]		  set value of <A HREF="term.html#'t_kD'">'t_kD'</A> according to
-					  value of <A HREF="term.html#'t_kb'">'t_kb'</A>
-|<A HREF="options.html#:options">:options</A>|	:opt[ions]		  open a new <A HREF="windows.html#window">window</A> to <A HREF="starting.html#view">view</A> and set
+|<A HREF="options.html#:options">:options</A>|	:opt[ions]		  open a new <A HREF="windows.html#window">window</A> to view and set
 					  <A HREF="options.html#options">options</A>, grouped by functionality,
 					  a one line explanation and links to
 					  the help
@@ -705,7 +703,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'columns'">'columns'</A>	  <A HREF="options.html#'co'">'co'</A>	    number of columns in the display
 <A HREF="options.html#'comments'">'comments'</A>	  <A HREF="options.html#'com'">'com'</A>     patterns that can start a comment line
 <A HREF="options.html#'commentstring'">'commentstring'</A>   <A HREF="options.html#'cms'">'cms'</A>     <A HREF="autocmd.html#template">template</A> for comments; used for fold marker
-<A HREF="options.html#'compatible'">'compatible'</A>	  <A HREF="options.html#'cp'">'cp'</A>	    behave Vi-compatible <A HREF="motion.html#as">as</A> much <A HREF="motion.html#as">as</A> possible
 <A HREF="options.html#'complete'">'complete'</A>	  <A HREF="options.html#'cpt'">'cpt'</A>     specify how <A HREF="insert.html#Insert">Insert</A> mode completion works
 <A HREF="options.html#'completefunc'">'completefunc'</A>	  <A HREF="options.html#'cfu'">'cfu'</A>     function to be used for <A HREF="insert.html#Insert">Insert</A> mode completion
 <A HREF="options.html#'completeopt'">'completeopt'</A>	  <A HREF="options.html#'cot'">'cot'</A>     <A HREF="options.html#options">options</A> for <A HREF="insert.html#Insert">Insert</A> mode completion
@@ -735,7 +732,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'directory'">'directory'</A>	  <A HREF="options.html#'dir'">'dir'</A>     <A HREF="eval.html#list">list</A> of directory names for the swap file
 <A HREF="options.html#'display'">'display'</A>	  <A HREF="options.html#'dy'">'dy'</A>	    <A HREF="eval.html#list">list</A> of flags for how to display text
 <A HREF="options.html#'eadirection'">'eadirection'</A>	  <A HREF="options.html#'ead'">'ead'</A>     in which direction <A HREF="options.html#'equalalways'">'equalalways'</A> works
-<A HREF="options.html#'edcompatible'">'edcompatible'</A>	  <A HREF="options.html#'ed'">'ed'</A>	    toggle flags of &quot;<A HREF="change.html#:substitute">:substitute</A>&quot; command
 <A HREF="options.html#'encoding'">'encoding'</A>	  <A HREF="options.html#'enc'">'enc'</A>     encoding used internally
 <A HREF="options.html#'endofline'">'endofline'</A>	  <A HREF="options.html#'eol'">'eol'</A>     write <A HREF="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</A> for last line in file
 <A HREF="options.html#'equalalways'">'equalalways'</A>	  <A HREF="options.html#'ea'">'ea'</A>	    <A HREF="windows.html#windows">windows</A> are automatically made the same size
@@ -821,6 +817,7 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'keywordprg'">'keywordprg'</A>	  <A HREF="options.html#'kp'">'kp'</A>	    program to use for the &quot;<A HREF="various.html#K">K</A>&quot; command
 <A HREF="options.html#'langmap'">'langmap'</A>	  <A HREF="options.html#'lmap'">'lmap'</A>    alphabetic characters for other language mode
 <A HREF="options.html#'langmenu'">'langmenu'</A>	  <A HREF="options.html#'lm'">'lm'</A>	    language to be used for the <A HREF="gui.html#menus">menus</A>
+<A HREF="options.html#'langnoremap'">'langnoremap'</A>	  <A HREF="options.html#'lnr'">'lnr'</A>	    <A HREF="diff.html#do">do</A> not apply <A HREF="options.html#'langmap'">'langmap'</A> to mapped characters
 <A HREF="options.html#'laststatus'">'laststatus'</A>	  <A HREF="options.html#'ls'">'ls'</A>	    tells when last <A HREF="windows.html#window">window</A> has status lines
 <A HREF="options.html#'lazyredraw'">'lazyredraw'</A>	  <A HREF="options.html#'lz'">'lz'</A>	    don't redraw while executing macros
 <A HREF="options.html#'linebreak'">'linebreak'</A>	  <A HREF="options.html#'lbr'">'lbr'</A>     wrap long lines at a blank
@@ -831,7 +828,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'list'">'list'</A>			    show <A HREF="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</A> and <A HREF="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</A>
 <A HREF="options.html#'listchars'">'listchars'</A>	  <A HREF="options.html#'lcs'">'lcs'</A>     characters for displaying in <A HREF="eval.html#list">list</A> mode
 <A HREF="options.html#'loadplugins'">'loadplugins'</A>	  <A HREF="options.html#'lpl'">'lpl'</A>     load <A HREF="usr_05.html#plugin">plugin</A> scripts when starting up
-<A HREF="options.html#'macatsui'">'macatsui'</A>		    <A HREF="os_mac.html#Mac">Mac</A> <A HREF="gui.html#GUI">GUI</A>: use ATSUI text drawing
 <A HREF="options.html#'magic'">'magic'</A>			    changes special characters in search patterns
 <A HREF="options.html#'makeef'">'makeef'</A>	  <A HREF="options.html#'mef'">'mef'</A>     name of the errorfile for &quot;<A HREF="quickfix.html#:make">:make</A>&quot;
 <A HREF="options.html#'makeprg'">'makeprg'</A>	  <A HREF="options.html#'mp'">'mp'</A>	    program to use for the &quot;<A HREF="quickfix.html#:make">:make</A>&quot; command
@@ -856,7 +852,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'mousemodel'">'mousemodel'</A>	  <A HREF="options.html#'mousem'">'mousem'</A>  changes meaning of mouse buttons
 <A HREF="options.html#'mouseshape'">'mouseshape'</A>	  <A HREF="options.html#'mouses'">'mouses'</A>  shape of the mouse pointer in different modes
 <A HREF="options.html#'mousetime'">'mousetime'</A>	  <A HREF="options.html#'mouset'">'mouset'</A>  max time between mouse <A HREF="term.html#double-click">double-click</A>
-<A HREF="options.html#'mzquantum'">'mzquantum'</A>	  <A HREF="options.html#'mzq'">'mzq'</A>     the interval between polls for <A HREF="if_mzsch.html#MzScheme">MzScheme</A> threads
 <A HREF="options.html#'nrformats'">'nrformats'</A>	  <A HREF="options.html#'nf'">'nf'</A>	    number formats recognized for <A HREF="change.html#CTRL-A">CTRL-A</A> command
 <A HREF="options.html#'number'">'number'</A>	  <A HREF="options.html#'nu'">'nu'</A>	    print the line number in front of each line
 <A HREF="options.html#'numberwidth'">'numberwidth'</A>	  <A HREF="options.html#'nuw'">'nuw'</A>     number of columns used for the line number
@@ -887,7 +882,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'regexpengine'">'regexpengine'</A>	  <A HREF="options.html#'re'">'re'</A>	    default <A HREF="pattern.html#regexp">regexp</A> engine to use
 <A HREF="options.html#'relativenumber'">'relativenumber'</A>  <A HREF="options.html#'rnu'">'rnu'</A>	    show relative line number in front of each line
 <A HREF="options.html#'remap'">'remap'</A>			    allow mappings to work recursively
-<A HREF="options.html#'renderoptions'">'renderoptions'</A>	  <A HREF="options.html#'rop'">'rop'</A>	    <A HREF="options.html#options">options</A> for text rendering on Windows
 <A HREF="options.html#'report'">'report'</A>		    threshold for reporting nr. of lines changed
 <A HREF="options.html#'restorescreen'">'restorescreen'</A>   <A HREF="options.html#'rs'">'rs'</A>	    <A HREF="os_win32.html#Win32">Win32</A>: restore screen when exiting
 <A HREF="options.html#'revins'">'revins'</A>	  <A HREF="options.html#'ri'">'ri'</A>	    <A HREF="insert.html#inserting">inserting</A> characters will work backwards
@@ -956,7 +950,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'tagstack'">'tagstack'</A>	  <A HREF="options.html#'tgst'">'tgst'</A>    push <A HREF="tagsrch.html#tags">tags</A> onto the <A HREF="tagsrch.html#tag">tag</A> stack
 <A HREF="options.html#'term'">'term'</A>			    name of the terminal
 <A HREF="options.html#'termbidi'">'termbidi'</A>	  <A HREF="options.html#'tbidi'">'tbidi'</A>   terminal takes care of bi-directionality
-<A HREF="options.html#'termencoding'">'termencoding'</A>	  <A HREF="options.html#'tenc'">'tenc'</A>    character encoding used by the terminal
 <A HREF="options.html#'terse'">'terse'</A>			    shorten some <A HREF="message.html#messages">messages</A>
 <A HREF="options.html#'textwidth'">'textwidth'</A>	  <A HREF="options.html#'tw'">'tw'</A>	    maximum width of text that is being inserted
 <A HREF="options.html#'thesaurus'">'thesaurus'</A>	  <A HREF="options.html#'tsr'">'tsr'</A>     <A HREF="eval.html#list">list</A> of thesaurus files for keyword completion
@@ -971,10 +964,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'toolbariconsize'">'toolbariconsize'</A> <A HREF="options.html#'tbis'">'tbis'</A>    size of the toolbar icons (for <A HREF="gui_x11.html#GTK">GTK</A> 2 only)
 <A HREF="options.html#'ttimeout'">'ttimeout'</A>		    time out on mappings
 <A HREF="options.html#'ttimeoutlen'">'ttimeoutlen'</A>	  <A HREF="options.html#'ttm'">'ttm'</A>     time out time for key codes in milliseconds
-<A HREF="options.html#'ttybuiltin'">'ttybuiltin'</A>	  <A HREF="options.html#'tbi'">'tbi'</A>     use built-in <A HREF="term.html#termcap">termcap</A> before external <A HREF="term.html#termcap">termcap</A>
-<A HREF="options.html#'ttyfast'">'ttyfast'</A>	  <A HREF="options.html#'tf'">'tf'</A>	    indicates a fast terminal connection
-<A HREF="options.html#'ttymouse'">'ttymouse'</A>	  <A HREF="options.html#'ttym'">'ttym'</A>    type of mouse codes generated
-<A HREF="options.html#'ttyscroll'">'ttyscroll'</A>	  <A HREF="options.html#'tsl'">'tsl'</A>     maximum number of lines for a scroll
 <A HREF="options.html#'ttytype'">'ttytype'</A>	  <A HREF="options.html#'tty'">'tty'</A>     alias for <A HREF="options.html#'term'">'term'</A>
 <A HREF="options.html#'undodir'">'undodir'</A>	  <A HREF="options.html#'udir'">'udir'</A>    where to store <A HREF="undo.html#undo">undo</A> files
 <A HREF="options.html#'undofile'">'undofile'</A>	  <A HREF="options.html#'udf'">'udf'</A>	    save <A HREF="undo.html#undo">undo</A> information in a file
@@ -990,7 +979,6 @@ Short explanation of each option:		*<A NAME="option-list"></A><B>option-list</B>
 <A HREF="options.html#'virtualedit'">'virtualedit'</A>	  <A HREF="options.html#'ve'">'ve'</A>	    when to use virtual editing
 <A HREF="options.html#'visualbell'">'visualbell'</A>	  <A HREF="options.html#'vb'">'vb'</A>	    use visual bell instead of beeping
 <A HREF="options.html#'warn'">'warn'</A>			    warn for shell command when buffer was changed
-<A HREF="options.html#'weirdinvert'">'weirdinvert'</A>	  <A HREF="options.html#'wiv'">'wiv'</A>	    for terminals that have weird inversion method
 <A HREF="options.html#'whichwrap'">'whichwrap'</A>	  <A HREF="options.html#'ww'">'ww'</A>	    allow specified keys to cross line boundaries
 <A HREF="options.html#'wildchar'">'wildchar'</A>	  <A HREF="options.html#'wc'">'wc'</A>	    command-line character for <A HREF="editing.html#wildcard">wildcard</A> expansion
 <A HREF="options.html#'wildcharm'">'wildcharm'</A>	  <A HREF="options.html#'wcm'">'wcm'</A>     like <A HREF="options.html#'wildchar'">'wildchar'</A> but also works when mapped
@@ -1199,30 +1187,24 @@ Context-sensitive completion on the command-line:
 |<A HREF="starting.html#-+">-+</A>|	+[num]		    put the cursor at line [num] (default: last line)
 |<A HREF="starting.html#-+c">-+c</A>|	+{command}	    execute {command} after loading the file
 |<A HREF="starting.html#-+/">-+/</A>|	+/{pat} <A HREF="editing.html#{file}">{file}</A> ..   put the cursor at the first occurrence of <A HREF="autocmd.html#{pat}">{pat}</A>
-|<A HREF="starting.html#-v">-v</A>|	-v		    <A HREF="intro.html#Vi">Vi</A> mode, start <A HREF="starting.html#ex">ex</A> in <A HREF="intro.html#Normal">Normal</A> mode
 |<A HREF="starting.html#-e">-e</A>|	-e		    <A HREF="intro.html#Ex">Ex</A> mode, start vim in <A HREF="intro.html#Ex">Ex</A> mode
 |<A HREF="starting.html#-R">-R</A>|	-R		    Read-only mode, implies <A HREF="starting.html#-n">-n</A>
 |<A HREF="starting.html#-m">-m</A>|	-m		    modifications not allowed (resets <A HREF="options.html#'write'">'write'</A> option)
-|<A HREF="starting.html#-d">-d</A>|	-d		    diff mode |<A HREF="diff.html#diff">diff</A>|
+|<A HREF="starting.html#-d">-d</A>|	-d		    |<A HREF="diff.html#diff-mode">diff-mode</A>|
 |<A HREF="starting.html#-b">-b</A>|	-b		    binary mode
 |<A HREF="starting.html#-l">-l</A>|	-l		    lisp mode
 |<A HREF="starting.html#-A">-A</A>|	-A		    <A HREF="arabic.html#Arabic">Arabic</A> mode ('arabic' is set)
 |<A HREF="starting.html#-F">-F</A>|	-F		    <A HREF="farsi.html#Farsi">Farsi</A> mode ('fkmap' and <A HREF="options.html#'rightleft'">'rightleft'</A> are set)
 |<A HREF="starting.html#-H">-H</A>|	-H		    Hebrew mode ('hkmap' and <A HREF="options.html#'rightleft'">'rightleft'</A> are set)
 |<A HREF="starting.html#-V">-V</A>|	-V		    Verbose, give informative <A HREF="message.html#messages">messages</A>
-|<A HREF="starting.html#-C">-C</A>|	-C		    Compatible, set the <A HREF="options.html#'compatible'">'compatible'</A> option
-|<A HREF="starting.html#-N">-N</A>|	-N		    Nocompatible, reset the <A HREF="options.html#'compatible'">'compatible'</A> option
 |<A HREF="starting.html#-r">-r</A>|	-r		    give <A HREF="eval.html#list">list</A> of swap files
 |<A HREF="starting.html#-r">-r</A>|	-r <A HREF="editing.html#{file}">{file}</A> ..	    recover aborted edit session
 |<A HREF="starting.html#-n">-n</A>|	-n		    <A HREF="diff.html#do">do</A> not create a swap file
 |<A HREF="starting.html#-o">-o</A>|	-o [num]	    open [num] <A HREF="windows.html#windows">windows</A> (default: one for each file)
-|<A HREF="starting.html#-f">-f</A>|	-f		    <A HREF="gui.html#GUI">GUI</A>: foreground process, don't <A HREF="os_unix.html#fork">fork</A>
 |<A HREF="starting.html#-s">-s</A>|	-s {scriptin}	    first read commands from the file {scriptin}
 |<A HREF="starting.html#-w">-w</A>|	-w {scriptout}	    write typed chars to file {scriptout} (append)
 |<A HREF="starting.html#-W">-W</A>|	-W {scriptout}	    write typed chars to file {scriptout} (overwrite)
-|<A HREF="starting.html#-T">-T</A>|	-T {terminal}	    set terminal name
 |<A HREF="starting.html#-u">-u</A>|	-u {vimrc}	    read inits from {vimrc} instead of other inits
-|<A HREF="starting.html#-U">-U</A>|	-U {gvimrc}	    idem, for when starting the <A HREF="gui.html#GUI">GUI</A>
 |<A HREF="starting.html#-i">-i</A>|	-i {viminfo}	    read info from {viminfo} instead of other files
 |<A HREF="starting.html#---">---</A>|	--		    end of <A HREF="options.html#options">options</A>, other arguments are file names
 |<A HREF="starting.html#--help">--help</A>|    --help	    show <A HREF="eval.html#list">list</A> of arguments and exit
@@ -1374,11 +1356,16 @@ Context-sensitive completion on the command-line:
 |<A HREF="windows.html#CTRL-W_R">CTRL-W_R</A>|	CTRL-W R		rotate <A HREF="windows.html#windows">windows</A> upwards
 |<A HREF="windows.html#CTRL-W_x">CTRL-W_x</A>|	CTRL-W x		exchange current <A HREF="windows.html#window">window</A> with next one
 
-|<A HREF="windows.html#CTRL-W_=">CTRL-W_=</A>|	CTRL-W =		make all <A HREF="windows.html#windows">windows</A> equal height
+|<A HREF="windows.html#CTRL-W_=">CTRL-W_=</A>|	CTRL-W =		make all <A HREF="windows.html#windows">windows</A> equal height <A HREF="change.html#&amp;">&amp;</A> width
 |<A HREF="windows.html#CTRL-W_-">CTRL-W_-</A>|	CTRL-W -		decrease current <A HREF="windows.html#window">window</A> height
 |<A HREF="windows.html#CTRL-W_+">CTRL-W_+</A>|	CTRL-W +		increase current <A HREF="windows.html#window">window</A> height
 |<A HREF="windows.html#CTRL-W__">CTRL-W__</A>|	CTRL-W _		set current <A HREF="windows.html#window">window</A> height (default:
 					   very high)
+
+|<A HREF="windows.html#CTRL-W_&lt;">CTRL-W_&lt;</A>|	CTRL-W &lt;		decrease current <A HREF="windows.html#window">window</A> width
+|<A HREF="windows.html#CTRL-W_&gt;">CTRL-W_&gt;</A>|	CTRL-W &gt;		increase current <A HREF="windows.html#window">window</A> width
+|<A HREF="windows.html#CTRL-W_bar">CTRL-W_bar</A>|	CTRL-W &#124;		set current <A HREF="windows.html#window">window</A> width (default:
+					   widest possible)
 ------------------------------------------------------------------------------
 
 *<A NAME="Q_bu"></A><B>Q_bu</B>*		Buffer <A HREF="eval.html#list">list</A> commands
@@ -1479,7 +1466,7 @@ Context-sensitive completion on the command-line:
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:35 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

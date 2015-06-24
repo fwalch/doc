@@ -61,7 +61,7 @@ For <A HREF="change.html#changing">changing</A> the language of <A HREF="message
 4.  Using a terminal			|<A HREF="#mbyte-terminal">mbyte-terminal</A>|
 5.  Fonts on X11			|<A HREF="#mbyte-fonts-X11">mbyte-fonts-X11</A>|
 6.  Fonts on <A HREF="os_win32.html#MS-Windows">MS-Windows</A>			|<A HREF="#mbyte-fonts-MSwin">mbyte-fonts-MSwin</A>|
-7.  Input on <A HREF="options.html#X11">X11</A>			|<A HREF="#mbyte-XIM">mbyte-XIM</A>|
+7.  Input on X11			|<A HREF="#mbyte-XIM">mbyte-XIM</A>|
 8.  Input on <A HREF="os_win32.html#MS-Windows">MS-Windows</A>			|<A HREF="#mbyte-IME">mbyte-IME</A>|
 9.  Input with a keymap			|<A HREF="#mbyte-keymap">mbyte-keymap</A>|
 10. Using <A HREF="#UTF-8">UTF-8</A>				|<A HREF="#mbyte-utf8">mbyte-utf8</A>|
@@ -139,8 +139,7 @@ See <A HREF="options.html#'fileencoding'">'fileencoding'</A>, <A HREF="options.h
 DISPLAY AND FONTS
 
 If you are working in a terminal (emulator) you must make sure <A HREF="motion.html#it">it</A> accepts the
-same encoding <A HREF="motion.html#as">as</A> which Vim is working with.  If this is not the <A HREF="change.html#case">case</A>, you can
-use the <A HREF="options.html#'termencoding'">'termencoding'</A> option to make Vim convert text automatically.
+same encoding <A HREF="motion.html#as">as</A> which Vim is working with.
 
 For the <A HREF="gui.html#GUI">GUI</A> you must select fonts that work with the current <A HREF="options.html#'encoding'">'encoding'</A>.  This
 is the difficult part.  It depends on the system you are using, the <A HREF="#locale">locale</A> and
@@ -155,7 +154,7 @@ if available.  The <A HREF="options.html#'guifontwide'">'guifontwide'</A> option
 not need to set <A HREF="motion.html#it">it</A>.  It is only necessary if the automatic font selection does
 not suit your needs.
 
-For <A HREF="options.html#X11">X11</A> you can set the <A HREF="options.html#'guifontset'">'guifontset'</A> option to a <A HREF="eval.html#list">list</A> of fonts that together
+For X11 you can set the <A HREF="options.html#'guifontset'">'guifontset'</A> option to a <A HREF="eval.html#list">list</A> of fonts that together
 cover the characters that are used.  Example for <A HREF="#Korean">Korean</A>:
 
 <B>	:set guifontset=k12,r12</B>
@@ -175,7 +174,7 @@ You can also set <A HREF="options.html#'guifont'">'guifont'</A> alone, Vim will 
 INPUT
 
 There are several ways to enter <A HREF="#multi-byte">multi-byte</A> characters:
-- For <A HREF="options.html#X11">X11</A> XIM can be used.  See |<A HREF="#XIM">XIM</A>|.
+- For X11 XIM can be used.  See |<A HREF="#XIM">XIM</A>|.
 - For <A HREF="os_win32.html#MS-Windows">MS-Windows</A> IME can be used.  See |<A HREF="#IME">IME</A>|.
 - For all systems keymaps can be used.  See |<A HREF="#mbyte-keymap">mbyte-keymap</A>|.
 
@@ -298,7 +297,7 @@ encoding.  This allows using much more than 256 characters, which is required
 for most East Asian languages.
 
 Most <A HREF="#multi-byte">multi-byte</A> encodings use one byte for the first 127 characters.  These
-are equal to ASCII, which makes <A HREF="motion.html#it">it</A> <A HREF="starting.html#easy">easy</A> to exchange plain-ASCII text, no
+are equal to ASCII, which makes <A HREF="motion.html#it">it</A> easy to exchange plain-ASCII text, no
 matter what language is used.  Thus you might see the right text even when the
 encoding was set wrong.
 
@@ -426,63 +425,11 @@ or when conversion is not possible:
 	cp936, euc-cn
 
 
-							*<A NAME="encoding-table"></A><B>encoding-table</B>*
-Normally <A HREF="options.html#'encoding'">'encoding'</A> is equal to your current <A HREF="#locale">locale</A> and <A HREF="options.html#'termencoding'">'termencoding'</A> is
-empty.  This means that your keyboard and display work with characters encoded
-in your current <A HREF="#locale">locale</A>, and Vim uses the same characters internally.
-
-You can make Vim use characters in a different encoding by setting the
-<A HREF="options.html#'encoding'">'encoding'</A> option to a different value.  Since the keyboard and display still
-use the current <A HREF="#locale">locale</A>, conversion needs to be done.  The <A HREF="options.html#'termencoding'">'termencoding'</A> then
-takes over the value of the current <A HREF="#locale">locale</A>, so Vim converts between <A HREF="options.html#'encoding'">'encoding'</A>
-and <A HREF="options.html#'termencoding'">'termencoding'</A>.  Example:
-<B>	:let &amp;termencoding = &amp;encoding</B>
-<B>	:set encoding=utf-8</B>
-
-However, not all combinations of values are possible.  The table below tells
-you how each of the nine combinations works.  This is further restricted by
-not all conversions being possible, <A HREF="eval.html#iconv()">iconv()</A> being present, etc.  Since this
-depends on the system used, no detailed <A HREF="eval.html#list">list</A> can be given.
-
-('tenc' is the short name for <A HREF="options.html#'termencoding'">'termencoding'</A> and <A HREF="options.html#'enc'">'enc'</A> short for <A HREF="options.html#'encoding'">'encoding'</A>)
-
-<B><FONT color="#54A23D">'tenc'	    'enc'	remark </FONT></B>
-
- 8bit	    8bit	Works.  When <A HREF="options.html#'termencoding'">'termencoding'</A> is different from
-			<A HREF="options.html#'encoding'">'encoding'</A> typing and displaying may be wrong for some
-			characters, Vim does NOT perform conversion (set
-			<A HREF="options.html#'encoding'">'encoding'</A> to &quot;<A HREF="#utf-8">utf-8</A>&quot; to get this).
- 8bit      2byte	<A HREF="os_win32.html#MS-Windows">MS-Windows</A>: works for all codepages installed on your
-			system; you can only type 8bit characters;
-			Other systems: does NOT work.
- 8bit	   <A HREF="#Unicode">Unicode</A>	Works, but only 8bit characters can be typed directly
-			(others through <A HREF="digraph.html#digraphs">digraphs</A>, keymaps, etc.); in a
-			terminal you can only see 8bit characters; the <A HREF="gui.html#GUI">GUI</A> can
-			show all characters that the <A HREF="options.html#'guifont'">'guifont'</A> supports.
-
- 2byte	    8bit	Works, but typing non-ASCII characters might
-			be a problem.
- 2byte	   2byte	<A HREF="os_win32.html#MS-Windows">MS-Windows</A>: works for all codepages installed on your
-			system; typing characters might be a problem when
-			<A HREF="#locale">locale</A> is different from <A HREF="options.html#'encoding'">'encoding'</A>.
-			Other systems: Only works when <A HREF="options.html#'termencoding'">'termencoding'</A> is equal
-			to <A HREF="options.html#'encoding'">'encoding'</A>, you might <A HREF="motion.html#as">as</A> well leave <A HREF="motion.html#it">it</A> empty.
- 2byte	   <A HREF="#Unicode">Unicode</A>	works, Vim will translate typed characters.
-
- <A HREF="#Unicode">Unicode</A>    8bit	works (unusual)
- <A HREF="#Unicode">Unicode</A>    2byte	does NOT work
- <A HREF="#Unicode">Unicode</A>   <A HREF="#Unicode">Unicode</A>	works very well (leaving <A HREF="options.html#'termencoding'">'termencoding'</A> empty works
-			the same way, because all <A HREF="#Unicode">Unicode</A> is handled
-			internally <A HREF="motion.html#as">as</A> <A HREF="#UTF-8">UTF-8</A>)
-
-
 CONVERSION						*<A NAME="charset-conversion"></A><B>charset-conversion</B>*
 
 Vim will automatically convert from one to another encoding in several places:
 - When reading a file and <A HREF="options.html#'fileencoding'">'fileencoding'</A> is different from <A HREF="options.html#'encoding'">'encoding'</A>
 - When <A HREF="editing.html#writing">writing</A> a file and <A HREF="options.html#'fileencoding'">'fileencoding'</A> is different from <A HREF="options.html#'encoding'">'encoding'</A>
-- When displaying characters and <A HREF="options.html#'termencoding'">'termencoding'</A> is different from <A HREF="options.html#'encoding'">'encoding'</A>
-- When reading input and <A HREF="options.html#'termencoding'">'termencoding'</A> is different from <A HREF="options.html#'encoding'">'encoding'</A>
 - When displaying <A HREF="message.html#messages">messages</A> and the encoding used for LC_MESSAGES differs from
   <A HREF="options.html#'encoding'">'encoding'</A> (requires a gettext version that supports this).
 - When reading a Vim script where |<A HREF="repeat.html#:scriptencoding">:scriptencoding</A>| is different from
@@ -558,17 +505,6 @@ For example, you can run Vim in a xterm with added <A HREF="#multi-byte">multi-b
 |<A HREF="#XIM">XIM</A>|.  Examples are kterm (Kanji term) and hanterm (for Korean), <A HREF="syntax.html#Eterm">Eterm</A>
 (Enlightened terminal) and <A HREF="syntax.html#rxvt">rxvt</A>.
 
-If your terminal does not support the right encoding, you can set the
-<A HREF="options.html#'termencoding'">'termencoding'</A> option.  Vim will then convert the typed characters from
-<A HREF="options.html#'termencoding'">'termencoding'</A> to <A HREF="options.html#'encoding'">'encoding'</A>.  And displayed text will be converted from
-<A HREF="options.html#'encoding'">'encoding'</A> to <A HREF="options.html#'termencoding'">'termencoding'</A>.  If the encoding supported by the terminal
-doesn't include all the characters that Vim uses, this leads to lost
-characters.  This may mess up the display.  If you use a terminal that
-supports <A HREF="#Unicode">Unicode</A>, such <A HREF="motion.html#as">as</A> the xterm mentioned below, <A HREF="motion.html#it">it</A> should work just fine,
-since nearly every character set can be converted to <A HREF="#Unicode">Unicode</A> without loss of
-information.
-
-
 
 <A HREF="#UTF-8">UTF-8</A> IN XFREE86 XTERM					*<A NAME="UTF8-xterm"></A><B>UTF8-xterm</B>*
 
@@ -605,9 +541,9 @@ For Vim you may need to set <A HREF="options.html#'encoding'">'encoding'</A> to 
 
 ==============================================================================
 
-5.  Fonts on <A HREF="options.html#X11">X11</A>					*<A NAME="mbyte-fonts-X11"></A><B>mbyte-fonts-X11</B>*
+5.  Fonts on X11					*<A NAME="mbyte-fonts-X11"></A><B>mbyte-fonts-X11</B>*
 
-Unfortunately, using fonts in <A HREF="options.html#X11">X11</A> is complicated.  The name of a single-byte
+Unfortunately, using fonts in X11 is complicated.  The name of a single-byte
 font is a long <A HREF="eval.html#string">string</A>.  For <A HREF="#multi-byte">multi-byte</A> fonts we need several of these...
 
 Note: Most of this is no longer relevant for <A HREF="gui_x11.html#GTK+">GTK+</A> 2.  Selecting a font via
@@ -752,7 +688,7 @@ groups.
 
 USING RESOURCE FILES
 
-Instead of specifying <A HREF="options.html#'guifontset'">'guifontset'</A>, you can set <A HREF="options.html#X11">X11</A> resources and Vim will
+Instead of specifying <A HREF="options.html#'guifontset'">'guifontset'</A>, you can set X11 resources and Vim will
 pick them up.  This is only for people who know how X resource files work.
 
 For <A HREF="gui_x11.html#Motif">Motif</A> and <A HREF="gui_x11.html#Athena">Athena</A> insert these three lines in your $HOME/.Xdefaults file:
@@ -811,7 +747,7 @@ Then add a command to your |<A HREF="gui.html#gvimrc">gvimrc</A>| file to set <A
 
 ==============================================================================
 
-7.  Input on <A HREF="options.html#X11">X11</A>				*<A NAME="mbyte-XIM"></A><B>mbyte-XIM</B>*
+7.  Input on X11				*<A NAME="mbyte-XIM"></A><B>mbyte-XIM</B>*
 
 
 X INPUT METHOD (XIM) BACKGROUND			*<A NAME="XIM"></A><B>XIM</B>* *<A NAME="xim"></A><B>xim</B>* *<A NAME="x-input-method"></A><B>x-input-method</B>*
@@ -1055,7 +991,7 @@ of Windows you use.  For example, on my Windows 2000 box:
 Cursor color when <A HREF="#IME">IME</A> or <A HREF="#XIM">XIM</A> is on				*<A NAME="CursorIM"></A><B>CursorIM</B>*
     There is a little cute feature for <A HREF="#IME">IME</A>.  Cursor can indicate status of <A HREF="#IME">IME</A>
     by <A HREF="change.html#changing">changing</A> its color.  Usually status of <A HREF="#IME">IME</A> was indicated by little icon
-    at a corner of desktop (or taskbar).  It is not <A HREF="starting.html#easy">easy</A> to verify status of
+    at a corner of desktop (or taskbar).  It is not easy to verify status of
     <A HREF="#IME">IME</A>.  But this feature help this.
     This works in the same way when using <A HREF="#XIM">XIM</A>.
 
@@ -1448,10 +1384,6 @@ If your system does not provide support for typing <A HREF="#utf-8">utf-8</A>, y
 <A HREF="options.html#'keymap'">'keymap'</A> feature.  This allows <A HREF="editing.html#writing">writing</A> a keymap file, which defines a <A HREF="#utf-8">utf-8</A>
 character <A HREF="motion.html#as">as</A> a sequence of ASCII characters.  See |<A HREF="#mbyte-keymap">mbyte-keymap</A>|.
 
-Another method is to set the current <A HREF="#locale">locale</A> to the language you want to use
-and for which you have a <A HREF="#XIM">XIM</A> available.  Then set <A HREF="options.html#'termencoding'">'termencoding'</A> to that
-language and Vim will convert the typed characters to <A HREF="options.html#'encoding'">'encoding'</A> for you.
-
 If everything else fails, you can type any character <A HREF="motion.html#as">as</A> four hex bytes:
 
 <B>	CTRL-V u 1234</B>
@@ -1521,7 +1453,7 @@ Contributions specifically for the <A HREF="#multi-byte">multi-byte</A> features
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:34 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

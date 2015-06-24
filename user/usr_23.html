@@ -98,10 +98,10 @@ The three names that Vim uses are:
 USING THE MAC FORMAT
 
 On <A HREF="os_unix.html#Unix">Unix</A>, &lt;LF&gt; is used to break a line.  It's not unusual to have a <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A>
-character halfway a line.  Incidentally, this happens quite often in <A HREF="intro.html#Vi">Vi</A> (and
-Vim) scripts.
+character halfway in a line.  Incidentally, this happens quite often in <A HREF="intro.html#Vi">Vi</A>
+(and Vim) scripts.
    On the <A HREF="os_mac.html#Macintosh">Macintosh</A>, where <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A> is the line break character, it's possible to
-have a &lt;LF&gt; character halfway a line.
+have a &lt;LF&gt; character halfway in a line.
    The result is that it's not possible to be 100&#37; sure whether a file
 containing both <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A> and &lt;LF&gt; characters is a <A HREF="os_mac.html#Mac">Mac</A> or a <A HREF="os_unix.html#Unix">Unix</A> file.  Therefore,
 Vim assumes that on <A HREF="os_unix.html#Unix">Unix</A> you probably won't edit a <A HREF="os_mac.html#Mac">Mac</A> file, and doesn't check
@@ -264,7 +264,7 @@ The text will look like this:
 <B><FONT color="#54A23D">	0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30  K,.`.....b..4^.0 </FONT></B>
 <B><FONT color="#54A23D">	0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9  7;'1.".....i.59. </FONT></B>
 
-You can now <A HREF="starting.html#view">view</A> and edit the text <A HREF="motion.html#as">as</A> you like.  Vim treats the information <A HREF="motion.html#as">as</A>
+You can now view and edit the text <A HREF="motion.html#as">as</A> you like.  Vim treats the information <A HREF="motion.html#as">as</A>
 ordinary text.  Changing the hex does not cause the printable character to be
 changed, or the other way around.
    Finally convert <A HREF="motion.html#it">it</A> back with:
@@ -280,7 +280,7 @@ See the manual page of xxd for more information.
 
 *<A NAME="23.4"></A><B>23.4</B>*	Compressed files
 
-This is <A HREF="starting.html#easy">easy</A>: You can edit a compressed file just like any other file.  The
+This is easy: You can edit a compressed file just like any other file.  The
 &quot;<A HREF="pi_gzip.html#gzip">gzip</A>&quot; <A HREF="usr_05.html#plugin">plugin</A> takes care of decompressing the file when you edit <A HREF="motion.html#it">it</A>.  And
 compressing <A HREF="motion.html#it">it</A> again when you write <A HREF="motion.html#it">it</A>.
    These compression methods are currently supported:
@@ -303,7 +303,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

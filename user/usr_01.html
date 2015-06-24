@@ -100,13 +100,10 @@ didn't <A HREF="diff.html#do">do</A> that yet, or if Vim doesn't run properly (e
 or in the <A HREF="gui.html#GUI">GUI</A> the <A HREF="gui.html#menus">menus</A> <A HREF="diff.html#do">do</A> not show up) first read the chapter on
 installation: |<A HREF="usr_90.html">usr_90.txt</A>|.
 
-							*<A NAME="not-compatible"></A><B>not-compatible</B>*
-The manuals often assume you are using Vim with Vi-compatibility switched
-off.  For most commands this doesn't matter, but sometimes <A HREF="motion.html#it">it</A> is important,
-e.g., for multi-level <A HREF="undo.html#undo">undo</A>.  An <A HREF="starting.html#easy">easy</A> way to make sure you are using a <A HREF="todo.html#nice">nice</A>
-setup is to copy the example <A HREF="starting.html#vimrc">vimrc</A> file.  By doing this inside Vim you don't
-have to check out where <A HREF="motion.html#it">it</A> is located.  How to <A HREF="diff.html#do">do</A> this depends on the system
-you are using:
+
+						    *<A NAME="setup-vimrc_example"></A><B>setup-vimrc_example</B>*
+It's not required for this tutorial, but we provide an example <A HREF="starting.html#vimrc">vimrc</A> you may
+use:
 
 <A HREF="os_unix.html#Unix">Unix</A>:
 <B>	:!cp -i $VIMRUNTIME/vimrc_example.vim ~/.vimrc</B>
@@ -115,31 +112,7 @@ MS-DOS, <A HREF="os_win32.html#MS-Windows">MS-Windows</A>:
 
 If the file already exists you probably want to keep <A HREF="motion.html#it">it</A>.
 
-If you start Vim now, the <A HREF="options.html#'compatible'">'compatible'</A> option should be off.  You can check <A HREF="motion.html#it">it</A>
-with this command:
-
-<B>	:set compatible?</B>
-
-If <A HREF="motion.html#it">it</A> responds with &quot;nocompatible&quot; you are doing well.  If the response is
-&quot;compatible&quot; you are in trouble.  You will have to find out why the option is
-still set.  Perhaps the file you wrote above is not found.  Use this command
-to find out:
-
-<B>	:scriptnames</B>
-
-If your file is not in the <A HREF="eval.html#list">list</A>, check its location and name.  If <A HREF="motion.html#it">it</A> is in the
-<A HREF="eval.html#list">list</A>, there must be some other place where the <A HREF="options.html#'compatible'">'compatible'</A> option is switched
-back on.
-
-For more info see |<A HREF="starting.html#vimrc">vimrc</A>| and |<A HREF="starting.html#compatible-default">compatible-default</A>|.
-
-	Note:
-	This manual is about using Vim in the normal way.  There is an
-	alternative called &quot;<A HREF="starting.html#evim">evim</A>&quot; (easy Vim).  This is still Vim, but used in
-	a way that resembles a click-and-type editor like Notepad.  It always
-	stays in <A HREF="insert.html#Insert">Insert</A> mode, thus <A HREF="motion.html#it">it</A> feels very different.  It is not
-	explained in the user manual, since <A HREF="motion.html#it">it</A> should be mostly <A HREF="eval.html#self">self</A>
-	explanatory.  See |<A HREF="starting.html#evim-keys">evim-keys</A>| for details.
+For more info see |<A HREF="starting.html#vimrc">vimrc</A>|.
 
 ==============================================================================
 
@@ -181,7 +154,7 @@ filename.  For French:
  
 2. Edit the copied file with Vim:
 
-<B>	vim -u NONE -c "set nocp" TUTORCOPY</B>
+<B>	vim -u NONE TUTORCOPY</B>
  
    The extra arguments make sure Vim is started in a good mood.
 
@@ -229,7 +202,7 @@ Copyright: see |<A HREF="#manual-copyright">manual-copyright</A>|  vim:tw=78:ts=
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

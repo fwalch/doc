@@ -34,7 +34,7 @@
 <HR>
 <PRE>
 
-*<A NAME="todo.txt"></A><B>todo.txt</B>*      For Vim version 7.4.  Last change: 2014 Sep 09
+*<A NAME="todo.txt"></A><B>todo.txt</B>*      For Vim version 7.4.  Last change: 2014 Nov 19
 
 
 		  VIM REFERENCE MANUAL	  by <A HREF="intro.html#Bram">Bram</A> <A HREF="intro.html#Moolenaar">Moolenaar</A>
@@ -73,6 +73,8 @@ not be repeated below, unless there is extra information.
 							*<A NAME="known-bugs"></A><B>known-bugs</B>*
 
 Regexp problems:
+- The <A HREF="pattern.html#NFA">NFA</A> engine does not implement the time limit passed to
+  nfa_regexec_multi()
 - Bug with <A HREF="pattern.html#pattern">pattern</A>: '\vblock (\d+)\.\n.*\d+&#37;(\1)@&lt;!\.$'
   (Lech Lorens, 2014 Feb 3)
 - Issue 164: freeze on <A HREF="pattern.html#regexp">regexp</A> search.
@@ -80,6 +82,7 @@ Regexp problems:
   2013 Dec 11)
 - Using \@&gt; and \?. (Brett Stahlman, 2013 Dec 21) Remark from Marcin Szamotulski
   Remark from Brett 2014 Jan 6 and 7.
+- Difference in <A HREF="pattern.html#NFA">NFA</A> and old engine. (Brett Stahlman, 2014 Nov 5)
 - Bug when using \&gt;. (Ramel, 2014 Feb 2) (Aaron Bohannon, 2014 Feb 13)
 - <A HREF="pattern.html#NFA">NFA</A> <A HREF="pattern.html#regexp">regexp</A> doesn't handle \&#37;&lt;v correctly. (Ingo Karkat, 2014 May 12)
 - Does not work with <A HREF="pattern.html#NFA">NFA</A> <A HREF="pattern.html#regexp">regexp</A> engine:
@@ -99,85 +102,124 @@ Breaks test_eval.  Inefficient, can we only compute y_width when needed?
 Problem that a previous silent &quot;<A HREF="eval.html#:throw">:throw</A>&quot; causes a following try/catch not to
 work. (ZyX, 2013 Sep 28)
 
-Update for Romanian <A HREF="spell.html#spell">spell</A> file. (Vanilla Ice, 2014 Aug 13)
-Still produces <A HREF="message.html#errors">errors</A>.
-Add flag to ignore fifth argument of SFX.
-Conversion from <A HREF="mbyte.html#utf-8">utf-8</A> to cp1250 can't be without <A HREF="message.html#errors">errors</A>.
-
-Patch to remove ETO_IGNORELANGUAGE, <A HREF="motion.html#it">it</A> causes <A HREF="mbyte.html#Chinese">Chinese</A> characters not to show
-up. (Paul Moore, 2014 Jul 30)
-Should <A HREF="motion.html#it">it</A> depend on the Windows version?  Waiting for feedback.
-No longer needed after including DirectX patch?
-Related to issue 255?
-
-Problem with linebreak, adds a test that fails. (Nazri Ramliy, 2014 Sep 6)
-
-Patch to avoid problems with encoding conversion with diff.vim.
-(Yasuhiro Matsumoto, 2014 Sep 1.
+&quot;<A HREF="editing.html#:cd">:cd</A> C:\Windows\System32\drivers\etc*&quot; does not work, even though the
+directory exists. (Sergio Gallelli, 2013 Dec 29)
 
 Patch by Marcin Szamotulski to add <A HREF="intro.html#count">count</A> to <A HREF="windows.html#:close">:close</A> (2014 Aug 10, update Aug
 14, Aug 30)
     Make &quot;:1close&quot; close the first <A HREF="windows.html#window">window</A>.
     Make &quot;:+1close&quot; close the next <A HREF="windows.html#window">window</A>.
     Make &quot;:-1close&quot; close the previous <A HREF="windows.html#window">window</A>.
-Can't easily close the help <A HREF="windows.html#window">window</A>, like &quot;<A HREF="windows.html#:pc">:pc</A>&quot; closes the preview <A HREF="windows.html#window">window</A> and
-&quot;<A HREF="quickfix.html#:ccl">:ccl</A>&quot; closes the <A HREF="quickfix.html#quickfix">quickfix</A> <A HREF="windows.html#window">window</A>.  Add &quot;:hclose&quot;. (Chris Gaal)
-Patch for <A HREF="helphelp.html#:helpclose">:helpclose</A>, Christian Brabandt, 2010 Sep 6.
-
-Patch to fix line <A HREF="change.html#formatting">formatting</A> bug. (Christian Brabandt, 2014 Sep 7)
-
-Patch to fix ml_get error. (Christian Brabandt, 2014 Sep 7)
-
-Patch by Marcin Szamotulski to add <A HREF="editing.html#+cmd">+cmd</A> to buffer commands.
-(2014 Aug 18)
-
-Patch to fix encoding of arguments when setting <A HREF="options.html#'encoding'">'encoding'</A>. (Yasuhiro
-Matsumoto, 2014 Sep 4)
-
-Patch to fix that <A HREF="eval.html#system()">system()</A> with empty input fails. (Olaf Dabrunz, 2014 Aug 19)
-
-When using a visual selection of multiple words and doing <A HREF="windows.html#CTRL-W_]">CTRL-W_]</A> <A HREF="motion.html#it">it</A> jumps to
-the <A HREF="tagsrch.html#tag">tag</A> matching the <A HREF="motion.html#word">word</A> under the cursor, not the selected text.
-(Patrick hemmer)
-Patch by Christian, 2014 Aug 8.
-
-Completion for <A HREF="windows.html#:buf">:buf</A> does not use <A HREF="options.html#'wildignorecase'">'wildignorecase'</A>. (Akshay <A HREF="motion.html#H">H</A>, 2014 May 31)
-
-Patch to handle <A HREF="eval.html#list">list</A> with some items locked. (ZyX, 2014 Aug 17)
-Prefer the second solution.
-
-Issue 252.  Patch by Christian, 2014 Aug 26.
-
-&quot;<A HREF="editing.html#:cd">:cd</A> C:\Windows\System32\drivers\etc*&quot; does not work, even though the
-directory exists. (Sergio Gallelli, 2013 Dec 29)
-
-Patch to add a special key name for K_CURSORHOLD. (Hirohito Higashi, 2014 Aug
-10)
+Doesn't look right, asked for updates.
+Update 2014 Nov 8. Replied with suggestions.
 
 The entries added by <A HREF="eval.html#matchaddpos()">matchaddpos()</A> are returned by <A HREF="eval.html#getmatches()">getmatches()</A> but can't be
 set with <A HREF="eval.html#setmatches()">setmatches()</A>. (lcd47, 2014 Jun 29)
+
+Gvim: when both <A HREF="intro.html#Tab">Tab</A> and <A HREF="motion.html#CTRL-I">CTRL-I</A> are mapped, use <A HREF="motion.html#CTRL-I">CTRL-I</A> not for <A HREF="intro.html#Tab">Tab</A>.
 
 Problem using &quot;<A HREF="eval.html#:try">:try</A>&quot; inside &quot;<A HREF="eval.html#:execute">:execute</A>&quot;. (ZyX, 2013 Sep 15)
 
 <A HREF="if_pyth.html#Python">Python</A>: &quot;<A HREF="if_pyth.html#:py">:py</A> raw_input('prompt')&quot; doesn't work. (Manu Hack)
 
+Patch to fix issue 78. (Christian Brabandt, 2014 Oct 8)
+
+Patch to fix leak in <A HREF="eval.html#map()">map()</A> with error. (Christian Brabandt, 2014 Oct 11)
+
+Patch to fix incsearch for &quot;2/pattern/e&quot;.
+
+Patch to fix memory leak in <A HREF="print.html#:hardcopy">:hardcopy</A>. (Christian Brabandt, 2014 Nov 16)
+
+Patch to fix warnings in if_ruby.c. (Ken Takata, 2014 Nov 17)
+
+Patch to make test 63 pass when in a B&amp;W terminal. (Christian Brabandt, 2014
+Nov 15)  Other patch (better) on Nov 17.
+
+Change behavior of <A HREF="eval.html#v:hlsearch">v:hlsearch</A>?  Patch from Christian, 2014 Oct 22.
+
+<A HREF="os_win32.html#MS-Windows">MS-Windows</A>: When editing a file with a leading space, <A HREF="editing.html#writing">writing</A> <A HREF="motion.html#it">it</A> uses the
+wrong name. (Aram, 2014 Nov 7)  Vim 7.4.
+
+patch to remove FEAT_OSFILETYPE from fileio.c. (Christian, 2014 Nov 12)
+
 Value returned by <A HREF="eval.html#virtcol()">virtcol()</A> changes depending on how lines wrap.  This is
 inconsistent with the documentation.
+
+Patch to fix relatie numbers. (Christian Brabandt, 2014 Nov 17)
+
+Patch to fix wrong <A HREF="change.html#formatting">formatting</A> if <A HREF="options.html#'linebreak'">'linebreak'</A> is set. (Christian Brabandt, 2014
+Nov 12)
+
+Patch to support hex values for setting option value.
+(Zyx, 2015 Nov 6)
+
+On <A HREF="os_win32.html#MS-Windows">MS-Windows</A> running tests with Mercurial has problems when the fileformat of
+the input files are changed. (Ken Takata, Taro Muraoka, 2014 Sep 25)
+Update Nov 5.
 
 <A HREF="os_win32.html#MS-Windows">MS-Windows</A>: Crash opening very long file name starting with &quot;\\&quot;.
 (Christian Brock, 2012 Jun 29)
 
+Problem using <A HREF="diff.html#diff">diff</A> <A HREF="syntax.html#syntax">syntax</A> with cp932 encoding.  Idea from Yasuhiro Matsumoto,
+patch from Ken Takata (2014 Nov 6)
+
+ml_updatechunk() is slow when retrying for another encoding. (John Little,
+2014 Sep 11)
+
+When <A HREF="options.html#'balloonexpr'">'balloonexpr'</A> returns a <A HREF="eval.html#list">list</A> the result has a trailing newline.
+Just remove one trailing newline. (lcd, 2014 Oct 17)
+
+Make comments in the test Makefile silent. (Kartik Agaram, 2014 Sep 24)
+
+When in <A HREF="options.html#'comments'">'comments'</A> &quot;n:x&quot; follows after three-part comment directly <A HREF="motion.html#it">it</A> repeats
+any one-character from the previous line. (Kartik Agaram, 2014 Sep 19)
+
 <A HREF="autocmd.html#Syntax">Syntax</A> highlighting slow (hangs) in SASS file. (Niek Bosch, 2013 Aug 21)
 
-Patch to allow for a different icon on <A HREF="os_win32.html#MS-Windows">MS-Windows</A>. (Yasuhiro Matsumoto, 2014
-Sep 7).
+Patch to add the EndOfBuffer highlight group, used instead of NonText for &quot;<A HREF="change.html#~">~</A>&quot;
+lines. (Marco Hinz, 2014 Nov 2)
 
 Adding &quot;<A HREF="change.html#~">~</A>&quot; to <A HREF="options.html#'cdpath'">'cdpath'</A> doesn't work for completion?  (Davido, 2013 Aug 19)
+
+Plugins need to make a lot of effort, lots of mappings, to know what happened
+before pressing the key that triggers a <A HREF="usr_05.html#plugin">plugin</A> action.  How about keeping the
+last N pressed keys, so that they <A HREF="diff.html#do">do</A> not need to be mapped?
+
+Can assign to s:type when a function s:type has been defined.
+Also the other way around: define a function while a variable with that name
+was already defined.
+(Yasuhiro Matsumoto, 2014 Nov 3)
+
+Patch to make closed <A HREF="fold.html#folds">folds</A> line up. (Charles Campbell, 2014 Sep 12)
+
+Patch for building a 32bit Vim with 64bit MingW compiler.
+(Michael Soyka, 2014 Oct 15)
+
+Delete old code in os_msdos.c, mch_FullName().
+
+Redo only remembers the last change.  Could use &quot;{count}g.&quot; to <A HREF="undo.html#redo">redo</A> an older
+change.  How does the user know which change?  At least have a way to <A HREF="eval.html#list">list</A>
+them: &quot;:repeats&quot;.
+
+Using &quot;<A HREF="repeat.html#.">.</A>&quot; to repeat an <A HREF="intro.html#Ex">Ex</A> command puts that command in <A HREF="cmdline.html#history">history</A>.  Probably
+should not happen.  If the command is the result of a <A HREF="map.html#mapping">mapping</A> it's not put in
+<A HREF="cmdline.html#history">history</A> either. (Jacob Niehus, 2014 Nov 2)
+Patch from Jacob, Nov 2.
 
 &quot;hi link&quot; does not respect groups with <A HREF="gui.html#GUI">GUI</A> settings only. (Mark Lodato, 2014
 Jun 8)
 
+Bug: Autocompleting &quot;:tag/pat&quot; replaces &quot;/pat&quot; with a match but does not
+insert a space. (Micha Mos, 2014 Nov 7)
+
+Patch to add the :bvimgrep command.  (Christian Brabandt, 2014 Nov 12)
+
+Patch to add argument to <A HREF="quickfix.html#:cquit">:cquit</A>. (Thinca, 2014 Oct 12)
+
 No error for missing endwhile. (ZyX, 2014 Mar 20)
+
+start_global_changes() plus end_global_changes() causes problem for
+clip_unnamed_plus. (Jason Pleau, 2014 Sep 12)
 
 Patch to add <A HREF="editing.html#:arglocal">:arglocal</A> and :arglists. (Marcin Szamotulski, 2014 Aug 6)
 
@@ -204,6 +246,8 @@ its height?  It's like dragging the status <A HREF="motion.html#bar">bar</A> abo
 Can we make &quot;<A HREF="eval.html#:unlet">:unlet</A> $VAR&quot; use unsetenv() to delete the env var?
 What for systems that don't have unsetenv()?
 
+Patch to add a :domodeline command. (Christian Brabandt, 2014 Oct 21)
+
 This does not give an error: (Andre Sihera, 2014 Mar 21)
     vim <A HREF="starting.html#-u">-u</A> NONE 1 2 3 <A HREF="starting.html#-c">-c</A> 'bufdo if 1 &#124; echo 1'
 This neither: (ZyX)
@@ -216,10 +260,12 @@ from?
 Problem with upwards search on Windows (works OK on Linux). (Brett Stahlman,
 2014 Jun 8)
 
+Patch to load TCL dynamically. (Ken Takata, 2014 Sep 20)
+
 Include a <A HREF="usr_05.html#plugin">plugin</A> manager with Vim? Neobundle seems to be the best currently.
 Long message about this from ZyX, 2014 Mar 23.  And following replies.
  Also see	<A HREF="http://vim-wiki.mawercer.de/wiki/topic/vim&#37;20plugin&#37;20managment.html">http://vim-wiki.mawercer.de/wiki/topic/vim&#37;20plugin&#37;20managment.html</A>
-<A HREF="autocmd.html#User">User</A> <A HREF="starting.html#view">view</A>:
+<A HREF="autocmd.html#User">User</A> view:
  - Support multiple sources, basically any	<A HREF="http://">http://</A> URL. Be able to look into
   the files before deciding to <A HREF="usr_90.html#install">install</A>.
 - Be able to try out a <A HREF="usr_05.html#plugin">plugin</A> and remove <A HREF="motion.html#it">it</A> again with (almost) no traces.
@@ -276,7 +322,8 @@ Patch to support <A HREF="change.html#sorting">sorting</A> on floating point num
 
 Patch to support <A HREF="eval.html#expression">expression</A> argument to <A HREF="eval.html#sort()">sort()</A> instead of a function name.
 Yasuhiro Matsumoto, 2013 May 31.
-Or should we add a more general mechanism, like lambda <A HREF="eval.html#functions">functions</A>?
+Or should we add a more general mechanism, like a lambda() function?
+Patch by Yasuhiro Matsumoto, 2014 Sep 16.
 
 Patch for XDG base directory support. (Jean François Bignolles, 2014 Mar 4)
 Remark on the docs.  Should not be a compile time feature.  But then what?
@@ -284,15 +331,11 @@ Remark on the docs.  Should not be a compile time feature.  But then what?
 Completion of &quot;<A HREF="editing.html#:e">:e</A>&quot; is &quot;<A HREF="undo.html#:earlier">:earlier</A>&quot;, should be &quot;<A HREF="editing.html#:edit">:edit</A>&quot;.  Complete to the matching
 command instead of doing this alphabetically. (Mikel Jorgensen)
 
-Patch to add v:completed_item. (Shougo Matsu, 2013 Nov 29).
+Patch to add <A HREF="eval.html#v:completed_item">v:completed_item</A>. (Shougo Matsu, 2013 Nov 29).
 
 Patch to get MSVC version in a nicer way. (Ken Takata, 2014 Jul 24)
 
-Patch to make test 100 work on <A HREF="os_win32.html#MS-Windows">MS-Windows</A>. (Taro Muraoka, 2013 Dec 12)
-
 Patch to define macros for hardcoded values. (Elias Diem, 2013 Dec 14)
-
-<A HREF="if_perl.html#Perl">Perl</A>: support for Activestate <A HREF="if_perl.html#perl">perl</A> 5.18: Issue 170.
 
 Several <A HREF="syntax.html#syntax">syntax</A> file match &quot;^\s*&quot; which may get underlined if that's in the
 highlight group.  Add a &quot;\zs&quot; after <A HREF="motion.html#it">it</A>?
@@ -334,7 +377,7 @@ names.
 (ZyX, 2013 Jul 15, update Sep 22, 24, 28; Update 2013 Dec 15, 2014 Jan 6)
 Also fixes Bug: <A HREF="message.html#E685">E685</A> error for func_unref(). (ZyX, 2010 Aug 5)
 
-Patch to add funcref to <A HREF="if_lua.html#Lua">Lua</A>.  (Luis Carvalho, 2013 Sep 4)
+Patch to add funcref to Lua.  (Luis Carvalho, 2013 Sep 4)
 With tests: Sep 5.
 
 Patch to fix that on suckless Terminal mousewheel up does not work.
@@ -358,12 +401,6 @@ buffer. (2013 Dec 9)
 
 Patch for drag&amp;drop reordering of <A HREF="gui.html#GUI">GUI</A> <A HREF="intro.html#tab">tab</A> pages reordering.
 (Ken Takata, 2013 Nov 22, second one, also by Masamichi Abe)
-
-&quot;<A HREF="sign.html#:sign-jump">:sign-jump</A>&quot; uses first <A HREF="windows.html#window">window</A> in buffer instead of current <A HREF="windows.html#window">window</A>.
-Patch by James McCoy, 2013 Nov 22.
-
-<A HREF="gui_x11.html#GTK">GTK</A>: problem with '<A HREF="motion.html#L">L</A>' in <A HREF="options.html#'guioptions'">'guioptions'</A> <A HREF="change.html#changing">changing</A> the <A HREF="windows.html#window">window</A> width.
-(Aaron Cornelius, 2012 Feb 6)
 
 Patch to add option that tells whether small deletes go into the numbered
 <A HREF="change.html#registers">registers</A>. (Aryeh Leib Taurog, 2013 Nov 18)
@@ -405,15 +442,12 @@ Issue 28.
 Patch to fix that <A HREF="options.html#'cedit'">'cedit'</A> is recognized after <A HREF="various.html#:normal">:normal</A>. (Christian Brabandt,
 2013 Mar 19, later message)
 
-Patch to <A HREF="starting.html#view">view</A> coverage of the tests. (Nazri Ramliy, 2013 Feb 15)
-
-Patch to invert characters differently in <A HREF="gui_x11.html#GTK">GTK</A>. (Yukihiro Nakadaira, 2013 May
-5)
+Patch to view coverage of the tests. (Nazri Ramliy, 2013 Feb 15)
 
 Patch to add &quot;<A HREF="intro.html#Q">Q</A>&quot; and &quot;<A HREF="insert.html#A">A</A>&quot; responses to interactive <A HREF="change.html#:substitute">:substitute</A>. They are
 carried over when using <A HREF="repeat.html#:global">:global</A>. (Christian Brabandt, 2013 Jun 19)
 
-Bug with <A HREF="options.html#'cursorline'">'cursorline'</A> in <A HREF="diff.html#diff">diff</A> mode.  Line being scrolled into <A HREF="starting.html#view">view</A> gets
+Bug with <A HREF="options.html#'cursorline'">'cursorline'</A> in <A HREF="diff.html#diff">diff</A> mode.  Line being scrolled into view gets
 highlighted <A HREF="motion.html#as">as</A> the cursor line.  (Alessandro Ivaldi, 2013 Jun 4)
 
 Two highlighting bugs. (ZyX, 2013 Aug 18)
@@ -435,12 +469,9 @@ Patch to allow setting <A HREF="quickfix.html#w:quickfix_title">w:quickfix_title
 <A HREF="eval.html#functions">functions</A>. (Christian Brabandt, 2013 May 8, update May 21)
 Patch to add getlocstack() / setlocstack(). (Christian Brabandt, 2013 May 14)
 Second one. Update May 22.
-Update by Daniel Hahler, 2014 Jul 4, Aug 14.
+Update by Daniel Hahler, 2014 Jul 4, Aug 14, Oct 14, Oct 15.
 
 Patch to make fold updates much faster. (Christian Brabandt, 2012 Dec)
-
-<A HREF="os_win32.html#MS-Windows">MS-Windows</A>: Patch to make tests copy files to avoid <A HREF="change.html#changing">changing</A> the fileformat of
-the files under version <A HREF="intro.html#control">control</A>. (Taro Muraoka, 2013 Jul 5)
 
 Issue 54: document behavior of -complete, also expands arg.
 
@@ -567,15 +598,14 @@ is confusing.  Should say &quot;the argument <A HREF="eval.html#list">list</A> i
 xterm supports <A HREF="intro.html#escape">escape</A> sequences to <A HREF="motion.html#mark">mark</A> a paste operation.  Need to be
 enabled. (Bruno Sutic, 2014 Jul 11)  How to know the terminal supports this?
 
-URXVT:
-- will get stuck if byte sequence does not contain the expected semicolon.
-- Use urxvt mouse support also in xterm.  Explanations:
-	<A HREF="http://www.midnight-commander.org/ticket/2662">http://www.midnight-commander.org/ticket/2662</A>
+Patch to have the fold and sign column and at the last line of the buffer.
+(Marco Hinz, 2014 Sep 25)
+Alternate suggestion: let all columns continue, also the number column.
 
 Patch to add tests for if_xcmdsrv.c., Jul 8, need some more work. (Brian Burns)
 New tests Jul 13.   Update Jul 17.  Discussion Jul 18.
 
-When running Vim in silent <A HREF="starting.html#ex">ex</A> mode, an existing swapfile causes Vim to wait
+When running Vim in silent ex mode, an existing swapfile causes Vim to wait
 for a user action without a prompt. (Maarten Billemont, 2012 Feb 3)
 Do give the prompt? Quit with an error?
 
@@ -610,9 +640,6 @@ Patch to pass <A HREF="eval.html#list">list</A> to <A HREF="eval.html#or()">or()
 Patch to improve &quot;<A HREF="motion.html#it">it</A>&quot; and &quot;<A HREF="motion.html#at">at</A>&quot; text object matching. (Christian Brabandt, 2011
 Nov 20)
 
-Patch to improve <A HREF="gui.html#GUI">GUI</A> find/replace <A HREF="gui_w32.html#dialog">dialog</A>. (Christian Brabandt, 2012 May 26)
-Update Jun 2.
-
 <A HREF="motion.html#`]">`]</A> moves to character after insert, instead of the last inserted character.
 (Yukihiro Nakadaira, 2011 Dec 9)
 
@@ -646,6 +673,9 @@ need to make the change in where RET_WIN_BUF_CHARTABSIZE() is called.
 <A HREF="autocmd.html#Syntax">Syntax</A> region with 'concealends' and a 'cchar' value, <A HREF="options.html#'conceallevel'">'conceallevel'</A> set to 2,
 only one of the two ends gets the cchar displayed. (Brett Stahlman, 2010 Aug
 21, Ben Fritz, 2010 Sep 14)
+
+The <A HREF="syntax.html#:syntax">:syntax</A> cchar value can only be a single character.  It would be useful to
+support combining characters. (Charles Campbell)
 
 <A HREF="options.html#'cursorline'">'cursorline'</A> works on a text line only.  Add 'cursorscreenline' for
 highlighting the screen line. (Christian Brabandt, 2012 Mar 31)
@@ -771,6 +801,10 @@ Need for <A HREF="autocmd.html#CursorHold">CursorHold</A> that retriggers.  Use 
 function that resets did_cursorhold.
 Patch by Christian Brabandt, 2011 May 6.
 
+Add event for when the text scrolls.  A bit like <A HREF="autocmd.html#CursorMoved">CursorMoved</A>.  Also a similar
+one for insert mode.  Use the event in <A HREF="pi_paren.html#matchparen">matchparen</A> to update the highlight if
+the match scrolls into view.
+
 7   Use &quot;++--&quot;, &quot;+++--&quot; for different levels instead of &quot;+---&quot; &quot;+----&quot;.
 Patch by Christian Brabandt, 2011 Jul 27.
 Update by Ben Fritz, with fix for TOhtml. (2011 Jul 30)
@@ -786,18 +820,13 @@ In the <A HREF="eval.html#sandbox">sandbox</A> it's not allowed to <A HREF="diff
 or set <A HREF="eval.html#variables">variables</A>.  Add a way to prevent <A HREF="eval.html#variables">variables</A> from being changed in the
 <A HREF="eval.html#sandbox">sandbox</A>?  E.g.: &quot;:protect g:restore_settings&quot;.
 
-<A HREF="gui_x11.html#GTK">GTK</A>: drawing a double-width combining character over single-width characters
-doesn't look right. (Dominique Pelle, 2010 Aug 8)
-
-<A HREF="gui_x11.html#GTK">GTK</A>: tear-off menu does not work. (Kurt Sonnenmoser, 2010 Oct 25)
-
 <A HREF="os_win32.html#Win32">Win32</A>: tear-off menu does not work when menu language is German. (Markus
 Bossler, 2011 Mar 2)  Fixed by 7.3.095?
 
 Version of netbeans.c for use with MacVim. (Kazuki Sakamoto, 2010 Nov 18)
 
 7.3.014 changed how <A HREF="intro.html#backslash">backslash</A> at end of line works, but still get a NUL when
-there is one <A HREF="intro.html#backslash">backslash</A>. (Ray Frush, 2010 Nov 18)  What does the original <A HREF="starting.html#ex">ex</A>
+there is one <A HREF="intro.html#backslash">backslash</A>. (Ray Frush, 2010 Nov 18)  What does the original ex
 <A HREF="diff.html#do">do</A>?
 
 Searching mixed with <A HREF="visual.html#Visual">Visual</A> mode doesn't redraw properly. (James Vega, 2010 Nov
@@ -866,8 +895,6 @@ Results in <A HREF="helphelp.html#E670">E670</A>. (Tony Mechelynck, 2010 May 2)
 
 <A HREF="options.html#'beval'">'beval'</A> option should be <A HREF="options.html#global-local">global-local</A>.
 
-<A HREF="if_ruby.html#Ruby">Ruby</A>: &quot;<A HREF="if_ruby.html#:ruby">:ruby</A> print $buffer.number&quot; returns zero.
-
 <A HREF="eval.html#setpos()">setpos()</A> does not restore cursor position after <A HREF="various.html#:normal">:normal</A>. (Tyru, 2010 Aug 11)
 
 7   The <A HREF="options.html#'directory'">'directory'</A> option supports <A HREF="change.html#changing">changing</A> path separators to &quot;<A HREF="motion.html#&#37;">&#37;</A>&quot; to make
@@ -893,7 +920,7 @@ Oct 22)  <A HREF="options.html#'isprint'">'isprint'</A> is set to &quot;@,161-25
 checked to be in a comment.  Implement FM_SKIPCOMM flag of findmatchlimit().
 Issue 46.
 
-<A HREF="os_mac.html#Mac">Mac</A> with <A HREF="options.html#X11">X11</A>: <A HREF="gui.html#clipboard">clipboard</A> doesn't work properly. (Raf, 2010 Aug 16)
+<A HREF="os_mac.html#Mac">Mac</A> with X11: <A HREF="gui.html#clipboard">clipboard</A> doesn't work properly. (Raf, 2010 Aug 16)
 
 Using CompilerSet doesn't record where an option was set from.  E.g., in the
 gcc compiler <A HREF="usr_05.html#plugin">plugin</A>. (Gary Johnson, 2010 Dec 13)
@@ -1006,7 +1033,7 @@ not a <A HREF="eval.html#string">string</A>. (Sean Ma)  Need to add flag to call
 
 Invalid read error in <A HREF="farsi.html#Farsi">Farsi</A> mode. (Dominique Pelle, 2009 Aug 2)
 
-For running <A HREF="starting.html#gvim">gvim</A> on an USB stick: avoid the OLE registration.  Use a command
+For running gvim on an USB stick: avoid the OLE registration.  Use a command
 line argument -noregister.
 
 When using an <A HREF="eval.html#expression">expression</A> in <A HREF="options.html#'statusline'">'statusline'</A> leading white space sometimes goes
@@ -1018,7 +1045,7 @@ doesn't work. (Tyru, 2010 May 6)  Or is this intended?
 Still a problem with &quot;<A HREF="quickfix.html#:make">:make</A>&quot; in the wrong directory.  Caused by &quot;<A HREF="windows.html#:bufdo">:bufdo</A>&quot;.
 (Ajit Thakkar, 2009 Jul 1) More information Jul 9, Jul 15.
 Caused by &quot;doautoall syntaxset <A HREF="autocmd.html#BufEnter">BufEnter</A> *&quot; in syntax/nosyntax.vim ?
-There also is a BufLeave/BufEnter aucmd to save/restore <A HREF="starting.html#view">view</A>.
+There also is a BufLeave/BufEnter aucmd to save/restore view.
 Does the patch to save/restore globaldir work?
 
 &quot;<A HREF="windows.html#:bufdo">:bufdo</A> normal gg&quot; while <A HREF="options.html#'hidden'">'hidden'</A> is set leaves <A HREF="windows.html#buffers">buffers</A> without <A HREF="syntax.html#syntax">syntax</A>
@@ -1027,6 +1054,12 @@ to avoid <A HREF="change.html#changing">changing</A> <A HREF="options.html#'even
 
 Patch for displaying 0x200c and 0x200d. (Ali Gholami Rudi, 2009 May 6)
 Probably needs a bit of work.
+
+Patch to add <A HREF="farsi.html#farsi">farsi</A> handling to arabic.c (Ali Gholami Rudi, 2009 May 2)
+Added test, updates, June 23.
+ Updated for 7.4:	<A HREF="http://litcave.rudi.ir/farsi_vim.diff">http://litcave.rudi.ir/farsi_vim.diff</A>
+With modification for Tatweel character: https://dpaste.de/VmFw
+Remark from Ameretat Reith (2014 Oct 13)
 
 <A HREF="eval.html#List">List</A> of encoding aliases. (Takao Fujiwara, 2009 Jul 18)
 Are they all OK?  Update Jul 22.
@@ -1046,17 +1079,13 @@ on the first character. (John Beckett, 2010 Aug 7)
 Setting <A HREF="options.html#'tags'">'tags'</A> to &quot;tagsdir/*&quot; does not find &quot;tagsdir/tags&quot;. (Steven <A HREF="various.html#K">K</A>. Wong,
 2009 Jul 18)
 
-Patch to add <A HREF="farsi.html#farsi">farsi</A> handling to arabic.c (Ali Gholami Rudi, 2009 May 2)
-Added test, updates, June 23.
- Updated for 7.4:	<A HREF="http://litcave.rudi.ir/farsi_vim.diff">http://litcave.rudi.ir/farsi_vim.diff</A>
-
 Patch to add &quot;focusonly&quot; to <A HREF="options.html#'scrollopt'">'scrollopt'</A>, so that scrollbind also applies in
 <A HREF="windows.html#window">window</A> that doesn't have focus. (Jonathon Mah, 2009 Jan 12)
 Needs more work.
 
 Problem with &lt;script&gt; mappings (Andy Wokula, 2009 Mar 8)
 
-When starting Vim with &quot;<A HREF="starting.html#gvim">gvim</A> <A HREF="starting.html#-f">-f</A> <A HREF="starting.html#-u">-u</A> non_existent_file <A HREF="change.html#&gt;">&gt;</A> foo.txt&quot; there are a
+When starting Vim with &quot;gvim -f <A HREF="starting.html#-u">-u</A> non_existent_file <A HREF="change.html#&gt;">&gt;</A> foo.txt&quot; there are a
 few <A HREF="intro.html#control">control</A> characters in the output. (Dale Wiles, 2009 May 28)
 
 <A HREF="options.html#'cmdwinheight'">'cmdwinheight'</A> is only used in last <A HREF="windows.html#window">window</A> when <A HREF="options.html#'winheight'">'winheight'</A> is a large value.
@@ -1069,8 +1098,6 @@ When <A HREF="starting.html#$VIMRUNTIME">$VIMRUNTIME</A> is set in <A HREF="star
 for <A HREF="gui_x11.html#GTK">GTK</A>, how about others? (Ron Aaron, 2010 Apr 10)
 
 Patch for <A HREF="gui_x11.html#GTK">GTK</A> buttons <A HREF="term.html#X1Mouse">X1Mouse</A> and <A HREF="term.html#X2Mouse">X2Mouse</A>. (Christian <A HREF="change.html#J">J</A>. Robinson, 2010 Aug 9)
-
-<A HREF="gui_x11.html#Motif">Motif</A>: Build on Ubuntu can't enter any text in <A HREF="gui_w32.html#dialog">dialog</A> text fields.
 
 When <A HREF="options.html#'ft'">'ft'</A> changes redraw custom status line.
 
@@ -1124,9 +1151,6 @@ Diff mode out of sync. (Gary Johnson, 2010 Aug 4)
 Support a 'systemencoding' option (for <A HREF="os_unix.html#Unix">Unix</A>).  It specifies the encoding of
 file names. (Kikuchan, 2010 Oct 5).  Useful on a latin1 or double-byte Asian
 system when <A HREF="options.html#'encoding'">'encoding'</A> is &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot;.
-
-<A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>: last message from <A HREF="starting.html#startup">startup</A> doesn't show up when there is an echoerr
-command. (Cyril Slobin, 2009 Mar 13)
 
 <A HREF="os_win32.html#Win32">Win32</A>: completion of file name &quot;<A HREF="editing.html#:e">:e</A> c:\!test&quot; results in &quot;<A HREF="editing.html#:e">:e</A> c:\\!test&quot;, which
 does not work. (Nieko Maatjes, 2009 Jan 8, Ingo Karkat, 2009 Jan 22)
@@ -1201,8 +1225,6 @@ still delete them.  Also convert all buffer file names?
 
 Update src/testdir/main.aap.
 
-&quot;vim <A HREF="starting.html#-c">-c</A> 'sniff connect&#39;&#34;' hangs Vim. (Dominique Pelle, 2008 Dec 7)
-
 Something wrong with session that has &quot;cd&quot; commands and &quot;badd&quot;, in such a way
 that Vim doesn't find the edited file in the buffer <A HREF="eval.html#list">list</A>, causing the
 <A HREF="usr_11.html#ATTENTION">ATTENTION</A> message?  (Tony Mechelynck, 2008 Dec 1)
@@ -1221,11 +1243,6 @@ probably causes this.
 Patch to support strikethrough next to <A HREF="syntax.html#bold">bold</A> and <A HREF="syntax.html#italic">italic</A>. (Christian Brabandt,
 2013 Jul 30)  Update from Ken Takata, 2013 Oct 12.
 
-Document that default font in <A HREF="gui_x11.html#Athena">Athena</A> can be set with resources:
-   XtDefaultFont: &quot;9x15&quot;
-   XtDefaultFontSet: &quot;9x15&quot;
-(Richard Sherman, 2009 Apr 12)
-
 Having &quot;<A HREF="autocmd.html#Syntax">Syntax</A>&quot; in <A HREF="options.html#'eventignore'">'eventignore'</A> for <A HREF="windows.html#:bufdo">:bufdo</A> may cause problems, e.g. for
 &quot;<A HREF="windows.html#:bufdo">:bufdo</A> e&quot; when <A HREF="windows.html#buffers">buffers</A> are open in <A HREF="windows.html#windows">windows</A>.  ex_listdo(eap) could set the
 option only for when jumping to another buffer, not when the command argument
@@ -1235,7 +1252,7 @@ is executed.
 first line. (Ingo Karkat, 2008 Jul 1)  Ian Kelling is working on this.
 Similar problem with &quot;<A HREF="editing.html#:e">:e</A>&quot;. (Marc Montu, 2014 Apr 22)
 
-Wildmenu not deleted: &quot;<A HREF="starting.html#gvim">gvim</A> <A HREF="starting.html#-u">-u</A> NONE&quot;, &quot;<A HREF="options.html#:set">:set</A> <A HREF="options.html#'nocp'">nocp</A> wildmenu cmdheight=3
+Wildmenu not deleted: &quot;gvim <A HREF="starting.html#-u">-u</A> NONE&quot;, &quot;<A HREF="options.html#:set">:set</A> <A HREF="options.html#'nocp'">nocp</A> wildmenu cmdheight=3
 laststatus=2&quot;, <A HREF="scroll.html#CTRL-D">CTRL-D</A> <A HREF="motion.html#CTRL-H">CTRL-H</A> <A HREF="motion.html#CTRL-H">CTRL-H</A> <A HREF="motion.html#CTRL-H">CTRL-H</A>. (A.Politz, 2008 April 1)
 Works OK with Vim in an xterm.
 
@@ -1260,7 +1277,7 @@ another look at <A HREF="motion.html#it">it</A>.
 (Ilya Dogolazky, 2009 Aug 7)
 
 You can type &quot;<A HREF="editing.html#:w">:w</A> ++bad=x fname&quot;, but the <A HREF="editing.html#++bad">++bad</A> argument is ignored.  Give an
-error message?  Or is this <A HREF="starting.html#easy">easy</A> to implement?  (Nathan Stratton Treadway, 2008
+error message?  Or is this easy to implement?  (Nathan Stratton Treadway, 2008
 Aug 20)  This is in ucs2bytes(), search for 0xBF.  Using the <A HREF="editing.html#++bad">++bad</A> argument is
 at the other match for 0xBF.
 
@@ -1284,7 +1301,7 @@ command is not executed.  Fix by Ian Kelling?
 Chase)  Fix by Ian Kelling, 2008 Jul 14.
 
 Use &quot;\U12345678&quot; for 32 bit <A HREF="mbyte.html#Unicode">Unicode</A> characters?  (Tony Mechelynck, 2009
-Apr 6)  Or use &quot;\u(123456)&quot;, similar to <A HREF="if_perl.html#Perl">Perl</A>.
+Apr 6)  Or use &quot;\u(123456)&quot;, similar to Perl.
 
 When <A HREF="map.html#mapping">mapping</A> : to ; and ; to <A HREF="cmdline.html#:,">:,</A> @; doesn't work like <A HREF="repeat.html#@:">@:</A> and <A HREF="repeat.html#@:">@:</A> doesn't work
 either.  Matt Wozniski:  nv_at() calls do_execreg() which uses
@@ -1320,7 +1337,7 @@ Problem with <A HREF="options.html#'langmap'">'langmap'</A> being used on the rh
 2008 May 14)
 
 Problem with <A HREF="scroll.html#CTRL-F">CTRL-F</A>. (Charles Campbell, 2008 March 21)
-Only happens with &quot;<A HREF="starting.html#gvim">gvim</A> <A HREF="gui_x11.html#-geometry">-geometry</A> &quot;160x26+4+27&quot; <A HREF="starting.html#-u">-u</A> NONE <A HREF="starting.html#-U">-U</A> NONE prop.c&quot;.
+Only happens with &quot;gvim <A HREF="gui_x11.html#-geometry">-geometry</A> &quot;160x26+4+27&quot; <A HREF="starting.html#-u">-u</A> NONE -U NONE prop.c&quot;.
 <A HREF="options.html#'lines'">'lines'</A> is 54. (2008 March 27)
 
 Problem with pointer wrapping around in getvcol(). (Wolfgang Kroworsch, 2008
@@ -1348,23 +1365,14 @@ The utf class table is missing some entries:
 <A HREF="visual.html#Visual">Visual</A> line mode doesn't highlight properly when <A HREF="options.html#'showbreak'">'showbreak'</A> is used and the
 line doesn't fit. (Dasn, 2008 May 1)
 
-<A HREF="gui.html#GUI">GUI</A>: In <A HREF="intro.html#Normal">Normal</A> mode can't <A HREF="change.html#yank">yank</A> the modeless selection.  Make &quot;gy&quot; <A HREF="diff.html#do">do</A> this?
-Works like <A HREF="scroll.html#CTRL-Y">CTRL-Y</A> in Command line mode.
-
 <A HREF="os_mac.html#Mac">Mac</A>: Move Carbon <A HREF="#todo">todo</A> items to <A HREF="os_mac.html#os_mac.txt">os_mac.txt</A>.  Note that this version is frozen,
 try the Cocoa version.
 
 <A HREF="os_mac.html#Mac">Mac</A>: After a &quot;<A HREF="windows.html#:vsplit">:vsplit</A>&quot; the left scrollbar doesn't appear until <A HREF="options.html#'columns'">'columns'</A> is
 changed or the <A HREF="windows.html#window">window</A> is resized.
 
-<A HREF="gui_x11.html#GTK">GTK</A>: when setting <A HREF="options.html#'columns'">'columns'</A> in a <A HREF="starting.html#startup">startup</A> <A HREF="usr_41.html#script">script</A> and doing &quot;<A HREF="windows.html#:vertical">:vertical</A> diffsplit&quot;
-the <A HREF="windows.html#window">window</A> isn't redrawn properly, see two vertical <A HREF="index.html#bars">bars</A>.
-
-<A HREF="os_mac.html#Mac">Mac</A>: Patch for configure: remove arch from <A HREF="if_ruby.html#ruby">ruby</A> link args. (Knezevic, 2008
+<A HREF="os_mac.html#Mac">Mac</A>: Patch for configure: remove arch from ruby link args. (Knezevic, 2008
 Mar 5)  Alternative: Kazuki Sakamoto, Mar 7.
-
-<A HREF="os_mac.html#Mac">Mac</A>: trouble compiling with <A HREF="gui_x11.html#Motif">Motif</A>, requires --disable-darwin. (Raf, 2008 Aug
-1)  Reply by Ben Schmidt.
 
 C't: On <A HREF="mbyte.html#utf-8">utf-8</A> system, editing file with umlaut through <A HREF="gui_x11.html#Gnome">Gnome</A> results in URL
 with &#37;nn&#37;nn, which is taken <A HREF="motion.html#as">as</A> two characters instead of one.
@@ -1508,8 +1516,8 @@ switch <A HREF="eval.html#list">list</A> is noticed:
 
  Look at	<A HREF="http://www.gtk-server.org/">http://www.gtk-server.org/</A> . It has a Vim script implementation.
 
-Netbeans problem.  Use &quot;nc <A HREF="starting.html#-l">-l</A> 127.0.0.1 55555&quot; for the server, then run <A HREF="starting.html#gvim">gvim</A>
-with &quot;<A HREF="starting.html#gvim">gvim</A> -nb:localhost:55555:foo&quot;.  From nc <A HREF="diff.html#do">do</A>: '1:editFile!0 &quot;foo&quot;'.  Then
+Netbeans problem.  Use &quot;nc <A HREF="starting.html#-l">-l</A> 127.0.0.1 55555&quot; for the server, then run gvim
+with &quot;gvim -nb:localhost:55555:foo&quot;.  From nc <A HREF="diff.html#do">do</A>: '1:editFile!0 &quot;foo&quot;'.  Then
 go to <A HREF="insert.html#Insert">Insert</A> mode and add a few lines.  Then backspacing every other time
 moves the cursor instead of <A HREF="change.html#deleting">deleting</A>. (Chris Kaiser, 2007 Sep 25)
 
@@ -1543,8 +1551,6 @@ Changes for <A HREF="os_win32.html#Win32">Win32</A> makefile. (Mike Williams, 20
 <A HREF="os_win32.html#Win32">Win32</A>: Can't complete shell command names.  Why is setting xp_context in
 set_one_cmd_context() inside #ifndef BACKSLASH_IN_FILENAME?
 
-<A HREF="os_win32.html#Win32">Win32</A>: Patch for convert_filterW(). (Taro Muraoka, 2007 Mar 2)
-
 <A HREF="os_win32.html#Win32">Win32</A>: Patch for <A HREF="if_cscop.html#cscope">cscope</A> external command. (Mike Williams, 2007 Aug 7)
 
 <A HREF="os_win32.html#Win32">Win32</A>: XPM support only works with path without spaces.  Patch by Mathias
@@ -1564,7 +1570,7 @@ Patch by Alex Dobrynin, 2007 Jun 3.  Also fixes other scroll wheel problems.
 <A HREF="os_win32.html#Win32">Win32</A>: using CTRL-S in <A HREF="insert.html#Insert">Insert</A> mode doesn't remove the &quot;<A HREF="motion.html#+">+</A>&quot; from the <A HREF="intro.html#tab">tab</A> pages
 label.  (Tsakiridis, 2007 Feb 18)  Patch from Ian Kelling, 2008 Aug 6.
 
-<A HREF="os_win32.html#Win32">Win32</A>: using &quot;<A HREF="starting.html#gvim">gvim</A> <A HREF="remote.html#--remote-tab-silent">--remote-tab-silent</A> fname&quot; sometimes gives an empty screen
+<A HREF="os_win32.html#Win32">Win32</A>: using &quot;gvim <A HREF="remote.html#--remote-tab-silent">--remote-tab-silent</A> fname&quot; sometimes gives an empty screen
 with the more prompt.  Caused by setting the guitablabel?  (Thomas Michael
 Engelke, 2007 Dec 20 - 2008 Jan 17)
 
@@ -1620,9 +1626,6 @@ error.  without <A HREF="remote.html#--remote-silent">--remote-silent</A> <A HRE
 Gvim: <A HREF="gui_w32.html#dialog">dialog</A> for closing Vim should check if Vim is busy <A HREF="editing.html#writing">writing</A> a file.  Then
 use a different <A HREF="gui_w32.html#dialog">dialog</A>: &quot;busy saving, really quit? yes / no&quot;.
 
-Check other interfaces for <A HREF="change.html#changing">changing</A> curbuf in a wrong way.  Patch like for
-if_ruby.c.
-
 &quot;<A HREF="helphelp.html#:helpgrep">:helpgrep</A>&quot; should use the directory from <A HREF="options.html#'helpfile'">'helpfile'</A>.
 
 The need_fileinfo flag is messy.  Instead make the message right away and put
@@ -1640,20 +1643,17 @@ Can this be avoided? (Thomas Waba, 2008 Aug 24)
 Also for &quot;<A HREF="editing.html#:w">:w</A>&quot; without a file name.
 The buffer has the full path in ffname, should pass this to the <A HREF="autocmd.html#autocommand">autocommand</A>.
 
-&quot;vim -C&quot; often has <A HREF="options.html#'nocompatible'">'nocompatible'</A>, because it's set in some <A HREF="starting.html#startup">startup</A> <A HREF="usr_41.html#script">script</A>.
-Set <A HREF="options.html#'compatible'">'compatible'</A> after <A HREF="starting.html#startup">startup</A> is done?  Patch by James Vega, 2008 Feb 7.
-
 <A HREF="eval.html#input()">input()</A> completion should not insert a <A HREF="intro.html#backslash">backslash</A> to <A HREF="intro.html#escape">escape</A> a space in a file
 name?
 
-<A HREF="if_ruby.html#Ruby">Ruby</A> completion is insecure.  Can this be fixed?
+Ruby completion is insecure.  Can this be fixed?
 
 When <A HREF="options.html#'backupskip'">'backupskip'</A> is set from $TEMP special characters need to be escaped.
 (patch by Grembowietz, 2007 Feb 26, not quite right)
 Another problem is that file_pat_to_reg_pat() doesn't recognize &quot;\\&quot;, so &quot;\\(&quot; 
 will be seen <A HREF="motion.html#as">as</A> a path separator plus &quot;\(&quot;.
 
-<A HREF="starting.html#gvim">gvim</A> d:\path\path\(FILE).xml should not remove the \ before the (.
+gvim d:\path\path\(FILE).xml should not remove the \ before the (.
 This also fails with <A HREF="remote.html#--remote">--remote</A>.
 
 When doing &quot;<A HREF="editing.html#:quit">:quit</A>&quot; the Netbeans &quot;killed&quot; event isn't sent.  (Xavier de Gaye,
@@ -1667,8 +1667,6 @@ When unloading a buffer in a <A HREF="autocmd.html#BufHidden">BufHidden</A> <A H
 
 Substituting an area with a line break with almost the same area does change
 the <A HREF="visual.html#Visual">Visual</A> area.  Can this be fixed? (James Vega, 2006 Sept 15)
-
-<A HREF="gui.html#GUI">GUI</A>: When combining fg en bg make sure they are not equal.
 
 Spell checking: Add a way to specify punctuation characters.  Add the
 superscript numbers by default: 0x2070, 0xb9, 0xb2, 0xb3, 0x2074 - 0x2079.
@@ -1693,7 +1691,7 @@ Spell menu: When using the Popup menu to select a replacement <A HREF="motion.ht
 &quot;:spellrepeat&quot; doesn't work.  SpellReplace() uses <A HREF="eval.html#setline()">setline()</A>.  Can <A HREF="motion.html#it">it</A> use &quot;<A HREF="spell.html#z=">z=</A>&quot;
 somehow?  Or use a new function.
 
-<A HREF="os_mac.html#Mac">Mac</A>: Using <A HREF="starting.html#gvim">gvim</A>: <A HREF="pi_netrw.html#netrw">netrw</A> <A HREF="windows.html#window">window</A> disappears. (Nick Lo, 2006 Jun 21)
+<A HREF="os_mac.html#Mac">Mac</A>: Using gvim: <A HREF="pi_netrw.html#netrw">netrw</A> <A HREF="windows.html#window">window</A> disappears. (Nick Lo, 2006 Jun 21)
 
 Add an option to specify the character to use when a double-width character is
 moved to the next line.  Default '<A HREF="change.html#&gt;">&gt;</A>', set to a space to blank <A HREF="motion.html#it">it</A> out.  Check
@@ -1719,7 +1717,7 @@ These two <A HREF="map.html#abbreviations">abbreviations</A> don't give the same
 	cabbr XXX &lt;C-R&gt;=asdfasdf&lt;CR&gt;
 	cabbr YYY xyz&lt;Left&gt;
 
-Michael Dietrich: maximized <A HREF="starting.html#gvim">gvim</A> sometimes displays output of external command
+Michael Dietrich: maximized gvim sometimes displays output of external command
 partly. (2006 Dec 7)
 
 In <A HREF="autocmd.html#FileChangedShell">FileChangedShell</A> command it's no longer allowed to switch to another
@@ -1751,7 +1749,7 @@ Linux distributions:
 - Suggest compiling xterm with --enable-tcap-query, so that nr of colors is
   known to Vim.  88 colors instead of 16 works better.  See &quot;<A HREF="helphelp.html#:help">:help</A>
   xfree-xterm&quot;.
-- Suggest including bare &quot;<A HREF="intro.html#vi">vi</A>&quot; and &quot;vim&quot; with <A HREF="options.html#X11">X11</A>, <A HREF="syntax.html#syntax">syntax</A>, etc.
+- Suggest including bare &quot;<A HREF="intro.html#vi">vi</A>&quot; and &quot;vim&quot; with X11, <A HREF="syntax.html#syntax">syntax</A>, etc.
 
 Completion menu: For a wrapping line, completing a long file name, only the
 start of the path is shown in the menu.  Should move the menu to the right to
@@ -1777,7 +1775,7 @@ Write &quot;making vim work better&quot; for the docs (mostly pointers): *<A NAM
     - sourcing $VIMRUNTIME/vimrc_example.vim
     - setting <A HREF="options.html#'mouse'">'mouse'</A> to &quot;<A HREF="insert.html#a">a</A>&quot;
     - getting colors in xterm
-    - compiling Vim with <A HREF="options.html#X11">X11</A>, <A HREF="gui.html#GUI">GUI</A>, etc.
+    - compiling Vim with X11, <A HREF="gui.html#GUI">GUI</A>, etc.
 
 Problem with &quot;<A HREF="eval.html#:call">:call</A>&quot; and dictionary function. Hari Krishna Dara, Charles
 Campbell 2006 Jul 06.
@@ -1811,8 +1809,8 @@ Using <A HREF="mbyte.html#UTF-8">UTF-8</A> character with &quot;<A HREF="map.htm
 In the Netbeans interface add a &quot;vimeval&quot; function, so that the other side can
 check the result of has(&quot;patch13&quot;).
 
-Cursor line at bottom of <A HREF="windows.html#window">window</A> instead of halfway after saving <A HREF="starting.html#view">view</A> and
-restoring.  Only with <A HREF="options.html#'nowrap'">'nowrap'</A>. (Robert Webb, 2008 Aug 25)
+Cursor line at bottom of <A HREF="windows.html#window">window</A> instead of halfway through after saving view
+and restoring.  Only with <A HREF="options.html#'nowrap'">'nowrap'</A>. (Robert Webb, 2008 Aug 25)
 
 Netrw has trouble executing autocommands only for a directory.  Add &lt;isdir&gt;
 and &lt;notisdir&gt; to <A HREF="autocmd.html#autocommand">autocommand</A> patterns?  Also &lt;isfile&gt;?
@@ -1826,20 +1824,11 @@ resulting in highlighted &quot;<A HREF="motion.html#{">{</A>&quot; in that <A HR
 In <A HREF="gui_w32.html#mswin.vim">mswin.vim</A>: Instead of <A HREF="map.html#mapping">mapping</A> &lt;C-V&gt; for <A HREF="insert.html#Insert">Insert</A> mode in a complicated way,
 can <A HREF="motion.html#it">it</A> be done like &quot;<A HREF="map.html#:imap">:imap</A> &lt;C-V&gt; &lt;MiddleMouse&gt;&quot; without negative side effects?
 
-<A HREF="gui_x11.html#GTK">GTK</A>: when the <A HREF="intro.html#Tab">Tab</A> pages <A HREF="motion.html#bar">bar</A> appears or disappears while the <A HREF="windows.html#window">window</A> is
-maximized the <A HREF="windows.html#window">window</A> is no longer maximized.  Patch that has some idea but
-doesn't work from Geoffrey Antos, 2008 May 5.
-Also: the <A HREF="windows.html#window">window</A> may no longer fit on the screen, thus the command line is not
-visible.
-
 When right after &quot;vim file&quot;, &quot;<A HREF="motion.html#M">M</A>&quot; then <A HREF="vimindex.html#CTRL-W">CTRL-W</A> <A HREF="visual.html#v">v</A> the <A HREF="windows.html#windows">windows</A> are scrolled
 differently and unexpectedly.  Caused by patch 7.2.398?
 
 The magic <A HREF="gui.html#clipboard">clipboard</A> format &quot;VimClipboard2&quot; appears in several places.  Should
 be only one.
-
-&quot;vim -C&quot; often has <A HREF="options.html#'nocompatible'">'nocompatible'</A>, because it's set somewhere in a <A HREF="starting.html#startup">startup</A>
-<A HREF="usr_41.html#script">script</A>.  Do &quot;set compatible&quot; after <A HREF="starting.html#startup">startup</A>?
 
 It's difficult to debug numbered <A HREF="eval.html#functions">functions</A> (function in a <A HREF="eval.html#Dictionary">Dictionary</A>).  Print
 the function name before resolving <A HREF="motion.html#it">it</A> to a number?
@@ -1895,12 +1884,9 @@ Is <A HREF="motion.html#it">it</A> possible to use &quot;foo#var&quot; instead o
 <A HREF="autocmd.html#Syntax">Syntax</A> HL: When using &quot;nextgroup&quot; and the group has an empty match, there is
 no search at that position for another match. (Lukas Mai, 2008 April 11)
 
-In <A HREF="starting.html#gvim">gvim</A> the backspace key produces a backspace character, but on Linux the
+In gvim the backspace key produces a backspace character, but on Linux the
 VERASE key is Delete.  Set VERASE to Backspace? (patch by Stephane Chazelas,
 2007 Oct 16)
-
-<A HREF="autocmd.html#TermResponse">TermResponse</A> <A HREF="autocmd.html#autocommand">autocommand</A> isn't always triggered when using <A HREF="diff.html#vimdiff">vimdiff</A>. (Aron
-Griffis, 2007 Sep 19)
 
 Create a gvimtutor.1 file and change Makefiles to <A HREF="usr_90.html#install">install</A> <A HREF="motion.html#it">it</A>.
 
@@ -1908,12 +1894,7 @@ When <A HREF="options.html#'encoding'">'encoding'</A> is <A HREF="mbyte.html#utf
 typed characters to be redrawn.  Caused by patch 7.1.329. (Tyler Spivey, 2008
 Sep 3, 11)
 
-When Vim in an xterm owns the selection and the user does &quot;<A HREF="various.html#:shell">:shell</A>&quot; Vim doesn't
-respond to selection requests.  Invoking XtDisownSelection() before executing
-the shell doesn't help.  Would require forking and doing a message loop, like
-what happens for the <A HREF="gui.html#GUI">GUI</A>.
-
-<A HREF="options.html#X11">X11</A>: Putting more than about 262040 characters of text on the <A HREF="gui.html#clipboard">clipboard</A> and
+X11: Putting more than about 262040 characters of text on the <A HREF="gui.html#clipboard">clipboard</A> and
 pasting <A HREF="motion.html#it">it</A> in another Vim doesn't work.  (Dominique Pelle, 2008 Aug 21-23)
 clip_x11_request_selection_cb() is called with zero value and length.
 Also: Get an error message from free() in the process that owns the selection.
@@ -1926,9 +1907,6 @@ this, at least for <A HREF="os_unix.html#Unix">Unix</A> (using device/inode)?
 When switching between <A HREF="windows.html#windows">windows</A> the cursor is often put in the middle.
 Remember the relative position and restore that, just like lnum and col are
 restored. (Luc St-Louis)
-
-Patch to support horizontal scroll wheel in <A HREF="gui_x11.html#GTK">GTK</A>. Untested. (Bjorn Winckler,
-2010 Jun 30)
 
 Add an option for a minimal text length before <A HREF="insert.html#inserting">inserting</A> a line break for
 <A HREF="options.html#'textwidth'">'textwidth'</A>.  Avoids very short lines when a very long <A HREF="motion.html#word">word</A> follows.
@@ -1972,7 +1950,7 @@ More patches:
 -   testdir/Make_dos_sh.mak for running tests with MingW. (Bill Mccarthy, 2008
     Sep 13)
 -   Patch for adding &quot;space&quot; item in <A HREF="options.html#'listchars'">'listchars'</A>. (Jérémie Roquet, 2009 Oct 29,
-    Docs patch Oct 30, update David Burgin (glts) 2013 Aug 24)
+    Docs patch Oct 30, update David Burgin (glts) 2013 Aug 24, 2014 Oct 10)
 -   <A HREF="insert.html#Replace">Replace</A> ccomplete.vim by cppcomplete.vim from www.vim.org?  <A HREF="usr_41.html#script">script</A> 1520 by
     Vissale Neang.  (Martin Stubenschrott) Asked Vissale to make the scripts
     more friendly for the Vim <A HREF="intro.html#distribution">distribution</A>.
@@ -1989,9 +1967,6 @@ Awaiting updated patches:
     - Command-key mappings <A HREF="diff.html#do">do</A> not work. (Alan Schmitt)
     - With <A HREF="options.html#'nopaste'">'nopaste'</A> pasting is wrong, with <A HREF="options.html#'paste'">'paste'</A> Command-V doesn't work.
       (Alan Schmitt)
-    - remove <A HREF="options.html#'macatsui'">'macatsui'</A> option when this has been fixed.
-    - when <A HREF="options.html#'macatsui'">'macatsui'</A> is off should we always convert to &quot;macroman&quot; and ignore
-      <A HREF="options.html#'termencoding'">'termencoding'</A>?
 9   HTML indenting can be slow.  Caused by using <A HREF="eval.html#searchpair()">searchpair()</A>.  Can <A HREF="eval.html#search()">search()</A>
     be used instead?  A.Politz is looking into a solution.
 8   <A HREF="os_win32.html#Win32">Win32</A>: Add minidump generation. (George Reilly, 2006 Apr 24)
@@ -2034,15 +2009,15 @@ Awaiting updated patches:
 			    layout and '<A HREF="change.html#c">c</A>' for console <A HREF="gui_w32.html#dialog">dialog</A>. (Haegg)
 			    Flemming Madsen has a patch for the '<A HREF="change.html#c">c</A>' flag
 			    (2003 May 13)
-    raisewin()		raise <A HREF="starting.html#gvim">gvim</A> <A HREF="windows.html#window">window</A> (see HierAssist patch for
-			    <A HREF="if_tcl.html#Tcl">Tcl</A> implementation ~/vim/HierAssist/ )
+    raisewin()		raise gvim <A HREF="windows.html#window">window</A> (see HierAssist patch for
+			    Tcl implementation ~/vim/HierAssist/ )
     <A HREF="eval.html#taglist()">taglist()</A>		add argument to specify maximum number of matches.
 			useful for interactive things or completion.
     col('^')            column of first non-white character.
 			Can use &quot;len(substitute(getline('.'), '\S.*', <A HREF="motion.html#''">''</A>, ''))
 			+ 1&quot;, but that's ugly.
-7   Add patch from Benoit Cerrina to integrate Vim and <A HREF="if_perl.html#Perl">Perl</A> <A HREF="eval.html#functions">functions</A>
-    better.  Now also works for <A HREF="if_ruby.html#Ruby">Ruby</A> (2001 Nov 10)
+7   Add patch from Benoit Cerrina to integrate Vim and Perl <A HREF="eval.html#functions">functions</A>
+    better.  Now also works for Ruby (2001 Nov 10)
 -   Patch from Herculano de Lima Einloft Neto for better <A HREF="change.html#formatting">formatting</A> of the
     <A HREF="quickfix.html#quickfix">quickfix</A> <A HREF="windows.html#window">window</A> (2004 dec 2)
 7   When <A HREF="options.html#'rightleft'">'rightleft'</A> is set, the search <A HREF="pattern.html#pattern">pattern</A> should be displayed right
@@ -2061,8 +2036,6 @@ Awaiting updated patches:
 -   findmatch() should be adjusted for Lisp.  See remark at
     get_lisp_indent().  Esp. \( and \) should be skipped. (Dorai Sitaram,
     incomplete patch Mar 18)
--   For <A HREF="gui.html#GUI">GUI</A> Find/Replace <A HREF="gui_w32.html#dialog">dialog</A> support using a <A HREF="pattern.html#regexp">regexp</A>.  Patch for <A HREF="gui_x11.html#Motif">Motif</A>
-    and <A HREF="gui_x11.html#GTK">GTK</A> by degreneir (nov 10 and nov 18).
 -   Patch for &quot;paranoid mode&quot; by Kevin Collins, March 7.  Needs much more work.
 
 
@@ -2131,227 +2104,6 @@ Awaiting updated patches:
     thing.  (only repeat insert for the first line).
 
 
-<A HREF="gui_x11.html#GTK+">GTK+</A> <A HREF="gui.html#GUI">GUI</A> known bugs:
-9   Crash with X command server over ssh. (Ciaran McCreesh, 2006 Feb 6)
-8   <A HREF="gui_x11.html#GTK">GTK</A> 2: Combining <A HREF="mbyte.html#UTF-8">UTF-8</A> characters not displayed properly in <A HREF="gui.html#menus">menus</A> (Mikolaj
-    Machowski)  They are displayed <A HREF="motion.html#as">as</A> separate characters.  Problem in
-    creating a label?
-8   <A HREF="gui_x11.html#GTK">GTK</A> 2: Combining <A HREF="mbyte.html#UTF-8">UTF-8</A> characters are sometimes not drawn properly.
-    Depends on the font size, &quot;monospace 13&quot; has the problem.  Vim seems to <A HREF="diff.html#do">do</A>
-    everything right, must be a <A HREF="gui_x11.html#GTK">GTK</A> bug.  Is there a way to work around <A HREF="motion.html#it">it</A>?
-9   Can't paste a <A HREF="visual.html#Visual">Visual</A> selection from GTK-gvim to vim in xterm or <A HREF="gui_x11.html#Motif">Motif</A> <A HREF="starting.html#gvim">gvim</A>
-    when <A HREF="motion.html#it">it</A> is longer than 4000 characters.  Works OK from <A HREF="starting.html#gvim">gvim</A> to <A HREF="starting.html#gvim">gvim</A> and
-    vim to vim.  Pasting through xterm (using the <A HREF="intro.html#shift">shift</A> key) also works.
-    It starts working after <A HREF="gui_x11.html#GTK">GTK</A> <A HREF="starting.html#gvim">gvim</A> loses the selection and gains <A HREF="motion.html#it">it</A> again.
--   Gnome2: When moving the toolbar out of the dock, so that <A HREF="motion.html#it">it</A> becomes
-    floating, <A HREF="motion.html#it">it</A> can no longer be moved.  Therefore making <A HREF="motion.html#it">it</A> float has been
-    blocked for now.
-
-
-<A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A> known bugs:
--   <A HREF="os_win32.html#Win32">Win32</A>: tearoff menu <A HREF="windows.html#window">window</A> should have a scrollbar when it's taller than
-    the screen.
-8   On Windows 98 the unicows library is needed to support <A HREF="eval.html#functions">functions</A> with UCS2
-    file names.  Can we load unicows.dll dynamically?
-8   The <A HREF="starting.html#-P">-P</A> argument doesn't work very well with many <A HREF="starting.html#MDI">MDI</A> applications.
-    The last argument of CreateWindowEx() should be used, see MSDN docs.
- Tutorial:	<A HREF="http://win32assembly.online.fr/tut32.html">http://win32assembly.online.fr/tut32.html</A>
-8   In eval.c, io.h is included when MSWIN32 is defined.  Shouldn't this be
-    WIN32?  Or can including io.h be moved to vim.h? (Dan Sharp)
-6   <A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>: With &quot;<A HREF="starting.html#-u">-u</A> NONE <A HREF="starting.html#-U">-U</A> NONE&quot; and doing &quot;<A HREF="vimindex.html#CTRL-W">CTRL-W</A> v&quot; &quot;<A HREF="vimindex.html#CTRL-W">CTRL-W</A> o&quot;, the &quot;<A HREF="cmdline.html#:">:</A>&quot;
-    of &quot;<A HREF="windows.html#:only">:only</A>&quot; is highlighted like the cursor.  (Lipelis)
-8   When <A HREF="options.html#'encoding'">'encoding'</A> is &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot;, should use <A HREF="options.html#'guifont'">'guifont'</A> for both normal and wide
-    characters to make Asian languages work.  <A HREF="os_win32.html#Win32">Win32</A> fonts contain both
-    type of characters.
-7   When font smoothing is enabled, redrawing can become very slow.  The reason
-    appears to be drawing with a transparent background.  Would <A HREF="motion.html#it">it</A> be possible
-    to use an opaque background in most places?
-8   Use another default for <A HREF="options.html#'termencoding'">'termencoding'</A>: the active codepage.  Means that
-    when <A HREF="options.html#'encoding'">'encoding'</A> is changed typing characters still works properly.
-    Alternative: use the <A HREF="mbyte.html#Unicode">Unicode</A> <A HREF="eval.html#functions">functions</A> to obtain typed characters.
-7   The cursor color indicating <A HREF="mbyte.html#IME">IME</A> mode doesn't work properly. (Shizhu Pan,
-    2004 May 9)
-8   <A HREF="os_win32.html#Win32">Win32</A>: When clicking on the <A HREF="starting.html#gvim">gvim</A> title <A HREF="motion.html#bar">bar</A>, which gives <A HREF="motion.html#it">it</A> focus, produces
-    a file-changed <A HREF="gui_w32.html#dialog">dialog</A>, after clicking on a button in that <A HREF="gui_w32.html#dialog">dialog</A> the <A HREF="starting.html#gvim">gvim</A>
-    <A HREF="windows.html#window">window</A> follows the mouse.  The button-up event is lost.  Only with
-    <A HREF="os_win32.html#MS-Windows">MS-Windows</A> 98?
-    Try this: &quot;<A HREF="options.html#:set">:set</A> <A HREF="options.html#'sw'">sw</A> ts&quot;, get enter-prompt, then change the file in a
-    console, go back to Vim and click &quot;<A HREF="editing.html#reload">reload</A>&quot; in the <A HREF="gui_w32.html#dialog">dialog</A> for the changed
-    file: Window moves with the cursor!
-    Put focus event in input buffer and let generic Vim code handle <A HREF="motion.html#it">it</A>?
-8   <A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>: With maximized <A HREF="windows.html#window">window</A>, &quot;<A HREF="options.html#:set">:set</A> go-=r&quot; doesn't use the space that
-    comes available. (Poucet)  It works OK on Win 98 but doesn't work on Win
-    NT 4.0.  Leaves a grey area where the scrollbar was.  &quot;<A HREF="options.html#:set">:set</A> go+=r&quot; also
-    doesn't work properly.
-8   When Vim is minimized and when maximizing <A HREF="motion.html#it">it</A> a file-changed <A HREF="gui_w32.html#dialog">dialog</A> pops
-    up, Vim isn't maximized.  It should be done before the <A HREF="gui_w32.html#dialog">dialog</A>, so that <A HREF="motion.html#it">it</A>
-    appears in the right position. (Webb)
-9   When selecting at the <A HREF="message.html#more-prompt">more-prompt</A> or <A HREF="message.html#hit-enter-prompt">hit-enter-prompt</A>, the right mouse
-    button doesn't give popup menu.
-    At the <A HREF="message.html#hit-enter">hit-enter</A> prompt <A HREF="scroll.html#CTRL-Y">CTRL-Y</A> doesn't work to copy the modeless
-    selection.
-    On the command line, don't get a popup menu for the right mouse button.
-    Let the middle button paste selected text (not the <A HREF="gui.html#clipboard">clipboard</A> but the
-    non-Visual selection)?  Otherwise <A HREF="scroll.html#CTRL-Y">CTRL-Y</A> has to be used to copy the text.
-8   When <A HREF="options.html#'grepprg'">'grepprg'</A> doesn't execute, the error only flashes by, the
-    user can hardly see what is wrong. (Moore)
-    Could use vimrun with an &quot;-nowait&quot; argument to only wait when an error
-    occurs, but &quot;command.com&quot; doesn't return an error code.
-8   When the <A HREF="options.html#'shell'">'shell'</A> cannot be executed, should give an appropriate error msg.
-    Esp. for a <A HREF="change.html#filter">filter</A> command, currently <A HREF="motion.html#it">it</A> only complains the file could not
-    be read.
-7   Add an option to add one pixel column to the character width?  Lucida
-    Console <A HREF="syntax.html#italic">italic</A> is wider than the normal font (&quot;d&quot; overlaps with next char).
-    Opposite of <A HREF="options.html#'linespace'">'linespace'</A>: 'columnspace'.
-7   At the <A HREF="message.html#hit-enter">hit-enter</A> prompt <A HREF="scroll.html#scrolling">scrolling</A> now no longer works.  Need to use the
-    keyboard to get around this.  Pretend <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A> was hit when the user tries to
-    scroll?
-7   Scrollbar width doesn't change when selecting other <A HREF="windows.html#windows">windows</A> appearance.
-    Also background color of Toolbar and rectangle below vert. scrollbar.
-6   Drawing text transparently doesn't seem to work (when drawing part cursor).
-8   CTRL key doesn't always work in combination with ALT key.  It does work
-    for function keys, not for alphabetic characters.  Perhaps this is because
-    CTRL-ALT is used by Windows <A HREF="motion.html#as">as</A> AltGr?
-8   CTRL-- doesn't work for AZERTY, because it's CTRL-[ for QWERTY.  How <A HREF="diff.html#do">do</A> we
-    know which keyboard is being used?
-7   When <A HREF="scroll.html#scrolling">scrolling</A>, and a background color is dithered, the dither <A HREF="pattern.html#pattern">pattern</A>
-    doesn't always join correctly between the scrolled area and the new drawn
-    area (Koloseike).
-8   When gui_init_font() is called with &quot;*&quot;, p_guifont is freed while <A HREF="motion.html#it">it</A> might
-    still be used somewhere.  This is too tricky, <A HREF="diff.html#do">do</A> the font selection first,
-    then set the new font by name (requires putting all logfont parameters in
-    the font name).
-
-
-<A HREF="gui_x11.html#Athena">Athena</A> and <A HREF="gui_x11.html#Motif">Motif</A>:
-6   New <A HREF="gui_x11.html#Motif">Motif</A> toolbar button from Marcin Dalecki:
-    - When the mouse pointer is over an Agide button the red becomes black.
-      Something with the way colors are specified in the .xpm file.
-    - The pixmap is two pixels smaller than <A HREF="motion.html#it">it</A> should be.  The gap is filled
-      with grey instead of the current toolbar background color.
-9   Can configure be changed to disable netbeans if the Xpm library is
-    required and it's missing?
-8   When using the resource &quot;Vim*borderwidth 2&quot; the widgets are positioned
-    wrong.
-9   <A HREF="mbyte.html#XIM">XIM</A> is disabled by default for SGI/IRIX.  Fix <A HREF="mbyte.html#XIM">XIM</A> so that <A HREF="options.html#'imdisable'">'imdisable'</A> can
-    be off by default.
-9   <A HREF="mbyte.html#XIM">XIM</A> doesn't work properly for Athena/Motif. (Yasuhiro Matsumoto)  For now,
-    keep <A HREF="mbyte.html#XIM">XIM</A> active at all times when the input method has the preediting
-    flag.
-8   <A HREF="options.html#X11">X11</A>: A menu that contains an umlaut is truncated at that character.
-    Happens when the <A HREF="mbyte.html#locale">locale</A> is &quot;<A HREF="change.html#C">C</A>&quot;, which uses ASCII instead of IS0-8859-1.
-    Is there a way to use latin1 by default?  Gnome_init() seems to <A HREF="diff.html#do">do</A> this.
-8   Perhaps use fontsets for everything?
-6   When starting in English and switching the language to <A HREF="mbyte.html#Japanese">Japanese</A>, setting
-    the <A HREF="mbyte.html#locale">locale</A> with &quot;<A HREF="mlang.html#:lang">:lang</A>&quot;, <A HREF="options.html#'guifontset'">'guifontset'</A> and &quot;hi menu font=&quot;, <A HREF="change.html#deleting">deleting</A> all
-    <A HREF="gui.html#menus">menus</A> and setting them again, the <A HREF="gui.html#menus">menus</A> don't use the new font.  Most of
-    the tooltips work though...
-7   <A HREF="gui_x11.html#Motif">Motif</A>: when using a file selection <A HREF="gui_w32.html#dialog">dialog</A>, the specified file name is not
-    always used (when specifying a <A HREF="change.html#filter">filter</A> or another directory).
-8   When <A HREF="options.html#'encoding'">'encoding'</A> is different from the current <A HREF="mbyte.html#locale">locale</A> (e.g., <A HREF="mbyte.html#utf-8">utf-8</A>) the
-    menu strings don't work.  Requires conversion from <A HREF="options.html#'encoding'">'encoding'</A> to the
-    current <A HREF="mbyte.html#locale">locale</A>.  Workaround: set <A HREF="options.html#'langmenu'">'langmenu'</A>.
-
-
-<A HREF="gui_x11.html#Athena">Athena</A> <A HREF="gui.html#GUI">GUI</A>:
-9   The first event for any button in the menu or toolbar appears to get lost.
-    The second click on a menu does work.
-9   When dragging the scrollbar thumb very fast, focus is only obtained in
-    the scrollbar itself.  And the thumb is no longer updated when moving
-    through files.
-7   The file selector is not resizable.  With a big font <A HREF="motion.html#it">it</A> is difficult to
-    read long file names. (Schroeder)
-4   Re-write the widget attachments and code so that we will not have to go
-    through and calculate the absolute position of every widget every time the
-    <A HREF="windows.html#window">window</A> is refreshed/changes size.  This will help the &quot;flashing-widgets&quot;
-    problem during a refresh.
-5   When starting <A HREF="starting.html#gvim">gvim</A> with all the default colors and then typing
-    &quot;<A HREF="syntax.html#:hi">:hi</A> Menu guibg=cyan&quot;, the <A HREF="gui.html#menus">menus</A> change color but the background of the
-    pullright pixmap doesn't change colors.
-    If you type &quot;<A HREF="syntax.html#:hi">:hi</A> Menu guibg=cyan font=anyfont&quot;, then the pixmap changes
-    colors <A HREF="motion.html#as">as</A> <A HREF="motion.html#it">it</A> should.
-    Allocating a new pixmap and setting the resource doesn't change the
-    pullright pixmap's colors.  Why?  Possible <A HREF="gui_x11.html#Athena">Athena</A> bug?
-
-
-<A HREF="gui_x11.html#Motif">Motif</A> <A HREF="gui.html#GUI">GUI</A>:
--   gui_mch_browsedir() is missing, <A HREF="eval.html#browsedir()">browsedir()</A> doesn't work nicely.
-7   Use XmStringCreateLocalized() instead of XmStringCreateSimple()?
-    David Harrison says it's OK (it exists in <A HREF="gui_x11.html#Motif">Motif</A> 1.2).
-8   Lesstif: When <A HREF="change.html#deleting">deleting</A> a menu that's torn off, the torn off menu becomes
-    very small instead of disappearing.  When closing <A HREF="motion.html#it">it</A>, Vim crashes.
-    (Phillipps)
-
-
-<A HREF="gui.html#GUI">GUI</A>:
-9   On Solaris, creating the popup menu causes the right mouse button no
-    longer to work for extending the selection. (Halevy)
-9   When running an external program, <A HREF="motion.html#it">it</A> can't always be killed with <A HREF="pattern.html#CTRL-C">CTRL-C</A>.
-    e.g., on Solaris 5.5, when using &quot;<A HREF="various.html#K">K</A>&quot; (Keech).  Other <A HREF="options.html#'guipty'">'guipty'</A> problems on
-    Solaris 2.6. (Marley)
-9   On Solaris: Using a &quot;<A HREF="gui_x11.html#-geometry">-geometry</A>&quot; argument, bigger than the <A HREF="windows.html#window">window</A> where Vim
-    is started from, causes empty lines below the cmdline. (raf)
-8   <A HREF="options.html#X11">X11</A> <A HREF="gui.html#GUI">GUI</A>: When menu is disabled by excluding '<A HREF="motion.html#m">m</A>' from <A HREF="options.html#'guioptions'">'guioptions'</A>, ALT key
-    should not be used to trigger a menu (like the <A HREF="os_win32.html#Win32">Win32</A> version).
-8   When setting <A HREF="options.html#'langmenu'">'langmenu'</A>, <A HREF="motion.html#it">it</A> should be effective immediately.  Store both
-    the English and the translated text in the menu structure.  Re-generate
-    the translation when <A HREF="options.html#'langmenu'">'langmenu'</A> has changed.
-8   Basic flaw in the <A HREF="gui.html#GUI">GUI</A> code: NextScreen is updated before calling
-    gui_write(), but the <A HREF="gui.html#GUI">GUI</A> code relies on NextScreen to represent the state
-    of where <A HREF="motion.html#it">it</A> is processing the output.
-    Need better separation of Vim core and <A HREF="gui.html#GUI">GUI</A> code.
-8   When <A HREF="mbyte.html#fontset">fontset</A> support is enabled, setting <A HREF="options.html#'guifont'">'guifont'</A> to a single font
-    doesn't work.
-8   When translating <A HREF="gui.html#menus">menus</A> ignore the part after the <A HREF="intro.html#Tab">Tab</A>, the shortcut.  So
-    that the same menu item with a different shortcut (e.g., for the <A HREF="os_mac.html#Mac">Mac</A>) are
-    still translated.
-8   Add way to specify the file <A HREF="change.html#filter">filter</A> for the browse <A HREF="gui_w32.html#dialog">dialog</A>.  At least for
-    <A HREF="eval.html#browse()">browse()</A>.
-8   Add <A HREF="gui_w32.html#dialog">dialog</A> for search/replace to other GUIs?  Tk has something for this,
-    use that code?  Or use console <A HREF="gui_w32.html#dialog">dialog</A>.
-8   When selecting a font with the font <A HREF="gui_w32.html#dialog">dialog</A> and the font is invalid, the
-    error message disappears too quick.
-7   More features in the find/replace <A HREF="gui_w32.html#dialog">dialog</A>:
-    - <A HREF="pattern.html#regexp">regexp</A> on/off
-    - search in selection/buffer/all buffers/directory
-       when all buffers/directory is used:
-	- <A HREF="change.html#filter">filter</A> for file name
-       when directory is used:
-	- subdirectory on/off
-	- top directory browser
-8   gui_check_colors() is not called at the right moment.  Do <A HREF="motion.html#it">it</A> much later,
-    to avoid problems.
-8   gui_update_cursor() is called for a cursor shape change, even when there
-    are mappings to be processed.  Only <A HREF="diff.html#do">do</A> something when going to wait for
-    input.  Or maybe every 100 ms?
-8   <A HREF="options.html#X11">X11</A>: When the <A HREF="windows.html#window">window</A> size is reduced to fit on screen, there are blank
-    lines below the text and bottom scrollbar.  &quot;<A HREF="starting.html#gvim">gvim</A> <A HREF="gui_x11.html#-geometry">-geometry</A> 80x78+0+0&quot;.
-    When the &quot;+0+0&quot; is omitted <A HREF="motion.html#it">it</A> works.
-8   When starting an external command, and <A HREF="options.html#'guipty'">'guipty'</A> set, BS and DEL are mixed
-    up.  Set erase character somehow?
-8   A dead circumflex followed by a space should give the '<A HREF="motion.html#^">^</A>' character
-    (Rommel).  Look how xterm does this.
-    Also: Bednar has some code for dead key handling.
-    Also: Nedit 5.0.2 with USE_XMIM does <A HREF="motion.html#it">it</A> right. (Gaya)
-8   The compose key doesn't work properly (Cepas).  Both for <A HREF="os_win32.html#Win32">Win32</A> and <A HREF="options.html#X11">X11</A>.
-7   The cursor in an inactive <A HREF="windows.html#window">window</A> should be hollow.  Currently it's not
-    visible.
-7   <A HREF="gui.html#GUI">GUI</A> on Solaris 2.5.1, using /usr/dt/..: When <A HREF="starting.html#gvim">gvim</A> starts, cursor is
-    hollow, after <A HREF="windows.html#window">window</A> lowered/raised it's OK. (Godfrey)
-7   When starting <A HREF="gui.html#GUI">GUI</A> with &quot;<A HREF="gui_x11.html#:gui">:gui</A>&quot;, and <A HREF="windows.html#window">window</A> is made smaller because <A HREF="motion.html#it">it</A>
-    doesn't fit on the screen, there is an extra redraw.
-8   When setting font with <A HREF="gui_x11.html#.Xdefaults">.Xdefaults</A>, there is an extra empty line at the
-    bottom, which disappears when using &quot;<A HREF="options.html#:set">:set</A> <A HREF="options.html#'guifont'">guifont</A>=&lt;Tab&gt;&quot;. (Chadzelek)
-8   When font shape changes, but not the size, doing &quot;<A HREF="options.html#:set">:set</A> font=&quot; does not
-    redraw the screen with the new font.  Also for <A HREF="os_win32.html#Win32">Win32</A>.
-    When the size changes, on Solaris 2.5 there isn't a redraw for the
-    remaining part of the <A HREF="windows.html#window">window</A> (Phillipps).
--   Flashes really badly in certain cases when running remotely from a Sun.
-4   Re-write the code so that the highlighting isn't changed multiple times
-    when doing a &quot;<A HREF="syntax.html#:hi">:hi</A> clear&quot;.  The color changes happen three or more times
-    currently.  This is very obvious on a 66Mhz 486.
-
-
 MSDOS and <A HREF="os_win32.html#Win32">Win32</A>:
 8   Should $USERPROFILE be preferred above $HOMEDRIVE/$HOMEPATH?  No, but it's
     a good fallback, thus use:
@@ -2414,9 +2166,8 @@ Windows 95:
 
 
 <A HREF="os_mac.html#Macintosh">Macintosh</A>:
--   <A HREF="gui.html#GUI">GUI</A>: gui_mch_browsedir() is missing.
-7   Loading the <A HREF="if_perl.html#Perl">Perl</A> library only works on OS/X <A HREF="usr_10.html#10.2">10.2</A> or <A HREF="usr_10.html#10.3">10.3</A>, never on both.
-    Load the <A HREF="if_perl.html#Perl">Perl</A> library dynamically see <A HREF="if_pyth.html#Python">Python</A> sources file dynload_mac
+7   Loading the Perl library only works on OS/X <A HREF="usr_10.html#10.2">10.2</A> or <A HREF="usr_10.html#10.3">10.3</A>, never on both.
+    Load the Perl library dynamically see <A HREF="if_pyth.html#Python">Python</A> sources file dynload_mac
     (Jack)
  dynamic linking:	<A HREF="http://developer.apple.com/technotes/tn2002/tn2064.html">http://developer.apple.com/technotes/tn2002/tn2064.html</A>
 8   <A HREF="eval.html#inputdialog()">inputdialog()</A> doesn't resize when giving more text lines. (David Fishburn,
@@ -2481,9 +2232,9 @@ Windows 95:
     character. (Yasuhiro Matsumoto)  It should return 1 when used on a tail
     byte, like for <A HREF="mbyte.html#utf-8">utf-8</A>.  Store second byte of double-byte in ScreenLines2[]
     (like for DBCS_JPNU) and put a zero in the second byte (like for <A HREF="mbyte.html#UTF-8">UTF-8</A>).
-7   Inside a function with &quot;<A HREF="if_perl.html#perl">perl</A> &lt;&lt;EOF&quot; a line with &quot;$i++&quot; is recognized <A HREF="motion.html#as">as</A> an
+7   Inside a function with &quot;perl &lt;&lt;EOF&quot; a line with &quot;$i++&quot; is recognized <A HREF="motion.html#as">as</A> an
     &quot;<A HREF="insert.html#:insert">:insert</A>&quot; command, causing the following &quot;endfunction&quot; not to be found.
-    Add skipping this <A HREF="if_perl.html#perl">perl</A> construction inside function <A HREF="intro.html#definitions">definitions</A>.
+    Add skipping this perl construction inside function <A HREF="intro.html#definitions">definitions</A>.
 7   When <A HREF="options.html#'ttimeoutlen'">'ttimeoutlen'</A> is 10 and <A HREF="options.html#'timeoutlen'">'timeoutlen'</A> is 1000, there is a keycode
     &quot;&lt;Esc&gt;a&quot; and a <A HREF="map.html#mapping">mapping</A> &lt;Esc&gt;x&quot;, when typing &quot;&lt;Esc&gt;a&quot; with half a second
     delay should not be interpreted <A HREF="motion.html#as">as</A> a keycode. (Hans Ginzel)
@@ -2592,12 +2343,12 @@ Windows 95:
     background (forked), so that Vim starts up quicker?  Connect <A HREF="motion.html#as">as</A> soon <A HREF="motion.html#as">as</A>
     the <A HREF="gui.html#clipboard">clipboard</A> is to be used (Visual select mode starts, paste from
     <A HREF="gui.html#clipboard">clipboard</A>)
-7   <A HREF="options.html#X11">X11</A>: Some people prefer to use CLIPBOARD instead of PRIMARY for the normal
+7   X11: Some people prefer to use CLIPBOARD instead of PRIMARY for the normal
     selection.  Add an &quot;xclipboard&quot; argument to the <A HREF="options.html#'clipboard'">'clipboard'</A> option? (Mark
     Waggoner)
 8   For xterm need to open a connection to the X server to get the <A HREF="windows.html#window">window</A>
     title, which can be slow.  Can also get the title with &quot;&lt;Esc&gt;[21t&quot;, no
-    need to use <A HREF="options.html#X11">X11</A> calls.  This returns &quot;&lt;Esc&gt;]l{title}&lt;Esc&gt;\&quot;.
+    need to use X11 calls.  This returns &quot;&lt;Esc&gt;]l{title}&lt;Esc&gt;\&quot;.
 6   When the xterm reports the number of colors, a redraw occurs.  This is
     annoying on a slow connection.  Wait for the xterm to report the number of
     colors before drawing the screen.  With a timeout.
@@ -2671,7 +2422,7 @@ Windows 95:
     changed since last read.  Can we use a function that uses GMT?
 7   When completing an environment variable after a '<A HREF="motion.html#$">$</A>', check for file names
     that contain a '<A HREF="motion.html#$">$</A>' after all have been found.
-8   When &quot;cm&quot; <A HREF="term.html#termcap">termcap</A> entry is missing, starting <A HREF="starting.html#gvim">gvim</A> shouldn't complain about
+8   When &quot;cm&quot; <A HREF="term.html#termcap">termcap</A> entry is missing, starting gvim shouldn't complain about
     <A HREF="motion.html#it">it</A>. (Lohner)  Try out with &quot;vt100&quot; entry, cm replaced with cX.
 7   When an include file starts with &quot;../&quot;, the check for already visiting
     this file doesn't work.  Need to simplify the file name.
@@ -2694,16 +2445,6 @@ I can't reproduce these (if you can, let me know how!):
 
 
 Problems that will (probably) not be solved:
--   <A HREF="gui_x11.html#GTK">GTK</A>: when using the popup menu with spelling suggestions and releasing the
-    right mouse button before the menu appears selecting an item with the
-    right mouse button has no effect.  <A HREF="gui_x11.html#GTK">GTK</A> does not produce an event for this.
--   <A HREF="gui_x11.html#GTK">GTK</A> 2: Cannot use the file selector.  When using <A HREF="motion.html#it">it</A> many things become
-    slow.  This is caused by some code in <A HREF="gui_x11.html#GTK">GTK</A> that writes
-    ~/.recently-used.xbel every time an event is handled.  It assumes the main
-    loop is never quit, which is a wrong assumption.  Also, <A HREF="motion.html#it">it</A> overwrites the
-    file with different file permissions, which is a privacy issue.  This
-    needs to be fixed in <A HREF="gui_x11.html#GTK">GTK</A>.  A solution in Vim would be really complicated.
-    (2008 Jul 31)  This appears to be fixed in Vim 7.3.
 -   xterm title: The following scenario may occur (esp. when running the Vim
     test script): Vim 1 sets the title to &quot;file1&quot;, then restores the title to
     &quot;xterm&quot; with an ESC sequence when exiting.  Vim 2 obtains the old title
@@ -2718,12 +2459,6 @@ Problems that will (probably) not be solved:
 -   X <A HREF="windows.html#windows">windows</A>: When $DISPLAY points to a X server where there is no access
     permission, trying to connect to the X server causes an error message.
     XtOpenDisplay() prints this directly, there is no way to avoid <A HREF="motion.html#it">it</A>.
--   X <A HREF="windows.html#windows">windows</A>: Setting <A HREF="options.html#'guifontset'">'guifontset'</A> to an illegal value sometimes crashes Vim.
-    This is caused by a fault in a X library function, can't be solved in Vim.
--   <A HREF="os_win32.html#Win32">Win32</A> <A HREF="if_tcl.html#tcl">tcl</A>: has(&quot;tcl&quot;) hangs when the tcl84.dll is from cygwin.
--   <A HREF="gui_x11.html#Motif">Motif</A>: When adding a menu item &quot;Find this &amp;Symbol&quot;, the &quot;<A HREF="change.html#s">s</A>&quot; in &quot;this&quot; will
-    be underlined, instead of in &quot;Symbol&quot;.  <A HREF="gui_x11.html#Motif">Motif</A> doesn't let us specify which
-    character gets the highlighting.
 -   Moving the cursor removes color in <A HREF="syntax.html#color-xterm">color-xterm</A>.  This is a <A HREF="syntax.html#color-xterm">color-xterm</A>
     problem!  <A HREF="syntax.html#color-xterm">color-xterm</A> ver. 6.1 beta 3 and later work properly.
 -   In zsh, &quot;gvim&amp;&quot; changes the terminal settings.  This is a zsh problem.
@@ -2743,13 +2478,6 @@ Problems that will (probably) not be solved:
     &quot;&#37;p1&quot; is interpreted <A HREF="motion.html#as">as</A> &quot;&#37;p&quot; and &quot;1&quot;, causing color not to be working.
     Fix: Change the &quot;&#37;p1&quot; in the &quot;AF&quot; and &quot;AB&quot; <A HREF="term.html#terminfo">terminfo</A> entries to &quot;&#37;p&quot;.
     (Benzinger).
--   When running an external command from the <A HREF="gui.html#GUI">GUI</A>, typeahead is going to that
-    program, not to Vim.  It looks like the shell eats the characters, Vim
-    can't get back what the external command didn't use.
--   <A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>: Error code from external command not returned in shell_error.
-    It appears that cmd.exe and command.com don't return an error code.
--   <A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>: The Toolbar is a bit too high when the flat style is being
-    used.  We don't have <A HREF="intro.html#control">control</A> over the height of the Toolbar.
 -   <A HREF="os_win32.html#Win32">Win32</A>: All files created on the day of switching from winter to summer
     time cause &quot;changed since editing started&quot; <A HREF="message.html#messages">messages</A>.  It goes away when
     the file is written again the next day, or the timezone is adjusted.
@@ -2762,26 +2490,6 @@ Problems that will (probably) not be solved:
 -   <A HREF="os_win32.html#Win32">Win32</A>, <A HREF="os_win32.html#MS-Windows">MS-Windows</A>: expanding plugin/**/*.vim also picks up
     dir/ctags.vim,v.  This is because the short file name is something like
     &quot;ctags~1.vim&quot; and that matches the <A HREF="pattern.html#pattern">pattern</A>.
--   SunOS 5.5.1 with <A HREF="gui_x11.html#Motif">Motif</A>: The file open <A HREF="gui_w32.html#dialog">dialog</A> does not have a horizontal
-    scroll <A HREF="motion.html#bar">bar</A> for the &quot;files&quot; selection.  This is a problem in the <A HREF="gui_x11.html#Motif">Motif</A>
-    libraries, get a patch from Sun.
--   Solaris 2.6 with <A HREF="gui_x11.html#GTK">GTK</A> and <A HREF="if_perl.html#Perl">Perl</A>: <A HREF="starting.html#gvim">gvim</A> crashes when started.  Problem with X
-    input method called from GDK code.  Without <A HREF="if_perl.html#Perl">Perl</A> <A HREF="motion.html#it">it</A> doesn't crash.
--   <A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>: mouse wheel always scrolls rightmost <A HREF="windows.html#window">window</A>.  The events arrive
-    in Vim <A HREF="motion.html#as">as</A> if the rightmost scrollbar was used.
--   <A HREF="gui_x11.html#GTK">GTK</A> with <A HREF="gui_x11.html#Gnome">Gnome</A>: Produces an error message when starting up:
-	Gdk-WARNING **: <A HREF="mbyte.html#locale">locale</A> not supported by C library
-    This is caused by the gnome library gnome_init() setting $LC_CTYPE to
-    &quot;en_US&quot;.  Not all systems support this <A HREF="mbyte.html#locale">locale</A> name, thus causing the
-    error.  Hopefully a newer version of GTK/Gnome fixes this problem.
--   <A HREF="gui_x11.html#GTK">GTK</A> 2: With this <A HREF="map.html#mapping">mapping</A> the <A HREF="message.html#hit-enter">hit-enter</A> prompt is _sometimes_ below the
-    screen, at other times there is a grey area below the command line:
-	<A HREF="map.html#:nmap">:nmap</A> <A HREF="term.html#&lt;F11&gt;">&lt;F11&gt;</A> <A HREF="eval.html#:if">:if</A> &amp;guioptions=~'m' \| set guioptions-=m \| else \| set guioptions+=m \| endif&lt;cr&gt;
--   <A HREF="gui_x11.html#GTK">GTK</A>: When pasting a selection from Vim to xclipboard <A HREF="starting.html#gvim">gvim</A> crashes with a
-    ABRT signal.  Probably an error in the file gdkselection.c, the assert
-    always fails when XmbTextListToTextProperty() fails. (Tom Allard)
--   <A HREF="gui_x11.html#GTK">GTK</A> 2: gives an assertion error for every non-builtin icon in the toolbar.
-    This is a <A HREF="gui_x11.html#GTK">GTK</A> 2.4.x bug, fixed in <A HREF="gui_x11.html#GTK">GTK</A> 2.4.2. (Thomas de Grenier de Latour)
 -   When using an xterm that supports the termresponse feature, and the <A HREF="term.html#'t_Co'">'t_Co'</A>
     <A HREF="term.html#termcap">termcap</A> option was wrong when Vim started, <A HREF="motion.html#it">it</A> will be corrected when the
     termresponse is received.  Since the number of colors changes, the
@@ -2824,23 +2532,18 @@ Most interesting new features to be added when all bugs have been fixed:
     Especially when using the scrollbar.  Typing a cursor-movement command
     scrolls back to where the cursor is.
 -   Scroll commands by screen line. <A HREF="vimindex.html#g">g</A> <A HREF="scroll.html#CTRL-E">CTRL-E</A> and <A HREF="vimindex.html#g">g</A> <A HREF="scroll.html#CTRL-Y">CTRL-Y</A> ?  Requires the
-    first line to be able to start halfway.
--   Running a shell command from the <A HREF="gui.html#GUI">GUI</A> still has limitations.  Look into how
-    the terminal emulator of the Vim shell project can help:
-	<A HREF="http://vimshell.wana.at">http://vimshell.wana.at</A>
+    first line to be able to start halfway through.
 8   Add a command to jump to a certain kind of <A HREF="tagsrch.html#tag">tag</A>.  Allow the user to specify
     values for the optional fields.  E.g., &quot;<A HREF="tagsrch.html#:tag">:tag</A> size type=m&quot;.
     Also allow specifying the file and command, so that the result of
     <A HREF="eval.html#taglist()">taglist()</A> can be used.
--   <A HREF="options.html#X11">X11</A>: Make <A HREF="motion.html#it">it</A> possible to run Vim inside a <A HREF="windows.html#window">window</A> of another program.
+-   X11: Make <A HREF="motion.html#it">it</A> possible to run Vim inside a <A HREF="windows.html#window">window</A> of another program.
     This can be done with XReparentWindow().  But how exactly?
 
 
 Documentation:
 8   <A HREF="eval.html#List">List</A> of Vim runtime directories.  dotvim.txt from Charles Campbell, 2007
     Feb 20.
-8   The <A HREF="gui.html#GUI">GUI</A> help should explain the Find and Find/Replace dialogs.  Add a link
-    to <A HREF="motion.html#it">it</A> from &quot;<A HREF="change.html#:promptrepl">:promptrepl</A>&quot; and &quot;<A HREF="change.html#:promptfind">:promptfind</A>&quot;.
 8   <A HREF="eval.html#List">List</A> of <A HREF="options.html#options">options</A> should mention whether environment <A HREF="eval.html#variables">variables</A> are expanded
     or not.
 8   Extend <A HREF="usr_27.html#usr_27.txt">usr_27.txt</A> a bit. (Adam Seyfarth)
@@ -2869,7 +2572,7 @@ Help:
     <A HREF="pattern.html#pattern">pattern</A>.  And then match <A HREF="motion.html#it">it</A> <A HREF="motion.html#as">as</A> part of a <A HREF="tagsrch.html#tag">tag</A>.
 -   When a help item has multiple matches make <A HREF="motion.html#it">it</A> possible to use &quot;<A HREF="tagsrch.html#:tn">:tn</A>&quot; to go
     to the other matches.
--   Support a way to <A HREF="starting.html#view">view</A> (and edit) .info files.
+-   Support a way to view (and edit) .info files.
 -   Default <A HREF="map.html#mapping">mapping</A> for help files: <A HREF="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</A> to position cursor on next |<A HREF="tagsrch.html#:tag">:tag</A>|.
 -   Implement a &quot;sticky&quot; help <A HREF="windows.html#window">window</A>, some help text lines that are always
     displayed in a <A HREF="windows.html#window">window</A> with fixed height. (Guckes)  Use &quot;~/.vimhelp&quot; file,
@@ -2907,8 +2610,8 @@ Help:
     item?).
     Alternative: use <A HREF="autocmd.html#BufEnter">BufEnter</A> and <A HREF="autocmd.html#BufLeave">BufLeave</A> autocommands.
 7   Add the arguments for configure to the &quot;<A HREF="various.html#:version">:version</A>&quot; output?
-7   When Vim detects a file is being edited elsewhere and it's a <A HREF="starting.html#gvim">gvim</A> session
-    of the same user <A HREF="motion.html#it">it</A> should offer a &quot;Raise&quot; button, so that the other <A HREF="starting.html#gvim">gvim</A>
+7   When Vim detects a file is being edited elsewhere and it's a gvim session
+    of the same user <A HREF="motion.html#it">it</A> should offer a &quot;Raise&quot; button, so that the other gvim
     <A HREF="windows.html#window">window</A> can be displayed. (Eduard)
 8   Support saving and restoring session for X <A HREF="windows.html#windows">windows</A>?  It should work to <A HREF="diff.html#do">do</A>
     &quot;<A HREF="starting.html#:mksession">:mksession</A>&quot; and use &quot;<A HREF="starting.html#-S">-S</A> fname&quot; for the restart command.  The
@@ -3134,10 +2837,6 @@ Multi-byte characters:
     <A HREF="options.html#'display'">'display'</A> option to specify this.
 7   Use ideas for nl_langinfo() from Markus Kuhn in enc_default():
     (www.cl.cam.ac.uk/~mgk25/ucs/langinfo.c)
--   <A HREF="gui_x11.html#GTK">GTK</A> and <A HREF="os_win32.html#Win32">Win32</A>: Allow selecting fonts for <A HREF="options.html#'guifontset'">'guifontset'</A> with the
-    fontselector somehow.
--   <A HREF="gui_x11.html#GTK">GTK</A> and <A HREF="os_win32.html#Win32">Win32</A>: make <A HREF="motion.html#it">it</A> possible to set the font for the menu to make <A HREF="motion.html#it">it</A>
-    possible to have <A HREF="options.html#'encoding'">'encoding'</A> different from the current <A HREF="mbyte.html#locale">locale</A>.
 -   dbcs_class() only works for <A HREF="mbyte.html#Japanese">Japanese</A> and <A HREF="mbyte.html#Korean">Korean</A>.  Implement this for
     other encodings.  The &quot;euc-jp&quot; and &quot;euc-kr&quot; choices might be wrong.
 -   Find some way to automatically select the right <A HREF="gui.html#GUI">GUI</A> font or <A HREF="mbyte.html#fontset">fontset</A>,
@@ -3357,7 +3056,7 @@ Built-in <A HREF="usr_41.html#script">script</A> language:
 8   &quot;:{range}source&quot;: source the lines from the current file.
 	You can already <A HREF="change.html#yank">yank</A> lines and use :@&quot; to execute them.
 	Most of do_source() would not be used, need a new function.
-	It's <A HREF="starting.html#easy">easy</A> when not doing breakpoints or <A HREF="repeat.html#profiling">profiling</A>.
+	It's easy when not doing breakpoints or <A HREF="repeat.html#profiling">profiling</A>.
     Requires <A HREF="uganda.html#copying">copying</A> the lines into a <A HREF="eval.html#list">list</A> and then creating a function to
     execute lines from the <A HREF="eval.html#list">list</A>.  Similar to getnextac().
 7   &quot;:include&quot; command: just like &quot;<A HREF="repeat.html#:source">:source</A>&quot; but doesn't start a new scriptID?
@@ -3416,7 +3115,7 @@ Built-in <A HREF="usr_41.html#script">script</A> language:
 	attributes()		return file protection flags &quot;drwxrwxrwx&quot;
 	filecopy(from, to)	Copy a file
 	shorten(fname)		shorten a file name, like home_replace()
-	perl(cmd)		call <A HREF="if_perl.html#Perl">Perl</A> and return <A HREF="eval.html#string">string</A>
+	perl(cmd)		call Perl and return <A HREF="eval.html#string">string</A>
 	inputrl()		like <A HREF="eval.html#input()">input()</A> but right-to-left
 	typed()			return the characters typed and consumed (to
 				find out what happened)
@@ -3507,8 +3206,6 @@ Performance:
     default, instead of using the block size of the device, because the swap
     file is created only after setting the block size in mf_open().  How can
     this be improved?
-8   Set default for <A HREF="options.html#'ttyscroll'">'ttyscroll'</A> to half a screen height?  Should speed up
-    MS-DOS version. (Negri)
 7   C <A HREF="syntax.html#syntax">syntax</A> highlighting gets a lot slower after &quot;<A HREF="options.html#:set">:set</A> <A HREF="options.html#'foldmethod'">foldmethod</A>=syntax&quot;.
     (Charles Campbell)  Inserting a &quot;<A HREF="motion.html#{">{</A>&quot; is very slow. (dman)
 7   HTML <A HREF="syntax.html#syntax">syntax</A> highlighting is slow for long lines.  Try displaying
@@ -3676,9 +3373,9 @@ Autoconf:
 -   Set default for <A HREF="options.html#'dictionary'">'dictionary'</A>, add search for dictionary to autoconf.
 
 
-<A HREF="if_perl.html#Perl">Perl</A> interface:
+Perl interface:
 8   Rename typemap file to something else?
-7   Make <A HREF="windows.html#buffers">buffers</A> accessed <A HREF="motion.html#as">as</A> <A HREF="if_perl.html#Perl">Perl</A> arrays. (Clark)
+7   Make <A HREF="windows.html#buffers">buffers</A> accessed <A HREF="motion.html#as">as</A> Perl arrays. (Clark)
 7   Make <A HREF="motion.html#it">it</A> possible to compile with non-ANSI C?
 6   Tcl/Tk has the &quot;load&quot; command: load a shared library (.so or .dll).
 
@@ -3691,7 +3388,7 @@ Shared libraries:
 	:libcall internal-name function(arg1, arg2, <A HREF="eval.html#...">...</A>)
 	:libcall function(arg1, arg2, <A HREF="eval.html#...">...</A>)
     <A HREF="eval.html#libcall()">libcall()</A> can have only one integer or String argument at the moment.
-6   Have a look on how <A HREF="if_perl.html#Perl">Perl</A> handles loading dynamic libraries.
+6   Have a look on how Perl handles loading dynamic libraries.
 
 
 Tags:
@@ -3742,120 +3439,6 @@ Tags:
 7   Better support for jumping to where a function or variable is used.  Use
     the id-utils, with a connection to &quot;gid&quot; (Emacs can <A HREF="diff.html#do">do</A> <A HREF="motion.html#it">it</A> too).  Add
     &quot;:idselect&quot;, which uses an &quot;ID&quot; database (made by &quot;mkid&quot;) like &quot;tselect&quot;.
-
-
-<A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>:
-8   Make debug mode work while starting up (vim <A HREF="starting.html#-D">-D</A>).  Open console <A HREF="windows.html#window">window</A> for
-    the message and input?
-7   GvimExt: when there are several existing Vims, move the <A HREF="eval.html#list">list</A> to a submenu.
-    (Mike McCollister)
-8   When using &quot;Edit with Vim&quot; for one file <A HREF="motion.html#it">it</A> changes directory, when several
-    files are selected and using &quot;Edit with single Vim&quot; the directory isn't
-    changed.  At least change directory when the path is the same for all
-    files.  Perhaps just use the path of the first file or use the longest
-    common part of the path.
-8   Add font argument to set the lfCharSet. (Bobcik)
-8   Somehow automatically detect the system language and set $LANG, so that
-    gettext and <A HREF="gui.html#menus">menus</A> work.
-8   Could keep console open to run multiple commands, to avoid the need to hit
-    return in every console.
-    Also: Look at how Emacs does run external commands:
-	<A HREF="http://www.cs.washington.edu/homes/voelker/ntemacs.html">http://www.cs.washington.edu/homes/voelker/ntemacs.html</A>.
-8   Need a separate PopUp menu for modeless selection.  Need two new commands:
-    Copy selection to <A HREF="gui.html#clipboard">clipboard</A>, Paste selection (as typed text).
-8   Support copy/paste for other file formats.  At least HTML, perhaps RTF.
-    Add &quot;copy special&quot; and &quot;paste special&quot; commands?
-7   Use different default colors, to match the current Windows color scheme.
-    Sys_WindowText, Sys_Window, etc. (Lionel Schaffhauser)
-7   Use &lt;C-Tab&gt; to cycle through open <A HREF="windows.html#windows">windows</A> (e.g., the find <A HREF="gui_w32.html#dialog">dialog</A>).
-7   <A HREF="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</A> should close a <A HREF="gui_w32.html#dialog">dialog</A>.
-7   Keep the console for external commands open.  Don't wait for a key to be
-    hit.  Re-open <A HREF="motion.html#it">it</A> when the user has closed <A HREF="motion.html#it">it</A> anyway.  Or use a prepended
-    command: &quot;:nowait {cmd}&quot;, or &quot;:quiet&quot;, which executes {cmd} without any
-    prompts.
-7   Should be able to set an option so that when you double click a file that
-    is associated with Vim, you can either get a new instance of Vim, or have
-    the file added into an already running Vim.
-7   The &quot;<A HREF="starting.html#-P">-P</A>&quot; argument only works for the current codepage.  Use wide
-    <A HREF="eval.html#functions">functions</A> to find the <A HREF="windows.html#window">window</A> title.
-
-
-<A HREF="gui.html#GUI">GUI</A>:
--   &lt;C--&gt; cannot be mapped.  Should be possible to recognize this <A HREF="motion.html#as">as</A> a
-    normal &quot;<A HREF="motion.html#-">-</A>&quot; with the Ctrl modifier.
-7   Implement &quot;<A HREF="gui.html#:popup">:popup</A>&quot; for other systems than Windows.
-8   Implement &quot;<A HREF="gui_w32.html#:tearoff">:tearoff</A>&quot; for other systems than <A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A>.
-6   Implement &quot;:untearoff&quot;: hide a torn-off menu.
-8   When using the scrollbar to scroll, don't move the cursor position.  When
-    moving the cursor: scroll to the cursor position.
-9   Make <A HREF="os_dos.html#&lt;S-Insert&gt;">&lt;S-Insert&gt;</A> paste from the <A HREF="gui.html#clipboard">clipboard</A> by default. (Kunze)
-7   Menu local to a buffer, like mappings.  Or local to a <A HREF="filetype.html#filetype">filetype</A>?
-8   In Buffers menu, add a choice whether selecting a buffer opens <A HREF="motion.html#it">it</A> in the
-    current <A HREF="windows.html#window">window</A>, splits the <A HREF="windows.html#window">window</A> or uses &quot;<A HREF="windows.html#:hide">:hide</A>&quot;.
-8   Dragging the mouse pointer outside of a Vim Window should make the text
-    scroll.  Return a value from gui_send_mouse_event() to the machine
-    specific code to indicate the time in which the event should be repeated.
-8   Make <A HREF="motion.html#it">it</A> possible to ignore a mouse click when it's used to give Vim (gvim)
-    <A HREF="windows.html#window">window</A> focus.  Also when a mouse click is used to bring a <A HREF="windows.html#window">window</A> to front.
-8   Make the split into system independent code and system specific code more
-    explicit.  There are too many #ifdefs in gui.c.
-    If possible, separate the Vim code completely from the <A HREF="gui.html#GUI">GUI</A> code, to allow
-    running them in separate processes.
-7   <A HREF="options.html#X11">X11</A>: Support cursorColor resource and &quot;-cr&quot; argument.
-8   <A HREF="options.html#X11">X11</A> (and others): CTRL-; is not different from '<A HREF="motion.html#;">;</A>'.  Set the modifier mask
-    to include CTRL for keys where CTRL produces the same ASCII code.
-7   Add some code to handle proportional fonts on more systems?  Need to draw
-    each character separately (like xterm).  Also for when a double-width font
-    is not exactly double-width. (Maeda)
-8   Should take font from xterm where <A HREF="starting.html#gvim">gvim</A> was started (if no other default).
-8   Selecting font names in <A HREF="options.html#X11">X11</A> is difficult, make a <A HREF="usr_41.html#script">script</A> or something to
-    select one.
-8   <A HREF="visual.html#Visual">Visual</A> highlighting should keep the same font (bold, <A HREF="syntax.html#italic">italic</A>, etc.).
-8   Add flag to <A HREF="options.html#'guioptions'">'guioptions'</A> to not put anything in the <A HREF="gui.html#clipboard">clipboard</A> at all?
-8   Should support a way to use keys that we don't recognize yet.  Add a
-    command that adds entries to special_keys somehow.	How <A HREF="diff.html#do">do</A> we make this
-    portable (X11, <A HREF="os_win32.html#Win32">Win32</A>, ..)?
-7   Add a flag to <A HREF="options.html#'guioptions'">'guioptions'</A> that tells not to remove inactive menu items.
-    For systems where greying-out or removing menu items is very slow.  The
-    menu items would remain visibly normally, but not <A HREF="diff.html#do">do</A> anything.
-7   Add &quot;:minimize&quot; and &quot;:maximize&quot;, which <A HREF="starting.html#iconize">iconize</A> the <A HREF="windows.html#window">window</A> and back.
-    Useful when using <A HREF="starting.html#gvim">gvim</A> to run a <A HREF="usr_41.html#script">script</A> (e.g. <A HREF="syntax.html#2html.vim">2html.vim</A>).
-7   <A HREF="options.html#X11">X11</A>: Is <A HREF="motion.html#it">it</A> possible to free allocated colors, so that other programs can
-    use them again?  Otherwise, allow disabling allocating the default colors.
-    Or allocate an own colormap (check UAE).  With an option to use <A HREF="motion.html#it">it</A>.  For
-    the commandline, &quot;-install&quot; is mostly used for <A HREF="options.html#X11">X11</A> programs.
-7   Add command line argument for &quot;<A HREF="starting.html#gvim">gvim</A>&quot; not to start the <A HREF="gui.html#GUI">GUI</A>.  Sort of the
-    <A HREF="syntax.html#inverse">inverse</A> of &quot;vim -g&quot;. (Vikas)
-7   Should support multi-column <A HREF="gui.html#menus">menus</A>.
--   Should add option for where to put the &quot;Help&quot; menu: like <A HREF="gui_x11.html#Motif">Motif</A> at the far
-    right, or with the other <A HREF="gui.html#menus">menus</A> (but still at the right).
--   Add menu item to &quot;Keep <A HREF="insert.html#Insert">Insert</A> mode&quot;.
-8   &quot;:mkgvimrc&quot; command, that includes <A HREF="gui.html#menus">menus</A>.
-6   Big change: Move <A HREF="gui.html#GUI">GUI</A> to separate program &quot;vimgui&quot;, to make <A HREF="starting.html#startup">startup</A> of vim a
-    lot faster, but still be able to <A HREF="diff.html#do">do</A> &quot;vim -g&quot; or &quot;<A HREF="gui_x11.html#:gui">:gui</A>&quot;.
-7   More explicit mouse button binding instead of <A HREF="options.html#'mousemodel'">'mousemodel'</A>?
-7   Add option to set the position of the <A HREF="windows.html#window">window</A> on the screen.  'windowpos',
-    which has a value of &quot;123,456&quot;: &lt;x&gt;,&lt;y&gt;.
-    Or add a command, like &quot;<A HREF="gui.html#:winsize">:winsize</A>&quot;?
-7   Add toolbar for more GUIs.
-8   Make <A HREF="motion.html#it">it</A> possible to use &quot;amenu icon=BuiltIn##&quot;, so that the toolbar item
-    name can be chosen free.
-7   Make <A HREF="motion.html#it">it</A> possible to put the toolbar on top, left, right and/or bottom of
-    the <A HREF="windows.html#window">window</A>?  Allows for softkey-like use.
-6   Separate the part of Vim that does the editing from the part that runs the
-    <A HREF="gui.html#GUI">GUI</A>.  Communicate through a pseudo-tty.  Vim starts up, creates a
-    pty that is connected to the terminal.  When the <A HREF="gui.html#GUI">GUI</A> starts, the pty is
-    reconnected to the <A HREF="gui.html#GUI">GUI</A> process.  When the <A HREF="gui.html#GUI">GUI</A> stops, <A HREF="motion.html#it">it</A> is connected to
-    the terminal again.  Also use the pty for external processes, <A HREF="motion.html#it">it</A> looks
-    like a vt100 terminal to them.  Vim uses extra commands to communicate <A HREF="gui.html#GUI">GUI</A>
-    things.
-7   <A HREF="gui_x11.html#Motif">Motif</A>: For a <A HREF="eval.html#confirm()">confirm()</A> <A HREF="gui_w32.html#dialog">dialog</A> <A HREF="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</A> should be ignored when no default
-    button selected, <A HREF="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</A> should close the <A HREF="gui_w32.html#dialog">dialog</A>.
-7   When using a pseudo-tty Vim should behave like some terminal (vt52 looks
-    simple enough).  Terminal codes to/from shell should be translated.
--   Would <A HREF="motion.html#it">it</A> be useful to be able to quit the <A HREF="gui.html#GUI">GUI</A> and go back to the terminal
-    where <A HREF="motion.html#it">it</A> was started from?
-7   Support &quot;-visual &lt;type&gt;&quot; command line argument.
 
 
 Autocommands:
@@ -3951,7 +3534,7 @@ Omni completion:
     mix <A HREF="motion.html#it">it</A> with other kinds of completion).
 -   Ideas from the Vim 7 BOF at SANE:
 	- For interpreted languages, use the interpreter to obtain information.
-	  Should work for Java (Eclipse does this), <A HREF="if_pyth.html#Python">Python</A>, <A HREF="if_tcl.html#Tcl">Tcl</A>, etc.
+	  Should work for Java (Eclipse does this), <A HREF="if_pyth.html#Python">Python</A>, Tcl, etc.
 	  Richard Emberson mentioned working on an interface to Java.
 	- Check Readline for its completion interface.
 -   Ideas from others:
@@ -3960,12 +3543,12 @@ Omni completion:
 	<A HREF="http://sourceforge.net/projects/insenvim">http://sourceforge.net/projects/insenvim</A>
  or	<A HREF="http://insenvim.sourceforge.net">http://insenvim.sourceforge.net</A>
 	    Java, XML, HTML, C++, JSP, SQL, C#
-	    <A HREF="os_win32.html#MS-Windows">MS-Windows</A> only, lots of dependencies (e.g. <A HREF="if_perl.html#Perl">Perl</A>, Internet
+	    <A HREF="os_win32.html#MS-Windows">MS-Windows</A> only, lots of dependencies (e.g. Perl, Internet
 		explorer), uses .dll shared libraries.
 	    For C++ uses $INCLUDE environment var.
-	    Uses <A HREF="if_perl.html#Perl">Perl</A> for C++.
+	    Uses Perl for C++.
 	    Uses <A HREF="tagsrch.html#ctags">ctags</A> to find the info:
-		<A HREF="tagsrch.html#ctags">ctags</A> <A HREF="starting.html#-f">-f</A> $allTagsFile --fields=+aiKmnsSz --language-force=C++ --C++-kinds=+cefgmnpsut-dlux <A HREF="starting.html#-u">-u</A> $files
+		<A HREF="tagsrch.html#ctags">ctags</A> -f $allTagsFile --fields=+aiKmnsSz --language-force=C++ --C++-kinds=+cefgmnpsut-dlux <A HREF="starting.html#-u">-u</A> $files
 	www.vim.org <A HREF="usr_41.html#script">script</A> 1213 (Java Development Environment) (Fuchuan Wang)
  IComplete:	<A HREF="http://www.vim.org/scripts/script.php?script_id=1265">http://www.vim.org/scripts/script.php?script_id=1265</A>
  and	<A HREF="http://stud4.tuwien.ac.at/~e0125672/icomplete/">http://stud4.tuwien.ac.at/~e0125672/icomplete/</A>
@@ -3977,7 +3560,6 @@ Omni completion:
 
 
 <A HREF="insert.html#Insert">Insert</A> mode completion/expansion:
--   <A HREF="gui.html#GUI">GUI</A> implementation of the popup menu.
 7   When searching in other files the name flash by, too fast to read.  Only
     display a name every second or so, like with &quot;<A HREF="quickfix.html#:vimgrep">:vimgrep</A>&quot;.
 7   When expanding file names with an environment variable, add the match with
@@ -4040,7 +3622,7 @@ Command line editing:
     completion to be done: &quot;file&quot;, &quot;<A HREF="tagsrch.html#tag">tag</A>&quot;, &quot;custom&quot;, etc.
 -   Add flags to <A HREF="options.html#'whichwrap'">'whichwrap'</A> for command line editing (cursor right at end of
     lines wraps to start of line).
--   Make editing the command line work like <A HREF="insert.html#Insert">Insert</A> mode in a single-line <A HREF="starting.html#view">view</A>
+-   Make editing the command line work like <A HREF="insert.html#Insert">Insert</A> mode in a single-line view
     on a buffer that contains the command line <A HREF="cmdline.html#history">history</A>.  But this has many
     disadvantages, only implement <A HREF="motion.html#it">it</A> when these can be solved.  <A HREF="intro.html#Elvis">Elvis</A> has run
     into these, see remarks from Steve (~/Mail/oldmail/kirkendall/in.00012).
@@ -4461,7 +4043,7 @@ Searching:
     search for a phrase.
 8   Add a mechanism for recursiveness: &quot;\@(([^()]*\@g[^()]*)\)&quot;.  \@g stands
     for &quot;go recursive here&quot; and \@( \) marks the recursive part.
-    <A HREF="if_perl.html#Perl">Perl</A> does <A HREF="motion.html#it">it</A> this way:
+    Perl does <A HREF="motion.html#it">it</A> this way:
 	    $paren = qr/ \(( [^()] &#124; (??{ $paren }) )* \) /x;
     Here $paren is evaluated when it's encountered.  This is like a <A HREF="pattern.html#regexp">regexp</A>
     inside a <A HREF="pattern.html#regexp">regexp</A>.  In the above terms <A HREF="motion.html#it">it</A> would be:
@@ -4484,7 +4066,7 @@ Searching:
     <A HREF="eval.html#search()">search()</A>. (Brett)
 7   Add a flag to &quot;/pat/&quot; to <A HREF="editing.html#discard">discard</A> an error.  Useful to continue a <A HREF="map.html#mapping">mapping</A>
     when a search fails.  Could be &quot;/pat/E&quot; (e is already used for end offset).
-7   Add <A HREF="pattern.html#pattern">pattern</A> item to use properties of <A HREF="mbyte.html#Unicode">Unicode</A> characters.  In <A HREF="if_perl.html#Perl">Perl</A> it's
+7   Add <A HREF="pattern.html#pattern">pattern</A> item to use properties of <A HREF="mbyte.html#Unicode">Unicode</A> characters.  In Perl it's
     &quot;\p{L}&quot; for a <A HREF="print.html#letter">letter</A>.  See Regular Expression Pocket Reference.
 8   Would <A HREF="motion.html#it">it</A> be possible to allow &quot;:23,45/pat/flags&quot; to search for &quot;pat&quot; in
     lines 23 to 45?  Or does this conflict with <A HREF="intro.html#Ex">Ex</A> range <A HREF="syntax.html#syntax">syntax</A>?
@@ -4497,7 +4079,7 @@ Searching:
 -   For &quot;<A HREF="motion.html#&#37;">&#37;</A>&quot; command: set hierarchy for which things include other things that
     should be ignored (like &quot;*/&quot; or &quot;#endif&quot; inside /* */).
     Also: use &quot;<A HREF="motion.html#&#37;">&#37;</A>&quot; to jump from start to end of <A HREF="syntax.html#syntax">syntax</A> region and back.
-    Alternative: use matchit.vim
+    Alternative: use <A HREF="pi_matchit.html#matchit.vim">matchit.vim</A>
 8   &quot;/:/e+1&quot; gets stuck on a match at the end of the line.  Do we care?
 8   A <A HREF="pattern.html#pattern">pattern</A> like &quot;\([^a]\+\)\+&quot; takes an awful long time.  Recognize that
     the recursive &quot;\+&quot; is meaningless and optimize for <A HREF="motion.html#it">it</A>.
@@ -4518,7 +4100,7 @@ Searching:
     of the <A HREF="windows.html#windows">windows</A>.
 -   Add \&#37;h{group-name}; to search for a specific highlight group.
     Add \&#37;s{syntax-group}; to search for a specific <A HREF="syntax.html#syntax">syntax</A> group.
--   Support <A HREF="if_perl.html#Perl">Perl</A> <A HREF="pattern.html#regexp">regexp</A>.  Use PCRE (Perl Compatible RE) package. (Shade)
+-   Support Perl <A HREF="pattern.html#regexp">regexp</A>.  Use PCRE (Perl Compatible RE) package. (Shade)
     Or translate the <A HREF="pattern.html#pattern">pattern</A> to a Vim one.
     Don't switch on with an option for typed commands/mappings/functions, it's
     too confusing.  Use &quot;\@@&quot; in the <A HREF="pattern.html#pattern">pattern</A>, to avoid incompatibilities.
@@ -4532,11 +4114,11 @@ Searching:
 -   Add flags to search command (also for &quot;:s&quot;?):
     <A HREF="insert.html#i">i</A>	ignore <A HREF="change.html#case">case</A>
     I	use <A HREF="change.html#case">case</A>
-    <A HREF="change.html#p">p</A>	use <A HREF="if_perl.html#Perl">Perl</A> <A HREF="pattern.html#regexp">regexp</A> <A HREF="syntax.html#syntax">syntax</A> (or POSIX?)
+    <A HREF="change.html#p">p</A>	use Perl <A HREF="pattern.html#regexp">regexp</A> <A HREF="syntax.html#syntax">syntax</A> (or POSIX?)
     <A HREF="visual.html#v">v</A>	use <A HREF="intro.html#Vi">Vi</A> <A HREF="pattern.html#regexp">regexp</A> <A HREF="syntax.html#syntax">syntax</A>
     <A HREF="motion.html#f">f</A>	forget <A HREF="pattern.html#pattern">pattern</A>, don't keep <A HREF="motion.html#it">it</A> for &quot;<A HREF="pattern.html#n">n</A>&quot; command
     <A HREF="motion.html#F">F</A>   remember <A HREF="pattern.html#pattern">pattern</A>, keep <A HREF="motion.html#it">it</A> for &quot;<A HREF="pattern.html#n">n</A>&quot; command
-    <A HREF="if_perl.html#Perl">Perl</A> uses these too:
+    Perl uses these too:
     <A HREF="motion.html#e">e</A>	evaluate the right side <A HREF="motion.html#as">as</A> an <A HREF="eval.html#expression">expression</A> (Perl only)
     <A HREF="motion.html#m">m</A>	multiple line <A HREF="eval.html#expression">expression</A> (we don't need <A HREF="motion.html#it">it</A>)
     <A HREF="insert.html#o">o</A>	compile only once (Perl only)
@@ -4776,7 +4358,7 @@ External commands:
     and Vim doesn't need to redraw <A HREF="motion.html#it">it</A>.  Also for &quot;<A HREF="insert.html#:r">:r</A> !cmd&quot;.
 4   Set separate shell for &quot;<A HREF="various.html#:sh">:sh</A>&quot;, piping &quot;range!filter&quot;, reading text &quot;<A HREF="change.html#r">r</A> !ls&quot;
     and <A HREF="editing.html#writing">writing</A> text &quot;<A HREF="motion.html#w">w</A> !wc&quot;. (Deutsche)  Allow arguments for fast start (e.g.
-    <A HREF="starting.html#-f">-f</A>).
+    -f).
 4   Allow direct execution, without using a shell.
 4   Run an external command in the background.  But how about I/O in the <A HREF="gui.html#GUI">GUI</A>?
     Careful: don't turn Vim into a shell!
@@ -4993,7 +4575,7 @@ Various improvements:
     Overrules the default of &quot;<A HREF="remote.html#--remote-send">--remote-send</A>&quot; to fail and &quot;<A HREF="remote.html#--remote">--remote</A>&quot; to <A HREF="diff.html#do">do</A> <A HREF="motion.html#it">it</A>
     in this Vim.
 8   When Vim was started without a server, make <A HREF="motion.html#it">it</A> possible to start one, <A HREF="motion.html#as">as</A>
-    if the &quot;<A HREF="remote.html#--servername">--servername</A>&quot; argument was given.  &quot;:startserver &lt;name&gt;&quot;?
+    if the &quot;<A HREF="eval.html#--servername">--servername</A>&quot; argument was given.  &quot;:startserver &lt;name&gt;&quot;?
 8   No address range can be used before the command modifiers.  This makes
     them difficult to use in a menu for <A HREF="visual.html#Visual">Visual</A> mode.  Accept the range and
     have <A HREF="motion.html#it">it</A> apply to the following command.
@@ -5116,7 +4698,7 @@ Various improvements:
 			used, remove the <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A> at the end of lines in <A HREF="cmdline.html#[range]">[range]</A>.
 			A <A HREF="starting.html#CTRL-Z">CTRL-Z</A> at the end of the file is removed.  If
 			<A HREF="cmdline.html#[range]">[range]</A> is omitted, or <A HREF="motion.html#it">it</A> is the whole file, and all
-			lines end in <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A> 'textmode' is set.  {not in Vi}
+			lines end in <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A> 'textmode' is set.
 -   Should integrate addstar() and file_pat_to_reg_pat().
 -   When working over a serial line with 7 bit characters, remove <A HREF="intro.html#meta">meta</A>
     characters from <A HREF="options.html#'isprint'">'isprint'</A>.
@@ -5173,8 +4755,6 @@ Various improvements:
     sufficient.  &quot;:setflush&quot; resets the option stack?
     How to handle an aborted <A HREF="map.html#mapping">mapping</A>?  Remember position in <A HREF="tagsrch.html#tag">tag</A> stack when
     <A HREF="map.html#mapping">mapping</A> starts, restore <A HREF="motion.html#it">it</A> when an error aborts the <A HREF="map.html#mapping">mapping</A>?
--   Change &quot;<A HREF="options.html#:fixdel">:fixdel</A>&quot; into option 'fixdel', t_del will be adjusted each time
-    t_bs is set? (Webb)
 -   &quot;gc&quot;: goto character, move absolute character positions forward, also
     counting newlines.  &quot;gC&quot; goes backwards (Weigert).
 -   When doing <A HREF="editing.html#CTRL-^">CTRL-^</A>, redraw buffer with the same topline. (Demirel)  Store
@@ -5269,7 +4849,7 @@ Various improvements:
 -   When <A HREF="editing.html#writing">writing</A> check for file exists but no permission, &quot;Permission denied&quot;.
 -   If file does not exist, check if directory exists.
 -   MSDOS: although t_cv and t_ci are not set, <A HREF="diff.html#do">do</A> invert char under cursor.
--   Settings edit mode: make file with &quot;<A HREF="options.html#:set">:set</A> opt=xx&quot;, edit <A HREF="motion.html#it">it</A>, parse <A HREF="motion.html#it">it</A> <A HREF="motion.html#as">as</A> <A HREF="starting.html#ex">ex</A>
+-   Settings edit mode: make file with &quot;<A HREF="options.html#:set">:set</A> opt=xx&quot;, edit <A HREF="motion.html#it">it</A>, parse <A HREF="motion.html#it">it</A> <A HREF="motion.html#as">as</A> ex
     commands.
 -   &quot;<A HREF="options.html#:set">:set</A> <A HREF="starting.html#-w">-w</A> all&quot;: <A HREF="eval.html#list">list</A> one option per line.
 -   :table command (Webb)
@@ -5342,7 +4922,7 @@ From <A HREF="intro.html#Elvis">Elvis</A>:
 
 From xvi:
 -   CTRL-_ : swap 8th bit of character.
--   Add egrep-like regex type, like xvi (Ned Konz) or <A HREF="if_perl.html#Perl">Perl</A> (Emmanuel Mogenet)
+-   Add egrep-like regex type, like xvi (Ned Konz) or Perl (Emmanuel Mogenet)
 
 
 From vile:
@@ -5357,7 +4937,7 @@ Far future and &quot;big&quot; extensions:
     like an Aap recipe and configure.in to C.  Avoids depending on <A HREF="if_pyth.html#Python">Python</A>,
     thus will work everywhere.  With batch file to find the C compiler <A HREF="motion.html#it">it</A>
     would also work on <A HREF="os_win32.html#MS-Windows">MS-Windows</A>.
--   Make <A HREF="motion.html#it">it</A> <A HREF="starting.html#easy">easy</A> to setup Vim for groups of users: novice <A HREF="intro.html#vi">vi</A> users, novice
+-   Make <A HREF="motion.html#it">it</A> easy to setup Vim for groups of users: novice <A HREF="intro.html#vi">vi</A> users, novice
     Vim users, C programmers, xterm users, <A HREF="gui.html#GUI">GUI</A> users,...
 -   Change layout of blocks in swap file: Text at the start, with '\n' in
     between lines (just load the file without changes, except for <A HREF="os_mac.html#Mac">Mac</A>).
@@ -5403,7 +4983,7 @@ empty line would appear.
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

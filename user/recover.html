@@ -157,7 +157,6 @@ command:
 			flag is present in <A HREF="options.html#'cpoptions'">'cpoptions'</A> the swap file will not
 			be deleted for this buffer when Vim exits and the
 			buffer is still loaded |<A HREF="options.html#cpo-&amp;">cpo-&amp;</A>|.
-			{Vi: might also exit}
 
 A Vim swap file can be recognized by the first six characters: &quot;b0VIM &quot;.
 After that comes the version number, e.g., &quot;3.0&quot;.
@@ -192,7 +191,7 @@ there are exceptions:
 Basic file <A HREF="#recovery">recovery</A> is explained in the user manual: |<A HREF="usr_11.html">usr_11.txt</A>|.
 
 Another way to <A HREF="diff.html#do">do</A> <A HREF="#recovery">recovery</A> is to start Vim and use the &quot;<A HREF="#:recover">:recover</A>&quot; command.
-This is <A HREF="starting.html#easy">easy</A> when you start Vim to edit a file and you get the &quot;ATTENTION:
+This is easy when you start Vim to edit a file and you get the &quot;ATTENTION:
 Found a swap file ...&quot; message.  In this <A HREF="change.html#case">case</A> the single command &quot;<A HREF="#:recover">:recover</A>&quot;
 will <A HREF="diff.html#do">do</A> the work.  You can also give the name of the file or the swap file to
 the recover command:
@@ -226,8 +225,6 @@ recovered file.  Or use |<A HREF="diff.html#:DiffOrig">:DiffOrig</A>|.
 Once you are sure the <A HREF="#recovery">recovery</A> is ok delete the swap file.  Otherwise, you
 will continue to get warning <A HREF="message.html#messages">messages</A> that the &quot;.swp&quot; file already exists.
 
-{Vi: recovers in another way and sends mail if there is something to recover}
-
 
 <A HREF="#top">top</A> - <A HREF="index.html">main help file</A>
 </PRE>
@@ -235,7 +232,7 @@ will continue to get warning <A HREF="message.html#messages">messages</A> that t
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:35 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

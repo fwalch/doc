@@ -59,9 +59,9 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 							*<A NAME=":redr"></A><B>:redr</B>* *<A NAME=":redraw"></A><B>:redraw</B>*
 :redr[aw][!]		Redraw the screen right now.  When ! is included <A HREF="motion.html#it">it</A> is
 			cleared first.
-			Useful to update the screen halfway executing a <A HREF="usr_41.html#script">script</A>
-			or function.  Also when halfway a <A HREF="map.html#mapping">mapping</A> and
-			<A HREF="options.html#'lazyredraw'">'lazyredraw'</A> is set.
+			Useful to update the screen halfway through executing
+			a <A HREF="usr_41.html#script">script</A> or function (or a <A HREF="map.html#mapping">mapping</A> if <A HREF="options.html#'lazyredraw'">'lazyredraw'</A>
+			set).
 
 
 						*<A NAME=":redraws"></A><B>:redraws</B>* *<A NAME=":redrawstatus"></A><B>:redrawstatus</B>*
@@ -77,9 +77,7 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 			Note: if you like to use <A HREF="motion.html#&lt;BS&gt;">&lt;BS&gt;</A> for this, add this
 			<A HREF="map.html#mapping">mapping</A> to your <A HREF="starting.html#.vimrc">.vimrc</A>:
 <B>				:map CTRL-V &lt;BS&gt;   CTRL-V &lt;Del&gt;</B>
- 			See |<A HREF="options.html#:fixdel">:fixdel</A>| if your <A HREF="change.html#&lt;Del&gt;">&lt;Del&gt;</A> key does not <A HREF="diff.html#do">do</A> what you
-			want.
-
+ 
 
 :as[cii]	or					*<A NAME="ga"></A><B>ga</B>* *<A NAME=":as"></A><B>:as</B>* *<A NAME=":ascii"></A><B>:ascii</B>*
 <A HREF="#ga">ga</A>			Print the ascii value of the character under the
@@ -99,7 +97,7 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 <B><FONT color="#54A23D">				&lt;^@&gt;  0,  Hex 00,  Octal 000 </FONT></B>
 			If the character has composing characters these are
 			also shown.  The value of <A HREF="options.html#'maxcombine'">'maxcombine'</A> doesn't matter.
-			Mnemonic: Get Ascii value.  {not in Vi}
+			Mnemonic: Get ASCII value.
 
 
 							*<A NAME="g8"></A><B>g8</B>*
@@ -109,8 +107,6 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 			value of <A HREF="options.html#'maxcombine'">'maxcombine'</A> doesn't matter.
 			Example of a character with two composing characters:
 <B><FONT color="#54A23D">				e0 b8 81 + e0 b8 b9 + e0 b9 89 </FONT></B>
-			{not in Vi} {only when compiled with the |<A HREF="#+multi_byte">+multi_byte</A>|
-			feature}
 
 
 							*<A NAME="8g8"></A><B>8g8</B>*
@@ -124,10 +120,8 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 			encoding because <A HREF="motion.html#it">it</A> contains illegal bytes.
 			Does not wrap around the end of the file.
 			Note that when the cursor is on an illegal byte or the
-			cursor is halfway a <A HREF="mbyte.html#multi-byte">multi-byte</A> character the command
-			won't move the cursor.
-			{not in Vi} {only when compiled with the |<A HREF="#+multi_byte">+multi_byte</A>|
-			feature}
+			cursor is halfway through a <A HREF="mbyte.html#multi-byte">multi-byte</A> character the
+			command won't move the cursor.
 
 
 						*<A NAME=":p"></A><B>:p</B>* *<A NAME=":pr"></A><B>:pr</B>* *<A NAME=":print"></A><B>:print</B>* *<A NAME="E749"></A><B>E749</B>*
@@ -262,9 +256,7 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 
 			Example:
 <B>				:exe "normal \&lt;c-w&gt;\&lt;c-w&gt;"</B>
- 			{not in <A HREF="intro.html#Vi">Vi</A>, of course}
-			{not available when the |<A HREF="#+ex_extra">+ex_extra</A>| feature was
-			disabled at compile time}
+ 
 
 
 :{range}norm[al][!] {commands}				*<A NAME=":normal-range"></A><B>:normal-range</B>*
@@ -273,17 +265,32 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 			cursor is positioned in the first column of the range,
 			for each line.  Otherwise it's the same <A HREF="motion.html#as">as</A> the
 			&quot;<A HREF="#:normal">:normal</A>&quot; command without a range.
-			{not in Vi}
-			{not available when |<A HREF="#+ex_extra">+ex_extra</A>| feature was disabled
-			at compile time}
 
 
 						  *<A NAME=":sh"></A><B>:sh</B>* *<A NAME=":shell"></A><B>:shell</B>* *<A NAME="E371"></A><B>E371</B>* *<A NAME="E360"></A><B>E360</B>*
-:sh[ell]		Removed. {Nvim}
+:sh[ell]		Removed. |<A HREF="vim_diff.html#vim-differences">vim-differences</A>| {Nvim}
+
+
+						  *<A NAME=":term"></A><B>:term</B>* *<A NAME=":terminal"></A><B>:terminal</B>*
+:term[inal][!] {cmd}	Spawns {cmd} using the current value of <A HREF="options.html#'shell'">'shell'</A> and
+			<A HREF="options.html#'shellcmdflag'">'shellcmdflag'</A> in a new terminal buffer.  This is
+			equivalent to:
+
+<B>			      :enew</B>
+<B>			      :call termopen([&amp;sh, &amp;shcf, '{cmd}'],</B>
+<B>			                    \{'name':'{cmd}'})</B>
+<B>			      :startinsert</B>
+ 
+			If no {cmd} is given, <A HREF="options.html#'shellcmdflag'">'shellcmdflag'</A> will not be sent
+			to |<A HREF="eval.html#termopen()">termopen()</A>|.
+
+			Like |<A HREF="editing.html#:enew">:enew</A>|, <A HREF="motion.html#it">it</A> will fail if the current buffer is
+			modified, but can be forced with &quot;<A HREF="change.html#!">!</A>&quot;.  See |<A HREF="eval.html#termopen()">termopen()</A>|
+			and |<A HREF="nvim_terminal_emulator.html#nvim-terminal-emulator">nvim-terminal-emulator</A>| for more information.
 
 
 							*<A NAME=":!cmd"></A><B>:!cmd</B>* *<A NAME=":!"></A><B>:!</B>* *<A NAME="E34"></A><B>E34</B>*
-:!{cmd}			Execute {cmd} with the shell. See also <A HREF="options.html#'shell'">'shell'</A>.
+:!{cmd}			Execute {cmd} with <A HREF="options.html#'shell'">'shell'</A>. See also |<A HREF="#:terminal">:terminal</A>|.
 
 			Any '<A HREF="change.html#!">!</A>' in {cmd} is replaced with the previous
 			external command (see also <A HREF="options.html#'cpoptions'">'cpoptions'</A>).  But not when
@@ -327,7 +334,6 @@ Various commands					*<A NAME="various"></A><B>various</B>*
  			The screen is not redrawn then, thus you have to use
 			<A HREF="#CTRL-L">CTRL-L</A> or &quot;:redraw!&quot; if the command did display
 			something.
-			Also see |<A HREF="tips.html#shell-window">shell-window</A>|.
 
 
 							*<A NAME=":!!"></A><B>:!!</B>*
@@ -373,10 +379,6 @@ N  *<A NAME="+autocmd"></A><B>+autocmd</B>*		|<A HREF="autocmd.html#:autocmd">:a
 
 N  *<A NAME="+browse"></A><B>+browse</B>*		|<A HREF="editing.html#:browse">:browse</A>| command
 
-N  *<A NAME="+builtin_terms"></A><B>+builtin_terms</B>*	some terminals builtin |<A HREF="term.html#builtin-terms">builtin-terms</A>|
-
-<A HREF="motion.html#B">B</A>  *<A NAME="++builtin_terms"></A><B>++builtin_terms</B>*	maximal terminals builtin |<A HREF="term.html#builtin-terms">builtin-terms</A>|
-
 N  *<A NAME="+byte_offset"></A><B>+byte_offset</B>*	support for '<A HREF="insert.html#o">o</A>' flag in <A HREF="options.html#'statusline'">'statusline'</A> option, &quot;go&quot;
 			and &quot;<A HREF="motion.html#:goto">:goto</A>&quot; commands.
 
@@ -410,13 +412,9 @@ N  *<A NAME="+dialog_con"></A><B>+dialog_con</B>*	Support for |<A HREF="editing.
 
 N  *<A NAME="+dialog_con_gui"></A><B>+dialog_con_gui</B>*	Support for |<A HREF="editing.html#:confirm">:confirm</A>| with <A HREF="gui.html#GUI">GUI</A> and console <A HREF="gui_w32.html#dialog">dialog</A>.
 
-N  *<A NAME="+diff"></A><B>+diff</B>*		|<A HREF="diff.html#vimdiff">vimdiff</A>| and <A HREF="options.html#'diff'">'diff'</A>
-
 N  *<A NAME="+digraphs"></A><B>+digraphs</B>*		|<A HREF="digraph.html#digraphs">digraphs</A>| *<A NAME="E196"></A><B>E196</B>*
 
    *<A NAME="+dnd"></A><B>+dnd</B>*		Support for DnD into the &quot;~ <A HREF="sponsor.html#register">register</A> |<A HREF="change.html#quote_~">quote_~</A>|.
-
-<A HREF="motion.html#B">B</A>  *<A NAME="+emacs_tags"></A><B>+emacs_tags</B>*	|<A HREF="tagsrch.html#emacs-tags">emacs-tags</A>| files
 
 N  *<A NAME="+eval"></A><B>+eval</B>*		<A HREF="eval.html#expression">expression</A> evaluation |<A HREF="eval.html#eval.txt">eval.txt</A>|
 
@@ -437,8 +435,6 @@ N  *<A NAME="+folding"></A><B>+folding</B>*		|<A HREF="fold.html#folding">foldin
    *<A NAME="+footer"></A><B>+footer</B>*		|<A HREF="debugger.html#gui-footer">gui-footer</A>|
 
    *<A NAME="+fork"></A><B>+fork</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: |<A HREF="os_unix.html#fork">fork</A>| shell commands
-
-   *<A NAME="+float"></A><B>+float</B>*		Floating point support
 
 N  *<A NAME="+gettext"></A><B>+gettext</B>*		message translations |<A HREF="mlang.html#multi-lang">multi-lang</A>|
 
@@ -473,10 +469,6 @@ N  *<A NAME="+listcmds"></A><B>+listcmds</B>*		Vim commands for the <A HREF="eva
 
 N  *<A NAME="+localmap"></A><B>+localmap</B>*		Support for mappings local to a buffer |<A HREF="map.html#:map-local">:map-local</A>|
 
-<A HREF="motion.html#m">m</A>  *<A NAME="+lua"></A><B>+lua</B>*		|<A HREF="if_lua.html#Lua">Lua</A>| interface
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+lua/dyn"></A><B>+lua/dyn</B>*		|<A HREF="if_lua.html#Lua">Lua</A>| interface |<A HREF="#/dyn">/dyn</A>|
-
 N  *<A NAME="+menu"></A><B>+menu</B>*		|<A HREF="gui.html#:menu">:menu</A>|
 
 N  *<A NAME="+mksession"></A><B>+mksession</B>*		|<A HREF="starting.html#:mksession">:mksession</A>|
@@ -487,34 +479,13 @@ N  *<A NAME="+mouse"></A><B>+mouse</B>*		Mouse handling |<A HREF="term.html#mous
 
 N  *<A NAME="+mouseshape"></A><B>+mouseshape</B>*	|<A HREF="options.html#'mouseshape'">'mouseshape'</A>|
 
-<A HREF="motion.html#B">B</A>  *<A NAME="+mouse_dec"></A><B>+mouse_dec</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: Dec terminal mouse handling |<A HREF="options.html#dec-mouse">dec-mouse</A>|
-
-N  *<A NAME="+mouse_gpm"></A><B>+mouse_gpm</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: Linux console mouse handling |<A HREF="term.html#gpm-mouse">gpm-mouse</A>|
-
-<A HREF="motion.html#B">B</A>  *<A NAME="+mouse_netterm"></A><B>+mouse_netterm</B>*	<A HREF="os_unix.html#Unix">Unix</A> only: netterm mouse handling |<A HREF="options.html#netterm-mouse">netterm-mouse</A>|
-N  *+mouse_sysmouse*	<A HREF="os_unix.html#Unix">Unix</A> only: *BSD console mouse handling |<A HREF="term.html#sysmouse">sysmouse</A>|
-
-<A HREF="motion.html#B">B</A>  *<A NAME="+mouse_sgr"></A><B>+mouse_sgr</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: sgr mouse handling |<A HREF="options.html#sgr-mouse">sgr-mouse</A>|
-
-<A HREF="motion.html#B">B</A>  *<A NAME="+mouse_urxvt"></A><B>+mouse_urxvt</B>*	<A HREF="os_unix.html#Unix">Unix</A> only: urxvt mouse handling |<A HREF="options.html#urxvt-mouse">urxvt-mouse</A>|
-
-N  *<A NAME="+mouse_xterm"></A><B>+mouse_xterm</B>*	<A HREF="os_unix.html#Unix">Unix</A> only: xterm mouse handling |<A HREF="options.html#xterm-mouse">xterm-mouse</A>|
-
 N  *<A NAME="+multi_byte"></A><B>+multi_byte</B>*	16 and 32 bit characters |<A HREF="mbyte.html#multibyte">multibyte</A>|
 
    *<A NAME="+multi_byte_ime"></A><B>+multi_byte_ime</B>*	<A HREF="os_win32.html#Win32">Win32</A> input method for multibyte chars |<A HREF="mbyte.html#multibyte-ime">multibyte-ime</A>|
 
 N  *<A NAME="+multi_lang"></A><B>+multi_lang</B>*	non-English language support |<A HREF="mlang.html#multi-lang">multi-lang</A>|
 
-<A HREF="motion.html#m">m</A>  *<A NAME="+mzscheme"></A><B>+mzscheme</B>*		Mzscheme interface |<A HREF="if_mzsch.html#mzscheme">mzscheme</A>|
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+mzscheme/dyn"></A><B>+mzscheme/dyn</B>*	Mzscheme interface |<A HREF="if_mzsch.html#mzscheme-dynamic">mzscheme-dynamic</A>| |<A HREF="#/dyn">/dyn</A>|
-
 N  *<A NAME="+path_extra"></A><B>+path_extra</B>*	Up/downwards search in <A HREF="options.html#'path'">'path'</A> and <A HREF="options.html#'tags'">'tags'</A>
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+perl"></A><B>+perl</B>*		<A HREF="if_perl.html#Perl">Perl</A> interface |<A HREF="if_perl.html#perl">perl</A>|
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+perl/dyn"></A><B>+perl/dyn</B>*		<A HREF="if_perl.html#Perl">Perl</A> interface |<A HREF="if_perl.html#perl-dynamic">perl-dynamic</A>| |<A HREF="#/dyn">/dyn</A>|
 
 N  *<A NAME="+persistent_undo"></A><B>+persistent_undo</B>*	Persistent undo |<A HREF="undo.html#undo-persistence">undo-persistence</A>|
 
@@ -526,11 +497,7 @@ N  *<A NAME="+printer"></A><B>+printer</B>*		|<A HREF="print.html#:hardcopy">:ha
 
 <A HREF="motion.html#m">m</A>  *<A NAME="+python"></A><B>+python</B>*		<A HREF="if_pyth.html#Python">Python</A> 2 interface |<A HREF="if_pyth.html#python">python</A>|
 
-<A HREF="motion.html#m">m</A>  *<A NAME="+python/dyn"></A><B>+python/dyn</B>*	<A HREF="if_pyth.html#Python">Python</A> 2 interface |<A HREF="if_pyth.html#python-dynamic">python-dynamic</A>| |<A HREF="#/dyn">/dyn</A>|
-
 <A HREF="motion.html#m">m</A>  *<A NAME="+python3"></A><B>+python3</B>*		<A HREF="if_pyth.html#Python">Python</A> 3 interface |<A HREF="if_pyth.html#python">python</A>|
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+python3/dyn"></A><B>+python3/dyn</B>*	<A HREF="if_pyth.html#Python">Python</A> 3 interface |<A HREF="if_pyth.html#python-dynamic">python-dynamic</A>| |<A HREF="#/dyn">/dyn</A>|
 
 N  *<A NAME="+quickfix"></A><B>+quickfix</B>*		|<A HREF="quickfix.html#:make">:make</A>| and |<A HREF="quickfix.html#quickfix">quickfix</A>| commands
 
@@ -538,10 +505,6 @@ N  *<A NAME="+reltime"></A><B>+reltime</B>*		|<A HREF="eval.html#reltime()">relt
 			<A HREF="options.html#'redrawtime'">'redrawtime'</A> option
 
 <A HREF="motion.html#B">B</A>  *<A NAME="+rightleft"></A><B>+rightleft</B>*		Right to left typing |<A HREF="options.html#'rightleft'">'rightleft'</A>|
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+ruby"></A><B>+ruby</B>*		<A HREF="if_ruby.html#Ruby">Ruby</A> interface |<A HREF="if_ruby.html#ruby">ruby</A>|
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+ruby/dyn"></A><B>+ruby/dyn</B>*		<A HREF="if_ruby.html#Ruby">Ruby</A> interface |<A HREF="if_ruby.html#ruby-dynamic">ruby-dynamic</A>| |<A HREF="#/dyn">/dyn</A>|
 
 N  *<A NAME="+scrollbind"></A><B>+scrollbind</B>*	|<A HREF="options.html#'scrollbind'">'scrollbind'</A>|
 
@@ -563,10 +526,6 @@ N  *<A NAME="+tag_binary"></A><B>+tag_binary</B>*	binary searching in <A HREF="t
 N  *<A NAME="+tag_old_static"></A><B>+tag_old_static</B>*	old method for static <A HREF="tagsrch.html#tags">tags</A> |<A HREF="tagsrch.html#tag-old-static">tag-old-static</A>|
 
 <A HREF="motion.html#m">m</A>  *<A NAME="+tag_any_white"></A><B>+tag_any_white</B>*	any white space allowed in <A HREF="tagsrch.html#tags">tags</A> file |<A HREF="tagsrch.html#tag-any-white">tag-any-white</A>|
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+tcl"></A><B>+tcl</B>*		<A HREF="if_tcl.html#Tcl">Tcl</A> interface |<A HREF="if_tcl.html#tcl">tcl</A>|
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+tcl/dyn"></A><B>+tcl/dyn</B>*		<A HREF="if_tcl.html#Tcl">Tcl</A> interface |<A HREF="if_tcl.html#tcl-dynamic">tcl-dynamic</A>| |<A HREF="#/dyn">/dyn</A>|
 
    *<A NAME="+terminfo"></A><B>+terminfo</B>*		uses |<A HREF="term.html#terminfo">terminfo</A>| instead of <A HREF="term.html#termcap">termcap</A>
 
@@ -618,8 +577,6 @@ N  *<A NAME="+xterm_clipboard"></A><B>+xterm_clipboard</B>*	<A HREF="os_unix.htm
 
 <A HREF="motion.html#m">m</A>  *<A NAME="+xterm_save"></A><B>+xterm_save</B>*	save and restore xterm screen |<A HREF="tips.html#xterm-screens">xterm-screens</A>|
 
-N  *<A NAME="+X11"></A><B>+X11</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: can restore <A HREF="windows.html#window">window</A> title |<A HREF="options.html#X11">X11</A>|
-
 
 							*<A NAME="/dyn"></A><B>/dyn</B>* *<A NAME="E370"></A><B>E370</B>* *<A NAME="E448"></A><B>E448</B>*
 			To some of the features &quot;<A HREF="#/dyn">/dyn</A>&quot; is added when the
@@ -629,7 +586,7 @@ N  *<A NAME="+X11"></A><B>+X11</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: 
 :ve[rsion] {nr}		Is now ignored.  This was previously used to check the
 			version number of a <A HREF="starting.html#.vimrc">.vimrc</A> file.  It was removed,
 			because you can now use the &quot;<A HREF="eval.html#:if">:if</A>&quot; command for
-			version-dependent behavior.  {not in Vi}
+			version-dependent behavior.
 
 
 							*<A NAME=":redi"></A><B>:redi</B>* *<A NAME=":redir"></A><B>:redir</B>*
@@ -647,31 +604,28 @@ N  *<A NAME="+X11"></A><B>+X11</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: 
 			with &quot;<A HREF="#:silent">:silent</A> call Function()&quot;.
 			An alternative is to use the <A HREF="options.html#'verbosefile'">'verbosefile'</A> option,
 			this can be used in combination with &quot;<A HREF="#:redir">:redir</A>&quot;.
-			{not in Vi}
 
 :redi[r] <A HREF="change.html#&gt;&gt;">&gt;&gt;</A> <A HREF="editing.html#{file}">{file}</A>	Redirect <A HREF="message.html#messages">messages</A> to file <A HREF="editing.html#{file}">{file}</A>.  Append if <A HREF="editing.html#{file}">{file}</A>
-			already exists.  {not in Vi}
+			already exists.
 
 :redi[r] @{a-zA-Z}
 :redi[r] @{a-zA-Z}&gt;	Redirect <A HREF="message.html#messages">messages</A> to <A HREF="sponsor.html#register">register</A> {a-z}.  Append to the
 			contents of the <A HREF="sponsor.html#register">register</A> if its name is given
 			<A HREF="change.html#uppercase">uppercase</A> {A-Z}.  The &quot;<A HREF="change.html#&gt;">&gt;</A>&quot; after the <A HREF="sponsor.html#register">register</A> name is
-			optional. {not in Vi}
-:redi[r] @{a-z}&gt;&gt;	Append <A HREF="message.html#messages">messages</A> to <A HREF="sponsor.html#register">register</A> {a-z}. {not in Vi}
+			optional.
+:redi[r] @{a-z}&gt;&gt;	Append <A HREF="message.html#messages">messages</A> to <A HREF="sponsor.html#register">register</A> {a-z}.
 
 :redi[r] @*&gt;		
 :redi[r] @+&gt;		Redirect <A HREF="message.html#messages">messages</A> to the selection or <A HREF="gui.html#clipboard">clipboard</A>. For
 			backward compatibility, the &quot;<A HREF="change.html#&gt;">&gt;</A>&quot; after the <A HREF="sponsor.html#register">register</A>
 			name can be omitted. See |<A HREF="gui.html#quotestar">quotestar</A>| and |<A HREF="gui_x11.html#quoteplus">quoteplus</A>|.
-			{not in Vi}
 :redi[r] @*&gt;&gt;		
 :redi[r] @+&gt;&gt;		Append <A HREF="message.html#messages">messages</A> to the selection or <A HREF="gui.html#clipboard">clipboard</A>.
-			{not in Vi}
 
 :redi[r] @&quot;&gt;		Redirect <A HREF="message.html#messages">messages</A> to the unnamed <A HREF="sponsor.html#register">register</A>. For
 			backward compatibility, the &quot;<A HREF="change.html#&gt;">&gt;</A>&quot; after the <A HREF="sponsor.html#register">register</A>
-			name can be omitted. {not in Vi}
-:redi[r] @&quot;&gt;&gt;		Append <A HREF="message.html#messages">messages</A> to the unnamed <A HREF="sponsor.html#register">register</A>. {not in Vi}
+			name can be omitted.
+:redi[r] @&quot;&gt;&gt;		Append <A HREF="message.html#messages">messages</A> to the unnamed <A HREF="sponsor.html#register">register</A>.
 
 :redi[r] =&gt; {var}	Redirect <A HREF="message.html#messages">messages</A> to a variable.  If the variable
 			doesn't exist, then <A HREF="motion.html#it">it</A> is created.  If the variable
@@ -680,12 +634,12 @@ N  *<A NAME="+X11"></A><B>+X11</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: 
 			Only <A HREF="eval.html#string">string</A> <A HREF="eval.html#variables">variables</A> can be used.  After the
 			redirection starts, if the variable is removed or
 			locked or the variable type is changed, then further
-			command output <A HREF="message.html#messages">messages</A> will cause <A HREF="message.html#errors">errors</A>. {not in Vi}
+			command output <A HREF="message.html#messages">messages</A> will cause <A HREF="message.html#errors">errors</A>.
 
 :redi[r] =&gt;&gt; {var}	Append <A HREF="message.html#messages">messages</A> to an existing variable.  Only <A HREF="eval.html#string">string</A>
-			<A HREF="eval.html#variables">variables</A> can be used. {not in Vi}
+			<A HREF="eval.html#variables">variables</A> can be used.
 
-:redi[r] END		End redirecting <A HREF="message.html#messages">messages</A>.  {not in Vi}
+:redi[r] END		End redirecting <A HREF="message.html#messages">messages</A>.
 
 
 						*<A NAME=":sil"></A><B>:sil</B>* *<A NAME=":silent"></A><B>:silent</B>*
@@ -793,13 +747,12 @@ which <A HREF="motion.html#it">it</A> was defined is reported.
  			- When <A HREF="options.html#'keywordprg'">'keywordprg'</A> is equal to &quot;man -s&quot;, a <A HREF="intro.html#count">count</A>
 			  before &quot;<A HREF="#K">K</A>&quot; is inserted after the &quot;<A HREF="starting.html#-s">-s</A>&quot;.  If there is
 			  no <A HREF="intro.html#count">count</A>, the &quot;<A HREF="starting.html#-s">-s</A>&quot; is removed.
-			{not in Vi}
 
 
 							*<A NAME="v_K"></A><B>v_K</B>*
 {Visual}K		Like &quot;<A HREF="#K">K</A>&quot;, but use the visually highlighted text for
 			the keyword.  Only works when the highlighted text is
-			not more than one line.  {not in Vi}
+			not more than one line.
 
 
 [N]gs							*<A NAME="gs"></A><B>gs</B>* *<A NAME=":sl"></A><B>:sl</B>* *<A NAME=":sleep"></A><B>:sleep</B>*
@@ -813,7 +766,7 @@ which <A HREF="motion.html#it">it</A> was defined is reported.
  			Can be interrupted with <A HREF="pattern.html#CTRL-C">CTRL-C</A> (CTRL-Break on MS-DOS).
 			&quot;<A HREF="#gs">gs</A>&quot; stands for &quot;goto sleep&quot;.
 			While sleeping the cursor is positioned in the text,
-			if at a visible position.  {not in Vi}
+			if at a visible position.
 
 
 
@@ -826,7 +779,7 @@ which <A HREF="motion.html#it">it</A> was defined is reported.
 
 2. Using Vim like <A HREF="#less">less</A> or more					*<A NAME="less"></A><B>less</B>*
 
-If you use the <A HREF="#less">less</A> or more program to <A HREF="starting.html#view">view</A> a file, you don't get <A HREF="syntax.html#syntax">syntax</A>
+If you use the <A HREF="#less">less</A> or more program to view a file, you don't get <A HREF="syntax.html#syntax">syntax</A>
 highlighting.  Thus you would like to use Vim instead.  You can <A HREF="diff.html#do">do</A> this by
 using the shell <A HREF="usr_41.html#script">script</A> &quot;$VIMRUNTIME/macros/less.sh&quot;.
 
@@ -846,7 +799,7 @@ The &quot;<A HREF="motion.html#h">h</A>&quot; key will give you a short overview
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:02 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

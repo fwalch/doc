@@ -43,7 +43,7 @@
 
 								*<A NAME="install"></A><B>install</B>*
 Before you can use Vim you have to <A HREF="#install">install</A> <A HREF="motion.html#it">it</A>.  Depending on your system it's
-simple or <A HREF="starting.html#easy">easy</A>.  This chapter gives a few hints and also explains how
+simple or easy.  This chapter gives a few hints and also explains how
 upgrading to a new version is done.
 
 |<A HREF="#90.1">90.1</A>|	<A HREF="os_unix.html#Unix">Unix</A>
@@ -206,10 +206,6 @@ You can also start Vim with the &quot;<A HREF="starting.html#-V">-V</A>&quot; ar
 
 <B>	vim -V</B>
 
-Don't forget that the user manual assumes you Vim in a certain way.  After
-installing Vim, follow the instructions at |<A HREF="usr_01.html#not-compatible">not-compatible</A>| to make Vim work
-<A HREF="motion.html#as">as</A> assumed in this manual.
-
 
 SELECTING FEATURES
 
@@ -231,9 +227,9 @@ enabled from the Makefile.
 					See |<A HREF="various.html#+feature-list">+feature-list</A>| for which feature
 					is enabled in which <A HREF="change.html#case">case</A>.
 
-	--enable-perlinterp		Enable the <A HREF="if_perl.html#Perl">Perl</A> interface.  There are
-					similar arguments for <A HREF="if_ruby.html#ruby">ruby</A>, <A HREF="if_pyth.html#python">python</A> and
-					<A HREF="if_tcl.html#tcl">tcl</A>.
+	--enable-perlinterp		Enable the Perl interface.  There are
+					similar arguments for ruby, <A HREF="if_pyth.html#python">python</A> and
+					tcl.
 
 	--disable-gui			Do not compile the <A HREF="gui.html#GUI">GUI</A> interface.
 	--without-x			Do not compile X-windows features.
@@ -407,23 +403,7 @@ Check your terminal settings by using the following command in a shell:
 
 If the terminal type listed is not correct, fix <A HREF="motion.html#it">it</A>.  For more hints, see
 |<A HREF="usr_06.html#06.2">06.2</A>|.  Another solution is to always use the <A HREF="gui.html#GUI">GUI</A> version of Vim, called
-<A HREF="starting.html#gvim">gvim</A>.  This avoids the need for a correct terminal setup.
-
-
-<A HREF="intro.html#Q">Q</A>: My Backspace And Delete Keys Don't Work Right
-
-The definition of what key sends what code is very unclear for backspace <A HREF="motion.html#&lt;BS&gt;">&lt;BS&gt;</A>
-and Delete <A HREF="change.html#&lt;Del&gt;">&lt;Del&gt;</A> keys.  First of all, check your $TERM setting.  If there is
-nothing wrong with <A HREF="motion.html#it">it</A>, try this:
-
-<B>	:set t_kb=^V&lt;BS&gt;</B>
-<B>	:set t_kD=^V&lt;Del&gt;</B>
-
-In the first line you need to press <A HREF="visual.html#CTRL-V">CTRL-V</A> and then hit the backspace key.
-In the second line you need to press <A HREF="visual.html#CTRL-V">CTRL-V</A> and then hit the Delete key.
-You can put these lines in your <A HREF="starting.html#vimrc">vimrc</A> file, see |<A HREF="usr_05.html#05.1">05.1</A>|.  A disadvantage is
-that <A HREF="motion.html#it">it</A> won't work when you use another terminal some day.  Look here for
-alternate solutions: |<A HREF="options.html#:fixdel">:fixdel</A>|.
+gvim.  This avoids the need for a correct terminal setup.
 
 
 <A HREF="intro.html#Q">Q</A>: I Am Using RedHat Linux.  Can I Use the Vim That Comes with the System?
@@ -435,7 +415,7 @@ for something named &quot;Vim-enhanced-version.rpm&quot; and <A HREF="#install">
 <A HREF="intro.html#Q">Q</A>: How Do I Turn <A HREF="autocmd.html#Syntax">Syntax</A> Coloring On?  How <A HREF="diff.html#do">do</A> I make plugins work?
 
 Use the example <A HREF="starting.html#vimrc">vimrc</A> <A HREF="usr_41.html#script">script</A>.  You can find an explanation on how to use <A HREF="motion.html#it">it</A>
-here: |<A HREF="usr_01.html#not-compatible">not-compatible</A>|.
+here: |<A HREF="usr_01.html#setup-vimrc_example">setup-vimrc_example</A>|.
 
 See chapter 6 for information about <A HREF="syntax.html#syntax">syntax</A> highlighting: |<A HREF="usr_06.html">usr_06.txt</A>|.
 
@@ -477,36 +457,10 @@ someone supplied, you can't <A HREF="diff.html#do">do</A> this.  Do delete the f
 example for when &quot;/usr/local&quot; was used <A HREF="motion.html#as">as</A> the root:
 
 <B>	rm -rf /usr/local/share/vim/vim61</B>
-<B>	rm /usr/local/bin/eview</B>
-<B>	rm /usr/local/bin/evim</B>
-<B>	rm /usr/local/bin/ex</B>
-<B>	rm /usr/local/bin/gview</B>
-<B>	rm /usr/local/bin/gvim</B>
-<B>	rm /usr/local/bin/gvim</B>
-<B>	rm /usr/local/bin/gvimdiff</B>
-<B>	rm /usr/local/bin/rgview</B>
-<B>	rm /usr/local/bin/rgvim</B>
-<B>	rm /usr/local/bin/rview</B>
-<B>	rm /usr/local/bin/rvim</B>
-<B>	rm /usr/local/bin/rvim</B>
-<B>	rm /usr/local/bin/view</B>
 <B>	rm /usr/local/bin/vim</B>
-<B>	rm /usr/local/bin/vimdiff</B>
 <B>	rm /usr/local/bin/vimtutor</B>
 <B>	rm /usr/local/bin/xxd</B>
-<B>	rm /usr/local/man/man1/eview.1</B>
-<B>	rm /usr/local/man/man1/evim.1</B>
-<B>	rm /usr/local/man/man1/ex.1</B>
-<B>	rm /usr/local/man/man1/gview.1</B>
-<B>	rm /usr/local/man/man1/gvim.1</B>
-<B>	rm /usr/local/man/man1/gvimdiff.1</B>
-<B>	rm /usr/local/man/man1/rgview.1</B>
-<B>	rm /usr/local/man/man1/rgvim.1</B>
-<B>	rm /usr/local/man/man1/rview.1</B>
-<B>	rm /usr/local/man/man1/rvim.1</B>
-<B>	rm /usr/local/man/man1/view.1</B>
 <B>	rm /usr/local/man/man1/vim.1</B>
-<B>	rm /usr/local/man/man1/vimdiff.1</B>
 <B>	rm /usr/local/man/man1/vimtutor.1</B>
 <B>	rm /usr/local/man/man1/xxd.1</B>
 
@@ -545,7 +499,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:02 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

@@ -548,21 +548,21 @@ For example, add keywords that are not used in C:
 
 This works just like in any other <A HREF="syntax.html#syntax">syntax</A> file.
 
-Now consider the <A HREF="if_perl.html#Perl">Perl</A> language.  A <A HREF="if_perl.html#Perl">Perl</A> <A HREF="usr_41.html#script">script</A> consists of two distinct parts:
-a documentation section in POD format, and a program written in <A HREF="if_perl.html#Perl">Perl</A> itself.
+Now consider the Perl language.  A Perl <A HREF="usr_41.html#script">script</A> consists of two distinct parts:
+a documentation section in POD format, and a program written in Perl itself.
 The POD section starts with &quot;=head&quot; and ends with &quot;=cut&quot;.
-   You want to define the POD <A HREF="syntax.html#syntax">syntax</A> in one file, and use <A HREF="motion.html#it">it</A> from the <A HREF="if_perl.html#Perl">Perl</A>
+   You want to define the POD <A HREF="syntax.html#syntax">syntax</A> in one file, and use <A HREF="motion.html#it">it</A> from the Perl
 <A HREF="syntax.html#syntax">syntax</A> file.  The &quot;<A HREF="syntax.html#:syntax">:syntax</A> include&quot; command reads in a <A HREF="syntax.html#syntax">syntax</A> file and stores
-the elements <A HREF="motion.html#it">it</A> defined in a <A HREF="syntax.html#syntax">syntax</A> cluster.  For <A HREF="if_perl.html#Perl">Perl</A>, the statements are <A HREF="motion.html#as">as</A>
+the elements <A HREF="motion.html#it">it</A> defined in a <A HREF="syntax.html#syntax">syntax</A> cluster.  For Perl, the statements are <A HREF="motion.html#as">as</A>
 follows:
 
 <B>	:syntax include @Pod &lt;sfile&gt;:p:h/pod.vim</B>
 <B>	:syntax region perlPOD start=/^=head/ end=/^=cut/ contains=@Pod</B>
 
-When &quot;=head&quot; is found in a <A HREF="if_perl.html#Perl">Perl</A> file, the perlPOD region starts.  In this
+When &quot;=head&quot; is found in a Perl file, the perlPOD region starts.  In this
 region the @Pod cluster is contained.  All the items defined <A HREF="motion.html#as">as</A> top-level
 items in the pod.vim <A HREF="syntax.html#syntax">syntax</A> files will match here.  When &quot;=cut&quot; is found, the
-region ends and we go back to the items defined in the <A HREF="if_perl.html#Perl">Perl</A> file.
+region ends and we go back to the items defined in the Perl file.
    The &quot;<A HREF="syntax.html#:syntax">:syntax</A> include&quot; command is clever enough to ignore a &quot;<A HREF="syntax.html#:syntax">:syntax</A> clear&quot;
 command in the included file.  And an argument such <A HREF="motion.html#as">as</A> &quot;contains=ALL&quot; will
 only contain items defined in the included file, not in the file that includes
@@ -576,8 +576,8 @@ directory to be included.
 
 *<A NAME="44.10"></A><B>44.10</B>*	Synchronizing
 
-Compilers have <A HREF="motion.html#it">it</A> <A HREF="starting.html#easy">easy</A>.  They start at the beginning of a file and parse <A HREF="motion.html#it">it</A>
-straight through.  Vim does not have <A HREF="motion.html#it">it</A> so <A HREF="starting.html#easy">easy</A>.  It must start in the middle,
+Compilers have <A HREF="motion.html#it">it</A> easy.  They start at the beginning of a file and parse <A HREF="motion.html#it">it</A>
+straight through.  Vim does not have <A HREF="motion.html#it">it</A> so easy.  It must start in the middle,
 where the editing is being done.  So how does <A HREF="motion.html#it">it</A> tell where <A HREF="motion.html#it">it</A> is?
    The secret is the &quot;<A HREF="syntax.html#:syntax">:syntax</A> sync&quot; command.  This tells Vim how to figure out
 where <A HREF="motion.html#it">it</A> is.  For example, the following command tells Vim to scan backward
@@ -771,7 +771,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:02 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

@@ -81,7 +81,7 @@ To be on the safe side, write this file under another name:
 <B>	:write help.txt.recovered</B>
 
 Compare the file with the original file to check if you ended up with what you
-expected.  Vimdiff is very useful for this |<A HREF="usr_08.html#08.7">08.7</A>|.  For example:
+expected.  Diff mode is very useful for this |<A HREF="usr_08.html#08.7">08.7</A>|.  For example:
 
 <B>	:write help.txt.recovered</B>
 <B>	:edit #</B>
@@ -258,7 +258,7 @@ changes to the file.  Then a directory listing of the swap file will show
 that <A HREF="motion.html#it">it</A> has zero bytes.  You may delete <A HREF="motion.html#it">it</A> and proceed.
 
 It is slightly bad if you don't have read permission for the swap file.  You
-may want to <A HREF="starting.html#view">view</A> the file read-only, or quit.  On multi-user systems, if you
+may want to view the file read-only, or quit.  On multi-user systems, if you
 yourself did the last changes under a different login name, a logout
 followed by a login under that other name might cure the &quot;read error&quot;.  Or
 else you might want to find out who last edited (or is editing) the file and
@@ -266,7 +266,7 @@ have a talk with them.
 
 It is very bad if <A HREF="motion.html#it">it</A> means there is a physical read error on the disk
 containing the swap file.  Fortunately, this almost never happens.
-You may want to <A HREF="starting.html#view">view</A> the file read-only at first (if you can), to see the
+You may want to view the file read-only at first (if you can), to see the
 extent of the changes that were &quot;forgotten&quot;.  If you are the one in charge of
 that file, be prepared to <A HREF="undo.html#redo">redo</A> your last changes.
 
@@ -279,7 +279,7 @@ If dialogs are supported you will be asked to select one of five choices:
 <B><FONT color="#54A23D">  Swap file ".main.c.swp" already exists! </FONT></B>
 <B><FONT color="#54A23D">  [O]pen Read-Only, (E)dit anyway, (R)ecover, (Q)uit, (A)bort, (D)elete it: </FONT></B>
 
-<A HREF="insert.html#O">O</A>  Open the file readonly.  Use this when you just want to <A HREF="starting.html#view">view</A> the file and
+<A HREF="insert.html#O">O</A>  Open the file readonly.  Use this when you just want to view the file and
    don't need to recover <A HREF="motion.html#it">it</A>.  You might want to use this when you know someone
    else is editing the file, but you just want to look in <A HREF="motion.html#it">it</A> and not make
    changes.
@@ -350,7 +350,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

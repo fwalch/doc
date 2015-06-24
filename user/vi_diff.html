@@ -83,9 +83,7 @@ only one line.
 
 2. Missing <A HREF="options.html#options">options</A>					*<A NAME="missing-options"></A><B>missing-options</B>*
 
-These <A HREF="options.html#options">options</A> are in the <A HREF="os_unix.html#Unix">Unix</A> <A HREF="intro.html#Vi">Vi</A>, but not in Vim.  If you try to set one of
-them you won't get an error message, but the value is not used and cannot be
-printed.
+These <A HREF="options.html#options">options</A> are in the <A HREF="os_unix.html#Unix">Unix</A> <A HREF="intro.html#Vi">Vi</A>, but not in Vim.
 
 
 autoprint (ap)		<A HREF="options.html#boolean">boolean</A>	(default on)		*<A NAME="'autoprint'"></A><B>'autoprint'</B>* *<A NAME="'ap'"></A><B>'ap'</B>*
@@ -176,8 +174,8 @@ argument when starting Vim.
 	To make Vim behave a little bit better, try resetting the <A HREF="options.html#'compatible'">'compatible'</A>
 	option:
 		<A HREF="options.html#:set">:set</A> <A HREF="options.html#'nocompatible'">nocompatible</A>
-	Or start Vim with the &quot;<A HREF="starting.html#-N">-N</A>&quot; argument:
-		vim <A HREF="starting.html#-N">-N</A>
+	Or start Vim with the &quot;-N&quot; argument:
+		vim -N
 	Vim starts with <A HREF="options.html#'nocompatible'">'nocompatible'</A> automatically if you have a <A HREF="starting.html#.vimrc">.vimrc</A>
 	file.  See |<A HREF="starting.html#startup">startup</A>|.
 	The <A HREF="options.html#'cpoptions'">'cpoptions'</A> option can be used to set <A HREF="intro.html#Vi">Vi</A> compatibility on/off for
@@ -186,7 +184,7 @@ argument when starting Vim.
 Support for different systems.
 	Vim can be used on:
 	- All <A HREF="os_unix.html#Unix">Unix</A> systems (it works on all systems <A HREF="motion.html#it">it</A> was tested on, although
-	  the <A HREF="gui.html#GUI">GUI</A> and <A HREF="if_perl.html#Perl">Perl</A> interface may not work everywhere).
+	  the <A HREF="gui.html#GUI">GUI</A> and Perl interface may not work everywhere).
 	- MS-DOS in real-mode (no additional drivers required).
 	- In protected mode on Windows 3.1 and MS-DOS (DPMI driver required).
 	- Windows 95 and Windows NT, with support for long file names.
@@ -211,7 +209,7 @@ Graphical <A HREF="autocmd.html#User">User</A> Interface (GUI).				|<A HREF="gui
 	Included support for <A HREF="gui.html#GUI">GUI</A>: menu's, mouse, scrollbars, etc.  You can
 	define your own <A HREF="gui.html#menus">menus</A>.  Better support for CTRL/SHIFT/ALT keys in
 	combination with special keys and mouse.  Supported for various
-	platforms, such <A HREF="motion.html#as">as</A> <A HREF="options.html#X11">X11</A> (with <A HREF="gui_x11.html#Motif">Motif</A> and <A HREF="gui_x11.html#Athena">Athena</A> interfaces), <A HREF="gui_x11.html#GTK">GTK</A>, <A HREF="os_win32.html#Win32">Win32</A>
+	platforms, such <A HREF="motion.html#as">as</A> X11 (with <A HREF="gui_x11.html#Motif">Motif</A> and <A HREF="gui_x11.html#Athena">Athena</A> interfaces), <A HREF="gui_x11.html#GTK">GTK</A>, <A HREF="os_win32.html#Win32">Win32</A>
 	(Windows 95 and later), and <A HREF="os_mac.html#Macintosh">Macintosh</A>.
 
 Multiple windows and <A HREF="windows.html#buffers">buffers</A>.				|<A HREF="windows.html">windows.txt</A>|
@@ -250,14 +248,14 @@ Spell checking.						|<A HREF="spell.html#spell">spell</A>|
 	Folds can be created manually, from the <A HREF="syntax.html#syntax">syntax</A> of the file, by indent,
 	etc.
 
-Diff mode.						|<A HREF="diff.html#diff">diff</A>|
+Diff mode.						|<A HREF="diff.html#diff-mode">diff-mode</A>|
 	Vim can show two versions of a file with the differences highlighted.
 	Parts of the text that are equal are folded away.  Commands can be
 	used to move text from one version to the other.
 
 Plugins.						|<A HREF="usr_05.html#add-plugin">add-plugin</A>|
 	The functionality can be extended by dropping a <A HREF="usr_05.html#plugin">plugin</A> file in the
-	right directory.  That's an <A HREF="starting.html#easy">easy</A> way to start using Vim scripts
+	right directory.  That's an easy way to start using Vim scripts
 	written by others.  Plugins can be for all kind of files, or
 	specifically for a <A HREF="filetype.html#filetype">filetype</A>.
 
@@ -459,8 +457,7 @@ Scripts and Expressions.				|<A HREF="eval.html#expression">expression</A>|
 	|<A HREF="eval.html#:try">:try</A>|		Catch exceptions.
 	etc., etc.  See |<A HREF="eval.html#eval">eval</A>|.
 	Debugging and <A HREF="repeat.html#profiling">profiling</A> are supported. |<A HREF="repeat.html#debug-scripts">debug-scripts</A>| |<A HREF="repeat.html#profile">profile</A>|
-	If this is not enough, an interface is provided to |<A HREF="if_pyth.html#Python">Python</A>|, |<A HREF="if_ruby.html#Ruby">Ruby</A>|,
-	|<A HREF="if_tcl.html#Tcl">Tcl</A>|, |<A HREF="if_lua.html#Lua">Lua</A>|, |<A HREF="if_perl.html#Perl">Perl</A>| and |<A HREF="if_mzsch.html#MzScheme">MzScheme</A>|.
+	If this is not enough, an interface is provided to |<A HREF="if_pyth.html#Python">Python</A>|.
 
 Viminfo.						|<A HREF="starting.html#viminfo-file">viminfo-file</A>|
 	The command-line <A HREF="cmdline.html#history">history</A>, marks and <A HREF="change.html#registers">registers</A> can be stored in a file
@@ -476,13 +473,13 @@ Printing.						|<A HREF="print.html#printing">printing</A>|
 
 Mouse support.						|<A HREF="term.html#mouse-using">mouse-using</A>|
 	The mouse is supported in the <A HREF="gui.html#GUI">GUI</A> version, in an xterm for <A HREF="os_unix.html#Unix">Unix</A>, for
-	BSDs with <A HREF="term.html#sysmouse">sysmouse</A>, for Linux with gpm, for MS-DOS, and <A HREF="os_win32.html#Win32">Win32</A>.  It
+	BSDs with sysmouse, for Linux with gpm, for MS-DOS, and <A HREF="os_win32.html#Win32">Win32</A>.  It
 	can be used to position the cursor, select the visual area, paste a
 	<A HREF="sponsor.html#register">register</A>, etc.
 
 Usage of key names.					|<A HREF="intro.html#&lt;&gt;">&lt;&gt;</A>| |<A HREF="intro.html#key-notation">key-notation</A>|
 	Special keys now all have a name like <A HREF="motion.html#&lt;Up&gt;">&lt;Up&gt;</A>, <A HREF="motion.html#&lt;End&gt;">&lt;End&gt;</A>, etc.
-	This name can be used in mappings, to make <A HREF="motion.html#it">it</A> <A HREF="starting.html#easy">easy</A> to edit them.
+	This name can be used in mappings, to make <A HREF="motion.html#it">it</A> easy to edit them.
 
 Editing binary files.					|<A HREF="editing.html#edit-binary">edit-binary</A>|
 	Vim can edit binary files.  You can change a few characters in an
@@ -836,13 +833,13 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 
 <A HREF="starting.html#--cmd">--cmd</A> {command}	Vim: execute {command} before sourcing <A HREF="starting.html#vimrc">vimrc</A> files.
 
-<A HREF="starting.html#--echo-wid">--echo-wid</A>	Vim: <A HREF="gui_x11.html#GTK+">GTK+</A> echoes the Window ID on stdout
+--echo-wid	Vim: <A HREF="gui_x11.html#GTK+">GTK+</A> echoes the Window ID on stdout
 
 <A HREF="starting.html#--help">--help</A>		Vim: show help message and exit.
 
 <A HREF="starting.html#--literal">--literal</A>	Vim: take file names literally, don't expand <A HREF="editing.html#wildcards">wildcards</A>.
 
-<A HREF="starting.html#--nofork">--nofork</A>	Vim: same <A HREF="motion.html#as">as</A> |<A HREF="starting.html#-f">-f</A>|
+--nofork	Vim: same <A HREF="motion.html#as">as</A> -f
 
 --noplugin[s]	Vim: Skip loading plugins.
 
@@ -858,15 +855,15 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 
 <A HREF="remote.html#--remote-wait-silent">--remote-wait-silent</A>	Vim: like <A HREF="remote.html#--remote-wait">--remote-wait</A>, no complaints if not possible
 
-<A HREF="starting.html#--role">--role</A> {role}	Vim: <A HREF="gui_x11.html#GTK+">GTK+</A> 2: set role of main <A HREF="windows.html#window">window</A>
+--role {role}	Vim: <A HREF="gui_x11.html#GTK+">GTK+</A> 2: set role of main <A HREF="windows.html#window">window</A>
 
-<A HREF="remote.html#--serverlist">--serverlist</A>	Vim: Output a <A HREF="eval.html#list">list</A> of Vim servers and exit
+<A HREF="eval.html#--serverlist">--serverlist</A>	Vim: Output a <A HREF="eval.html#list">list</A> of Vim servers and exit
 
-<A HREF="remote.html#--servername">--servername</A> {name}	Vim: Specify Vim server name
+<A HREF="eval.html#--servername">--servername</A> {name}	Vim: Specify Vim server name
 
-<A HREF="starting.html#--socketid">--socketid</A> {id}		Vim: <A HREF="gui_x11.html#GTK">GTK</A> <A HREF="windows.html#window">window</A> socket to run Vim in
+--socketid {id}		Vim: <A HREF="gui_x11.html#GTK">GTK</A> <A HREF="windows.html#window">window</A> socket to run Vim in
 
-<A HREF="starting.html#--windowid">--windowid</A> {id}		Vim: <A HREF="os_win32.html#Win32">Win32</A> <A HREF="windows.html#window">window</A> ID to run Vim in
+--windowid {id}		Vim: <A HREF="os_win32.html#Win32">Win32</A> <A HREF="windows.html#window">window</A> ID to run Vim in
 
 <A HREF="starting.html#--version">--version</A>	Vim: show version message and exit.
 
@@ -880,23 +877,22 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 <A HREF="starting.html#-b">-b</A> {blksize}	<A HREF="intro.html#Elvis">Elvis</A>: Use {blksize} blocksize for the session file.
 <A HREF="starting.html#-b">-b</A>		Vim: set <A HREF="options.html#'binary'">'binary'</A> mode.
 
-<A HREF="starting.html#-C">-C</A>		Vim: Compatible mode.
+-C		Vim: Compatible mode.
 
 <A HREF="starting.html#-c">-c</A> {command}	<A HREF="intro.html#Elvis">Elvis</A>, <A HREF="intro.html#Nvi">Nvi</A>, <A HREF="intro.html#Posix">Posix</A>, Vim: run {command} <A HREF="motion.html#as">as</A> an <A HREF="intro.html#Ex">Ex</A> command after
 		loading the edit buffer.
 		Vim: allow up to 10 &quot;<A HREF="starting.html#-c">-c</A>&quot; arguments
 
-<A HREF="starting.html#-d">-d</A>		Vim: start with <A HREF="options.html#'diff'">'diff'</A> set. |<A HREF="diff.html#vimdiff">vimdiff</A>|
+<A HREF="starting.html#-d">-d</A>		Vim: start with <A HREF="options.html#'diff'">'diff'</A> set. |<A HREF="diff.html#diff-mode">diff-mode</A>|
 
 <A HREF="starting.html#-D">-D</A>		Vim: debug mode.
 
-<A HREF="starting.html#-e">-e</A>		<A HREF="intro.html#Elvis">Elvis</A>, <A HREF="intro.html#Nvi">Nvi</A>, Vim: Start in <A HREF="intro.html#Ex">Ex</A> mode, <A HREF="motion.html#as">as</A> if the executable is
-		called &quot;<A HREF="starting.html#ex">ex</A>&quot;.
+<A HREF="starting.html#-e">-e</A>		<A HREF="intro.html#Elvis">Elvis</A>, <A HREF="intro.html#Nvi">Nvi</A>, Vim: Start in <A HREF="intro.html#Ex">Ex</A> mode.
 
-<A HREF="starting.html#-E">-E</A>		Vim: Start in improved <A HREF="intro.html#Ex">Ex</A> mode |<A HREF="intro.html#gQ">gQ</A>|, like &quot;<A HREF="starting.html#exim">exim</A>&quot;.
+<A HREF="starting.html#-E">-E</A>		Vim: Start in improved <A HREF="intro.html#Ex">Ex</A> mode |<A HREF="intro.html#gQ">gQ</A>|.
 
-<A HREF="starting.html#-f">-f</A>		Vim: Run <A HREF="gui.html#GUI">GUI</A> in foreground.
-<A HREF="starting.html#-f">-f</A> {session}	<A HREF="intro.html#Elvis">Elvis</A>: Use {session} <A HREF="motion.html#as">as</A> the session file.
+-f		Vim: Run <A HREF="gui.html#GUI">GUI</A> in foreground.
+-f {session}	<A HREF="intro.html#Elvis">Elvis</A>: Use {session} <A HREF="motion.html#as">as</A> the session file.
 
 <A HREF="starting.html#-F">-F</A>		Vim: Start in <A HREF="farsi.html#Farsi">Farsi</A> mode (when compiled with <A HREF="farsi.html#Farsi">Farsi</A>).
 		<A HREF="intro.html#Nvi">Nvi</A>: Fast start, don't read the entire file when editing
@@ -904,8 +900,8 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 
 -G {gui}	<A HREF="intro.html#Elvis">Elvis</A>: Use the {gui} <A HREF="motion.html#as">as</A> user interface.
 
-<A HREF="starting.html#-g">-g</A>		Vim: Start <A HREF="gui.html#GUI">GUI</A>.
-<A HREF="starting.html#-g">-g</A> N		Vile: start editing at line N
+-g		Vim: Start <A HREF="gui.html#GUI">GUI</A>.
+-g N		Vile: start editing at line N
 
 <A HREF="starting.html#-h">-h</A>		Vim: Give help message.
 		Vile: edit the help file
@@ -925,7 +921,7 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 <A HREF="starting.html#-M">-M</A>		Vim: Modifications not allowed, resets <A HREF="options.html#'modifiable'">'modifiable'</A> and the
 		<A HREF="options.html#'write'">'write'</A> option.
 
-<A HREF="starting.html#-N">-N</A>		Vim: No-compatible mode.
+-N		Vim: No-compatible mode.
 
 <A HREF="starting.html#-n">-n</A>		Vim: No swap file used.
 
@@ -937,7 +933,7 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 
 -p[N]		Vim: Open [N] <A HREF="intro.html#tab">tab</A> pages, or one for each file.
 
-<A HREF="starting.html#-P">-P</A> {parent-title} <A HREF="os_win32.html#Win32">Win32</A> Vim: open Vim inside a parent application <A HREF="windows.html#window">window</A>
+-P {parent-title} <A HREF="os_win32.html#Win32">Win32</A> Vim: open Vim inside a parent application <A HREF="windows.html#window">window</A>
 
 <A HREF="starting.html#-q">-q</A> {name}	Vim: Use {name} for <A HREF="quickfix.html#quickfix">quickfix</A> error file.
 -q{name}	Vim: Idem.
@@ -958,11 +954,11 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 <A HREF="starting.html#-t">-t</A> {tag}	<A HREF="intro.html#Elvis">Elvis</A>, <A HREF="intro.html#Nvi">Nvi</A>, <A HREF="intro.html#Posix">Posix</A>, <A HREF="intro.html#Vi">Vi</A>, Vim: Edit the file containing {tag}.
 -t{tag}		Vim: Idem.
 
-<A HREF="starting.html#-T">-T</A> {term}	Vim: Set terminal name to {term}.
+-T {term}	Vim: Set terminal name to {term}.
 
 <A HREF="starting.html#-u">-u</A> {vimrc}	Vim: Read initializations from {vimrc} file.
 
-<A HREF="starting.html#-U">-U</A> {gvimrc}	Vim: Read <A HREF="gui.html#GUI">GUI</A> initializations from {gvimrc} file.
+-U {gvimrc}	Vim: Read <A HREF="gui.html#GUI">GUI</A> initializations from {gvimrc} file.
 
 <A HREF="starting.html#-v">-v</A>		<A HREF="intro.html#Nvi">Nvi</A>, <A HREF="intro.html#Posix">Posix</A>, <A HREF="intro.html#Vi">Vi</A>, Vim: Begin in <A HREF="intro.html#Normal">Normal</A> mode (visual mode, in <A HREF="intro.html#Vi">Vi</A>
 		terms).
@@ -977,9 +973,7 @@ Only Vim is able to accept <A HREF="options.html#options">options</A> in between
 
 <A HREF="starting.html#-W">-W</A> {name}	Vim: Append to <A HREF="usr_41.html#script">script</A> file {name}.
 
-<A HREF="starting.html#-X">-X</A>		Vim: Don't connect to the X server.
-
-<A HREF="starting.html#-y">-y</A>		Vim: Start in <A HREF="starting.html#easy">easy</A> mode, like |<A HREF="starting.html#evim">evim</A>|.
+-X		Vim: Don't connect to the X server.
 
 <A HREF="starting.html#-Z">-Z</A>		Vim: restricted mode
 
@@ -1025,21 +1019,21 @@ These are remarks about running the POSIX test suite:
     (link no longer works, perhaps it's now:
     https://www.opengroup.org/sophocles/show_mail.tpl?CALLER=show_archive.tpl&amp;source=L&amp;listname=austin-review-l&amp;id=1711)
 - <A HREF="intro.html#vi">vi</A> test 310 fails; exit code non-zero when any error occurred?
-- <A HREF="starting.html#ex">ex</A> test 24 fails because test is wrong.  Changed between SUSv2 and SUSv3.
-- <A HREF="starting.html#ex">ex</A> tests 47, 48, 49, 72, 73 fail because <A HREF="starting.html#.exrc">.exrc</A> file isn't read in silent
+- ex test 24 fails because test is wrong.  Changed between SUSv2 and SUSv3.
+- ex tests 47, 48, 49, 72, 73 fail because <A HREF="starting.html#.exrc">.exrc</A> file isn't read in silent
   mode and $EXINIT isn't used.
-- <A HREF="starting.html#ex">ex</A> tests 76, 78 fail because echo is used instead of printf. (fixed)
+- ex tests 76, 78 fail because echo is used instead of printf. (fixed)
     Also: problem with \s not changed to space.
-- <A HREF="starting.html#ex">ex</A> test 355 fails because <A HREF="options.html#'window'">'window'</A> isn't used for &quot;30z&quot;.
-- <A HREF="starting.html#ex">ex</A> test 368 fails because shell command isn't echoed in silent mode.
-- <A HREF="starting.html#ex">ex</A> test 394 fails because &quot;<A HREF="change.html#=">=</A>&quot; command output isn't visible in silent mode.
-- <A HREF="starting.html#ex">ex</A> test 411 fails because test file is wrong, contains stray '<A HREF="cmdline.html#:">:</A>'.
-- <A HREF="starting.html#ex">ex</A> test 475 and 476 fail because reprint output isn't visible in silent mode.
-- <A HREF="starting.html#ex">ex</A> test 480 and 481 fail because the <A HREF="tagsrch.html#tags">tags</A> file has spaces instead of a <A HREF="intro.html#tab">tab</A>.
-- <A HREF="starting.html#ex">ex</A> test 502 fails because <A HREF="starting.html#.exrc">.exrc</A> isn't read in silent mode.
-- <A HREF="starting.html#ex">ex</A> test 509 fails because <A HREF="starting.html#.exrc">.exrc</A> isn't read in silent mode. and exit code is
+- ex test 355 fails because <A HREF="options.html#'window'">'window'</A> isn't used for &quot;30z&quot;.
+- ex test 368 fails because shell command isn't echoed in silent mode.
+- ex test 394 fails because &quot;<A HREF="change.html#=">=</A>&quot; command output isn't visible in silent mode.
+- ex test 411 fails because test file is wrong, contains stray '<A HREF="cmdline.html#:">:</A>'.
+- ex test 475 and 476 fail because reprint output isn't visible in silent mode.
+- ex test 480 and 481 fail because the <A HREF="tagsrch.html#tags">tags</A> file has spaces instead of a <A HREF="intro.html#tab">tab</A>.
+- ex test 502 fails because <A HREF="starting.html#.exrc">.exrc</A> isn't read in silent mode.
+- ex test 509 fails because <A HREF="starting.html#.exrc">.exrc</A> isn't read in silent mode. and exit code is
   1 instead of 2.
-- <A HREF="starting.html#ex">ex</A> test 534 fails because <A HREF="starting.html#.exrc">.exrc</A> isn't read in silent mode.
+- ex test 534 fails because <A HREF="starting.html#.exrc">.exrc</A> isn't read in silent mode.
 
 
 <A HREF="#top">top</A> - <A HREF="index.html">main help file</A>
@@ -1048,7 +1042,7 @@ These are remarks about running the POSIX test suite:
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:02 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

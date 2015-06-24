@@ -235,7 +235,7 @@ To change the size set the <A HREF="options.html#'lines'">'lines'</A> and/or <A 
 Obtaining the size works in a terminal just like in the <A HREF="gui.html#GUI">GUI</A>.  Setting the size
 is not possible in most terminals.
 
-You can start the X-Windows version of <A HREF="starting.html#gvim">gvim</A> with an argument to specify the
+You can start the X-Windows version of gvim with an argument to specify the
 size and position of the <A HREF="windows.html#window">window</A>:
 
 <B>	gvim -geometry {width}x{height}+{x_offset}+{y_offset}</B>
@@ -249,18 +249,18 @@ pixels.  Example:
 
 *<A NAME="31.5"></A><B>31.5</B>*	Various
 
-You can use <A HREF="starting.html#gvim">gvim</A> to edit an e-mail message.  In your e-mail program you must
-select <A HREF="starting.html#gvim">gvim</A> to be the editor for <A HREF="message.html#messages">messages</A>.  When you try that, you will
+You can use gvim to edit an e-mail message.  In your e-mail program you must
+select gvim to be the editor for <A HREF="message.html#messages">messages</A>.  When you try that, you will
 see that <A HREF="motion.html#it">it</A> doesn't work: The mail program thinks that editing is finished,
-while <A HREF="starting.html#gvim">gvim</A> is still running!
-   What happens is that <A HREF="starting.html#gvim">gvim</A> disconnects from the shell <A HREF="motion.html#it">it</A> was started in.
-That is fine when you start <A HREF="starting.html#gvim">gvim</A> in a terminal, so that you can <A HREF="diff.html#do">do</A> other work
-in that terminal.  But when you really want to wait for <A HREF="starting.html#gvim">gvim</A> to finish, you
-must prevent <A HREF="motion.html#it">it</A> from disconnecting.  The &quot;<A HREF="starting.html#-f">-f</A>&quot; argument does this:
+while gvim is still running!
+   What happens is that gvim disconnects from the shell <A HREF="motion.html#it">it</A> was started in.
+That is fine when you start gvim in a terminal, so that you can <A HREF="diff.html#do">do</A> other work
+in that terminal.  But when you really want to wait for gvim to finish, you
+must prevent <A HREF="motion.html#it">it</A> from disconnecting.  The &quot;-f&quot; argument does this:
 
 <B>	gvim -f file.txt</B>
 
-The &quot;<A HREF="starting.html#-f">-f</A>&quot; stands for foreground.  Now Vim will block the shell <A HREF="motion.html#it">it</A> was started
+The &quot;-f&quot; stands for foreground.  Now Vim will block the shell <A HREF="motion.html#it">it</A> was started
 in until you finish editing and exit.
 
 
@@ -273,13 +273,13 @@ want to use the <A HREF="gui.html#GUI">GUI</A> after all, you can start <A HREF=
 <B>	:gui</B>
 
 Vim will open the <A HREF="gui.html#GUI">GUI</A> <A HREF="windows.html#window">window</A> and no longer use the terminal.  You can continue
-using the terminal for something else.  The &quot;<A HREF="starting.html#-f">-f</A>&quot; argument is used here to run
+using the terminal for something else.  The &quot;-f&quot; argument is used here to run
 the <A HREF="gui.html#GUI">GUI</A> in the foreground.  You can also use &quot;<A HREF="gui_x11.html#:gui">:gui</A> -f&quot;.
 
 
 THE GVIM STARTUP FILE
 
-When <A HREF="starting.html#gvim">gvim</A> starts, <A HREF="motion.html#it">it</A> reads the <A HREF="gui.html#gvimrc">gvimrc</A> file.  That's similar to the <A HREF="starting.html#vimrc">vimrc</A> file
+When gvim starts, <A HREF="motion.html#it">it</A> reads the <A HREF="gui.html#gvimrc">gvimrc</A> file.  That's similar to the <A HREF="starting.html#vimrc">vimrc</A> file
 used when starting Vim.  The <A HREF="gui.html#gvimrc">gvimrc</A> file can be used for settings and commands
 that are only to be used when the <A HREF="gui.html#GUI">GUI</A> is going to be started.  For example,
 you can set the <A HREF="options.html#'lines'">'lines'</A> option to set a different <A HREF="windows.html#window">window</A> size:
@@ -296,11 +296,11 @@ to edit the file, if you have one:
 <B>	:edit $MYGVIMRC</B>
  
    If for some reason you don't want to use the normal <A HREF="gui.html#gvimrc">gvimrc</A> file, you can
-specify another one with the &quot;<A HREF="starting.html#-U">-U</A>&quot; argument:
+specify another one with the &quot;-U&quot; argument:
 
 <B>	gvim -U thisrc ...</B>
 
-That allows starting <A HREF="starting.html#gvim">gvim</A> for different kinds of editing.  You could set
+That allows starting gvim for different kinds of editing.  You could set
 another font size, for example.
    To completely skip reading a <A HREF="gui.html#gvimrc">gvimrc</A> file:
 
@@ -317,7 +317,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

@@ -63,7 +63,6 @@ Change a name in multiple files			|<A HREF="#change-name">change-name</A>|
 Speeding up external commands			|<A HREF="#speed-up">speed-up</A>|
 Useful mappings					|<A HREF="#useful-mappings">useful-mappings</A>|
 Compressing the help files			|<A HREF="#gzip-helpfile">gzip-helpfile</A>|
-Executing shell commands in a window		|<A HREF="#shell-window">shell-window</A>|
 Hex editing					|<A HREF="#hex-editing">hex-editing</A>|
 Using &lt;&gt; <A HREF="intro.html#notation">notation</A> in autocommands		|<A HREF="#autocmd-&lt;&gt;">autocmd-&lt;&gt;</A>|
 Highlighting matching parens			|<A HREF="#match-parens">match-parens</A>|
@@ -194,7 +193,7 @@ these two <A HREF="eval.html#variables">variables</A> are the correct place wher
 sequences should go.
 
 Compare your xterm <A HREF="term.html#termcap">termcap</A> entry (found in /etc/termcap) with your xterm
-<A HREF="term.html#terminfo">terminfo</A> entry (retrieved with &quot;infocmp <A HREF="starting.html#-C">-C</A> xterm&quot;).  Both should contain
+<A HREF="term.html#terminfo">terminfo</A> entry (retrieved with &quot;infocmp -C xterm&quot;).  Both should contain
 entries similar to:
 <B>	:te=\E[2J\E[?47l\E8:ti=\E7\E[?47h:</B>
 
@@ -358,7 +357,7 @@ lines:
 <B>		exit 0</B>
 <B>	endif</B>
 
-Another way is to include the &quot;<A HREF="starting.html#-f">-f</A>&quot; flag in the <A HREF="options.html#'shell'">'shell'</A> option, e.g.:
+Another way is to include the &quot;-f&quot; flag in the <A HREF="options.html#'shell'">'shell'</A> option, e.g.:
 
 <B>	:set shell=csh\ -f</B>
 
@@ -443,7 +442,7 @@ single line
 Compressing the help files				*<A NAME="gzip-helpfile"></A><B>gzip-helpfile</B>*
 
 For those of you who are really short on disk space, you can <A HREF="pi_gzip.html#compress">compress</A> the help
-files and still be able to <A HREF="starting.html#view">view</A> them with Vim.  This makes accessing the help
+files and still be able to view them with Vim.  This makes accessing the help
 files a bit slower and requires the &quot;<A HREF="pi_gzip.html#gzip">gzip</A>&quot; program.
 
 (1) Compress all the help files: &quot;<A HREF="pi_gzip.html#gzip">gzip</A> doc/*.txt&quot;.
@@ -459,21 +458,6 @@ will take care of decompressing the files.
 You must make sure that <A HREF="starting.html#$VIMRUNTIME">$VIMRUNTIME</A> is set to where the other Vim files are,
 when they are not in the same location <A HREF="motion.html#as">as</A> the compressed &quot;doc&quot; directory.  See
 |<A HREF="starting.html#$VIMRUNTIME">$VIMRUNTIME</A>|.
-
-==============================================================================
-
-Executing shell commands in a <A HREF="windows.html#window">window</A>			*<A NAME="shell-window"></A><B>shell-window</B>*
-
-There have been questions for the possibility to execute a shell in a <A HREF="windows.html#window">window</A>
-inside Vim.  The answer: you can't!  Including this would add a lot of code to
-Vim, which is a good reason not to <A HREF="diff.html#do">do</A> this.  After all, Vim is an editor, <A HREF="motion.html#it">it</A>
-is not supposed to <A HREF="diff.html#do">do</A> non-editing tasks.  However, to get something like this,
-you might try splitting your terminal screen or display <A HREF="windows.html#window">window</A> with the
-&quot;splitvt&quot; program.  You can probably find <A HREF="motion.html#it">it</A> on some ftp server.  The person
-that knows more about this is Sam Lantinga <A HREF="mailto:slouken@cs.ucdavis.edu">&lt;slouken@cs.ucdavis.edu&gt;</A>. 
-An alternative is the &quot;<A HREF="windows.html#window">window</A>&quot; command, found on BSD <A HREF="os_unix.html#Unix">Unix</A> systems, which
-supports multiple overlapped <A HREF="windows.html#windows">windows</A>.  Or the &quot;screen&quot; program, found at
-www.uni-erlangen.de, which supports a stack of <A HREF="windows.html#windows">windows</A>.
 
 ==============================================================================
 
@@ -597,7 +581,7 @@ A slightly more advanced version is used in the |<A HREF="pi_paren.html#matchpar
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:01 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

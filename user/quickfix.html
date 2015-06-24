@@ -52,11 +52,6 @@ This subject is introduced in section |<A HREF="usr_30.html#30.1">30.1</A>| of t
 8. The directory stack			|<A HREF="#quickfix-directory-stack">quickfix-directory-stack</A>|
 9. Specific error file formats		|<A HREF="#errorformats">errorformats</A>|
 
-{Vi does not have any of these commands}
-
-The quickfix commands are not available when the |<A HREF="various.html#+quickfix">+quickfix</A>| feature was
-disabled at compile time.
-
 =============================================================================
 
 1. Using QuickFix commands			*<A NAME="quickfix"></A><B>quickfix</B>* *<A NAME="Quickfix"></A><B>Quickfix</B>* *<A NAME="E42"></A><B>E42</B>*
@@ -73,7 +68,7 @@ use the positions in a <A HREF="usr_41.html#script">script</A> with the |<A HREF
 <A HREF="diff.html#do">do</A> a lot more than the edit/compile/fix cycle!
 
 You should save your compiler's error <A HREF="message.html#messages">messages</A> to a file and start vim with
-&quot;vim <A HREF="starting.html#-q">-q</A> filename&quot;.  An <A HREF="starting.html#easy">easy</A> way to <A HREF="diff.html#do">do</A> this is with the |<A HREF="#:make">:make</A>| command (see
+&quot;vim <A HREF="starting.html#-q">-q</A> filename&quot;.  An easy way to <A HREF="diff.html#do">do</A> this is with the |<A HREF="#:make">:make</A>| command (see
 below).  The <A HREF="options.html#'errorformat'">'errorformat'</A> option should be set to match the error <A HREF="message.html#messages">messages</A>
 from your compiler (see |<A HREF="#errorformat">errorformat</A>| below).
 
@@ -899,7 +894,7 @@ g:compiler_gcc_ignore_unmatched_lines
 
 PERL					*<A NAME="quickfix-perl"></A><B>quickfix-perl</B>* *<A NAME="compiler-perl"></A><B>compiler-perl</B>*
 
-The <A HREF="if_perl.html#Perl">Perl</A> compiler <A HREF="usr_05.html#plugin">plugin</A> doesn't actually compile, but invokes Perl's internal
+The Perl compiler <A HREF="usr_05.html#plugin">plugin</A> doesn't actually compile, but invokes Perl's internal
 <A HREF="syntax.html#syntax">syntax</A> checking feature and parses the output for possible <A HREF="message.html#errors">errors</A> so you can
 correct them in quick-fix mode.
 
@@ -1318,7 +1313,7 @@ required for the set command.
 <A HREF="#Quickfix">Quickfix</A> maintains a stack for saving all used directories parsed from the
 make output.  For GNU-make this is rather simple, <A HREF="motion.html#as">as</A> <A HREF="motion.html#it">it</A> always prints the
 absolute path of all directories <A HREF="motion.html#it">it</A> enters and leaves.  Regardless if this is
-done via a <A HREF="options.html#'cd'">'cd'</A> command in the makefile or with the parameter &quot;<A HREF="starting.html#-C">-C</A> dir&quot; (change
+done via a <A HREF="options.html#'cd'">'cd'</A> command in the makefile or with the parameter &quot;-C dir&quot; (change
 to directory before reading the makefile).  It may be useful to use the switch
 &quot;<A HREF="starting.html#-w">-w</A>&quot; to force GNU-make to print out the working directory before and after
 processing.
@@ -1473,7 +1468,7 @@ The following is an example how an <A HREF="options.html#'errorformat'">'errorfo
 for the (La)TeX typesetting system which displays error <A HREF="message.html#messages">messages</A> over
 multiple lines.  The output of &quot;<A HREF="#:clist">:clist</A>&quot; and &quot;<A HREF="#:cc">:cc</A>&quot; etc. commands displays
 multi-lines in a single line, leading white space is removed.
-It should be <A HREF="starting.html#easy">easy</A> to adopt the above LaTeX <A HREF="#errorformat">errorformat</A> to any compiler output
+It should be easy to adopt the above LaTeX <A HREF="#errorformat">errorformat</A> to any compiler output
 consisting of multi-line <A HREF="message.html#errors">errors</A>.
 
 The commands can be placed in a |<A HREF="starting.html#vimrc">vimrc</A>| file or some other Vim <A HREF="usr_41.html#script">script</A> file,
@@ -1555,7 +1550,7 @@ by Vim.
 
 
 						*<A NAME="errorformat-Perl"></A><B>errorformat-Perl</B>*
-In $VIMRUNTIME/tools you can find the efm_perl.pl <A HREF="usr_41.html#script">script</A>, which filters <A HREF="if_perl.html#Perl">Perl</A>
+In $VIMRUNTIME/tools you can find the efm_perl.pl <A HREF="usr_41.html#script">script</A>, which filters Perl
 error <A HREF="message.html#messages">messages</A> into a format that <A HREF="#quickfix">quickfix</A> mode will understand.  See the
 start of the file about how to use <A HREF="motion.html#it">it</A>.  (This <A HREF="usr_41.html#script">script</A> is deprecated, see
 |<A HREF="#compiler-perl">compiler-perl</A>|.)
@@ -1568,7 +1563,7 @@ start of the file about how to use <A HREF="motion.html#it">it</A>.  (This <A HR
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:35 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>

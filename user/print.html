@@ -52,9 +52,6 @@ Printing						*<A NAME="printing"></A><B>printing</B>*
 7. PostScript Utilities			|<A HREF="#postscript-print-util">postscript-print-util</A>|
 8. Formfeed Characters			|<A HREF="#printing-formfeed">printing-formfeed</A>|
 
-{Vi has None of this}
-{only available when compiled with the |<A HREF="various.html#+printer">+printer</A>| feature}
-
 ==============================================================================
 
 1. Introduction						*<A NAME="print-intro"></A><B>print-intro</B>*
@@ -189,7 +186,7 @@ currently specified printdevice:
 <B>		? ' LPT1:' : (' \"' . &amp;printdevice . '\"')))</B>
 <B>		. delete(v:fname_in)</B>
 
-If you change this option, using a function is an <A HREF="starting.html#easy">easy</A> way to avoid having to
+If you change this option, using a function is an easy way to avoid having to
 <A HREF="intro.html#escape">escape</A> all the spaces.  Example:
 
 <B>	:set printexpr=PrintFile(v:fname_in)</B>
@@ -651,7 +648,7 @@ ends have been created.  These allow easier PostScript file selection,
 previewing at different zoom levels, and <A HREF="#printing">printing</A>.  Check supplied
 documentation for full details.
 
-<A HREF="options.html#X11">X11</A>
+X11
 
 - Ghostview.  Obtainable from:
 
@@ -762,7 +759,7 @@ There are a couple of points to bear in mind:
    vertically (along the short edge), <A HREF="motion.html#as">as</A> well <A HREF="motion.html#as">as</A> possibly rotating them 180
    degrees.  All this depends on the printer - <A HREF="motion.html#it">it</A> will be more obvious for
    desktop ink jets than for small office laser printers where the paper path
-   is hidden from <A HREF="starting.html#view">view</A>.
+   is hidden from view.
 
 
 ==============================================================================
@@ -803,7 +800,7 @@ accidental blank pages.
 
     <footer>
       <div class="container">
-        Generated Sat Jan 10 19:08:00 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/a684cc175a6c1ca2cfc3bff2d68383d32008cb3b"><code>a684cc1</code></a>.
+        Generated Wed Jun 24 22:24:35 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
       </div>
     </footer>
   </body>
