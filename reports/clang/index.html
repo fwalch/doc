@@ -35,14 +35,220 @@
 
     <div class="container">
       <h1>Neovim Static Analysis Report</h1>
-<p>
-  <span class="no-warnings">✔</span> Static Analysis didn't find any issues.
-</p>
+
+<table>
+<tr><th>User:</th><td>travis@testing-worker-linux-docker-9da32074-3197-linux-6</td></tr>
+<tr><th>Working Directory:</th><td>/home/travis/build/fwalch/bot-ci/build/neovim</td></tr>
+<tr><th>Command Line:</th><td>make -j2</td></tr>
+<tr><th>Clang Version:</th><td>Ubuntu clang version 3.6.2-svn240577-1~exp1 (branches/release_36) (based on LLVM 3.6.2)
+</td></tr>
+<tr><th>Date:</th><td>Wed Jul 22 11:21:22 2015</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">55</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>API</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Argument with 'nonnull' attribute passed null</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_api_argument_with_nonnull_attribute_passed_null');" checked/></center></td></tr>
+<tr><th>Dead store</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead assignment</td><td class="Q">14</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_dead_store_dead_assignment');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dead increment</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_dead_store_dead_increment');" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Assigned value is garbage or undefined</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_assigned_value_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dereference of null pointer</td><td class="Q">20</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dereference of undefined pointer value</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_undefined_pointer_value');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Result of operation is garbage or undefined</td><td class="Q">8</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_result_of_operation_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Uninitialized argument value</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_uninitialized_argument_value');" checked/></center></td></tr>
+<tr><th>Memory Error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Memory leak</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_memory_error_memory_leak');" checked/></center></td></tr>
+<tr><th>Unix API</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Allocator sizeof operand mismatch</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unix_api_allocator_sizeof_operand_mismatch');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_unix_api_allocator_sizeof_operand_mismatch"><td class="DESC">Unix API</td><td class="DESC">Allocator sizeof operand mismatch</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/unibilium<span class="W"> </span>/unibilium.c</td><td class="DESC">unibi_dummy</td><td class="Q">141</td><td class="Q">1</td><td><a href="report-00db64.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-00db64.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">match_capture</td><td class="Q">7235</td><td class="Q">23</td><td><a href="report-65b0ca.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-65b0ca.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">luaV_concat</td><td class="Q">4905</td><td class="Q">14</td><td><a href="report-dfabd3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-dfabd3.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>tmp<span class="W"> </span>/luarocks_luasocket-3.0rc1-2-2226<span class="W"> </span>/luasocket-3.0-rc1<span class="W"> </span>/src<span class="W"> </span>/mime.c</td><td class="DESC">qpencode</td><td class="Q">427</td><td class="Q">13</td><td><a href="report-3025cb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3025cb.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>tmp<span class="W"> </span>/luarocks_luasocket-3.0rc1-2-2226<span class="W"> </span>/luasocket-3.0-rc1<span class="W"> </span>/src<span class="W"> </span>/mime.c</td><td class="DESC">qpencode</td><td class="Q">427</td><td class="Q">17</td><td><a href="report-900612.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-900612.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/lj_strscan.c</td><td class="DESC">strscan_dec</td><td class="Q">295</td><td class="Q">28</td><td><a href="report-8a5305.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8a5305.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/lj_strscan.c</td><td class="DESC">strscan_dec</td><td class="Q">310</td><td class="Q">28</td><td><a href="report-ceb9fb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ceb9fb.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/jemalloc.c</td><td class="DESC">calloc</td><td class="Q">1124</td><td class="Q">1</td><td><a href="report-90d5ad.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-90d5ad.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">bin_info_run_size_calc</td><td class="Q">2446</td><td class="Q">1</td><td><a href="report-c8efff.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c8efff.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>tmp<span class="W"> </span>/luarocks_luasocket-3.0rc1-2-2226<span class="W"> </span>/luasocket-3.0-rc1<span class="W"> </span>/src<span class="W"> </span>/mime.c</td><td class="DESC">mime_global_b64</td><td class="Q">281</td><td class="Q">1</td><td><a href="report-45ebc2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-45ebc2.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/pipe.c</td><td class="DESC">uv_pipe_bind</td><td class="Q">50</td><td class="Q">1</td><td><a href="report-8d6b34.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8d6b34.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/tty.c</td><td class="DESC">uv_tty_init</td><td class="Q">52</td><td class="Q">1</td><td><a href="report-f52da1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f52da1.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/msgpack<span class="W"> </span>/src<span class="W"> </span>/zone.c</td><td class="DESC">msgpack_zone_malloc_expand</td><td class="Q">84</td><td class="Q">1</td><td><a href="report-a96dd8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a96dd8.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libtermkey<span class="W"> </span>/termkey.c</td><td class="DESC">termkey_strfkey</td><td class="Q">1367</td><td class="Q">1</td><td><a href="report-c37e43.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c37e43.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libtermkey<span class="W"> </span>/termkey.c</td><td class="DESC">termkey_strfkey</td><td class="Q">1369</td><td class="Q">1</td><td><a href="report-5a0e65.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5a0e65.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/lj_cconv.c</td><td class="DESC">lj_cconv_ct_ct</td><td class="Q">212</td><td class="Q">1</td><td><a href="report-b8792d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b8792d.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/lj_cconv.c</td><td class="DESC">lj_cconv_ct_ct</td><td class="Q">276</td><td class="Q">1</td><td><a href="report-b32789.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b32789.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/lj_cconv.c</td><td class="DESC">lj_cconv_ct_ct</td><td class="Q">283</td><td class="Q">1</td><td><a href="report-1e396b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1e396b.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/lj_cconv.c</td><td class="DESC">lj_cconv_ct_ct</td><td class="Q">289</td><td class="Q">1</td><td><a href="report-dbd98a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-dbd98a.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/lj_cconv.c</td><td class="DESC">lj_cconv_ct_ct</td><td class="Q">328</td><td class="Q">1</td><td><a href="report-9551fb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9551fb.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>tmp<span class="W"> </span>/luarocks_luasocket-3.0rc1-2-2226<span class="W"> </span>/luasocket-3.0-rc1<span class="W"> </span>/src<span class="W"> </span>/mime.c</td><td class="DESC">mime_global_qp</td><td class="Q">479</td><td class="Q">1</td><td><a href="report-e3f574.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e3f574.html" -->
+</tr>
+<tr class="bt_dead_store_dead_increment"><td class="DESC">Dead store</td><td class="DESC">Dead increment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/unibilium<span class="W"> </span>/unibilium.c</td><td class="DESC">unibi_from_mem</td><td class="Q">402</td><td class="Q">1</td><td><a href="report-bd3057.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bd3057.html" -->
+</tr>
+<tr class="bt_dead_store_dead_increment"><td class="DESC">Dead store</td><td class="DESC">Dead increment</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/unibilium<span class="W"> </span>/unibilium.c</td><td class="DESC">unibi_from_mem</td><td class="Q">403</td><td class="Q">1</td><td><a href="report-099b57.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-099b57.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">match</td><td class="Q">7290</td><td class="Q">19</td><td><a href="report-d1a71b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d1a71b.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_run_tree_remove</td><td class="Q">69</td><td class="Q">1</td><td><a href="report-30d2a5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-30d2a5.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_avail_tree_remove</td><td class="Q">101</td><td class="Q">1</td><td><a href="report-ae371d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ae371d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_chunk_dirty_remove</td><td class="Q">171</td><td class="Q">1</td><td><a href="report-8bd01b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8bd01b.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/signal.c</td><td class="DESC">uv__signal_tree_s_RB_INSERT_COLOR</td><td class="Q">52</td><td class="Q">1</td><td><a href="report-6abc83.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6abc83.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/signal.c</td><td class="DESC">uv__signal_tree_s_RB_REMOVE_COLOR</td><td class="Q">52</td><td class="Q">1</td><td><a href="report-f5300d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f5300d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/signal.c</td><td class="DESC">uv__signal_tree_s_RB_REMOVE_COLOR</td><td class="Q">52</td><td class="Q">1</td><td><a href="report-a86e28.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a86e28.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">min_expand</td><td class="Q">7204</td><td class="Q">18</td><td><a href="report-436301.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-436301.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">match</td><td class="Q">7265</td><td class="Q">18</td><td><a href="report-a8424a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a8424a.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/linux-inotify.c</td><td class="DESC">watcher_root_RB_INSERT_COLOR</td><td class="Q">56</td><td class="Q">1</td><td><a href="report-34e5df.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-34e5df.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/linux-inotify.c</td><td class="DESC">watcher_root_RB_REMOVE_COLOR</td><td class="Q">56</td><td class="Q">1</td><td><a href="report-a7c31f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a7c31f.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libuv<span class="W"> </span>/src<span class="W"> </span>/unix<span class="W"> </span>/linux-inotify.c</td><td class="DESC">watcher_root_RB_REMOVE_COLOR</td><td class="Q">56</td><td class="Q">1</td><td><a href="report-a04cb6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a04cb6.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libvterm<span class="W"> </span>/src<span class="W"> </span>/parser.c</td><td class="DESC">do_string</td><td class="Q">162</td><td class="Q">5</td><td><a href="report-7ac5c4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7ac5c4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">setarrayvector</td><td class="Q">1487</td><td class="Q">5</td><td><a href="report-be0b41.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-be0b41.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">setnodevector</td><td class="Q">1505</td><td class="Q">34</td><td><a href="report-aeed99.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-aeed99.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">addk</td><td class="Q">3154</td><td class="Q">7</td><td><a href="report-24fcb3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-24fcb3.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">addk</td><td class="Q">3155</td><td class="Q">7</td><td><a href="report-59a7fa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-59a7fa.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">g_read</td><td class="Q">6833</td><td class="Q">16</td><td><a href="report-43a011.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-43a011.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">match</td><td class="Q">7267</td><td class="Q">22</td><td><a href="report-f199d6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f199d6.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>tmp<span class="W"> </span>/luarocks_lpeg-0.12.2-1-2728<span class="W"> </span>/lpeg-0.12.2<span class="W"> </span>/lptree.c</td><td class="DESC">correctkeys</td><td class="Q">217</td><td class="Q">9</td><td><a href="report-70c85a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-70c85a.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_run_tree_remove</td><td class="Q">69</td><td class="Q">1</td><td><a href="report-48480f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-48480f.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory Error</td><td class="DESC">Memory leak</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libtermkey<span class="W"> </span>/driver-ti.c</td><td class="DESC">load_terminfo</td><td class="Q">184</td><td class="Q">22</td><td><a href="report-5db900.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5db900.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_run_tree_remove</td><td class="Q">69</td><td class="Q">1</td><td><a href="report-b682a7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b682a7.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_run_tree_remove</td><td class="Q">69</td><td class="Q">1</td><td><a href="report-8d04e9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8d04e9.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_avail_tree_remove</td><td class="Q">101</td><td class="Q">1</td><td><a href="report-a982b2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a982b2.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_avail_tree_remove</td><td class="Q">101</td><td class="Q">1</td><td><a href="report-c550d5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c550d5.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_chunk_dirty_remove</td><td class="Q">171</td><td class="Q">1</td><td><a href="report-f52f90.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f52f90.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/arena.c</td><td class="DESC">arena_chunk_dirty_remove</td><td class="Q">171</td><td class="Q">1</td><td><a href="report-2b4ae0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2b4ae0.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">lua_getinfo</td><td class="Q">2517</td><td class="Q">11</td><td><a href="report-67be74.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-67be74.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/luajit<span class="W"> </span>/src<span class="W"> </span>/host<span class="W"> </span>/minilua.c</td><td class="DESC">exprstat</td><td class="Q">4591</td><td class="Q">15</td><td><a href="report-ba8c5c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ba8c5c.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/jemalloc<span class="W"> </span>/src<span class="W"> </span>/ctl.c</td><td class="DESC">arena_i_dss_ctl</td><td class="Q">1344</td><td class="Q">3</td><td><a href="report-61a73b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-61a73b.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>home<span class="W"> </span>/travis<span class="W"> </span>/build<span class="W"> </span>/fwalch<span class="W"> </span>/bot-ci<span class="W"> </span>/build<span class="W"> </span>/neovim<span class="W"> </span>/.deps<span class="W"> </span>/build<span class="W"> </span>/src<span class="W"> </span>/libvterm<span class="W"> </span>/src<span class="W"> </span>/state.c</td><td class="DESC">request_status_string</td><td class="Q">1393</td><td class="Q">12</td><td><a href="report-d0a325.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d0a325.html" -->
+</tr>
+</tbody>
+</table>
     </div>
 
     <footer>
       <div class="container">
-        Generated Mon Jun 29 12:00:32 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/27f0e74542d1dd078caff57e423b33f6ca219856"><code>27f0e74</code></a>.
+        Generated Wed Jul 22 11:28:25 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>
