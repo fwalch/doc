@@ -60,7 +60,7 @@
 
 <!-- BUGCATEGORY Logic error -->
 
-<!-- BUGFILE /tmp/luarocks_luasocket-3.0rc1-2-9612/luasocket-3.0-rc1/src/mime.c -->
+<!-- BUGFILE /tmp/luarocks_luasocket-3.0rc1-2-8206/luasocket-3.0-rc1/src/mime.c -->
 
 <!-- FILENAME mime.c -->
 
@@ -68,16 +68,16 @@
 
 <!-- BUGLINE 427 -->
 
-<!-- BUGCOLUMN 18 -->
+<!-- BUGCOLUMN 39 -->
 
-<!-- BUGPATHLENGTH 13 -->
+<!-- BUGPATHLENGTH 17 -->
 
 <!-- BUGMETAEND -->
 <!-- REPORTHEADER -->
 <h3>Bug Summary</h3>
 <table class="simpletable">
-<tr><td class="rowname">File:</td><td>tmp/luarocks_luasocket-3.0rc1-2-9612/luasocket-3.0-rc1/src/mime.c</td></tr>
-<tr><td class="rowname">Location:</td><td><a href="#EndPath">line 427, column 18</a></td></tr>
+<tr><td class="rowname">File:</td><td>tmp/luarocks_luasocket-3.0rc1-2-8206/luasocket-3.0-rc1/src/mime.c</td></tr>
+<tr><td class="rowname">Location:</td><td><a href="#EndPath">line 427, column 39</a></td></tr>
 <tr><td class="rowname">Description:</td><td>Assigned value is garbage or undefined</td></tr>
 </table>
 <!-- REPORTSUMMARYEXTRA -->
@@ -481,17 +481,20 @@
 <tr><td class="num" id="LN396">396</td><td class="line">    input[size++] = c;</td></tr>
 <tr><td class="num" id="LN397">397</td><td class="line">    <span class='comment'>/* deal with all characters we can have */</span></td></tr>
 <tr><td class="num" id="LN398">398</td><td class="line">    <span class='keyword'>while</span> (size &gt; 0) {</td></tr>
-<tr><td class="num"></td><td class="line"><div id="Path10" class="msg msgControl" style="margin-left:5ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">10</div></td><td><div class="PathNav"><a href="#Path9" title="Previous event (9)">&#x2190;</a></div></td></td><td>Loop condition is true.  Entering loop body</td><td><div class="PathNav"><a href="#Path11" title="Next event (11)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path12" class="msg msgControl" style="margin-left:5ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">12</div></td><td><div class="PathNav"><a href="#Path11" title="Previous event (11)">&#x2190;</a></div></td></td><td>Loop condition is true.  Entering loop body</td><td><div class="PathNav"><a href="#Path13" title="Next event (13)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN399">399</td><td class="line">        <span class='keyword'>switch</span> (qpclass[input[0]]) {</td></tr>
-<tr><td class="num"></td><td class="line"><div id="Path11" class="msg msgControl" style="margin-left:9ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">11</div></td><td><div class="PathNav"><a href="#Path10" title="Previous event (10)">&#x2190;</a></div></td></td><td>Control jumps to the 'default' case at line 423</td><td><div class="PathNav"><a href="#Path12" title="Next event (12)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path13" class="msg msgControl" style="margin-left:9ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">13</div></td><td><div class="PathNav"><a href="#Path12" title="Previous event (12)">&#x2190;</a></div></td></td><td>Control jumps to 'case QP_CR:'  at line 401</td><td><div class="PathNav"><a href="#Path14" title="Next event (14)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN400">400</td><td class="line">            <span class='comment'>/* might be the CR of a CRLF sequence */</span></td></tr>
 <tr><td class="num" id="LN401">401</td><td class="line">            <span class='keyword'>case</span> QP_CR:</td></tr>
 <tr><td class="num" id="LN402">402</td><td class="line">                <span class='keyword'>if</span> (size &lt; 2) <span class='keyword'>return</span> size;</td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path14" class="msg msgControl" style="margin-left:17ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">14</div></td><td><div class="PathNav"><a href="#Path13" title="Previous event (13)">&#x2190;</a></div></td></td><td>Taking false branch</td><td><div class="PathNav"><a href="#Path15" title="Next event (15)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN403">403</td><td class="line">                <span class='keyword'>if</span> (input[1] == '\n') {</td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path15" class="msg msgControl" style="margin-left:17ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">15</div></td><td><div class="PathNav"><a href="#Path14" title="Previous event (14)">&#x2190;</a></div></td></td><td>Taking false branch</td><td><div class="PathNav"><a href="#Path16" title="Next event (16)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN404">404</td><td class="line">                    luaL_addstring(buffer, marker);</td></tr>
 <tr><td class="num" id="LN405">405</td><td class="line">                    <span class='keyword'>return</span> 0;</td></tr>
 <tr><td class="num" id="LN406">406</td><td class="line">                } <span class='keyword'>else</span> qpquote(input[0], buffer);</td></tr>
 <tr><td class="num" id="LN407">407</td><td class="line">                <span class='keyword'>break</span>;</td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path16" class="msg msgControl" style="margin-left:17ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">16</div></td><td><div class="PathNav"><a href="#Path15" title="Previous event (15)">&#x2190;</a></div></td></td><td> Execution continues on line 427</td><td><div class="PathNav"><a href="#EndPath" title="Next event (17)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN408">408</td><td class="line">            <span class='comment'>/* might be a space and that has to be quoted if last in line */</span></td></tr>
 <tr><td class="num" id="LN409">409</td><td class="line">            <span class='keyword'>case</span> QP_IF_LAST:</td></tr>
 <tr><td class="num" id="LN410">410</td><td class="line">                <span class='keyword'>if</span> (size &lt; 3) <span class='keyword'>return</span> size;</td></tr>
@@ -510,10 +513,9 @@
 <tr><td class="num" id="LN423">423</td><td class="line">            <span class='keyword'>default</span>:</td></tr>
 <tr><td class="num" id="LN424">424</td><td class="line">                <span class='macro'>luaL_addchar(buffer, input[0])<span class='expansion'>((void)((buffer)-&gt;p &lt; ((buffer)-&gt;buffer+(8192 &gt; 16384<br> ? 8192 : 8192)) || luaL_prepbuffer(buffer)), (*(buffer)-&gt;<br>p++ = (char)(input[0])))</span></span>;</td></tr>
 <tr><td class="num" id="LN425">425</td><td class="line">                <span class='keyword'>break</span>;</td></tr>
-<tr><td class="num"></td><td class="line"><div id="Path12" class="msg msgControl" style="margin-left:17ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">12</div></td><td><div class="PathNav"><a href="#Path11" title="Previous event (11)">&#x2190;</a></div></td></td><td> Execution continues on line 427</td><td><div class="PathNav"><a href="#EndPath" title="Next event (13)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN426">426</td><td class="line">        }</td></tr>
-<tr><td class="num" id="LN427">427</td><td class="line">        input[0] = <span class="mrange">input[1]</span>; input[1] = input[2];</td></tr>
-<tr><td class="num"></td><td class="line"><div id="EndPath" class="msg msgEvent" style="margin-left:18ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">13</div></td><td><div class="PathNav"><a href="#Path12" title="Previous event (12)">&#x2190;</a></div></td></td><td>Assigned value is garbage or undefined</td></tr></table></div></td></tr>
+<tr><td class="num" id="LN427">427</td><td class="line">        input[0] = input[1]; input[1] = <span class="mrange">input[2]</span>;</td></tr>
+<tr><td class="num"></td><td class="line"><div id="EndPath" class="msg msgEvent" style="margin-left:39ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">17</div></td><td><div class="PathNav"><a href="#Path16" title="Previous event (16)">&#x2190;</a></div></td></td><td>Assigned value is garbage or undefined</td></tr></table></div></td></tr>
 <tr><td class="num" id="LN428">428</td><td class="line">        size--;</td></tr>
 <tr><td class="num" id="LN429">429</td><td class="line">    }</td></tr>
 <tr><td class="num" id="LN430">430</td><td class="line">    <span class='keyword'>return</span> 0;</td></tr>
@@ -579,11 +581,13 @@
 <tr><td class="num" id="LN484">484</td><td class="line">    }</td></tr>
 <tr><td class="num" id="LN485">485</td><td class="line">    <span class='comment'>/* otherwise process rest of input */</span></td></tr>
 <tr><td class="num" id="LN486">486</td><td class="line">    last = input + isize;</td></tr>
-<tr><td class="num" id="LN487">487</td><td class="line">    <span class='keyword'>while</span> (<span class="mrange">input &lt; last</span>)</td></tr>
+<tr><td class="num" id="LN487">487</td><td class="line">    <span class='keyword'>while</span> (<span class="mrange"><span class="mrange">input &lt; last</span></span>)</td></tr>
 <tr><td class="num"></td><td class="line"><div id="Path7" class="msg msgEvent" style="margin-left:12ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">7</div></td><td><div class="PathNav"><a href="#Path6" title="Previous event (6)">&#x2190;</a></div></td></td><td>Assuming 'input' is &lt; 'last'</td><td><div class="PathNav"><a href="#Path8" title="Next event (8)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num"></td><td class="line"><div id="Path8" class="msg msgControl" style="margin-left:5ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">8</div></td><td><div class="PathNav"><a href="#Path7" title="Previous event (7)">&#x2190;</a></div></td></td><td>Loop condition is true.  Entering loop body</td><td><div class="PathNav"><a href="#Path9" title="Next event (9)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path9" class="msg msgEvent" style="margin-left:12ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">9</div></td><td><div class="PathNav"><a href="#Path8" title="Previous event (8)">&#x2190;</a></div></td></td><td>Assuming 'input' is &lt; 'last'</td><td><div class="PathNav"><a href="#Path10" title="Next event (10)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path10" class="msg msgControl" style="margin-left:5ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">10</div></td><td><div class="PathNav"><a href="#Path9" title="Previous event (9)">&#x2190;</a></div></td></td><td>Loop condition is true.  Entering loop body</td><td><div class="PathNav"><a href="#Path11" title="Next event (11)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN488">488</td><td class="line">        asize = <span class="mrange">qpencode(*input++, atom, asize, marker, &amp;buffer)</span>;</td></tr>
-<tr><td class="num"></td><td class="line"><div id="Path9" class="msg msgEvent" style="margin-left:17ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">9</div></td><td><div class="PathNav"><a href="#Path8" title="Previous event (8)">&#x2190;</a></div></td></td><td>Calling 'qpencode'</td><td><div class="PathNav"><a href="#Path10" title="Next event (10)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path11" class="msg msgEvent" style="margin-left:17ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">11</div></td><td><div class="PathNav"><a href="#Path10" title="Previous event (10)">&#x2190;</a></div></td></td><td>Calling 'qpencode'</td><td><div class="PathNav"><a href="#Path12" title="Next event (12)">&#x2192;</a></div></td></tr></table></div></td></tr>
 <tr><td class="num" id="LN489">489</td><td class="line">    luaL_pushresult(&amp;buffer);</td></tr>
 <tr><td class="num" id="LN490">490</td><td class="line">    lua_pushlstring(L, (<span class='keyword'>char</span> *) atom, asize);</td></tr>
 <tr><td class="num" id="LN491">491</td><td class="line">    <span class='keyword'>return</span> 2;</td></tr>
