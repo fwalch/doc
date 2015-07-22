@@ -833,10 +833,6 @@ characters.
 
 Otherwise these characters in {string} have a special meaning:
 
-								*<A NAME=":s&#37;"></A><B>:s&#37;</B>*
-When {string} is equal to &quot;<A HREF="motion.html#&#37;">&#37;</A>&quot; and '<A HREF="pattern.html#/">/</A>' is included with the <A HREF="options.html#'cpoptions'">'cpoptions'</A> option,
-then the {string} of the previous substitute command is used, see |<A HREF="options.html#cpo-/">cpo-/</A>|
-
 <B><FONT color="#54A23D">magic	nomagic	  action    </FONT></B>
 
   <A HREF="#&amp;">&amp;</A>	  \&amp;	  replaced with the whole matched <A HREF="pattern.html#pattern">pattern</A>	     *<A NAME="s/\&amp;"></A><B>s/\&amp;</B>*
@@ -979,14 +975,14 @@ This replaces each '<A HREF="motion.html#E">E</A>' character with a euro sign.  
 :promptf[ind] [string]
 			Put up a Search <A HREF="gui_w32.html#dialog">dialog</A>.  When [string] is given, <A HREF="motion.html#it">it</A> is
 			used <A HREF="motion.html#as">as</A> the initial search <A HREF="eval.html#string">string</A>.
-			{only for <A HREF="os_win32.html#Win32">Win32</A>, <A HREF="gui_x11.html#Motif">Motif</A> and <A HREF="gui_x11.html#GTK">GTK</A> GUI}
+			{only for <A HREF="os_win32.html#Win32">Win32</A>, Motif and GTK GUI}
 
 
 						*<A NAME=":promptr"></A><B>:promptr</B>* *<A NAME=":promptrepl"></A><B>:promptrepl</B>*
 :promptr[epl] [string]
 			Put up a Search/Replace <A HREF="gui_w32.html#dialog">dialog</A>.  When [string] is
 			given, <A HREF="motion.html#it">it</A> is used <A HREF="motion.html#as">as</A> the initial search <A HREF="eval.html#string">string</A>.
-			{only for <A HREF="os_win32.html#Win32">Win32</A>, <A HREF="gui_x11.html#Motif">Motif</A> and <A HREF="gui_x11.html#GTK">GTK</A> GUI}
+			{only for <A HREF="os_win32.html#Win32">Win32</A>, Motif and GTK GUI}
 
 
 
@@ -1137,7 +1133,7 @@ inside of strings can change!  Also see <A HREF="options.html#'softtabstop'">'so
 			lines.
 			If no <A HREF="sponsor.html#register">register</A> is specified, <A HREF="motion.html#it">it</A> depends on the <A HREF="options.html#'cb'">'cb'</A>
 			option: If <A HREF="options.html#'cb'">'cb'</A> contains &quot;unnamedplus&quot;, paste from the
-			+ <A HREF="sponsor.html#register">register</A> |<A HREF="gui_x11.html#quoteplus">quoteplus</A>|.  Otherwise, if <A HREF="options.html#'cb'">'cb'</A> contains
+			+ <A HREF="sponsor.html#register">register</A> |<A HREF="nvim_clipboard.html#quoteplus">quoteplus</A>|.  Otherwise, if <A HREF="options.html#'cb'">'cb'</A> contains
 			&quot;unnamed&quot;, paste from the &#42; <A HREF="sponsor.html#register">register</A> |<A HREF="gui.html#quotestar">quotestar</A>|.
 			Otherwise, paste from the unnamed <A HREF="sponsor.html#register">register</A>
 			|<A HREF="#quote_quote">quote_quote</A>|.
@@ -1228,7 +1224,7 @@ left.
 Rationale:	In <A HREF="intro.html#Vi">Vi</A> the &quot;<A HREF="#y">y</A>&quot; command followed by a backwards motion would
 		sometimes not move the cursor to the first yanked character,
 		because redisplaying was skipped.  In Vim <A HREF="motion.html#it">it</A> always moves to
-		the first character, <A HREF="motion.html#as">as</A> specified by <A HREF="intro.html#Posix">Posix</A>.
+		the first character, <A HREF="motion.html#as">as</A> specified by Posix.
 With a <A HREF="motion.html#linewise">linewise</A> <A HREF="#yank">yank</A> command the cursor is put in the first line, but the
 column is unmodified, thus <A HREF="motion.html#it">it</A> may not be on the first yanked character.
 
@@ -1339,13 +1335,9 @@ characters.  If the String ends in a <A HREF="motion.html#&lt;NL&gt;">&lt;NL&gt;
 
 7. Selection and drop <A HREF="#registers">registers</A> &quot;*, &quot;<A HREF="motion.html#+">+</A> and &quot;<A HREF="#~">~</A> 
 Use these <A HREF="#registers">registers</A> for storing and retrieving the selected text for the <A HREF="gui.html#GUI">GUI</A>.
-See |<A HREF="gui.html#quotestar">quotestar</A>| and |<A HREF="gui_x11.html#quoteplus">quoteplus</A>|.  When the <A HREF="gui.html#clipboard">clipboard</A> is not available or not
-working, the unnamed <A HREF="sponsor.html#register">register</A> is used instead.  For <A HREF="os_unix.html#Unix">Unix</A> systems the <A HREF="gui.html#clipboard">clipboard</A>
-is only available when the |<A HREF="various.html#+xterm_clipboard">+xterm_clipboard</A>| feature is present.
-
-Note that there is only a distinction between &quot;* and &quot;<A HREF="motion.html#+">+</A> for X11 systems.  For
-an explanation of the difference, see |<A HREF="gui_x11.html#x11-selection">x11-selection</A>|.  Under <A HREF="os_win32.html#MS-Windows">MS-Windows</A>, use
-of &quot;* and &quot;<A HREF="motion.html#+">+</A> is actually synonymous and refers to the |<A HREF="gui_w32.html#gui-clipboard">gui-clipboard</A>|.
+See |<A HREF="gui.html#quotestar">quotestar</A>| and |<A HREF="nvim_clipboard.html#quoteplus">quoteplus</A>|.  When the <A HREF="gui.html#clipboard">clipboard</A> is not available or not
+working, the unnamed <A HREF="sponsor.html#register">register</A> is used instead.  For <A HREF="os_unix.html#Unix">Unix</A> systems and <A HREF="os_mac.html#Mac">Mac</A> OS X,
+see |<A HREF="nvim_clipboard.html#nvim-clipboard">nvim-clipboard</A>|.
 
 
 						*<A NAME="quote_~"></A><B>quote_~</B>* *<A NAME="quote~"></A><B>quote~</B>* *<A NAME="&lt;Drop&gt;"></A><B>&lt;Drop&gt;</B>*
@@ -1355,7 +1347,7 @@ filled in and the <A HREF="#&lt;Drop&gt;">&lt;Drop&gt;</A> pseudo key is sent fo
 this key if you want; the default action (for all modes) is to insert the
 contents of the &quot;<A HREF="#~">~</A> <A HREF="sponsor.html#register">register</A> at the cursor position.
 {only available when compiled with the |<A HREF="various.html#+dnd">+dnd</A>| feature, currently only with the
-<A HREF="gui_x11.html#GTK">GTK</A> GUI}
+GTK GUI}
 
 Note: The &quot;<A HREF="#~">~</A> <A HREF="sponsor.html#register">register</A> is only used when dropping plain text onto Vim.
 Drag'n'drop of URI lists is handled internally.
@@ -1890,7 +1882,7 @@ library function used.
 
     <footer>
       <div class="container">
-        Generated Wed Jun 24 22:24:32 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
+        Generated Wed Jul 22 10:45:44 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>

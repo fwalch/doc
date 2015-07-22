@@ -59,19 +59,28 @@ Note: For now only the old Vim 7.3 API is supported.
 
 2. Quickstart						 *<A NAME="nvim-python-quickstart"></A><B>nvim-python-quickstart</B>*
 
+If you used a package manager to install Nvim, there's a good chance that
+<A HREF="motion.html#it">it</A> also provides the `neovim` <A HREF="if_pyth.html#Python">Python</A> package. If <A HREF="motion.html#it">it</A> doesn't, follow these
+steps to install the package with Python's package manager, `pip`.
+
+Note: Depending on your system, `pip` might refer to <A HREF="if_pyth.html#Python">Python</A> 2 or <A HREF="if_pyth.html#Python">Python</A> 3,
+      which is why the following instructions mention `pip2` or `pip3`
+      explicitly. If one of these is not available for you, maybe `pip`
+      is what you want.
+
 To use Vim <A HREF="if_pyth.html#Python">Python</A> 2/3 plugins with Nvim, <A HREF="diff.html#do">do</A> the following:
 
 - For <A HREF="if_pyth.html#Python">Python</A> 2 plugins, make sure an interpreter for <A HREF="if_pyth.html#Python">Python</A> 2.6 or 2.7 is
-  available in your `$PATH`, then <A HREF="usr_90.html#install">install</A> the `neovim` <A HREF="if_pyth.html#Python">Python</A> package systemwide:
+  available in your `$PATH`, then install the `neovim` <A HREF="if_pyth.html#Python">Python</A> package systemwide:
  
-<B>    $ sudo pip install neovim</B>
+<B>    $ sudo pip2 install neovim</B>
  
   or for the current user:
 
-<B>    $ pip install --user neovim</B>
+<B>    $ pip2 install --user neovim</B>
  
 - For <A HREF="if_pyth.html#Python">Python</A> 3 plugins, make sure an interpreter for <A HREF="if_pyth.html#Python">Python</A> 3.3 or above is
-  available in your `$PATH`, then <A HREF="usr_90.html#install">install</A> the `neovim` <A HREF="if_pyth.html#Python">Python</A> package systemwide:
+  available in your `$PATH`, then install the `neovim` <A HREF="if_pyth.html#Python">Python</A> package systemwide:
  
 <B>    $ sudo pip3 install neovim</B>
  
@@ -112,7 +121,7 @@ To disable <A HREF="if_pyth.html#Python">Python</A> 3 interface, set `g:loaded_p
 						   *<A NAME="g:python_host_skip_check"></A><B>g:python_host_skip_check</B>*
 
 To disable <A HREF="if_pyth.html#Python">Python</A> 2 interpreter check, set `g:python_host_skip_check` to 1:
-Note: If you disable <A HREF="if_pyth.html#Python">Python</A> 2 check, you must <A HREF="usr_90.html#install">install</A> neovim module properly.
+Note: If you disable <A HREF="if_pyth.html#Python">Python</A> 2 check, you must install neovim module properly.
 
 <B>    let g:python_host_skip_check = 1</B>
  
@@ -120,7 +129,7 @@ Note: If you disable <A HREF="if_pyth.html#Python">Python</A> 2 check, you must 
 						   *<A NAME="g:python3_host_skip_check"></A><B>g:python3_host_skip_check</B>*
 
 To disable <A HREF="if_pyth.html#Python">Python</A> 3 interpreter check, set `g:python3_host_skip_check` to 1:
-Note: If you disable <A HREF="if_pyth.html#Python">Python</A> 3 check, you must <A HREF="usr_90.html#install">install</A> neovim module properly.
+Note: If you disable <A HREF="if_pyth.html#Python">Python</A> 3 check, you must install neovim module properly.
 
 <B>    let g:python3_host_skip_check = 1</B>
  
@@ -131,7 +140,7 @@ Note: If you disable <A HREF="if_pyth.html#Python">Python</A> 3 check, you must 
 
     <footer>
       <div class="container">
-        Generated Wed Jun 24 22:24:34 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
+        Generated Wed Jul 22 10:45:46 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>

@@ -67,13 +67,26 @@ these differences.
 
 2. Option defaults					  *<A NAME="nvim-option-defaults"></A><B>nvim-option-defaults</B>*
 
+- <A HREF="options.html#'autoindent'">'autoindent'</A> is set by default
+- <A HREF="options.html#'autoread'">'autoread'</A> is set by default
 - <A HREF="options.html#'backspace'">'backspace'</A> defaults to &quot;indent,eol,start&quot;
+- <A HREF="options.html#'complete'">'complete'</A> doesn't include &quot;<A HREF="insert.html#i">i</A>&quot;
+- <A HREF="options.html#'display'">'display'</A> defaults to &quot;lastline&quot;
 - <A HREF="options.html#'encoding'">'encoding'</A> defaults to &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot;
 - <A HREF="options.html#'formatoptions'">'formatoptions'</A> defaults to &quot;tcqj&quot;
+- <A HREF="options.html#'history'">'history'</A> defaults to 10000 (the maximum)
+- <A HREF="options.html#'hlsearch'">'hlsearch'</A> is set by default
+- <A HREF="options.html#'incsearch'">'incsearch'</A> is set by default
+- <A HREF="options.html#'langnoremap'">'langnoremap'</A> is set by default
+- <A HREF="options.html#'mouse'">'mouse'</A> defaults to &quot;<A HREF="insert.html#a">a</A>&quot;
 - <A HREF="options.html#'nocompatible'">'nocompatible'</A> is always set
 - <A HREF="options.html#'nrformats'">'nrformats'</A> defaults to &quot;hex&quot;
+- <A HREF="options.html#'sessionoptions'">'sessionoptions'</A> doesn't include &quot;<A HREF="options.html#options">options</A>&quot;
+- <A HREF="options.html#'smarttab'">'smarttab'</A> is set by default
+- <A HREF="options.html#'tabpagemax'">'tabpagemax'</A> defaults to 50
 - <A HREF="options.html#'tags'">'tags'</A> defaults to &quot;./tags;,tags&quot;
 - <A HREF="options.html#'ttyfast'">'ttyfast'</A> is always set
+- <A HREF="options.html#'viminfo'">'viminfo'</A> includes &quot;<A HREF="change.html#!">!</A>&quot;
 - <A HREF="options.html#'wildmenu'">'wildmenu'</A> is set by default
 - <A HREF="options.html#'wildmode'">'wildmode'</A> defaults to &quot;list:longest,full&quot;
 
@@ -97,14 +110,16 @@ are always available and may be used simultaneously in separate plugins.  The
 
 See |<A HREF="nvim_intro.html#nvim-intro">nvim-intro</A>| for a <A HREF="eval.html#list">list</A> of Nvim's largest new features.
 
-Meta-key chords are recognized (even in the terminal).
+Meta (alt) chords are recognized (even in the terminal).
   &lt;M-1&gt;, &lt;M-2&gt;, <A HREF="eval.html#...">...</A>
   &lt;M-BS&gt;, &lt;M-Del&gt;, &lt;M-Ins&gt;, <A HREF="eval.html#...">...</A>
   &lt;M-/&gt;, &lt;M-\&gt;, <A HREF="eval.html#...">...</A>
   &lt;M-Space&gt;, &lt;M-Enter&gt;, &lt;M-=&gt;, &lt;M--&gt;, &lt;M-?&gt;, &lt;M-$&gt;, <A HREF="eval.html#...">...</A>
 
-`CTRL-SHIFT-...` key chords are distinguished from `CTRL-...` variants (even in
-the terminal).
+  Note: Meta chords are case-sensitive (&lt;M-a&gt; is distinguished from &lt;M-A&gt;).
+
+Some `CTRL-SHIFT-...` key chords are distinguished from `CTRL-...` variants (even in
+the terminal). Specifically, the following are known to work:
   &lt;C-Tab&gt;, &lt;C-S-Tab&gt;
   &lt;C-BS&gt;, &lt;C-S-BS&gt;
   &lt;C-Enter&gt;, &lt;C-S-Enter&gt;
@@ -123,15 +138,17 @@ Highlight groups:
 
 5. Missing legacy features				 *<A NAME="nvim-features-missing"></A><B>nvim-features-missing</B>*
 
+				     *<A NAME="if_ruby"></A><B>if_ruby</B>* *<A NAME="if_lua"></A><B>if_lua</B>* *<A NAME="if_perl"></A><B>if_perl</B>* *<A NAME="if_mzscheme"></A><B>if_mzscheme</B>* *<A NAME="if_tcl"></A><B>if_tcl</B>*
+
 These legacy Vim features may be implemented in the future, but they are not
 planned for the current milestone.
 
 - vim.bindeval() (new feature in Vim 7.4 <A HREF="if_pyth.html#Python">Python</A> interface)
-- if_ruby
-- if_lua
-- if_perl
-- if_mzscheme
-- if_tcl
+- |<A HREF="#if_ruby">if_ruby</A>|
+- |<A HREF="#if_lua">if_lua</A>|
+- |<A HREF="#if_perl">if_perl</A>|
+- |<A HREF="#if_mzscheme">if_mzscheme</A>|
+- |<A HREF="#if_tcl">if_tcl</A>|
 
 ==============================================================================
 
@@ -159,7 +176,13 @@ MS-DOS support:
   'bioskey'
   'conskey'
 
+Highlight groups:
+  |<A HREF="syntax.html#hl-VisualNOS">hl-VisualNOS</A>|
+
 Other <A HREF="options.html#options">options</A>:
+  <A HREF="options.html#'cpoptions'">'cpoptions'</A> ('g', '<A HREF="motion.html#w">w</A>', '<A HREF="motion.html#H">H</A>', '*', '<A HREF="motion.html#-">-</A>', '<A HREF="motion.html#j">j</A>', and all POSIX flags were removed)
+  <A HREF="options.html#'guioptions'">'guioptions'</A> (only the '<A HREF="motion.html#t">t</A>' flag was removed)
+  <A HREF="options.html#'guipty'">'guipty'</A>
   <A HREF="options.html#'macatsui'">'macatsui'</A>
   'shelltype'
   <A HREF="options.html#'shortname'">'shortname'</A>
@@ -172,8 +195,9 @@ Other <A HREF="options.html#options">options</A>:
 
 Other commands:
   :fixdel
-  <A HREF="term.html#:mode">:mode</A> no longer accepts an argument
+  <A HREF="term.html#:mode">:mode</A> (no longer accepts an argument)
   <A HREF="various.html#:shell">:shell</A>
+  :tearoff
 
 Other compile-time features:
   EBCDIC
@@ -202,7 +226,7 @@ of just using their command line arguments:
 
     <footer>
       <div class="container">
-        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
+        Generated Wed Jul 22 10:45:48 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>

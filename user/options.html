@@ -800,7 +800,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 			*<A NAME="'autoindent'"></A><B>'autoindent'</B>* *<A NAME="'ai'"></A><B>'ai'</B>* *<A NAME="'noautoindent'"></A><B>'noautoindent'</B>* *<A NAME="'noai'"></A><B>'noai'</B>*
-<A HREF="#'autoindent'">'autoindent'</A> <A HREF="#'ai'">'ai'</A>	<A HREF="#boolean">boolean</A>	(default off)
+<A HREF="#'autoindent'">'autoindent'</A> <A HREF="#'ai'">'ai'</A>	<A HREF="#boolean">boolean</A>	(default on)
 			local to buffer
 	Copy indent from current line when starting a new line (typing <A HREF="motion.html#&lt;CR&gt;">&lt;CR&gt;</A>
 	in <A HREF="insert.html#Insert">Insert</A> mode or when using the &quot;<A HREF="insert.html#o">o</A>&quot; or &quot;<A HREF="insert.html#O">O</A>&quot; command).  If you <A HREF="diff.html#do">do</A> not
@@ -820,7 +820,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 				 *<A NAME="'autoread'"></A><B>'autoread'</B>* *<A NAME="'ar'"></A><B>'ar'</B>* *<A NAME="'noautoread'"></A><B>'noautoread'</B>* *<A NAME="'noar'"></A><B>'noar'</B>*
-<A HREF="#'autoread'">'autoread'</A> <A HREF="#'ar'">'ar'</A>		<A HREF="#boolean">boolean</A>	(default off)
+<A HREF="#'autoread'">'autoread'</A> <A HREF="#'ar'">'ar'</A>		<A HREF="#boolean">boolean</A>	(default on)
 			global or local to buffer |<A HREF="#global-local">global-local</A>|
 	When a file has been detected to have been changed outside of Vim and
 	<A HREF="motion.html#it">it</A> has not been changed inside of Vim, automatically read <A HREF="motion.html#it">it</A> again.
@@ -883,7 +883,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	&quot;dark&quot;.  But this happens only AFTER the <A HREF="gui.html#.gvimrc">.gvimrc</A> file has been read
 	(because the <A HREF="windows.html#window">window</A> needs to be opened to find the actual background
 	color).  To get around this, force the <A HREF="gui.html#GUI">GUI</A> <A HREF="windows.html#window">window</A> to be opened by
-	putting a &quot;<A HREF="gui_x11.html#:gui">:gui</A>&quot; command in the <A HREF="gui.html#.gvimrc">.gvimrc</A> file, before where the value
+	putting a &quot;:gui&quot; command in the <A HREF="gui.html#.gvimrc">.gvimrc</A> file, before where the value
 	of <A HREF="#'background'">'background'</A> is used (e.g., before &quot;<A HREF="syntax.html#:syntax">:syntax</A> on&quot;).
 
 	For MS-DOS and Windows the default is &quot;dark&quot;.
@@ -1248,7 +1248,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 						*<A NAME="'browsedir'"></A><B>'browsedir'</B>* *<A NAME="'bsdir'"></A><B>'bsdir'</B>*
 <A HREF="#'browsedir'">'browsedir'</A> <A HREF="#'bsdir'">'bsdir'</A>	<A HREF="eval.html#string">string</A>	(default: &quot;last&quot;)
 			global
-			{only for <A HREF="gui_x11.html#Motif">Motif</A>, <A HREF="gui_x11.html#Athena">Athena</A>, <A HREF="gui_x11.html#GTK">GTK</A>, <A HREF="os_mac.html#Mac">Mac</A> and
+			{only for Motif, Athena, GTK, <A HREF="os_mac.html#Mac">Mac</A> and
 			<A HREF="os_win32.html#Win32">Win32</A> GUI}
 	Which directory to use for the file browser:
 	   last		Use same directory <A HREF="motion.html#as">as</A> with last file browser, where a
@@ -1516,7 +1516,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 						*<A NAME="clipboard-unnamedplus"></A><B>clipboard-unnamedplus</B>*
 	unnamedplus	A variant of the &quot;unnamed&quot; flag which uses the
-			<A HREF="gui.html#clipboard">clipboard</A> <A HREF="sponsor.html#register">register</A> '<A HREF="motion.html#+">+</A>' (|<A HREF="gui_x11.html#quoteplus">quoteplus</A>|) instead of
+			<A HREF="gui.html#clipboard">clipboard</A> <A HREF="sponsor.html#register">register</A> '<A HREF="motion.html#+">+</A>' (|<A HREF="nvim_clipboard.html#quoteplus">quoteplus</A>|) instead of
 			<A HREF="sponsor.html#register">register</A> '*' for all <A HREF="change.html#yank">yank</A>, delete, change and put
 			operations which would normally go to the unnamed
 			<A HREF="sponsor.html#register">register</A>.  When &quot;unnamed&quot; is also included to the
@@ -1557,7 +1557,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 			in Vim and paste <A HREF="motion.html#it">it</A> in a rich edit box in Firefox.
 			You probably want to add this only temporarily,
 			possibly use <A HREF="autocmd.html#BufEnter">BufEnter</A> autocommands.
-			Only supported for <A HREF="gui_x11.html#GTK">GTK</A> version 2 and later.
+			Only supported for GTK version 2 and later.
 			Only available with the |<A HREF="various.html#+multi_byte">+multi_byte</A>| feature.
 
 
@@ -1619,8 +1619,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 <A HREF="#'columns'">'columns'</A> <A HREF="#'co'">'co'</A>		number	(default 80 or terminal width)
 			global
 	<A HREF="eval.html#Number">Number</A> of columns of the screen.  Normally this is set by the terminal
-	<A HREF="starting.html#initialization">initialization</A> and does not have to be set by hand.  Also see
-	|<A HREF="vi_diff.html#posix-screen-size">posix-screen-size</A>|.
+	<A HREF="starting.html#initialization">initialization</A> and does not have to be set by hand.
 	When Vim is running in the <A HREF="gui.html#GUI">GUI</A> or in a resizable <A HREF="windows.html#window">window</A>, setting this
 	option will cause the <A HREF="windows.html#window">window</A> size to be changed.  When you only want
 	to use the size for the <A HREF="gui.html#GUI">GUI</A>, put the command in your |<A HREF="gui.html#gvimrc">gvimrc</A>| file.
@@ -1659,7 +1658,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 						*<A NAME="'complete'"></A><B>'complete'</B>* *<A NAME="'cpt'"></A><B>'cpt'</B>* *<A NAME="E535"></A><B>E535</B>*
-<A HREF="#'complete'">'complete'</A> <A HREF="#'cpt'">'cpt'</A>	<A HREF="eval.html#string">string</A>	(default: &quot;.,w,b,u,t,i&quot;)
+<A HREF="#'complete'">'complete'</A> <A HREF="#'cpt'">'cpt'</A>	<A HREF="eval.html#string">string</A>	(default: &quot;.,w,b,u,t&quot;)
 			local to buffer
 	This option specifies how keyword completion |<A HREF="insert.html#ins-completion">ins-completion</A>| works
 	when <A HREF="motion.html#CTRL-P">CTRL-P</A> or <A HREF="motion.html#CTRL-N">CTRL-N</A> are used.  It is also used for whole-line
@@ -1838,10 +1837,6 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	Commas can be added for readability.
 	To avoid problems with flags that are added in the future, use the
 	&quot;+=&quot; and &quot;-=&quot; feature of &quot;<A HREF="#:set">:set</A>&quot; |<A HREF="#add-option-flags">add-option-flags</A>|.
-	NOTE: This option is set to the POSIX default value at <A HREF="starting.html#startup">startup</A> when
-	the <A HREF="intro.html#Vi">Vi</A> default value would be used and the $VIM_POSIX environment
-	variable exists |<A HREF="vi_diff.html#posix">posix</A>|.  This means Vim tries to behave like the
-	POSIX specification.
 
 <B><FONT color="#54A23D">	    contains	behavior	</FONT></B>
 
@@ -1957,7 +1952,6 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 			See |<A HREF="pattern.html#/[]">/[]</A>|
 			   '<A HREF="motion.html#l">l</A>' included: &quot;/[ \t]&quot;  finds <A HREF="motion.html#&lt;Space&gt;">&lt;Space&gt;</A>, '\' and '<A HREF="motion.html#t">t</A>'
 			   '<A HREF="motion.html#l">l</A>' excluded: &quot;/[ \t]&quot;  finds <A HREF="motion.html#&lt;Space&gt;">&lt;Space&gt;</A> and <A HREF="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</A>
-			Also see |<A HREF="#cpo-\">cpo-\</A>|.
 
 								*<A NAME="cpo-L"></A><B>cpo-L</B>*
 		<A HREF="motion.html#L">L</A>	When the <A HREF="#'list'">'list'</A> option is set, <A HREF="#'wrapmargin'">'wrapmargin'</A>,
@@ -2124,45 +2118,6 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 			character, the cursor won't move. When not included,
 			the cursor would skip over <A HREF="motion.html#it">it</A> and jump to the
 			following occurrence.
-
-	POSIX flags.  These are not included in the <A HREF="intro.html#Vi">Vi</A> default value, except
-	when $VIM_POSIX was set on <A HREF="starting.html#startup">startup</A>. |<A HREF="vi_diff.html#posix">posix</A>|
-
-<B><FONT color="#54A23D">	    contains	behavior	</FONT></B>
-
-								*<A NAME="cpo-#"></A><B>cpo-#</B>*
-		#	A <A HREF="intro.html#count">count</A> before &quot;<A HREF="change.html#D">D</A>&quot;, &quot;<A HREF="insert.html#o">o</A>&quot; and &quot;<A HREF="insert.html#O">O</A>&quot; has no effect.
-
-								*<A NAME="cpo-&amp;"></A><B>cpo-&amp;</B>*
-		<A HREF="change.html#&amp;">&amp;</A>	When &quot;<A HREF="recover.html#:preserve">:preserve</A>&quot; was used keep the swap file when
-			exiting normally while this buffer is still loaded.
-			This flag is tested when exiting.
-
-								*<A NAME="cpo-\"></A><B>cpo-\</B>*
-		\	Backslash in a <A HREF="motion.html#[]">[]</A> range in a search <A HREF="pattern.html#pattern">pattern</A> is taken
-			literally, only &quot;\]&quot; is special  See |<A HREF="pattern.html#/[]">/[]</A>|
-			   '\' included: &quot;/[ \-]&quot;  finds <A HREF="motion.html#&lt;Space&gt;">&lt;Space&gt;</A>, '\' and '<A HREF="motion.html#-">-</A>'
-			   '\' excluded: &quot;/[ \-]&quot;  finds <A HREF="motion.html#&lt;Space&gt;">&lt;Space&gt;</A> and '<A HREF="motion.html#-">-</A>'
-			Also see |<A HREF="#cpo-l">cpo-l</A>|.
-
-								*<A NAME="cpo-/"></A><B>cpo-/</B>*
-		/	When &quot;<A HREF="motion.html#&#37;">&#37;</A>&quot; is used <A HREF="motion.html#as">as</A> the replacement <A HREF="eval.html#string">string</A> in a |<A HREF="change.html#:s">:s</A>|
-			command, use the previous replacement <A HREF="eval.html#string">string</A>. |<A HREF="change.html#:s&#37;">:s&#37;</A>|
-
-								*<A NAME="cpo-{"></A><B>cpo-{</B>*
-		{	The |<A HREF="motion.html#{">{</A>| and |<A HREF="motion.html#}">}</A>| commands also stop at a &quot;{&quot; character
-			at the start of a line.
-
-								*<A NAME="cpo-."></A><B>cpo-.</B>*
-		.	The &quot;<A HREF="editing.html#:chdir">:chdir</A>&quot; and &quot;<A HREF="editing.html#:cd">:cd</A>&quot; commands fail if the current
-			buffer is modified, unless ! is used.  Vim doesn't
-			need this, since <A HREF="motion.html#it">it</A> remembers the full path of an
-			opened file.
-
-								*<A NAME="cpo-bar"></A><B>cpo-bar</B>*
-		&#124;	The value of the $LINES and $COLUMNS environment
-			<A HREF="eval.html#variables">variables</A> overrule the terminal size values obtained
-			with system specific <A HREF="eval.html#functions">functions</A>.
 
 
 						*<A NAME="'cryptmethod'"></A><B>'cryptmethod'</B>* *<A NAME="'cm'"></A><B>'cm'</B>*
@@ -2465,7 +2420,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 					*<A NAME="'display'"></A><B>'display'</B>* *<A NAME="'dy'"></A><B>'dy'</B>*
-<A HREF="#'display'">'display'</A> <A HREF="#'dy'">'dy'</A>		<A HREF="eval.html#string">string</A>	(default &quot;&quot;)
+<A HREF="#'display'">'display'</A> <A HREF="#'dy'">'dy'</A>		<A HREF="eval.html#string">string</A>	(default &quot;lastline&quot;, <A HREF="intro.html#Vi">Vi</A> default: &quot;&quot;)
 			global
 	Change the way text is displayed.  This is comma separated <A HREF="eval.html#list">list</A> of
 	flags:
@@ -2509,7 +2464,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	This option cannot be set from a |<A HREF="#modeline">modeline</A>|.  It would most likely
 	corrupt the text.
 
-	NOTE: For <A HREF="gui_x11.html#GTK+">GTK+</A> 2 <A HREF="motion.html#it">it</A> is highly recommended to set <A HREF="#'encoding'">'encoding'</A> to
+	NOTE: For GTK+ 2 <A HREF="motion.html#it">it</A> is highly recommended to set <A HREF="#'encoding'">'encoding'</A> to
 	&quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot;.  Although care has been taken to allow different values of
 	<A HREF="#'encoding'">'encoding'</A>, &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot; is the natural choice for the environment and
 	avoids unnecessary conversion overhead.  &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot; has not been made
@@ -3399,14 +3354,14 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	the <A HREF="change.html#case">case</A> of X).  The font names given should be &quot;normal&quot; fonts.  Vim
 	will try to find the related <A HREF="syntax.html#bold">bold</A> and <A HREF="syntax.html#italic">italic</A> fonts.
 
-	For <A HREF="os_win32.html#Win32">Win32</A>, <A HREF="gui_x11.html#GTK">GTK</A>, <A HREF="gui_x11.html#Motif">Motif</A>, and <A HREF="os_mac.html#Mac">Mac</A> OS:
+	For <A HREF="os_win32.html#Win32">Win32</A>, GTK, Motif, and <A HREF="os_mac.html#Mac">Mac</A> OS:
 <B>	    :set guifont=*</B>
  	will bring up a font requester, where you can pick the font you want.
 
 	The font name depends on the <A HREF="gui.html#GUI">GUI</A> used.  See |<A HREF="gui.html#setting-guifont">setting-guifont</A>| for a
 	way to set <A HREF="#'guifont'">'guifont'</A> for various systems.
 
-	For the <A HREF="gui_x11.html#GTK+">GTK+</A> 2 <A HREF="gui.html#GUI">GUI</A> the font name looks like this:
+	For the GTK+ 2 <A HREF="gui.html#GUI">GUI</A> the font name looks like this:
 <B>	    :set guifont=Andale\ Mono\ 11</B>
  	That's all.  XLFDs are not used.  For <A HREF="mbyte.html#Chinese">Chinese</A> this is reported to work
 	well:
@@ -3420,7 +3375,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
  								*<A NAME="E236"></A><B>E236</B>*
 	Note that the fonts must be mono-spaced (all characters have the same
-	width).  An exception is <A HREF="gui_x11.html#GTK">GTK</A> 2: all fonts are accepted, but
+	width).  An exception is GTK 2: all fonts are accepted, but
 	mono-spaced fonts look best.
 
 	To preview a font on X11, you might be able to use the &quot;xfontsel&quot;
@@ -3447,7 +3402,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	- Examples:
 <B>	    :set guifont=courier_new:h12:w5:b:cRUSSIAN</B>
 <B>	    :set guifont=Andale_Mono:h7.5:w4.5</B>
- 	See also |<A HREF="gui_x11.html#font-sizes">font-sizes</A>|.
+ 
 
 
 					*<A NAME="'guifontset'"></A><B>'guifontset'</B>* *<A NAME="'gfs'"></A><B>'gfs'</B>*
@@ -3457,7 +3412,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 			global
 			{only available when compiled with <A HREF="gui.html#GUI">GUI</A> enabled and
 			with the |<A HREF="various.html#+xfontset">+xfontset</A>| feature}
-			{not available in the <A HREF="gui_x11.html#GTK+">GTK+</A> 2 GUI}
+			{not available in the GTK+ 2 GUI}
 	When not empty, specifies two (or more) fonts to be used.  The first
 	one for normal English, the second one for your special language.  See
 	|<A HREF="mbyte.html#xfontset">xfontset</A>|.
@@ -3486,7 +3441,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	Note: The size of these fonts must be exactly <A HREF="if_cscop.html#twice">twice</A> <A HREF="motion.html#as">as</A> wide <A HREF="motion.html#as">as</A> the one
 	specified with <A HREF="#'guifont'">'guifont'</A> and the same height.
 
-	All <A HREF="gui.html#GUI">GUI</A> versions but <A HREF="gui_x11.html#GTK+">GTK+</A> 2:
+	All <A HREF="gui.html#GUI">GUI</A> versions but GTK+ 2:
 
 	<A HREF="#'guifontwide'">'guifontwide'</A> is only used when <A HREF="#'encoding'">'encoding'</A> is set to &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot; and
 	<A HREF="#'guifontset'">'guifontset'</A> is empty or invalid.
@@ -3495,7 +3450,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	double-width font and set <A HREF="#'guifontwide'">'guifontwide'</A> to <A HREF="motion.html#it">it</A>.
 
 
-	<A HREF="gui_x11.html#GTK+">GTK+</A> 2 <A HREF="gui.html#GUI">GUI</A> only:			*<A NAME="guifontwide_gtk2"></A><B>guifontwide_gtk2</B>*
+	GTK+ 2 <A HREF="gui.html#GUI">GUI</A> only:			*<A NAME="guifontwide_gtk2"></A><B>guifontwide_gtk2</B>*
 
 	If set and valid, <A HREF="#'guifontwide'">'guifontwide'</A> is always used for double width
 	characters, even if <A HREF="#'encoding'">'encoding'</A> is not set to &quot;<A HREF="mbyte.html#utf-8">utf-8</A>&quot;.
@@ -3514,7 +3469,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 						*<A NAME="'guiheadroom'"></A><B>'guiheadroom'</B>* *<A NAME="'ghr'"></A><B>'ghr'</B>*
 <A HREF="#'guiheadroom'">'guiheadroom'</A> <A HREF="#'ghr'">'ghr'</A>	number	(default 50)
 			global
-			{only for <A HREF="gui_x11.html#GTK">GTK</A> and X11 GUI}
+			{only for GTK and X11 GUI}
 	The number of pixels subtracted from the screen height when fitting
 	the <A HREF="gui.html#GUI">GUI</A> <A HREF="windows.html#window">window</A> on the screen.  Set this before the <A HREF="gui.html#GUI">GUI</A> is started,
 	e.g., in your |<A HREF="gui.html#gvimrc">gvimrc</A>| file.  When zero, the whole screen height will
@@ -3525,8 +3480,8 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 						*<A NAME="'guioptions'"></A><B>'guioptions'</B>* *<A NAME="'go'"></A><B>'go'</B>*
-<A HREF="#'guioptions'">'guioptions'</A> <A HREF="#'go'">'go'</A>	<A HREF="eval.html#string">string</A>	(default &quot;egmrLtT&quot;   (MS-Windows),
-					 &quot;aegimrLtT&quot; (GTK, <A HREF="gui_x11.html#Motif">Motif</A> and Athena))
+<A HREF="#'guioptions'">'guioptions'</A> <A HREF="#'go'">'go'</A>	<A HREF="eval.html#string">string</A>	(default &quot;egmrLT&quot;   (MS-Windows),
+					 &quot;aegimrLT&quot; (GTK, Motif and Athena))
 			global
 			{only available when compiled with <A HREF="gui.html#GUI">GUI</A> enabled}
 	This option only has an effect in the <A HREF="gui.html#GUI">GUI</A> version of Vim.  It is a
@@ -3577,10 +3532,10 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 		<A HREF="#'guitablabel'">'guitablabel'</A> can be used to change the text in the labels.
 		When '<A HREF="motion.html#e">e</A>' is missing a non-GUI <A HREF="intro.html#tab">tab</A> pages line may be used.
 		The <A HREF="gui.html#GUI">GUI</A> tabs are only supported on some systems, currently
-		<A HREF="gui_x11.html#GTK">GTK</A>, <A HREF="gui_x11.html#Motif">Motif</A>, <A HREF="os_mac.html#Mac">Mac</A> OS/X and <A HREF="os_win32.html#MS-Windows">MS-Windows</A>.
+		GTK, Motif, <A HREF="os_mac.html#Mac">Mac</A> OS/X and <A HREF="os_win32.html#MS-Windows">MS-Windows</A>.
 
 								*<A NAME="'go-i'"></A><B>'go-i'</B>*
-	  '<A HREF="insert.html#i">i</A>'	Use a Vim icon.  For <A HREF="gui_x11.html#GTK">GTK</A> with <A HREF="gui_x11.html#KDE">KDE</A> <A HREF="motion.html#it">it</A> is used in the left-upper
+	  '<A HREF="insert.html#i">i</A>'	Use a Vim icon.  For GTK with KDE <A HREF="motion.html#it">it</A> is used in the left-upper
 		corner of the <A HREF="windows.html#window">window</A>.
 
 								*<A NAME="'go-m'"></A><B>'go-m'</B>*
@@ -3596,15 +3551,11 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 								*<A NAME="'go-g'"></A><B>'go-g'</B>*
 	  '<A HREF="vimindex.html#g">g</A>'	Grey menu items: Make menu items that are not active grey.  If
 		'<A HREF="vimindex.html#g">g</A>' is not included inactive menu items are not shown at all.
-		Exception: <A HREF="gui_x11.html#Athena">Athena</A> will always use grey menu items.
-
-								*<A NAME="'go-t'"></A><B>'go-t'</B>*
-	  '<A HREF="motion.html#t">t</A>'	Include tearoff menu items.  Currently only works for <A HREF="os_win32.html#Win32">Win32</A>,
-		<A HREF="gui_x11.html#GTK+">GTK+</A>, and <A HREF="gui_x11.html#Motif">Motif</A> 1.2 <A HREF="gui.html#GUI">GUI</A>.
+		Exception: Athena will always use grey menu items.
 
 								*<A NAME="'go-T'"></A><B>'go-T'</B>*
-	  '<A HREF="motion.html#T">T</A>'	Include Toolbar.  Currently only in <A HREF="os_win32.html#Win32">Win32</A>, <A HREF="gui_x11.html#GTK+">GTK+</A>, <A HREF="gui_x11.html#Motif">Motif</A>,
-		and <A HREF="gui_x11.html#Athena">Athena</A> GUIs.
+	  '<A HREF="motion.html#T">T</A>'	Include Toolbar.  Currently only in <A HREF="os_win32.html#Win32">Win32</A>, GTK+, Motif,
+		and Athena GUIs.
 
 								*<A NAME="'go-r'"></A><B>'go-r'</B>*
 	  '<A HREF="change.html#r">r</A>'	Right-hand scrollbar is always present.
@@ -3646,16 +3597,12 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 		removing <A HREF="motion.html#it">it</A> after the <A HREF="gui.html#GUI">GUI</A> has started has no effect.
 
 								*<A NAME="'go-F'"></A><B>'go-F'</B>*
-	  '<A HREF="motion.html#F">F</A>'	Add a footer.  Only for <A HREF="gui_x11.html#Motif">Motif</A>.  See |<A HREF="debugger.html#gui-footer">gui-footer</A>|.
+	  '<A HREF="motion.html#F">F</A>'	Add a footer.  Only for Motif.  See |<A HREF="debugger.html#gui-footer">gui-footer</A>|.
 
 
 
 						*<A NAME="'guipty'"></A><B>'guipty'</B>* *<A NAME="'noguipty'"></A><B>'noguipty'</B>*
-<A HREF="#'guipty'">'guipty'</A>		<A HREF="#boolean">boolean</A>	(default on)
-			global
-			{only available when compiled with <A HREF="gui.html#GUI">GUI</A> enabled}
-	Only in the <A HREF="gui.html#GUI">GUI</A>: If on, an attempt is made to open a pseudo-tty for
-	I/O to/from shell commands.  See |<A HREF="gui_x11.html#gui-pty">gui-pty</A>|.
+<A HREF="#'guipty'">'guipty'</A>		Removed. |<A HREF="vim_diff.html#vim-differences">vim-differences</A>| {Nvim}
 
 
 						*<A NAME="'guitablabel'"></A><B>'guitablabel'</B>* *<A NAME="'gtl'"></A><B>'gtl'</B>*
@@ -3793,9 +3740,6 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	|<A HREF="syntax.html#hl-Title">hl-Title</A>|	 t  Titles for output from &quot;<A HREF="#:set">:set</A> all&quot;, &quot;<A HREF="autocmd.html#:autocmd">:autocmd</A>&quot; etc.
 	|<A HREF="syntax.html#hl-VertSplit">hl-VertSplit</A>|	 <A HREF="change.html#c">c</A>  column used to separate vertically split <A HREF="windows.html#windows">windows</A>
 	|<A HREF="syntax.html#hl-Visual">hl-Visual</A>|	 <A HREF="visual.html#v">v</A>  Visual mode
-	|<A HREF="syntax.html#hl-VisualNOS">hl-VisualNOS</A>|	 V  Visual mode when Vim does is &quot;Not Owning the
-			    Selection&quot; Only X11 Gui's |<A HREF="gui_x11.html#gui-x11">gui-x11</A>| and
-			    |<A HREF="term.html#xterm-clipboard">xterm-clipboard</A>|.
 	|<A HREF="syntax.html#hl-WarningMsg">hl-WarningMsg</A>|	 <A HREF="motion.html#w">w</A>  warning <A HREF="message.html#messages">messages</A>
 	|<A HREF="syntax.html#hl-WildMenu">hl-WildMenu</A>|	 W  <A HREF="editing.html#wildcard">wildcard</A> matches displayed for <A HREF="#'wildmenu'">'wildmenu'</A>
 	|<A HREF="syntax.html#hl-Folded">hl-Folded</A>|	 <A HREF="motion.html#f">f</A>  line used for closed <A HREF="fold.html#folds">folds</A>
@@ -3837,7 +3781,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 				 *<A NAME="'hlsearch'"></A><B>'hlsearch'</B>* *<A NAME="'hls'"></A><B>'hls'</B>* *<A NAME="'nohlsearch'"></A><B>'nohlsearch'</B>* *<A NAME="'nohls'"></A><B>'nohls'</B>*
-<A HREF="#'hlsearch'">'hlsearch'</A> <A HREF="#'hls'">'hls'</A>	<A HREF="#boolean">boolean</A>	(default off)
+<A HREF="#'hlsearch'">'hlsearch'</A> <A HREF="#'hls'">'hls'</A>	<A HREF="#boolean">boolean</A>	(default on)
 			global
 			{not available when compiled without the
 			|<A HREF="various.html#+extra_search">+extra_search</A>| feature}
@@ -3861,7 +3805,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 						*<A NAME="'history'"></A><B>'history'</B>* *<A NAME="'hi'"></A><B>'hi'</B>*
-<A HREF="#'history'">'history'</A> <A HREF="#'hi'">'hi'</A>		number	(Vim default: 50, <A HREF="intro.html#Vi">Vi</A> default: 0)
+<A HREF="#'history'">'history'</A> <A HREF="#'hi'">'hi'</A>		number	(Vim default: 10000, <A HREF="intro.html#Vi">Vi</A> default: 0)
 			global
 	A <A HREF="cmdline.html#history">history</A> of &quot;<A HREF="cmdline.html#:">:</A>&quot; commands, and a <A HREF="cmdline.html#history">history</A> of previous search patterns
 	is remembered.  This option decides how many entries may be stored in
@@ -4020,7 +3964,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	|<A HREF="insert.html#i_CTRL-^">i_CTRL-^</A>|.
 	The value is set to 1 when setting <A HREF="#'keymap'">'keymap'</A> to a valid keymap name.
 	It is also used for the argument of commands like &quot;<A HREF="change.html#r">r</A>&quot; and &quot;<A HREF="motion.html#f">f</A>&quot;.
-	The value 0 may not work correctly with <A HREF="gui_x11.html#Athena">Athena</A> and <A HREF="gui_x11.html#Motif">Motif</A> with some <A HREF="mbyte.html#XIM">XIM</A>
+	The value 0 may not work correctly with Athena and Motif with some <A HREF="mbyte.html#XIM">XIM</A>
 	methods.  Use <A HREF="#'imdisable'">'imdisable'</A> to disable <A HREF="mbyte.html#XIM">XIM</A> then.
 
 
@@ -4038,7 +3982,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	|<A HREF="cmdline.html#c_CTRL-^">c_CTRL-^</A>|.
 	The value is set to 1 when <A HREF="motion.html#it">it</A> is not -1 and setting the <A HREF="#'keymap'">'keymap'</A>
 	option to a valid keymap name.
-	The value 0 may not work correctly with <A HREF="gui_x11.html#Athena">Athena</A> and <A HREF="gui_x11.html#Motif">Motif</A> with some <A HREF="mbyte.html#XIM">XIM</A>
+	The value 0 may not work correctly with Athena and Motif with some <A HREF="mbyte.html#XIM">XIM</A>
 	methods.  Use <A HREF="#'imdisable'">'imdisable'</A> to disable <A HREF="mbyte.html#XIM">XIM</A> then.
 
 
@@ -4100,10 +4044,8 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 				 *<A NAME="'incsearch'"></A><B>'incsearch'</B>* *<A NAME="'is'"></A><B>'is'</B>* *<A NAME="'noincsearch'"></A><B>'noincsearch'</B>* *<A NAME="'nois'"></A><B>'nois'</B>*
-<A HREF="#'incsearch'">'incsearch'</A> <A HREF="#'is'">'is'</A>	<A HREF="#boolean">boolean</A>	(default off)
+<A HREF="#'incsearch'">'incsearch'</A> <A HREF="#'is'">'is'</A>	<A HREF="#boolean">boolean</A>	(default on)
 			global
-			{not available when compiled without the
-			|<A HREF="various.html#+extra_search">+extra_search</A>| features}
 	While typing a search command, show where the <A HREF="pattern.html#pattern">pattern</A>, <A HREF="motion.html#as">as</A> <A HREF="motion.html#it">it</A> was typed
 	so far, matches.  The matched <A HREF="eval.html#string">string</A> is highlighted.  If the <A HREF="pattern.html#pattern">pattern</A>
 	is invalid or not found, nothing is shown.  The screen will be updated
@@ -4112,10 +4054,9 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	original position when no match is found and when pressing <A HREF="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</A>.  You
 	still need to finish the search command with <A HREF="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</A> to move the
 	cursor to the match.
-	When compiled with the |<A HREF="various.html#+reltime">+reltime</A>| feature Vim only searches for about
-	half a second.  With a complicated <A HREF="pattern.html#pattern">pattern</A> and/or a lot of text the
-	match may not be found.  This is to avoid that Vim hangs while you
-	are typing the <A HREF="pattern.html#pattern">pattern</A>.
+	Vim only searches for about half a second.  With a complicated
+	<A HREF="pattern.html#pattern">pattern</A> and/or a lot of text the match may not be found.  This is to
+	avoid that Vim hangs while you are typing the <A HREF="pattern.html#pattern">pattern</A>.
 	The highlighting can be set with the '<A HREF="insert.html#i">i</A>' flag in <A HREF="#'highlight'">'highlight'</A>.
 	See also: <A HREF="#'hlsearch'">'hlsearch'</A>.
 	<A HREF="various.html#CTRL-L">CTRL-L</A> can be used to add one character from after the current match
@@ -4456,7 +4397,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 					*<A NAME="'langnoremap'"></A><B>'langnoremap'</B>* *<A NAME="'lnr'"></A><B>'lnr'</B>*
-<A HREF="#'langnoremap'">'langnoremap'</A> <A HREF="#'lnr'">'lnr'</A>	<A HREF="#boolean">boolean</A> (default off)
+<A HREF="#'langnoremap'">'langnoremap'</A> <A HREF="#'lnr'">'lnr'</A>	<A HREF="#boolean">boolean</A> (default on)
 			global
 	When on, setting <A HREF="#'langmap'">'langmap'</A> does not apply to characters resulting from
 	a <A HREF="map.html#mapping">mapping</A>.  This basically means, if you noticed that setting
@@ -4507,7 +4448,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 			global
 	<A HREF="eval.html#Number">Number</A> of lines of the Vim <A HREF="windows.html#window">window</A>.
 	Normally you don't need to set this.  It is done automatically by the
-	terminal <A HREF="starting.html#initialization">initialization</A> code.  Also see |<A HREF="vi_diff.html#posix-screen-size">posix-screen-size</A>|.
+	terminal <A HREF="starting.html#initialization">initialization</A> code.
 	When Vim is running in the <A HREF="gui.html#GUI">GUI</A> or in a resizable <A HREF="windows.html#window">window</A>, setting this
 	option will cause the <A HREF="windows.html#window">window</A> size to be changed.  When you only want
 	to use the size for the <A HREF="gui.html#GUI">GUI</A>, put the command in your |<A HREF="gui.html#gvimrc">gvimrc</A>| file.
@@ -4900,7 +4841,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 						*<A NAME="'mouse'"></A><B>'mouse'</B>* *<A NAME="E538"></A><B>E538</B>*
-<A HREF="#'mouse'">'mouse'</A>			<A HREF="eval.html#string">string</A>	(default &quot;&quot;, &quot;<A HREF="insert.html#a">a</A>&quot; for <A HREF="gui.html#GUI">GUI</A>, MS-DOS and <A HREF="os_win32.html#Win32">Win32</A>)
+<A HREF="#'mouse'">'mouse'</A>			<A HREF="eval.html#string">string</A>	(default &quot;<A HREF="insert.html#a">a</A>&quot;)
 			global
 
 	Enable the use of the mouse.  Only works for certain terminals.
@@ -5839,10 +5780,10 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 						*<A NAME="'sessionoptions'"></A><B>'sessionoptions'</B>* *<A NAME="'ssop'"></A><B>'ssop'</B>*
 <A HREF="#'sessionoptions'">'sessionoptions'</A> <A HREF="#'ssop'">'ssop'</A>	<A HREF="eval.html#string">string</A>	(default: &quot;blank,buffers,curdir,folds,
+					       help,tabpages,winsize&quot;
+				 <A HREF="intro.html#Vi">Vi</A> default: &quot;blank,buffers,curdir,folds,
 					       help,options,tabpages,winsize&quot;)
 			global
-			{not available when compiled without the |<A HREF="various.html#+mksession">+mksession</A>|
-			feature}
 	Changes the effect of the |<A HREF="starting.html#:mksession">:mksession</A>| command.  It is a comma
 	separated <A HREF="eval.html#list">list</A> of words.  Each <A HREF="motion.html#word">word</A> enables saving and restoring
 	something:
@@ -5902,17 +5843,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	&quot;-f&quot; is not inside the <A HREF="quotes.html#quotes">quotes</A>, because <A HREF="motion.html#it">it</A> is not part of the command
 	name.  And Vim automagically recognizes the backslashes that are path
 	separators.
-	For Dos 32 bits (DJGPP), you can set the $DJSYSFLAGS environment
-	variable to change the way external commands are executed.  See the
-	libc.inf file of DJGPP.
-	Under <A HREF="os_win32.html#MS-Windows">MS-Windows</A>, when the executable ends in &quot;.com&quot; <A HREF="motion.html#it">it</A> must be
-	included.  Thus setting the shell to &quot;command.com&quot; or &quot;4dos.com&quot;
-	works, but &quot;command&quot; and &quot;4dos&quot; <A HREF="diff.html#do">do</A> not work for all commands (e.g.,
-	filtering).
-	For unknown reasons, when using &quot;4dos.com&quot; the current directory is
-	changed to &quot;C:\&quot;.  To avoid this set <A HREF="#'shell'">'shell'</A> like this:
-<B>		:set shell=command.com\ /c\ 4dos</B>
- 	This option cannot be set from a |<A HREF="#modeline">modeline</A>| or in the |<A HREF="eval.html#sandbox">sandbox</A>|, for
+	This option cannot be set from a |<A HREF="#modeline">modeline</A>| or in the |<A HREF="eval.html#sandbox">sandbox</A>|, for
 	security reasons.
 
 
@@ -6095,8 +6026,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 						*<A NAME="'shortmess'"></A><B>'shortmess'</B>* *<A NAME="'shm'"></A><B>'shm'</B>*
-<A HREF="#'shortmess'">'shortmess'</A> <A HREF="#'shm'">'shm'</A>	<A HREF="eval.html#string">string</A>	(Vim default &quot;filnxtToO&quot;, <A HREF="intro.html#Vi">Vi</A> default: &quot;&quot;,
-							POSIX default: &quot;<A HREF="insert.html#A">A</A>&quot;)
+<A HREF="#'shortmess'">'shortmess'</A> <A HREF="#'shm'">'shm'</A>	<A HREF="eval.html#string">string</A>	(Vim default &quot;filnxtToO&quot;, <A HREF="intro.html#Vi">Vi</A> default: &quot;&quot;)
 			global
 	This option helps to avoid all the |<A HREF="message.html#hit-enter">hit-enter</A>| prompts caused by file
 	<A HREF="message.html#messages">messages</A>, for example  with <A HREF="editing.html#CTRL-G">CTRL-G</A>, and to avoid some other <A HREF="message.html#messages">messages</A>.
@@ -6316,7 +6246,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 				 *<A NAME="'smarttab'"></A><B>'smarttab'</B>* *<A NAME="'sta'"></A><B>'sta'</B>* *<A NAME="'nosmarttab'"></A><B>'nosmarttab'</B>* *<A NAME="'nosta'"></A><B>'nosta'</B>*
-<A HREF="#'smarttab'">'smarttab'</A> <A HREF="#'sta'">'sta'</A>	<A HREF="#boolean">boolean</A>	(default off)
+<A HREF="#'smarttab'">'smarttab'</A> <A HREF="#'sta'">'sta'</A>	<A HREF="#boolean">boolean</A>	(default on)
 			global
 	When on, a <A HREF="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</A> in front of a line inserts blanks according to
 	<A HREF="#'shiftwidth'">'shiftwidth'</A>.  <A HREF="#'tabstop'">'tabstop'</A> or <A HREF="#'softtabstop'">'softtabstop'</A> is used in other places.  A
@@ -6861,7 +6791,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 
 						*<A NAME="'tabpagemax'"></A><B>'tabpagemax'</B>* *<A NAME="'tpm'"></A><B>'tpm'</B>*
-<A HREF="#'tabpagemax'">'tabpagemax'</A> <A HREF="#'tpm'">'tpm'</A>	number	(default 10)
+<A HREF="#'tabpagemax'">'tabpagemax'</A> <A HREF="#'tpm'">'tpm'</A>	number	(default 50)
 			global
 			{not available when compiled without the |<A HREF="various.html#+windows">+windows</A>|
 			feature}
@@ -7193,7 +7123,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 		icons		Toolbar buttons are shown with icons.
 		text		Toolbar buttons shown with text.
 		horiz		Icon and text of a toolbar button are
-				horizontally arranged.  {only in <A HREF="gui_x11.html#GTK+">GTK+</A> 2 GUI}
+				horizontally arranged.  {only in GTK+ 2 GUI}
 		tooltips	Tooltips are active for toolbar buttons.
 	Tooltips refer to the popup help text which appears after the mouse
 	cursor is placed over a toolbar button for a brief moment.
@@ -7201,7 +7131,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 	If you want the toolbar to be shown with icons <A HREF="motion.html#as">as</A> well <A HREF="motion.html#as">as</A> text, <A HREF="diff.html#do">do</A> the
 	following:
 <B>		:set tb=icons,text</B>
- 	<A HREF="gui_x11.html#Motif">Motif</A> and <A HREF="gui_x11.html#Athena">Athena</A> cannot display icons and text at the same time.  They
+ 	Motif and Athena cannot display icons and text at the same time.  They
 	will show icons if both are requested.
 
 	If none of the strings specified in <A HREF="#'toolbar'">'toolbar'</A> are valid or if
@@ -7214,7 +7144,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 						*<A NAME="'toolbariconsize'"></A><B>'toolbariconsize'</B>* *<A NAME="'tbis'"></A><B>'tbis'</B>*
 <A HREF="#'toolbariconsize'">'toolbariconsize'</A> <A HREF="#'tbis'">'tbis'</A>	<A HREF="eval.html#string">string</A>	(default &quot;small&quot;)
 				global
-				{only in the <A HREF="gui_x11.html#GTK+">GTK+</A> 2 GUI}
+				{only in the GTK+ 2 GUI}
 	Controls the size of toolbar icons.  The possible values are:
 		tiny		Use tiny toolbar icons.
 		small		Use small toolbar icons (default).
@@ -7416,8 +7346,8 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
 				*<A NAME="'viminfo'"></A><B>'viminfo'</B>* *<A NAME="'vi'"></A><B>'vi'</B>* *<A NAME="E526"></A><B>E526</B>* *<A NAME="E527"></A><B>E527</B>* *<A NAME="E528"></A><B>E528</B>*
 <A HREF="#'viminfo'">'viminfo'</A> <A HREF="#'vi'">'vi'</A>		<A HREF="eval.html#string">string</A>	(Vim default for
-				   <A HREF="os_win32.html#Win32">Win32</A>:  '100,&lt;50,s10,h,rA:,rB:
-				   others: '100,&lt;50,s10,h
+				   <A HREF="os_win32.html#Win32">Win32</A>:  '!,100,&lt;50,s10,h,rA:,rB:
+				   others: '!,100,&lt;50,s10,h
 				 <A HREF="intro.html#Vi">Vi</A> default: &quot;&quot;)
 			global
 			{not available when compiled without the |<A HREF="various.html#+viminfo">+viminfo</A>|
@@ -7779,7 +7709,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 						*<A NAME="'winaltkeys'"></A><B>'winaltkeys'</B>* *<A NAME="'wak'"></A><B>'wak'</B>*
 <A HREF="#'winaltkeys'">'winaltkeys'</A> <A HREF="#'wak'">'wak'</A>	<A HREF="eval.html#string">string</A>	(default &quot;menu&quot;)
 			global
-			{only used in <A HREF="os_win32.html#Win32">Win32</A>, <A HREF="gui_x11.html#Motif">Motif</A>, and GTK}
+			{only used in <A HREF="os_win32.html#Win32">Win32</A>, Motif, and GTK}
 	Some <A HREF="gui.html#GUI">GUI</A> versions allow the access to menu entries by using the ALT
 	key in combination with a character that appears underlined in the
 	menu.  This conflicts with the use of the ALT key for mappings and
@@ -7794,7 +7724,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 		keys can be mapped.
 	If the menu is disabled by excluding '<A HREF="motion.html#m">m</A>' from <A HREF="#'guioptions'">'guioptions'</A>, the ALT
 	key is never used for the menu.
-	This option is not used for <A HREF="term.html#&lt;F10&gt;">&lt;F10&gt;</A>; on <A HREF="os_win32.html#Win32">Win32</A> and with <A HREF="gui_x11.html#GTK">GTK</A> <A HREF="term.html#&lt;F10&gt;">&lt;F10&gt;</A> will
+	This option is not used for <A HREF="term.html#&lt;F10&gt;">&lt;F10&gt;</A>; on <A HREF="os_win32.html#Win32">Win32</A> and with GTK <A HREF="term.html#&lt;F10&gt;">&lt;F10&gt;</A> will
 	select the menu, unless <A HREF="motion.html#it">it</A> has been mapped.
 
 
@@ -7990,7 +7920,7 @@ A jump table for the <A HREF="#options">options</A> with a short description can
 
     <footer>
       <div class="container">
-        Generated Wed Jun 24 22:24:35 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
+        Generated Wed Jul 22 10:45:46 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>

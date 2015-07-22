@@ -208,7 +208,7 @@ in <A HREF="#diff">diff</A> mode in one <A HREF="windows.html#window">window</A>
 possible to view the changes you have made to a buffer since the file was
 loaded.  Since Vim doesn't allow having two <A HREF="windows.html#buffers">buffers</A> for the same file, you
 need another buffer.  This command is useful:
-<B>	 command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_</B>
+<B>	 command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_</B>
 <B>		\ | diffthis | wincmd p | diffthis</B>
 (this is in |<A HREF="vimrc_example.html">vimrc_example.vim</A>|).  Use &quot;<A HREF="#:DiffOrig">:DiffOrig</A>&quot; to see the differences
 between the current buffer and the file <A HREF="motion.html#it">it</A> was loaded from.
@@ -482,7 +482,7 @@ directory are accidentally patched.  Vim will also delete files starting with
 
     <footer>
       <div class="container">
-        Generated Wed Jun 24 22:24:32 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
+        Generated Wed Jul 22 10:45:44 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>

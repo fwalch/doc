@@ -271,8 +271,8 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 :sh[ell]		Removed. |<A HREF="vim_diff.html#vim-differences">vim-differences</A>| {Nvim}
 
 
-						  *<A NAME=":term"></A><B>:term</B>* *<A NAME=":terminal"></A><B>:terminal</B>*
-:term[inal][!] {cmd}	Spawns {cmd} using the current value of <A HREF="options.html#'shell'">'shell'</A> and
+						  *<A NAME=":terminal"></A><B>:terminal</B>* *<A NAME=":te"></A><B>:te</B>*
+:te[rminal][!] {cmd}	Spawns {cmd} using the current value of <A HREF="options.html#'shell'">'shell'</A> and
 			<A HREF="options.html#'shellcmdflag'">'shellcmdflag'</A> in a new terminal buffer.  This is
 			equivalent to:
 
@@ -374,7 +374,7 @@ Various commands					*<A NAME="various"></A><B>various</B>*
 N  *<A NAME="+autocmd"></A><B>+autocmd</B>*		|<A HREF="autocmd.html#:autocmd">:autocmd</A>|, automatic commands
 
 <A HREF="motion.html#m">m</A>  *<A NAME="+balloon_eval"></A><B>+balloon_eval</B>*	|<A HREF="debugger.html#balloon-eval">balloon-eval</A>| support. Included when compiling with
-			supported <A HREF="gui.html#GUI">GUI</A> (Motif, <A HREF="gui_x11.html#GTK">GTK</A>, <A HREF="gui.html#GUI">GUI</A>) and either
+			supported <A HREF="gui.html#GUI">GUI</A> (Motif, GTK, <A HREF="gui.html#GUI">GUI</A>) and either
 			Netbeans/Sun Workshop integration or |<A HREF="#+eval">+eval</A>| feature.
 
 N  *<A NAME="+browse"></A><B>+browse</B>*		|<A HREF="editing.html#:browse">:browse</A>| command
@@ -438,13 +438,13 @@ N  *<A NAME="+folding"></A><B>+folding</B>*		|<A HREF="fold.html#folding">foldin
 
 N  *<A NAME="+gettext"></A><B>+gettext</B>*		message translations |<A HREF="mlang.html#multi-lang">multi-lang</A>|
 
-   *<A NAME="+GUI_Athena"></A><B>+GUI_Athena</B>*	<A HREF="os_unix.html#Unix">Unix</A> only: <A HREF="gui_x11.html#Athena">Athena</A> |<A HREF="gui.html#GUI">GUI</A>|
+   *<A NAME="+GUI_Athena"></A><B>+GUI_Athena</B>*	<A HREF="os_unix.html#Unix">Unix</A> only: Athena |<A HREF="gui.html#GUI">GUI</A>|
 
    *<A NAME="+GUI_neXtaw"></A><B>+GUI_neXtaw</B>*	<A HREF="os_unix.html#Unix">Unix</A> only: neXtaw |<A HREF="gui.html#GUI">GUI</A>|
 
-   *<A NAME="+GUI_GTK"></A><B>+GUI_GTK</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: <A HREF="gui_x11.html#GTK+">GTK+</A> |<A HREF="gui.html#GUI">GUI</A>|
+   *<A NAME="+GUI_GTK"></A><B>+GUI_GTK</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: GTK+ |<A HREF="gui.html#GUI">GUI</A>|
 
-   *<A NAME="+GUI_Motif"></A><B>+GUI_Motif</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: <A HREF="gui_x11.html#Motif">Motif</A> |<A HREF="gui.html#GUI">GUI</A>|
+   *<A NAME="+GUI_Motif"></A><B>+GUI_Motif</B>*		<A HREF="os_unix.html#Unix">Unix</A> only: Motif |<A HREF="gui.html#GUI">GUI</A>|
 
    *<A NAME="+iconv"></A><B>+iconv</B>*		Compiled with the |<A HREF="eval.html#iconv()">iconv()</A>| function
 
@@ -569,14 +569,6 @@ N  *<A NAME="+wildmenu"></A><B>+wildmenu</B>*		|<A HREF="options.html#'wildmenu'
 
 <A HREF="motion.html#m">m</A>  *<A NAME="+xpm_w32"></A><B>+xpm_w32</B>*		<A HREF="os_win32.html#Win32">Win32</A> <A HREF="gui.html#GUI">GUI</A> only: pixmap support |<A HREF="gui_w32.html#w32-xpm-support">w32-xpm-support</A>|
 
-   *<A NAME="+xsmp"></A><B>+xsmp</B>*		XSMP (X session management) support
-
-   *<A NAME="+xsmp_interact"></A><B>+xsmp_interact</B>*	interactive XSMP (X session management) support
-
-N  *<A NAME="+xterm_clipboard"></A><B>+xterm_clipboard</B>*	<A HREF="os_unix.html#Unix">Unix</A> only: xterm <A HREF="gui.html#clipboard">clipboard</A> handling
-
-<A HREF="motion.html#m">m</A>  *<A NAME="+xterm_save"></A><B>+xterm_save</B>*	save and restore xterm screen |<A HREF="tips.html#xterm-screens">xterm-screens</A>|
-
 
 							*<A NAME="/dyn"></A><B>/dyn</B>* *<A NAME="E370"></A><B>E370</B>* *<A NAME="E448"></A><B>E448</B>*
 			To some of the features &quot;<A HREF="#/dyn">/dyn</A>&quot; is added when the
@@ -618,7 +610,7 @@ N  *<A NAME="+xterm_clipboard"></A><B>+xterm_clipboard</B>*	<A HREF="os_unix.htm
 :redi[r] @*&gt;		
 :redi[r] @+&gt;		Redirect <A HREF="message.html#messages">messages</A> to the selection or <A HREF="gui.html#clipboard">clipboard</A>. For
 			backward compatibility, the &quot;<A HREF="change.html#&gt;">&gt;</A>&quot; after the <A HREF="sponsor.html#register">register</A>
-			name can be omitted. See |<A HREF="gui.html#quotestar">quotestar</A>| and |<A HREF="gui_x11.html#quoteplus">quoteplus</A>|.
+			name can be omitted. See |<A HREF="gui.html#quotestar">quotestar</A>| and |<A HREF="nvim_clipboard.html#quoteplus">quoteplus</A>|.
 :redi[r] @*&gt;&gt;		
 :redi[r] @+&gt;&gt;		Append <A HREF="message.html#messages">messages</A> to the selection or <A HREF="gui.html#clipboard">clipboard</A>.
 
@@ -799,7 +791,7 @@ The &quot;<A HREF="motion.html#h">h</A>&quot; key will give you a short overview
 
     <footer>
       <div class="container">
-        Generated Wed Jun 24 22:24:38 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
+        Generated Wed Jul 22 10:45:48 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>

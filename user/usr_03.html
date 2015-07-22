@@ -470,18 +470,19 @@ HIGHLIGHTING MATCHES
 While editing a program you see a variable called &quot;nr&quot;.  You want to check
 where it's used.  You could move the cursor to &quot;nr&quot; and use the &quot;*&quot; command
 and press &quot;<A HREF="pattern.html#n">n</A>&quot; to go along all the matches.
-   There is another way.  Type this command:
 
-<B>	:set hlsearch</B>
-
-If you now search for &quot;nr&quot;, Vim will highlight all matches.  That is a very
-good way to see where the variable is used, without the need to type commands.
+Vim will highlight all matches. That is a very good way to see where the
+variable is used, without the need to type commands.
    To switch this off:
 
 <B>	:set nohlsearch</B>
 
 Then you need to switch <A HREF="motion.html#it">it</A> on again if you want to use <A HREF="motion.html#it">it</A> for the next search
-command.  If you only want to remove the highlighting, use this command:
+command:
+
+<B>	:set hlsearch</B>
+
+If you only want to remove the highlighting, use this command:
 
 <B>	:nohlsearch</B>
 
@@ -495,17 +496,16 @@ TUNING SEARCHES
 There are a few <A HREF="options.html#options">options</A> that change how searching works.  These are the
 essential ones:
 
-<B>	:set incsearch</B>
-
-This makes Vim display the match for the <A HREF="eval.html#string">string</A> while you are still typing <A HREF="motion.html#it">it</A>.
-Use this to check if the right match will be found.  Then press <A HREF="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</A> to
-really jump to that location.  Or type more to change the search <A HREF="eval.html#string">string</A>.
-
 <B>	:set nowrapscan</B>
 
 This stops the search at the end of the file.  Or, when you are searching
 backwards, at the start of the file.  The <A HREF="options.html#'wrapscan'">'wrapscan'</A> option is on by default,
 thus searching wraps around the end of the file.
+
+<B>	:set noincsearch</B>
+
+This disables the display of the matches while you are still typing your
+search.
 
 
 INTERMEZZO
@@ -701,7 +701,7 @@ Copyright: see |<A HREF="usr_01.html#manual-copyright">manual-copyright</A>|  vi
 
     <footer>
       <div class="container">
-        Generated Wed Jun 24 22:24:37 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/6270d431aaeed71e7a8782411f36409ab8e0ee35"><code>6270d43</code></a>.
+        Generated Wed Jul 22 10:45:47 UTC 2015 from <a href="https://github.com/fwalch/neovim/commit/05bb841487dd085eb2140e18c5aa8a8b098244da"><code>05bb841</code></a>.
       </div>
     </footer>
   </body>
